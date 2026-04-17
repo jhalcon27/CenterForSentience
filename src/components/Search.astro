@@ -1,0 +1,96 @@
+---
+---
+<div class="search-container relative ml-4" data-csr-search>
+  <button
+    class="search-btn p-2 text-csr-gray-600 hover:text-csr-primary transition-colors rounded-full hover:bg-csr-gray-50"
+    aria-label="Search site"
+  >
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+    </svg>
+  </button>
+
+  <div class="search-overlay hidden fixed inset-0 z-[60] bg-white/95 backdrop-blur-sm p-4 md:p-20">
+    <div class="max-w-3xl mx-auto">
+      <div class="flex items-center justify-between mb-8 border-b-2 border-csr-primary pb-4">
+        <input
+          type="text"
+          placeholder="Search research, reports, and focus areas..."
+          class="search-input w-full bg-transparent border-none text-2xl md:text-4xl font-bold focus:ring-0 placeholder:text-csr-gray-200 text-csr-black"
+        />
+        <button class="close-search p-2 text-csr-gray-600 hover:text-csr-black">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="search-results space-y-6">
+        <!-- Results appear here -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function initSearch() {
+    const containers = document.querySelectorAll('[data-csr-search]');
+    
+    containers.forEach(container => {
+      const btn = container.querySelector('.search-btn');
+      const overlay = container.querySelector('.search-overlay');
+      const closeBtn = container.querySelector('.close-search');
+      const input = container.querySelector('.search-input') as HTMLInputElement;
+
+      btn?.addEventListener('click', () => {
+        overlay?.classList.remove('hidden');
+        input?.focus();
+        document.body.style.overflow = 'hidden';
+      });
+
+      const close = () => {
+        overlay?.classList.add('hidden');
+        document.body.style.overflow = '';
+      };
+
+      closeBtn?.addEventListener('click', close);
+      overlay?.addEventListener('click', (e) => {
+        if (e.target === overlay) close();
+      });
+
+      // Simple mock search functionality for now
+      input?.addEventListener('input', (e) => {
+        const query = (e.target as HTMLInputElement).value.toLowerCase();
+        const resultsContainer = container.querySelector('.search-results');
+        if (!resultsContainer) return;
+
+        if (query.length < 2) {
+          resultsContainer.innerHTML = '';
+          return;
+        }
+
+        // Mock index based on site content
+        const pages = [
+          { title: 'The Vector Model of Consciousness', type: 'White Paper', url: '/reports/vector-model' },
+          { title: 'Biological Sentience', type: 'Research Track', url: '/research#biological' },
+          { title: 'Digital Minds & AI Safety', type: 'Research Track', url: '/research#digital' },
+          { title: 'Capital Allocation Strategy', type: 'Focus Area', url: '/#capital' },
+          { title: 'Tax Deductions for Donors', type: 'Policy', url: '/donate' }
+        ];
+
+        const matches = pages.filter(p => p.title.toLowerCase().includes(query));
+        
+        resultsContainer.innerHTML = matches.length > 0 
+          ? matches.map(m => `
+              <a href="${m.url}" class="block p-4 rounded-xl hover:bg-csr-gray-50 border border-transparent hover:border-csr-gray-100 transition-all">
+                <p class="text-xs font-mono uppercase tracking-widest text-csr-primary mb-1">${m.type}</p>
+                <h4 class="text-xl font-bold text-csr-black">${m.title}</h4>
+              </a>
+            `).join('')
+          : `<p class="text-csr-gray-600 italic">No research results found for "${query}"</p>`;
+      });
+    });
+  }
+
+  initSearch();
+  document.addEventListener('astro:after-swap', initSearch);
+</script>

@@ -1,0 +1,109 @@
+---
+import Search from '../components/Search.astro';
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  lang?: string;
+}
+
+const {
+  title,
+  description = "The Center for Sentience Research (CSR) is a Swiss-based non-profit dedicated to modeling the physical foundations of awareness across all substrates.",
+  image = "/images/og-main.jpg",
+  lang = "en",
+} = Astro.props;
+
+const siteURL = "https://centerforsentience.org";
+const fullTitle = `${title} | Center for Sentience Research`;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    
+    <!-- Amethyst Palette Variables -->
+    <style is:global>
+      :root {
+        --csr-white: #ffffff;
+        --csr-black: #0f172a;
+        --csr-gray-50: #f8fafc;
+        --csr-gray-100: #f1f5f9;
+        --csr-gray-200: #e2e8f0;
+        --csr-gray-600: #475569;
+        --csr-primary: #9966CC; /* Amethyst */
+        --csr-primary-dark: #7a4bb0;
+        --csr-primary-light: #b48de0;
+      }
+      
+      body {
+        background-color: var(--csr-white);
+        color: var(--csr-black);
+        font-family: 'Inter', system-ui, sans-serif;
+        line-height: 1.6;
+      }
+
+      .text-gradient {
+        background: linear-gradient(135deg, var(--csr-primary), var(--csr-primary-dark));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .glass-card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(8px);
+        border: 1px solid var(--csr-gray-200);
+      }
+    </style>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-csr-gray-100">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <a href="/" class="flex items-center gap-2 group">
+            <div class="w-10 h-10 rounded bg-csr-primary flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-csr-primary/20 group-hover:bg-csr-primary-dark transition-all">C</div>
+            <div class="flex flex-col">
+              <span class="font-bold text-lg leading-none tracking-tight text-csr-black">Center for Sentience</span>
+              <span class="text-[10px] font-mono uppercase tracking-[0.2em] text-csr-primary mt-1">Research Institute</span>
+            </div>
+          </a>
+          
+          <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+            <a href="/research" class="hover:text-csr-primary transition-colors">Research</a>
+            <a href="/reports" class="hover:text-csr-primary transition-colors">Reports</a>
+            <a href="/about" class="hover:text-csr-primary transition-colors">About</a>
+            <a href="/donate" class="bg-csr-primary text-white px-5 py-2.5 rounded-full hover:bg-csr-primary-dark transition-all shadow-lg shadow-csr-primary/20">Support the Mission</a>
+            <Search />
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="flex-grow">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-csr-gray-50 border-t border-csr-gray-200 py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-csr-gray-600 text-sm mb-4 font-mono uppercase tracking-widest">Center for Sentience Research</p>
+        <p class="text-xs text-csr-gray-600 max-w-lg mx-auto leading-relaxed">
+          CSR is a non-profit foundation headquartered in Zurich, Switzerland. We are dedicated to the rigorous, multi-disciplinary study of awareness in biological, physical, and digital systems.
+        </p>
+        <div class="mt-8 text-xs text-csr-gray-600">
+          &copy; {new Date().getFullYear()} CSR. Registered gGmbH (Pending).
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
