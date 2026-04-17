@@ -16,6 +16,8 @@ const {
 
 const siteURL = "https://centerforsentience.org";
 const fullTitle = `${title} | Center for Sentience Research`;
+// Locale-aware link prefix for nav/footer
+const prefix = lang === 'en' ? '' : `/${lang}`;
 ---
 
 <!doctype html>
@@ -79,10 +81,10 @@ const fullTitle = `${title} | Center for Sentience Research`;
           </a>
           
           <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-            <a href="/research" class="hover:text-csr-primary transition-colors">Research</a>
-            <a href="/reports" class="hover:text-csr-primary transition-colors">Reports</a>
-            <a href="/about" class="hover:text-csr-primary transition-colors">About</a>
-            <a href="/donate" class="bg-csr-primary text-white px-5 py-2.5 rounded-full hover:bg-csr-primary-dark transition-all shadow-lg shadow-csr-primary/20">Support the Mission</a>
+            <a href={prefix + "/research"} class="hover:text-csr-primary transition-colors">Research</a>
+            <a href={prefix + "/reports"} class="hover:text-csr-primary transition-colors">Reports</a>
+            <a href={prefix + "/about"} class="hover:text-csr-primary transition-colors">About</a>
+            <a href={prefix + "/donate"} class="bg-csr-primary text-white px-5 py-2.5 rounded-full hover:bg-csr-primary-dark transition-all shadow-lg shadow-csr-primary/20">Support the Mission</a>
             <Search />
           </div>
         </div>
