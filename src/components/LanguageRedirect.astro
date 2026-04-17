@@ -1,0 +1,19 @@
+---
+---
+
+<script is:inline>
+  // Simple redirect logic: 
+  // 1. Detect browser language
+  // 2. If browser language matches one of our available languages, redirect to that folder.
+  
+  (function() {
+    if (window.location.pathname !== '/') return; // Only redirect from home
+    
+    const userLang = navigator.language.split('-')[0]; // e.g., 'es' from 'es-CO'
+    const supportedLangs = ['de', 'es', 'fr', 'zh', 'ja'];
+    
+    if (supportedLangs.includes(userLang)) {
+      window.location.replace(`/${userLang}/`);
+    }
+  })();
+</script>

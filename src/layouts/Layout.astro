@@ -18,6 +18,7 @@ const siteURL = "https://centerforsentience.org";
 const fullTitle = `${title} | Center for Sentience Research`;
 // Locale-aware link prefix for nav/footer
 const prefix = lang === 'en' ? '' : `/${lang}`;
+import LanguageRedirect from '../components/LanguageRedirect.astro';
 ---
 
 <!doctype html>
@@ -27,6 +28,7 @@ const prefix = lang === 'en' ? '' : `/${lang}`;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
+    <LanguageRedirect />
     
     <!-- Amethyst Palette Variables -->
     <style is:global>
