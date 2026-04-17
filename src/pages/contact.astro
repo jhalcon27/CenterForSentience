@@ -1,0 +1,65 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Search from '../../components/Search.astro';
+---
+
+<Layout 
+  title="Contact" 
+  description="Connect with the Center for Sentience Research."
+>
+  <section class="py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-8">Let's Connect</h1>
+      <p class="text-lg text-csr-gray-600 mb-12">
+        We are open to partnerships, research inquiries, and strategic dialogue. 
+        Reach out to our team via the form below.
+      </p>
+
+      <div class="glass-card p-8 rounded-2xl border border-csr-gray-200 text-left">
+        <form
+          id="contact-form"
+          action="https://formspree.io/f/xnjoarel"
+          method="POST"
+          class="space-y-6"
+        >
+          <div>
+            <label class="block text-xs font-mono uppercase tracking-wider text-csr-gray-600 mb-2">Name</label>
+            <input type="text" name="name" required class="w-full p-3 rounded-lg border border-csr-gray-200 focus:border-csr-primary outline-none" />
+          </div>
+          <div>
+            <label class="block text-xs font-mono uppercase tracking-wider text-csr-gray-600 mb-2">Email</label>
+            <input type="email" name="email" required class="w-full p-3 rounded-lg border border-csr-gray-200 focus:border-csr-primary outline-none" />
+          </div>
+          <div>
+            <label class="block text-xs font-mono uppercase tracking-wider text-csr-gray-600 mb-2">Inquiry Type</label>
+            <select name="subject" class="w-full p-3 rounded-lg border border-csr-gray-200 focus:border-csr-primary outline-none">
+              <option value="research">Research Collaboration</option>
+              <option value="partnership">Philanthropic Partnership</option>
+              <option value="other">General Inquiry</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-mono uppercase tracking-wider text-csr-gray-600 mb-2">Message</label>
+            <textarea name="message" required rows="5" class="w-full p-3 rounded-lg border border-csr-gray-200 focus:border-csr-primary outline-none"></textarea>
+          </div>
+          <button type="submit" class="w-full py-4 bg-csr-primary text-white rounded-full font-bold hover:bg-csr-primary-dark transition-all">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  
+  <script>
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    form?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) alert('Message sent!');
+        else alert('Something went wrong.');
+    });
+  </script>
+</Layout>
