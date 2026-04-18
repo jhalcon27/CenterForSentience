@@ -20,8 +20,6 @@ const {
 
 const siteURL = "https://centerforsentience.org";
 const fullTitle = `${title} | Center for Sentience Research`;
-
-// This logic ensures that if we are in /de/, the prefix is /de
 const prefix = lang === 'en' ? '' : `/${lang}`;
 ---
 
@@ -34,36 +32,13 @@ const prefix = lang === 'en' ? '' : `/${lang}`;
     <meta name="description" content={description} />
     <LanguageRedirect />
     
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              'csr-primary': '#9966CC',
-              'csr-primary-dark': '#7a4bb0',
-              'csr-black': '#0f172a',
-              'csr-gray-50': '#fefcf5',
-              'csr-gray-600': '#475569',
-            }
-          }
-        }
-      }
-    </script>
-    
-    <style is:global>
-      body { background-color: #FFF8F0; color: #0f172a; font-family: 'Inter', sans-serif; }
-      .text-gradient { background: linear-gradient(135deg, #9966CC, #7a4bb0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-      .glass-card { background: rgba(255, 248, 240, 0.8); backdrop-filter: blur(8px); border: 1px solid #e8e0d0; }
-    </style>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <script defer src="https://cloud.umami.is/script.js" data-website-id="3a41742e-2fde-44af-b8a6-96094c47a90f"></script>
   </head>
   <body class="min-h-screen flex flex-col bg-[#FFF8F0]">
     <nav class="sticky top-0 z-50 bg-[#FFF8F0]/80 backdrop-blur-md border-b border-gray-200">
       <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-        <a href={prefix + "/"} class="flex items-center gap-2">
+        <a href="/" class="flex items-center gap-2">
             <div class="w-10 h-10 rounded bg-[#9966CC] flex items-center justify-center text-white font-bold text-xl">C</div>
             <div class="flex flex-col">
               <span class="font-bold text-lg text-black">Center for Sentience</span>
