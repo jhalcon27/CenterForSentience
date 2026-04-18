@@ -1,20 +1,18 @@
----
+--- 
+const lang = Astro.currentLocale || 'en'; 
+const prefix = lang === 'en' ? '' : `/${lang}`; 
 import Layout from '../../layouts/Layout.astro';
-const lang = Astro.currentLocale || 'en';
-const prefix = lang === 'en' ? '' : `/${lang}`;
 ---
 
-<Layout 
-  title="Inicio" 
-  description="El Center for Sentience Research (CSR) es una organización sin fines de lucro con sede en Suiza dedicada a modelar los fundamentos físicos de la conciencia."
->
+<Layout title="Agenda de investigación" lang="es">
+  <!-- Hero Section -->
   <section class="py-16 md:py-20 relative overflow-hidden">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(153,102,204,0.05),transparent_50%)]"></div>
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-      <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">Modelando los fundamentos <br/><span class="text-gradient">físicos de la consciencia</span></h1>
+      <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">Mapeando el <span class="text-gradient">continuo de la consciencia</span></h1>
       <p class="text-lg text-csr-gray-600 max-w-2xl mx-auto leading-relaxed mb-8">
         El Center for Sentience Research (CSR) es una organización sin fines de lucro con sede en Suiza. 
-        Unimos la física, la neurociencia y la filosofía para comprender cómo surge la consciencia en todos los sustratos.
+        Unimos la física, la neurociencia y la filosofía para comprender cómo surge la sentiencia en todos los sustratos.
       </p>
       <div class="flex flex-wrap justify-center gap-4">
         <a href={prefix + "/research"} class="btn-primary px-6 py-3 bg-csr-primary text-white rounded-full font-semibold hover:bg-csr-primary-dark transition-all shadow-lg shadow-csr-primary/20">Agenda de investigación</a>
@@ -24,7 +22,7 @@ const prefix = lang === 'en' ? '' : `/${lang}`;
   </section>
 
   <!-- Focus Areas -->
-  <section class="py-12 border-t border-gray-100">
+  <section class="py-12 border-t border-csr-gray-100">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-16">
         <h2 class="text-xs font-mono uppercase tracking-[0.3em] text-csr-primary mb-4">Áreas de Enfoque</h2>

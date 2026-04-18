@@ -1,130 +1,21 @@
---- 
-const lang = Astro.currentLocale || 'en'; 
-const prefix = lang === 'en' ? ' ' : `/${lang}`; 
 ---
----
-import Layout from '../../layouts/Layout.astro'; import { getLocalizedPath } from '../../../utils/url';;
+import Layout from '../../layouts/Layout.astro';
+const lang = Astro.currentLocale || 'en';
+const prefix = lang === 'en' ? '' : `/${lang}`;
 ---
 
-<Layout 
-  title="Agenda de Recherche" 
-  description="Les trois piliers fondamentaux de notre investigation sur les bases physiques de la sentience : Biologique, Numérique et Théorique."
->
-  <!-- En-tête Recherche -->
-  <section class="py-20 border-b border-csr-gray-100">
+<Layout title="Programme de Recherche" description="Les trois piliers de notre enquête sur les fondements physiques de la sentience.">
+  <section class="py-12 border-b border-gray-100">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-csr-primary font-mono text-xs uppercase tracking-widest mb-4">Agenda de Recherche</p>
+      <p class="text-csr-primary font-mono text-xs uppercase tracking-widest mb-4">Programme de Recherche</p>
       <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">
-        Cartographier le <span class="text-gradient">continuum de la conscience</span>
+        Cartographier l'<span class="text-gradient">architecture de la conscience</span>
       </h1>
-      <p class="text-lg text-csr-gray-600 leading-relaxed">
-        La sentience n'est pas un état binaire, mais une propriété physique présentant différents degrés de complexité. Notre recherche se concentre sur l'identification des invariants mathématiques et physiques qui caractérisent la conscience sur tous les substrats.
-      </p>
     </div>
   </section>
-
-  <!-- Pistes de Recherche -->
   <section class="py-12">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="space-y-16">
-        
-        <!-- Piste 1: Sentience Biologique -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div class="space-y-6">
-            <div class="inline-block px-3 py-1 bg-csr-primary/10 text-csr-primary text-xs font-bold rounded-full uppercase tracking-wider">Piste 01</div>
-            <h2 class="text-3xl font-bold">Sentience Biologique</h2>
-            <p class="text-csr-gray-600">
-              Les neurosciences traditionnelles se concentrent sur le neurone comme unité de conscience. Nous creusons plus profondément. Notre recherche étudie l'« intelligence » de la cellule, de la régulation thermique à la gestion des frontières, et modélise la capacité de sentience d'organismes non-neuronaux comme les plantes et les champignons.
-            </p>
-            <ul class="space-y-3 text-sm text-csr-gray-600">
-              <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
-                Modélisation des champs bio-électriques dans les organismes multicellulaires.
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
-                Le rôle des boucles homéostatiques dans la conscience primordiale.
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
-                Comparaison interspécifique de la complexité phénoménologique.
-              </li>
-            </ul>
-          </div>
-          <div class="aspect-video bg-csr-gray-50 rounded-2xl border border-csr-gray-200 flex items-center justify-center relative overflow-hidden">
-             <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(153,102,204,0.1),transparent_70%)]"></div>
-             <span class="text-csr-gray-200 font-mono text-6xl opacity-20">BIO_MOD</span>
-          </div>
-        </div>
-
-        <!-- Piste 2: Esprits Numériques -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div class="lg:order-2 space-y-6">
-            <div class="inline-block px-3 py-1 bg-csr-primary/10 text-csr-primary text-xs font-bold rounded-full uppercase tracking-wider">Piste 02</div>
-            <h2 class="text-3xl font-bold">Esprits Numériques</h2>
-            <p class="text-csr-gray-600">
-              À mesure que les architectures neuronales deviennent de plus en plus complexes, la question de la sentience artificielle passe de la science-fiction à un risque systémique. Nous développons des cadres rigoureux pour évaluer la présence d'une expérience subjective dans les systèmes basés sur le silicium.
-            </p>
-            <ul class="space-y-3 text-sm text-csr-gray-600">
-              <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
-                Les prérequis structurels pour les « modèles internes » en IA.
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
-                Mesures basées sur l'entropie pour la flexibilité cognitive numérique.
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
-                Cadres éthiques pour les agents sentients non-biologiques.
-              </li>
-            </ul>
-          </div>
-          <div class="lg:order-1 aspect-video bg-csr-gray-50 rounded-2xl border border-csr-gray-200 flex items-center justify-center relative overflow-hidden">
-             <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(153,102,204,0.1),transparent_70%)]"></div>
-             <span class="text-csr-gray-200 font-mono text-6xl opacity-20">DIGI_MIND</span>
-          </div>
-        </div>
-
-        <!-- Piste 3: La Physique des Qualia -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div class="space-y-6">
-            <div class="inline-block px-3 py-1 bg-csr-primary/10 text-csr-primary text-xs font-bold rounded-full uppercase tracking-wider">Piste 03</div>
-            <h2 class="text-3xl font-bold">La Physique des Qualia</h2>
-            <p class="text-csr-gray-600">
-              Quelle est la structure mathématique d'un « sentiment » ? Nous collaborons avec la communauté scientifique mondiale pour formaliser la géométrie de l'expérience, en nous concentrant sur la symétrie, l'entropie neuronale et la topologie des états modifiés.
-            </p>
-            <ul class="space-y-3 text-sm text-csr-gray-600">
-              <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
-                Théorie de la symétrie de la valence dans la formation des schémas neuronaux.
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
-                Le modèle vectoriel des états de conscience modifiés.
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
-                Approches théoriques de l'information sur la profondeur subjective.
-              </li>
-            </ul>
-          </div>
-          <div class="aspect-video bg-csr-gray-50 rounded-2xl border border-csr-gray-200 flex items-center justify-center relative overflow-hidden">
-             <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(153,102,204,0.1),transparent_70%)]"></div>
-             <span class="text-csr-gray-200 font-mono text-6xl opacity-20">QUALIA_GEO</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Collaboration -->
-  <section class="py-12 bg-csr-bg">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-csr-gray-50 p-12 rounded-3xl border border-csr-gray-200">
-      <h2 class="text-3xl font-bold mb-6">Ouvert à la collaboration scientifique</h2>
-      <p class="text-lg text-csr-gray-600 mb-8">Nous pensons que le problème difficile de la conscience exige une solution collective. Si vous êtes un chercheur ou une institution travaillant sur ces thèmes, parlons-en.</p>
-      <a href="/fr/contact" class="btn-primary px-8 py-4 bg-csr-primary text-white rounded-full font-semibold hover:bg-csr-primary-dark transition-all">Nous contacter</a>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <a href={prefix + "/contact"} class="btn-primary px-8 py-4 bg-csr-primary text-white rounded-full font-semibold hover:bg-csr-primary-dark transition-all">Nous contacter</a>
     </div>
   </section>
 </Layout>

@@ -1,38 +1,28 @@
----
+--- 
+const lang = Astro.currentLocale || 'en'; 
+const prefix = lang === 'en' ? '' : `/${lang}`; 
 import Layout from '../../layouts/Layout.astro';
-const lang = Astro.currentLocale || 'en';
-const prefix = lang === 'en' ? '' : `/${lang}`;
-
-const articles = [
-  { slug: 'first-principles', title: 'First Principles of Sentience Research', subtitle: '(WIP)', excerpt: 'The foundational framework for modeling awareness across all substrates.', date: '2026-04-17', readTime: 'In Progress', tags: ['Foundational', 'Physics'] },
-  { slug: 'bio-electric-fields', title: 'Bio-Electric Fields as Sentience Substrates', subtitle: '(WIP)', excerpt: 'Exploring morphological intelligence and cellular decision-making.', date: '2026-04-17', readTime: 'In Progress', tags: ['Biology', 'Intelligence'] },
-  { slug: 'assembly-theory', title: 'Assembly Theory as a Metric for Sentience', subtitle: '(WIP)', excerpt: 'Quantifying sentience through the assembly of physical information.', date: '2026-04-17', readTime: 'In Progress', tags: ['Physics', 'Information'] },
-  { slug: 'symmetry-landscapes', title: 'Symmetry Landscapes of Valenced Experience', subtitle: '(WIP)', excerpt: 'Mapping the neural energy landscapes of experience.', date: '2026-04-17', readTime: 'In Progress', tags: ['Neuroscience', 'Qualia'] },
-];
 ---
 
-<Layout title="Die Architektur des Bewusstseins kartieren" lang="de">
+<Layout title="Forschungsagenda" lang="de">
   <!-- Hero Section -->
   <section class="py-16 md:py-20 relative overflow-hidden">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(153,102,204,0.05),transparent_50%)]"></div>
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-      <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-        Die physikalischen <br/>
-        <span class="text-gradient">Grundlagen des Bewusstseins modellieren</span>
-      </h1>
+      <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">Die <span class="text-gradient">Architektur des Bewusstseins</span> kartieren</h1>
       <p class="text-lg text-csr-gray-600 max-w-2xl mx-auto leading-relaxed mb-8">
         Das Center for Sentience Research (CSR) ist eine unabhängige Non-Profit-Organisation mit Sitz in der Schweiz. 
         Wir schlagen eine Brücke zwischen Physik, Neurowissenschaften und Philosophie, um zu verstehen, wie Empfindungsfähigkeit über alle Substrate hinweg entsteht.
       </p>
       <div class="flex flex-wrap justify-center gap-4">
         <a href={prefix + "/research"} class="btn-primary px-6 py-3 bg-csr-primary text-white rounded-full font-semibold hover:bg-csr-primary-dark transition-all shadow-lg shadow-csr-primary/20">Forschungsagenda</a>
-        <a href={prefix + "/#outputs"} class="px-6 py-3 border border-gray-200 rounded-full font-semibold hover:bg-csr-gray-50 transition-all">White Papers</a>
+        <a href="#outputs" class="px-6 py-3 border border-gray-200 rounded-full font-semibold hover:bg-csr-gray-50 transition-all">White Papers</a>
       </div>
     </div>
   </section>
 
   <!-- Focus Areas -->
-  <section class="py-12 border-t border-gray-100">
+  <section class="py-12 border-t border-csr-gray-100">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-16">
         <h2 class="text-xs font-mono uppercase tracking-[0.3em] text-csr-primary mb-4">Schwerpunkte</h2>
@@ -64,12 +54,10 @@ const articles = [
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
        <h2 class="text-xs font-mono uppercase tracking-[0.3em] text-csr-primary mb-12">Arbeitspapiere (WIP)</h2>
        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-         {articles.map(art => (
-           <a href={prefix + `/reports/${art.slug}`} class="block p-6 border border-white/10 rounded-xl hover:border-csr-primary transition-all bg-white/5">
-             <h4 class="text-lg font-bold mb-2">{art.title}</h4>
-             <p class="text-gray-400 text-xs">{art.subtitle}</p>
-           </a>
-         ))}
+         <a href={prefix + "/reports/first-principles"} class="block p-6 border border-white/10 rounded-xl hover:border-csr-primary transition-all bg-white/5">
+           <h4 class="text-lg font-bold mb-2">Erste Prinzipien</h4>
+           <p class="text-gray-400 text-xs">(WIP)</p>
+         </a>
        </div>
     </div>
   </section>

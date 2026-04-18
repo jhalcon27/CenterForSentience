@@ -1,0 +1,19 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const lang = Astro.currentLocale || 'en';
+const prefix = lang === 'en' ? '' : `/${lang}`;
+---
+
+<Layout title="Unterstützen" description="Unterstützen Sie das Center for Sentience Research durch steuerlich absetzbare Spenden und strategische Partnerschaften.">
+  <section class="py-12 bg-[#FFF8F0]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-[#9966CC] font-mono text-xs uppercase tracking-widest mb-4">Strategische Unterstützung</p>
+      <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">
+        Partnerschaft für <span class="text-gradient">hochwirksame Forschung</span>
+      </h1>
+      <p class="text-lg text-gray-600 leading-relaxed">
+        Das Center for Sentience Research (CSR) wird von einer Gemeinschaft von Visionären, Philanthropen und Forschungsinstitutionen unterstützt, die sich dem schwierigen Problem des Bewusstseins widmen.
+      </p>
+    </div>
+  </section>
+</Layout>
