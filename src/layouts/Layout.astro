@@ -87,13 +87,14 @@ import LanguageRedirect from '../components/LanguageRedirect.astro';
             </div>
           </a>
           
-          <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+          <div class="flex items-center gap-8 text-sm font-medium">
             <a href={prefix + "/research"} class="hover:text-csr-primary transition-colors">Research</a>
             <a href={prefix + "/reports"} class="hover:text-csr-primary transition-colors">Reports</a>
             <a href={prefix + "/about"} class="hover:text-csr-primary transition-colors">About</a>
             <a href={prefix + "/resources"} class="hover:text-csr-primary transition-colors">Resources</a>
             <a href={prefix + "/donate"} class="bg-csr-primary text-white px-5 py-2.5 rounded-full hover:bg-csr-primary-dark transition-all shadow-lg shadow-csr-primary/20">Support the Mission</a>
             <Search />
+            <LanguageSwitcher lang={lang} />
           </div>
         </div>
       </div>
