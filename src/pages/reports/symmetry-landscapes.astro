@@ -1,14 +1,12 @@
---- 
-const lang = Astro.currentLocale || 'en'; 
-const prefix = lang === 'en' ? ' ' : `/${lang}`; 
 ---
----
-import Layout from '../../layouts/Layout.astro'; import { getLocalizedPath } from '../../../utils/url';;
+import Layout from '../../layouts/Layout.astro';
+const lang = Astro.currentLocale || 'en';
+const prefix = lang === 'en' ? '' : `/${lang}`;
 ---
 
 <Layout title="Symmetry Landscapes of Valenced Experience (WIP)">
-  <article class="py-12 max-w-3xl mx-auto px-4">
-    <p class="text-csr-primary font-mono text-xs uppercase tracking-widest mb-4">Research Track 03 ,  Working Progress</p>
+  <article class="py-12 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="text-[#9966CC] font-mono text-xs uppercase tracking-widest mb-4">Research Track 03 — Working Progress</p>
     <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">Symmetry Landscapes of Valenced Experience</h1>
     <p class="text-xl text-gray-500 italic mb-12">Emulating Andrés Gómez Emilsson’s Symmetry Theory of Valence.</p>
     <div class="prose prose-slate">
