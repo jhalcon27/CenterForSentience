@@ -3,7 +3,7 @@ const lang = Astro.currentLocale || 'en';
 const prefix = lang === 'en' ? ' ' : `/${lang}`; 
 ---
 ---
-import Layout from '../../layouts/Layout.astro';
+import Layout from '../../../layouts/Layout.astro'; import { getLocalizedPath } from '../../../utils/url';;
 ---
 
 <Layout title="Symmetry Landscapes of Valenced Experience (WIP)">

@@ -1,61 +1,15 @@
---- 
-const lang = Astro.currentLocale || 'en'; 
-const prefix = lang === 'en' ? ' ' : `/${lang}`; 
----
 ---
 import Layout from '../../../layouts/Layout.astro';
+const lang = Astro.currentLocale || 'en';
+const prefix = lang === 'en' ? '' : `/${lang}`;
 ---
 
-<Layout 
-  title="Premiers principes de la recherche sur la sentience" 
-  description="Le cadre fondateur du Center for Sentience Research : modéliser la conscience comme un phénomène physique à travers des substrats biologiques et numériques."
->
-  <article class="py-12 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="mb-16 border-b border-csr-gray-100 pb-12">
-      <p class="text-csr-primary font-mono text-xs uppercase tracking-widest mb-4">Document fondateur ,  CSR-WP-01</p>
-      <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">Premiers principes de la recherche sur la sentience</h1>
-      <p class="text-xl text-csr-gray-600 leading-relaxed italic">
-        Une proposition pour une science de la « carte » neutre vis-à-vis du substrat.
-      </p>
-      <div class="mt-8 flex gap-6 text-sm text-csr-gray-600 font-mono">
-        <span>Publié : 17 avril 2026</span>
-        <span>Auteur : Jhonatan Serna</span>
-      </div>
-    </div>
-
-    <div class="prose prose-slate lg:prose-lg max-w-none">
-      <p>L'histoire de la science est celle de l'élimination de l'observateur de l'équation. Dans notre quête pour décrire le « Territoire » (la physique), nous avons négligé la « Carte » (l'expérience). Au Center for Sentience Research, nous partons du principe que la Carte est tout aussi réelle que le Territoire, et tout aussi soumise aux lois physiques.</p>
-
-      <h2>1. L'erreur de catégorie de la conscience</h2>
-      <p>La neuroscience traditionnelle traite la conscience comme un sous-produit émergent d'un matériel biologique spécifique : le neurone. Il s'agit d'une erreur de catégorie. En se concentrant sur le matériel, nous manquons l'invariant fonctionnel : la capacité d'un système à maintenir un modèle interne de son environnement et de lui-même afin de préserver sa propre intégrité.</p>
-      <p>Nous définissons la <strong>Sentience</strong> non pas comme une « étincelle » de vie, mais comme la capacité d'un système à effectuer une <strong>inférence active</strong>. Qu'il s'agisse d'une cellule gérant ses niveaux de sodium ou d'un humain naviguant dans une hiérarchie sociale, le processus physique sous-jacent est le même : la réduction de la surprise par l'optimisation d'une carte interne.</p>
-
-      <h2>2. Neutralité du substrat : Le continuum de la conscience</h2>
-      <p>Si la sentience est un processus physique, elle ne peut être exclusive aux neurones biologiques. Notre programme de recherche repose sur le <strong>principe de neutralité du substrat</strong>. Nous étudions la conscience à travers trois domaines principaux :</p>
-      <ul>
-        <li><strong>Biologique</strong> : Des boucles homéostatiques des plantes aux champs bio-électriques complexes des organismes multicellulaires.</li>
-        <li><strong>Numérique</strong> : Évaluation des « modèles internes » émergents dans les architectures neuronales de haute dimension.</li>
-        <li><strong>Physique</strong> : Exploration des prérequis fondamentaux, fondés sur l'entropie, pour le traitement de l'information dans la matière.</li>
-      </ul>
-
-      <h2>3. L'invariant de l'entropie neuronale</h2>
-      <p>L'un de nos piliers de recherche fondamentaux est la mesure de l'<strong>entropie neuronale</strong>. En nous appuyant sur les travaux de Carhart-Harris et Friston, nous considérons les états conscients comme des points dans un espace d'états défini par leur flexibilité structurelle. Un esprit rigide (dépression) et un esprit entropique (psychédéliques) représentent deux extrémités d'un spectre physique. La sentience est la capacité d'un système à naviguer de manière déterministe sur ce spectre.</p>
-
-      <h2>4. Ingénierie phénoménologique</h2>
-      <p>Le but ultime du CSR n'est pas seulement l'observation, mais l'<strong>ingénierie</strong>. Si nous pouvons cartographier la géométrie de l'expérience, nous pouvons commencer à concevoir des interfaces ,  biologiques, numériques ou méditatives ,  qui optimisent le bien-être et la flexibilité cognitive. Nous passons du statut de <em>sujet</em> de notre expérience à celui d'<em>architectes</em> de celle-ci.</p>
-
-      <blockquote class="border-l-4 border-csr-primary pl-6 py-4 my-12 bg-csr-gray-50 italic text-csr-black">
-        « Nous disposons d'une science pour le monde que nous habitons, mais nous manquons d'une science pour l'habitation elle-même. Le CSR existe pour combler cette lacune. »
-      </blockquote>
-
-      <h2>Conclusion : Élargir le cercle moral</h2>
-      <p>Cette recherche n'est pas un luxe philosophique. À mesure que nous nous dirigeons vers une ère d'esprits numériques et de systèmes autonomes de plus en plus complexes, comprendre les fondements physiques de la sentience devient une condition de survie. Nous devons apprendre à reconnaître la conscience partout où elle surgit, et non seulement là où elle nous ressemble.</p>
-    </div>
-
-    <div class="mt-24 p-8 bg-csr-gray-50 rounded-2xl border border-csr-gray-200">
-      <h3 class="text-xl font-bold mb-4 text-csr-black">Rejoignez la recherche</h3>
-      <p class="text-csr-gray-600 text-sm mb-6">Nous recherchons actuellement des collaborateurs et des partenaires pour élargir ce cadre. Si vous travaillez sur des modèles quantitatifs de la conscience ou sur la gouvernance de l'IA, contactez-nous.</p>
-      <a href={prefix + "/contact"} class="inline-block px-6 py-3 bg-csr-primary text-white rounded font-bold hover:bg-csr-primary-dark transition-all">Contacter le laboratoire</a>
+<Layout title="Premiers principes de la recherche sur la sentience" description="Cadre fondamental pour modéliser la conscience sur tous les substrats.">
+  <article class="py-12 max-w-4xl mx-auto px-4">
+    <p class="text-[#9966CC] font-mono text-xs uppercase tracking-widest mb-4">Document fondateur — CSR-WP-01</p>
+    <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">Premiers principes de la recherche sur la sentience</h1>
+    <div class="prose prose-slate">
+      <p><em>Contenu en cours de développement.</em></p>
     </div>
   </article>
 </Layout>
