@@ -8,26 +8,22 @@ interface Props {
   title: string;
   description?: string;
   image?: string;
-  lang?: string;
 }
 
 const {
   title,
   description = "The Center for Sentience Research (CSR) is a Swiss-based non-profit dedicated to modeling the physical foundations of awareness across all substrates.",
   image = "/images/og-main.jpg",
-  lang = "en",
 } = Astro.props;
 
+// Use Astro.currentLocale as the single source of truth, default to 'en'
+const lang = Astro.currentLocale || 'en';
+const prefix = lang === 'en' ? '' : `/${lang}`;
 const siteURL = "https://centerforsentience.org";
 const fullTitle = `${title} | Center for Sentience Research`;
 
-// Dynamic Path Construction:
-// If lang is 'en', base is '', path is /
-// If lang is 'de', base is '/de', path is /de/research
-const getPath = (path: string) => {
-  const base = lang === 'en' ? '' : `/${lang}`;
-  return `${base}${path === '/' ? '' : path}`;
-};
+// Helper for ALL internal links
+const localizedHref = (path: string) => `${prefix}${path === '/' ? '' : path}`;
 ---
 
 <!doctype html>
@@ -38,23 +34,25 @@ const getPath = (path: string) => {
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <LanguageRedirect />
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="3a41742e-2fde-44af-b8a6-96094c47a90f"></script>
   </head>
-  <body class="min-h-screen flex flex-col bg-csr-bg">
+  <body class="min-h-screen flex flex-col bg-csr-bg text-csr-fg">
     <nav class="sticky top-0 z-50 bg-csr-bg/80 backdrop-blur-md border-b border-gray-200">
       <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-        <a href={getPath("/")} class="flex items-center gap-2">
-            <div class="w-10 h-10 rounded bg-csr-primary flex items-center justify-center text-white font-bold text-xl">C</div>
+        <a href={localizedHref("/")} class="flex items-center gap-2">
+            <div class="w-10 h-10 rounded bg-[#9966CC] flex items-center justify-center text-white font-bold text-xl">C</div>
             <div class="flex flex-col">
               <span class="font-bold text-lg text-black">Center for Sentience</span>
-              <span class="text-[10px] font-mono uppercase tracking-[0.2em] text-csr-primary mt-1">Research Institute</span>
+              <span class="text-[10px] font-mono uppercase tracking-[0.2em] text-[#9966CC]">Research Institute</span>
             </div>
         </a>
         <div class="flex items-center gap-4">
-            <a href={getPath("/research")} class="text-sm font-medium hover:text-csr-primary">Research</a>
-            <a href={getPath("/reports")} class="text-sm font-medium hover:text-csr-primary">Reports</a>
-            <a href={getPath("/about")} class="text-sm font-medium hover:text-csr-primary">About</a>
-            <a href={getPath("/donate")} class="bg-csr-primary text-white px-4 py-2 rounded-full text-sm font-medium">Support</a>
+            <a href={localizedHref("/research")} class="text-sm font-medium hover:text-[#9966CC]">Research</a>
+            <a href={localizedHref("/reports")} class="text-sm font-medium hover:text-[#9966CC]">Reports</a>
+            <a href={localizedHref("/about")} class="text-sm font-medium hover:text-[#9966CC]">About</a>
+            <a href={localizedHref("/donate")} class="bg-[#9966CC] text-white px-4 py-2 rounded-full text-sm font-medium">Support</a>
             <Search />
             <LanguageSwitcher lang={lang} />
         </div>
