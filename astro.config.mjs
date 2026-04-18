@@ -7,5 +7,12 @@ export default defineConfig({
   build: {
     format: 'directory'
   },
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'de', 'es', 'fr', 'zh', 'ja'],
+    routing: {
+      prefixDefaultLocale: false
+    }
+  },
   integrations: [tailwind()]
 });
