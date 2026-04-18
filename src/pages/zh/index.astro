@@ -16,7 +16,7 @@ import Layout from '../../layouts/Layout.astro';
         我们连接物理学、神经科学和哲学，旨在理解感知如何在所有基质中产生。
       </p>
       <div class="flex flex-wrap justify-center gap-4">
-        <a href="/research" class="btn-primary px-8 py-4 bg-csr-primary text-white rounded-full font-semibold hover:bg-csr-primary-dark transition-all shadow-xl shadow-csr-primary/30">研究议程</a>
+        <a href={prefix + "/research"} class="btn-primary px-8 py-4 bg-csr-primary text-white rounded-full font-semibold hover:bg-csr-primary-dark transition-all shadow-xl shadow-csr-primary/30">研究议程</a>
         <a href="#outputs" class="px-8 py-4 border border-csr-gray-200 rounded-full font-semibold hover:bg-csr-gray-50 transition-all">白皮书</a>
       </div>
     </div>
@@ -128,7 +128,7 @@ import Layout from '../../layouts/Layout.astro';
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl font-bold mb-6">支持感知研究的未来</h2>
       <p class="text-lg text-csr-gray-600 mb-10">我们正在寻求与有远见者、慈善家和研究机构建立合作伙伴关系，以加速我们的建模工作。我们可以共同建立第一门严谨的思维科学。</p>
-      <a href="/donate" class="text-csr-primary font-bold text-lg hover:underline decoration-2 underline-offset-4">了解我们的资助要求 &rarr;</a>
+      <a href={prefix + "/donate"} class="text-csr-primary font-bold text-lg hover:underline decoration-2 underline-offset-4">了解我们的资助要求 &rarr;</a>
     </div>
   </section>
 </Layout>
