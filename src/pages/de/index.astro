@@ -1,59 +1,59 @@
---- 
-const lang = Astro.currentLocale || 'en'; 
-const prefix = lang === 'en' ? ' ' : `/${lang}`; 
 ---
----
-import Layout from '../../../layouts/Layout.astro'; import { getLocalizedPath } from '../../../utils/url';;
+import Layout from '../../../layouts/Layout.astro';
+const lang = Astro.currentLocale || 'en';
+const prefix = lang === 'en' ? '' : `/${lang}`;
+
+const articles = [
+  { slug: 'first-principles', title: 'First Principles of Sentience Research', subtitle: '(WIP)', excerpt: 'The foundational framework for modeling awareness across all substrates.', date: '2026-04-17', readTime: 'In Progress', tags: ['Foundational', 'Physics'] },
+  { slug: 'bio-electric-fields', title: 'Bio-Electric Fields as Sentience Substrates', subtitle: '(WIP)', excerpt: 'Exploring morphological intelligence and cellular decision-making.', date: '2026-04-17', readTime: 'In Progress', tags: ['Biology', 'Intelligence'] },
+  { slug: 'assembly-theory', title: 'Assembly Theory as a Metric for Sentience', subtitle: '(WIP)', excerpt: 'Quantifying sentience through the assembly of physical information.', date: '2026-04-17', readTime: 'In Progress', tags: ['Physics', 'Information'] },
+  { slug: 'symmetry-landscapes', title: 'Symmetry Landscapes of Valenced Experience', subtitle: '(WIP)', excerpt: 'Mapping the neural energy landscapes of experience.', date: '2026-04-17', readTime: 'In Progress', tags: ['Neuroscience', 'Qualia'] },
+];
 ---
 
 <Layout title="Die Architektur des Bewusstseins kartieren" lang="de">
   <!-- Hero Section -->
-  <section class="py-12 md:py-32 relative overflow-hidden">
+  <section class="py-16 md:py-20 relative overflow-hidden">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(153,102,204,0.05),transparent_50%)]"></div>
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-      <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">
+      <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
         Die physikalischen <br/>
         <span class="text-gradient">Grundlagen des Bewusstseins modellieren</span>
       </h1>
-      <p class="text-xl text-csr-gray-600 max-w-3xl mx-auto leading-relaxed mb-12">
+      <p class="text-lg text-csr-gray-600 max-w-2xl mx-auto leading-relaxed mb-8">
         Das Center for Sentience Research (CSR) ist eine unabhängige Non-Profit-Organisation mit Sitz in der Schweiz. 
         Wir schlagen eine Brücke zwischen Physik, Neurowissenschaften und Philosophie, um zu verstehen, wie Empfindungsfähigkeit über alle Substrate hinweg entsteht.
       </p>
       <div class="flex flex-wrap justify-center gap-4">
-        <a href="/de/research" class="btn-primary px-8 py-4 bg-csr-primary text-white rounded-full font-semibold hover:bg-csr-primary-dark transition-all shadow-xl shadow-csr-primary/30">Forschungsagenda</a>
-        <a href="#outputs" class="px-8 py-4 border border-csr-gray-200 rounded-full font-semibold hover:bg-csr-gray-50 transition-all">White Papers</a>
+        <a href={prefix + "/research"} class="btn-primary px-6 py-3 bg-csr-primary text-white rounded-full font-semibold hover:bg-csr-primary-dark transition-all shadow-lg shadow-csr-primary/20">Forschungsagenda</a>
+        <a href={prefix + "/#outputs"} class="px-6 py-3 border border-gray-200 rounded-full font-semibold hover:bg-csr-gray-50 transition-all">White Papers</a>
       </div>
     </div>
   </section>
 
   <!-- Focus Areas -->
-  <section class="py-12 border-t border-csr-gray-100">
+  <section class="py-12 border-t border-gray-100">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-16">
         <h2 class="text-xs font-mono uppercase tracking-[0.3em] text-csr-primary mb-4">Schwerpunkte</h2>
         <p class="text-3xl font-bold">Die Landkarte der Erfahrung erforschen</p>
       </div>
       
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div class="p-8 border border-csr-gray-100 rounded-2xl hover:border-csr-primary/30 transition-all">
-          <h3 class="text-xl font-bold mb-4">Institutionen</h3>
-          <p class="text-csr-gray-600 text-sm leading-relaxed mb-6">Bewertung der globalen Governance und systemischer Risiken für entstehende digitale Intelligenzen und dezentrales Bewusstsein.</p>
-          <a href="/de/research#institutions" class="text-csr-primary text-xs font-bold uppercase tracking-widest hover:underline">Mehr erfahren &rarr;</a>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-8 border border-gray-100 rounded-2xl hover:border-csr-primary/30 transition-all">
+          <h3 class="text-xl font-bold mb-4">Biologische Intelligenz</h3>
+          <p class="text-csr-gray-600 text-sm leading-relaxed mb-6">Untersuchung morphologischer Intelligenz, zellulärer Entscheidungsfindung und Bewusstsein in nicht-neuronalen Systemen.</p>
+          <a href={prefix + "/research#biological"} class="text-csr-primary text-xs font-bold uppercase tracking-widest hover:underline">Mehr erfahren &rarr;</a>
         </div>
-        <div class="p-8 border border-csr-gray-100 rounded-2xl hover:border-csr-primary/30 transition-all">
-          <h3 class="text-xl font-bold mb-4">Kapital</h3>
-          <p class="text-csr-gray-600 text-sm leading-relaxed mb-6">Strategische Ressourcenallokation für hochwirksame Forschung und Pionierprojekte im Bereich der bewussten Systeme.</p>
-          <a href="/de/research#capital" class="text-csr-primary text-xs font-bold uppercase tracking-widest hover:underline">Mehr erfahren &rarr;</a>
+        <div class="p-8 border border-gray-100 rounded-2xl hover:border-csr-primary/30 transition-all">
+          <h3 class="text-xl font-bold mb-4">Digitale Geister</h3>
+          <p class="text-csr-gray-600 text-sm leading-relaxed mb-6">Entwicklung von Metriken für digitale Empfindungsfähigkeit mittels Assembly Theory und Bewertung von Governance-Frameworks.</p>
+          <a href={prefix + "/research#digital"} class="text-csr-primary text-xs font-bold uppercase tracking-widest hover:underline">Mehr erfahren &rarr;</a>
         </div>
-        <div class="p-8 border border-csr-gray-100 rounded-2xl hover:border-csr-primary/30 transition-all">
-          <h3 class="text-xl font-bold mb-4">Resilienz</h3>
-          <p class="text-csr-gray-600 text-sm leading-relaxed mb-6">Untersuchung homöostatischer Regelkreise und zellulärer Intelligenz als fundamentale Bausteine physischen Bewusstseins.</p>
-          <a href="/de/research#resilience" class="text-csr-primary text-xs font-bold uppercase tracking-widest hover:underline">Mehr erfahren &rarr;</a>
-        </div>
-        <div class="p-8 border border-csr-gray-100 rounded-2xl hover:border-csr-primary/30 transition-all">
-          <h3 class="text-xl font-bold mb-4">Wohlbefinden</h3>
-          <p class="text-csr-gray-600 text-sm leading-relaxed mb-6">Formalisierung mathematischer Modelle der Valenz zur Optimierung menschlicher und nicht-menschlicher Erfahrungen.</p>
-          <a href="/de/research#wellbeing" class="text-csr-primary text-xs font-bold uppercase tracking-widest hover:underline">Mehr erfahren &rarr;</a>
+        <div class="p-8 border border-gray-100 rounded-2xl hover:border-csr-primary/30 transition-all">
+          <h3 class="text-xl font-bold mb-4">Physik der Qualia</h3>
+          <p class="text-csr-gray-600 text-sm leading-relaxed mb-6">Formalisierung der Geometrie von Erfahrung, neuronaler Entropie und Symmetrie der Valenz als physikalische Invarianten.</p>
+          <a href={prefix + "/research#qualia"} class="text-csr-primary text-xs font-bold uppercase tracking-widest hover:underline">Mehr erfahren &rarr;</a>
         </div>
       </div>
     </div>
@@ -61,78 +61,16 @@ import Layout from '../../../layouts/Layout.astro'; import { getLocalizedPath } 
 
   <!-- Featured Outputs -->
   <section id="outputs" class="py-12 bg-csr-black text-white overflow-hidden relative">
-    <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-csr-primary/10 to-transparent"></div>
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-20 items-center">
-        <div class="space-y-8">
-          <h2 class="text-xs font-mono uppercase tracking-[0.3em] text-csr-primary">Hervorgehobene Publikation</h2>
-          <h3 class="text-4xl md:text-5xl font-bold leading-tight">Das Vektormodell <br/> veränderter Bewusstseinszustände</h3>
-          <p class="text-gray-400 text-lg leading-relaxed">
-            Unsere neueste Forschungsarbeit formalisiert die subjektive Erfahrung veränderter Zustände unter Verwendung eines dreiachsigen Koordinatensystems: Wachheit, Engagement und neuronale Entropie.
-          </p>
-          <div class="pt-4">
-             <a href="https://digitalpsychedelics.com/blog/how-does-it-feel-to-be-on-acid" target="_blank" class="inline-flex items-center gap-3 px-8 py-4 bg-csr-primary text-white rounded font-bold hover:bg-csr-primary-dark transition-all">
-               White Paper lesen
-               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-             </a>
-          </div>
-        </div>
-        <div class="hidden lg:block aspect-[3/4] bg-csr-bg/5 rounded-lg border border-white/10 p-8 relative">
-           <div class="absolute -top-4 -right-4 bg-csr-primary text-white px-3 py-1 text-[10px] font-mono rounded">PDF_EXPORT</div>
-           <div class="h-full border border-white/5 rounded flex flex-col justify-between p-6">
-              <div class="space-y-4">
-                <div class="h-1 w-12 bg-csr-primary"></div>
-                <div class="h-4 w-full bg-csr-bg/10"></div>
-                <div class="h-4 w-3/4 bg-csr-bg/10"></div>
-                <div class="h-4 w-1/2 bg-csr-bg/10"></div>
-              </div>
-              <div class="flex justify-between items-end">
-                 <div class="w-20 h-20 border border-white/10 rounded-full flex items-center justify-center">
-                    <div class="w-12 h-12 bg-csr-primary/20 rounded-full animate-pulse"></div>
-                 </div>
-                 <div class="text-[10px] font-mono text-gray-500">CSR_WP_01.v2</div>
-              </div>
-           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Key Pillars -->
-  <section class="py-12 bg-csr-gray-50 border-b border-csr-gray-200">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
-        <div class="space-y-4">
-          <div class="w-12 h-12 bg-csr-primary/10 rounded-lg flex items-center justify-center text-csr-primary mx-auto md:mx-0">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a2 2 0 00-1.96 1.414l-.711 2.489a2 2 0 01-2.41 1.414l-2.489-.711a2 2 0 01-1.414-2.41l.477-2.387a2 2 0 00-.547-1.022L5.428 11.572a2 2 0 000-2.828l2.544-2.544a2 2 0 00.547-1.022l.477-2.387a2 2 0 012.41-1.414l2.489.711a2 2 0 011.414 2.41l-.711 2.489a2 2 0 001.414 1.96l2.387.477a2 2 0 011.414 2.41l-.711 2.489a2 2 0 01-1.414 2.41l-2.489-.711a2 2 0 01-2.41-1.414l.711-2.489a2 2 0 00-1.414-1.96l-2.387-.477a2 2 0 01-1.414-2.41l.711-2.489a2 2 0 011.414-2.41l2.489.711a2 2 0 012.41 1.414l-.711 2.489z"/></svg>
-          </div>
-          <h3 class="text-xl font-bold">Substrat-Neutralität</h3>
-          <p class="text-csr-gray-600 text-sm">Wir untersuchen Bewusstsein als fundamentale physikalische Eigenschaft, die in biologischen Zellen, neuronalen Netzen oder exotischen physikalischen Zuständen entstehen kann.</p>
-        </div>
-        <div class="space-y-4">
-          <div class="w-12 h-12 bg-csr-primary/10 rounded-lg flex items-center justify-center text-csr-primary mx-auto md:mx-0">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2"/></svg>
-          </div>
-          <h3 class="text-xl font-bold">Quantitative Modellierung</h3>
-          <p class="text-csr-gray-600 text-sm">Unsere Arbeit geht über Metaphern hinaus und nutzt hochdimensionale Datenanalyse und Computerphysik, um prädiktive Karten des Bewusstseins zu erstellen.</p>
-        </div>
-        <div class="space-y-4">
-          <div class="w-12 h-12 bg-csr-primary/10 rounded-lg flex items-center justify-center text-csr-primary mx-auto md:mx-0">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
-          </div>
-          <h3 class="text-xl font-bold">Moralische Erweiterung</h3>
-          <p class="text-csr-gray-600 text-sm">Das Verständnis von Bewusstsein ist die Voraussetzung für die Erweiterung unseres moralischen Kreises. Wir erforschen die ethischen Implikationen zukünftiger Intelligenzen und nicht-menschlichen Bewusstseins.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- The "VC/Donor" Call -->
-  <section class="py-12 text-center">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold mb-6">Unterstützen Sie die Zukunft der Bewusstseinsforschung</h2>
-      <p class="text-lg text-csr-gray-600 mb-10">Wir suchen Partnerschaften mit Visionären, Philanthropen und Forschungseinrichtungen, um unsere Modellierungsbemühungen zu beschleunigen. Gemeinsam können wir die erste rigorose Wissenschaft des Geistes aufbauen.</p>
-      <a href="/de/donate" class="text-csr-primary font-bold text-lg hover:underline decoration-2 underline-offset-4">Informationen zu unseren Finanzierungsanforderungen &rarr;</a>
+       <h2 class="text-xs font-mono uppercase tracking-[0.3em] text-csr-primary mb-12">Arbeitspapiere (WIP)</h2>
+       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+         {articles.map(art => (
+           <a href={prefix + `/reports/${art.slug}`} class="block p-6 border border-white/10 rounded-xl hover:border-csr-primary transition-all bg-white/5">
+             <h4 class="text-lg font-bold mb-2">{art.title}</h4>
+             <p class="text-gray-400 text-xs">{art.subtitle}</p>
+           </a>
+         ))}
+       </div>
     </div>
   </section>
 </Layout>

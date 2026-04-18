@@ -1,9 +1,7 @@
---- 
-const lang = Astro.currentLocale || 'en'; 
-const prefix = lang === 'en' ? ' ' : `/${lang}`; 
 ---
----
-import Layout from '../layouts/Layout.astro'; import { getLocalizedPath } from '../../utils/url';;
+import Layout from '../layouts/Layout.astro';
+const lang = Astro.currentLocale || 'en';
+const prefix = lang === 'en' ? '' : `/${lang}`;
 ---
 
 <Layout 
