@@ -1,6 +1,6 @@
---- 
-const lang = Astro.currentLocale || 'en'; 
-const prefix = lang === 'en' ? '' : `/${lang}`; 
+---
+const lang = Astro.currentLocale || 'en';
+const prefix = lang === 'en' ? '' : `/${lang}`;
 import Layout from '../../layouts/Layout.astro';
 ---
 
@@ -33,17 +33,17 @@ import Layout from '../../layouts/Layout.astro';
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="p-8 border border-gray-100 rounded-2xl hover:border-csr-primary/30 transition-all">
           <h3 class="text-xl font-bold mb-4">生物学的インテリジェンス</h3>
-          <p class="text-csr-gray-600 text-sm leading-relaxed mb-6">形態学的インテリジェンス、細胞の意思決定、および非神経系における意識を研究します。</p>
+          <p class="text-csr-gray-600 text-sm leading-relaxed mb-6">Investigating morphological intelligence, cellular decision-making, and awareness in non-neural systems.</p>
           <a href={prefix + "/research#biological"} class="text-csr-primary text-xs font-bold uppercase tracking-widest hover:underline">詳細はこちら &rarr;</a>
         </div>
         <div class="p-8 border border-gray-100 rounded-2xl hover:border-csr-primary/30 transition-all">
           <h3 class="text-xl font-bold mb-4">デジタル・マインド</h3>
-          <p class="text-csr-gray-600 text-sm leading-relaxed mb-6">組込み理論（Assembly Theory）によるデジタル意識の指標開発と、創発的システムのためのガバナンス評価。</p>
+          <p class="text-csr-gray-600 text-sm leading-relaxed mb-6">Developing metrics for digital sentience through Assembly Theory and evaluating governance for emergent systems.</p>
           <a href={prefix + "/research#digital"} class="text-csr-primary text-xs font-bold uppercase tracking-widest hover:underline">詳細はこちら &rarr;</a>
         </div>
         <div class="p-8 border border-gray-100 rounded-2xl hover:border-csr-primary/30 transition-all">
           <h3 class="text-xl font-bold mb-4">クオリアの物理学</h3>
-          <p class="text-csr-gray-600 text-sm leading-relaxed mb-6">経験の幾何学、神経エントロピー、および価対称性を物理的不変量として形式化します。</p>
+          <p class="text-csr-gray-600 text-sm leading-relaxed mb-6">Formalizing the geometry of experience, neural entropy, and symmetry of valence as physical invariants.</p>
           <a href={prefix + "/research#qualia"} class="text-csr-primary text-xs font-bold uppercase tracking-widest hover:underline">詳細はこちら &rarr;</a>
         </div>
       </div>
