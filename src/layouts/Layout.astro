@@ -1,5 +1,6 @@
 ---
 import Search from '../components/Search.astro';
+import LanguageSwitcher from '../components/LanguageSwitcher.astro';
 import LanguageRedirect from '../components/LanguageRedirect.astro';
 import '../styles/global.css';
 
@@ -21,7 +22,6 @@ const siteURL = "https://centerforsentience.org";
 const fullTitle = `${title} | Center for Sentience Research`;
 // Locale-aware link prefix for nav/footer
 const prefix = lang === 'en' ? '' : `/${lang}`;
-import LanguageRedirect from '../components/LanguageRedirect.astro';
 ---
 
 <!doctype html>
@@ -87,7 +87,7 @@ import LanguageRedirect from '../components/LanguageRedirect.astro';
             </div>
           </a>
           
-          <div class="flex items-center gap-8 text-sm font-medium">
+          <div class="hidden md:flex items-center gap-8 text-sm font-medium">
             <a href={prefix + "/research"} class="hover:text-csr-primary transition-colors">Research</a>
             <a href={prefix + "/reports"} class="hover:text-csr-primary transition-colors">Reports</a>
             <a href={prefix + "/about"} class="hover:text-csr-primary transition-colors">About</a>
