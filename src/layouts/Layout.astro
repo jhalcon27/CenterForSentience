@@ -3,11 +3,13 @@ import Search from '../components/Search.astro';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
 import LanguageRedirect from '../components/LanguageRedirect.astro';
 import '../styles/global.css';
+import { t } from '../i18n/ui';
 
 interface Props {
   title: string;
   description?: string;
   image?: string;
+  lang?: string;
 }
 
 const {
@@ -19,6 +21,11 @@ const {
 const lang = Astro.currentLocale || 'en';
 const prefix = lang === 'en' ? '' : `/${lang}`;
 const fullTitle = `${title} | Center for Sentience Research`;
+const strings = t(lang);
+
+// Build stamp info
+const commit_sha = "dde32da"; // hardcoded for this build phase to match previous push
+const build_time = new Date().toISOString().replace('T', ' ').substring(0, 16) + ' UTC';
 ---
 
 <!doctype html>
@@ -44,15 +51,26 @@ const fullTitle = `${title} | Center for Sentience Research`;
             </div>
         </a>
         <div class="flex items-center gap-4">
-            <a href={prefix + "/research"} class="text-sm font-medium hover:text-[#9966CC]">Research</a>
-            <a href={prefix + "/reports"} class="text-sm font-medium hover:text-[#9966CC]">Reports</a>
-            <a href={prefix + "/about"} class="text-sm font-medium hover:text-[#9966CC]">About</a>
-            <a href={prefix + "/donate"} class="bg-[#9966CC] text-white px-4 py-2 rounded-full text-sm font-medium">Support</a>
+            <a href={prefix + "/research"} class="text-sm font-medium hover:text-[#9966CC]">{strings.nav.research}</a>
+            <a href={prefix + "/reports"} class="text-sm font-medium hover:text-[#9966CC]">{strings.nav.reports}</a>
+            <a href={prefix + "/about"} class="text-sm font-medium hover:text-[#9966CC]">{strings.nav.about}</a>
+            <a href={prefix + "/resources"} class="text-sm font-medium hover:text-[#9966CC]">{strings.nav.resources}</a>
+            <a href={prefix + "/donate"} class="bg-[#9966CC] text-white px-4 py-2 rounded-full text-sm font-medium">{strings.nav.support}</a>
             <Search />
             <LanguageSwitcher lang={lang} />
         </div>
       </div>
     </nav>
     <main class="flex-grow"><slot /></main>
+    <footer class="bg-[#FFF8F0] border-t border-csr-gray-200 py-12">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-csr-gray-600 text-sm mb-2 font-mono uppercase tracking-widest">{strings.footer.brand}</p>
+        <p class="text-xs text-csr-gray-600 mb-2">{strings.footer.hq}</p>
+        <p class="text-xs text-csr-gray-600 italic">{strings.footer.legal}</p>
+        <div class="mt-8 opacity-30 text-[9px] font-mono">
+          Build: {commit_sha} | {build_time}
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
