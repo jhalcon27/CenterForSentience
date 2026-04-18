@@ -95,7 +95,7 @@ const articles = [
        <h2 class="text-xs font-mono uppercase tracking-[0.3em] text-csr-primary mb-12">Working Research Papers (WIP)</h2>
        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
          {articles.map(art => (
-           <a href={`/reports/${art.slug}`} class="block p-6 border border-white/10 rounded-xl hover:border-csr-primary transition-all bg-white/5">
+           <a href={`/reports/${art.slug}`} class="block p-6 border border-white/10 rounded-xl hover:border-csr-primary transition-all bg-csr-bg/5">
              <h4 class="text-lg font-bold mb-2">{art.title}</h4>
              <p class="text-gray-400 text-xs">{art.subtitle}</p>
            </a>

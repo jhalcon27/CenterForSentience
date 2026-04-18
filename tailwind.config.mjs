@@ -5,6 +5,8 @@ export default {
     extend: {
       colors: {
         'csr-primary': '#9966CC',
+        'csr-primary-dark': '#7a4bb0',
+        'csr-bg': '#FFF8F0',
       }
     },
   },
