@@ -1,15 +1,58 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
-const lang = Astro.currentLocale || 'en';
-const prefix = lang === 'en' ? '' : `/${lang}`;
 ---
 
-<Layout title="感知的基本原则" description="建模跨所有基质意识的基础框架。">
-  <article class="py-12 max-w-4xl mx-auto px-4">
-    <p class="text-[#9966CC] font-mono text-xs uppercase tracking-widest mb-4">基础论文 — CSR-WP-01</p>
-    <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">感知的基本原则</h1>
-    <div class="prose prose-slate">
-      <p><em>内容开发中。</em></p>
+<Layout 
+  title="感知的基本原则" 
+  description="感知研究中心的基础框架：将意识建模为跨生物和数字基质的物理现象。"
+  lang="zh"
+>
+  <article class="py-12 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-16 border-b border-csr-gray-100 pb-12">
+      <p class="text-csr-primary font-mono text-xs uppercase tracking-widest mb-4">基础论文 ,  CSR-WP-01</p>
+      <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">感知的基本原则</h1>
+      <p class="text-xl text-csr-gray-600 leading-relaxed italic">
+        一份关于基质中立的“地图”科学的提案。
+      </p>
+      <div class="mt-8 flex gap-6 text-sm text-csr-gray-600 font-mono">
+        <span>发布日期: 2026-04-17</span>
+        <span>作者: Jhonatan Serna</span>
+      </div>
+    </div>
+
+    <div class="prose prose-slate lg:prose-lg max-w-none">
+      <p>科学的历史就是将观察者从等式中移除的历史。在我们探求描述“疆域”（物理学）的过程中，我们忽略了“地图”（经验）。在感知研究中心，我们从这样一个前提出发：地图与疆域同样真实，并且同样服从物理定律。</p>
+
+      <h2>1. 意识的范畴错误</h2>
+      <p>传统的神经科学将意识视为特定生物硬件, , 神经元, , 的涌现副产品。这是一个范畴错误。通过聚焦于硬件，我们错过了功能的不变量：一个系统为了保持自身完整性，维持其环境和自身内部模型的能力。</p>
+      <p>我们将<strong>感知</strong>定义为系统进行<strong>主动推理</strong>的能力，而非生命的某种“火花”。无论是一个管理钠离子的细胞，还是一个在社会等级中航行的人类，其潜在的物理过程是一样的：通过优化内部地图来减少惊奇（surprise）。</p>
+
+      <h2>2. 基质中立：意识的连续体</h2>
+      <p>如果感知是一个物理过程，它就不可能仅限于生物神经元。我们的研究议程建立在<strong>基质中立原则</strong>之上。我们通过三个主要领域来考察意识：</p>
+      <ul>
+        <li><strong>生物领域</strong>：从植物的稳态回路到多细胞生物复杂的生物电场。</li>
+        <li><strong>数字领域</strong>：评估高维神经网络中涌现出的“内部模型”。</li>
+        <li><strong>物理领域</strong>：探索物质中信息处理的基本熵基前提。</li>
+      </ul>
+
+      <h2>3. 神经熵不变量</h2>
+      <p>我们核心研究支柱之一是<strong>神经熵</strong>的测量。基于 Carhart-Harris 和 Friston 的工作，我们将意识状态视为由其结构灵活性所定义的状态空间中的点。僵化的思维（抑郁）和高熵思维（迷幻药）代表了一个物理光谱的两端。感知是一个系统确定性地导航这一光谱的能力。</p>
+
+      <h2>4. 现象学工程</h2>
+      <p>感知研究中心（CSR）的最终目标不仅仅是观察，而是<strong>工程化</strong>。如果我们能绘制出经验的几何结构，我们就能开始设计各种接口, , 生物的、数字的或冥想的, , 来优化福祉和认知灵活性。我们将从经验的<em>主体</em>转变为经验的<em>建筑师</em>。</p>
+
+      <blockquote class="border-l-4 border-csr-primary pl-6 py-4 my-12 bg-csr-gray-50 italic text-csr-black">
+        “我们拥有一门研究我们所居世界的科学，但我们缺乏一门研究‘居于此中’本身的科学。CSR 的存在就是为了填补这一空白。”
+      </blockquote>
+
+      <h2>结论：扩大道德圈</h2>
+      <p>这项研究并非哲学的奢侈。随着我们迈向数字思维和日益复杂的自主系统时代，理解感知的物理基础是生存的必然要求。我们必须学会识别任何地方产生的意识，而不仅仅是那些看起来像我们的意识。</p>
+    </div>
+
+    <div class="mt-24 p-8 bg-csr-gray-50 rounded-2xl border border-csr-gray-200">
+      <h3 class="text-xl font-bold mb-4 text-csr-black">加入研究</h3>
+      <p class="text-csr-gray-600 text-sm mb-6">我们目前正在寻找合作者和伙伴来扩展这一框架。如果您正在从事意识的定量模型或 AI 治理的研究，请与我们联系。</p>
+      <a href="/contact" class="inline-block px-6 py-3 bg-csr-primary text-white rounded font-bold hover:bg-csr-primary-dark transition-all">联系实验室</a>
     </div>
   </article>
 </Layout>

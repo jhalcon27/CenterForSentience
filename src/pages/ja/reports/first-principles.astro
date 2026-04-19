@@ -1,15 +1,57 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
-const lang = Astro.currentLocale || 'en';
-const prefix = lang === 'en' ? '' : `/${lang}`;
 ---
 
-<Layout title="感性研究の第一原理" description="あらゆる基質にわたる意識をモデル化するための基礎フレームワーク。">
-  <article class="py-12 max-w-4xl mx-auto px-4">
-    <p class="text-[#9966CC] font-mono text-xs uppercase tracking-widest mb-4">基盤論文 — CSR-WP-01</p>
-    <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">感性研究の第一原理</h1>
-    <div class="prose prose-slate">
-      <p><em>現在作成中。</em></p>
+<Layout 
+  title="感性研究の第一原理" 
+  description="感性研究センター（CSR）の基盤フレームワーク：生物学的およびデジタル的基盤全体における物理現象としての意識のモデリング。"
+>
+  <article class="py-12 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-16 border-b border-csr-gray-100 pb-12">
+      <p class="text-csr-primary font-mono text-xs uppercase tracking-widest mb-4">基盤論文 ,  CSR-WP-01</p>
+      <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">感性研究の第一原理</h1>
+      <p class="text-xl text-csr-gray-600 leading-relaxed italic">
+        基盤非依存的な「地図」の科学に向けた提案。
+      </p>
+      <div class="mt-8 flex gap-6 text-sm text-csr-gray-600 font-mono">
+        <span>公開日: 2026-04-17</span>
+        <span>著者: Jhonatan Serna</span>
+      </div>
+    </div>
+
+    <div class="prose prose-slate lg:prose-lg max-w-none" lang="ja">
+      <p>科学の歴史とは、方程式から観察者を取り除いてきた歴史である。「領土」（物理）を記述しようと模索する中で、我々は「地図」（経験）を軽視してきた。感性研究センター（CSR）では、地図も領土と同様に現実であり、物理法則に従うものであるという前提のもとで研究を行っている。</p>
+
+      <h2>1. 意識の範疇の誤り</h2>
+      <p>従来の神経科学は、意識を特定の生物学的ハードウェアである「ニューロン」の創発的副産物として扱う。これは範疇の誤りである。ハードウェアに焦点を合わせることで、我々は機能的な不変量を見失っている。それは、環境と自己の内部モデルを維持し、自身の完全性を保持しようとするシステムの能力である。</p>
+      <p>我々は<strong>感性（Sentience）</strong>を、「生命の火花」ではなく、システムにおける<strong>アクティブ・インファレンス（能動的推論）</strong>の能力として定義する。細胞がナトリウム濃度を管理している場合であれ、人間が社会階層をナビゲートしている場合であれ、その根底にある物理的プロセスは同じである。すなわち、内部マップを最適化することによる「驚き（サプライズ）」の低減である。</p>
+
+      <h2>2. 基盤非依存性：意識の連続体</h2>
+      <p>もし感性が物理的なプロセスであるならば、それは生物学的なニューロンのみに限定されるはずがない。我々の研究アジェンダは、<strong>基盤非依存性原理（Substrate Neutrality Principle）</strong>の上に構築されている。我々は以下の3つの主要領域において、意識を調査する：</p>
+      <ul>
+        <li><strong>生物学的</strong>：植物の恒常性ループから、多細胞生物の複雑な生体電気場まで。</li>
+        <li><strong>デジタル</strong>：高次元のニューラルアーキテクチャにおける創発的な「内部モデル」の評価。</li>
+        <li><strong>物理的</strong>：物質における情報処理の根本的なエントロピーに基づいた前提条件の探求。</li>
+      </ul>
+
+      <h2>3. 神経エントロピーの不変量</h2>
+      <p>我々の主要な研究柱の一つは、<strong>神経エントロピー</strong>の測定である。Carhart-HarrisとFristonの研究に基づき、我々は意識状態を、構造的な柔軟性によって定義される状態空間上の点として捉える。硬直した精神（抑うつ）とエントロピー的な精神（サイケデリック）は、物理的スペクトルの両端を表している。感性とは、システムがこのスペクトルを決定論的にナビゲートする能力である。</p>
+
+      <h2>4. 現象学のエンジニアリング</h2>
+      <p>CSRの究極の目標は、単なる観察ではなく<strong>エンジニアリング</strong>である。もし経験の幾何学をマッピングできれば、ウェルビーイングと認知の柔軟性を最適化するインターフェース（生物学的、デジタル的、または瞑想的なもの）を設計し始めることができる。我々は経験の<em>主体</em>であることから、経験の<em>設計者</em>へと移行する。</p>
+
+      <blockquote class="border-l-4 border-csr-primary pl-6 py-4 my-12 bg-csr-gray-50 italic text-csr-black">
+        「我々には居住する世界のための科学はあるが、居住そのもののための科学が欠けている。CSRはその隙間を埋めるために存在する。」
+      </blockquote>
+
+      <h2>結論：道徳的円環の拡大</h2>
+      <p>この研究は哲学的な贅沢ではない。デジタルな精神や、ますます複雑化する自律システムが到来する時代に向かう中で、感性の物理的基盤を理解することは生存のための必須要件である。我々は、自分たちに似ている場所だけでなく、感性が現れるあらゆる場所においてそれを認識することを学ばなければならない。</p>
+    </div>
+
+    <div class="mt-24 p-8 bg-csr-gray-50 rounded-2xl border border-csr-gray-200">
+      <h3 class="text-xl font-bold mb-4 text-csr-black">研究に参加する</h3>
+      <p class="text-csr-gray-600 text-sm mb-6">現在、このフレームワークを拡大するための協力者やパートナーを募集しています。意識の定量的モデルやAIガバナンスに取り組んでいる方は、ぜひご連絡ください。</p>
+      <a href="/contact" class="inline-block px-6 py-3 bg-csr-primary text-white rounded font-bold hover:bg-csr-primary-dark transition-all">研究所に連絡する</a>
     </div>
   </article>
 </Layout>

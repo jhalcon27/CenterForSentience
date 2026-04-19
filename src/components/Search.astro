@@ -10,7 +10,7 @@
     </svg>
   </button>
 
-  <div class="search-overlay hidden fixed inset-0 z-[60] bg-csr-bg/95 backdrop-blur-sm p-4 md:p-20">
+  <div class="search-overlay hidden fixed inset-0 z-[60] bg-white/95 backdrop-blur-sm p-4 md:p-20">
     <div class="max-w-3xl mx-auto">
       <div class="flex items-center justify-between mb-8 border-b-2 border-csr-primary pb-4">
         <input
@@ -34,8 +34,6 @@
 <script>
   function initSearch() {
     const containers = document.querySelectorAll('[data-csr-search]');
-    const lang = document.documentElement.lang || 'en';
-    const prefix = lang === 'en' ? '' : `/${lang}`;
     
     containers.forEach(container => {
       const btn = container.querySelector('.search-btn');
@@ -59,6 +57,7 @@
         if (e.target === overlay) close();
       });
 
+      // Simple mock search functionality for now
       input?.addEventListener('input', (e) => {
         const query = (e.target as HTMLInputElement).value.toLowerCase();
         const resultsContainer = container.querySelector('.search-results');
@@ -69,20 +68,24 @@
           return;
         }
 
+        // Mock index based on site content
         const pages = [
           { title: 'Qualia Research Institute', type: 'Partner', url: 'https://qri.org' },
-          { title: 'First Principles', type: 'Report', url: '/reports/first-principles' },
-          { title: 'Biological Intelligence', type: 'Research Track', url: '/research#biological' },
-          { title: 'Digital Minds', type: 'Research Track', url: '/research#digital' },
-          { title: 'Physics of Qualia', type: 'Research Track', url: '/research#qualia' },
-          { title: 'Donate', type: 'Policy', url: '/donate' }
+          { title: 'The Vector Model of Consciousness', type: 'White Paper', url: '/reports/vector-model' },
+          { title: 'Bio-Electric Fields as Sentience Substrates', type: 'Research Track', url: '/reports/bio-electric-fields' },
+          { title: 'Assembly Theory as a Metric for Sentience', type: 'Research Track', url: '/reports/assembly-theory' },
+          { title: 'Symmetry Landscapes of Valenced Experience', type: 'Research Track', url: '/reports/symmetry-landscapes' },
+          { title: 'Biological Sentience', type: 'Research Track', url: '/research#biological' },
+          { title: 'Digital Minds & AI Safety', type: 'Research Track', url: '/research#digital' },
+          { title: 'Capital Allocation Strategy', type: 'Focus Area', url: '/#capital' },
+          { title: 'Tax Deductions for Donors', type: 'Policy', url: '/donate' }
         ];
 
         const matches = pages.filter(p => p.title.toLowerCase().includes(query));
         
         resultsContainer.innerHTML = matches.length > 0 
           ? matches.map(m => `
-              <a href="${m.url.startsWith('http') ? m.url : prefix + m.url}" class="block p-4 rounded-xl hover:bg-csr-gray-50 border border-transparent hover:border-csr-gray-100 transition-all">
+              <a href="${m.url}" class="block p-4 rounded-xl hover:bg-csr-gray-50 border border-transparent hover:border-csr-gray-100 transition-all">
                 <p class="text-xs font-mono uppercase tracking-widest text-csr-primary mb-1">${m.type}</p>
                 <h4 class="text-xl font-bold text-csr-black">${m.title}</h4>
               </a>
