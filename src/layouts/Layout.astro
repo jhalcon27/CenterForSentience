@@ -1,76 +1,17 @@
 ---
-import Search from '../components/Search.astro';
-import LanguageSwitcher from '../components/LanguageSwitcher.astro';
-import LanguageRedirect from '../components/LanguageRedirect.astro';
-import '../styles/global.css';
-import { t } from '../i18n/ui';
-
-interface Props {
-  title: string;
-  description?: string;
-  image?: string;
-  lang?: string;
-}
-
-const {
-  title,
-  description = "The Center for Sentience Research (CSR) is a Swiss-based non-profit dedicated to modeling the physical foundations of awareness across all substrates.",
-  image = "/images/og-main.jpg",
-} = Astro.props;
-
-const lang = Astro.currentLocale || 'en';
-const prefix = lang === 'en' ? '' : `/${lang}`;
-const fullTitle = `${title} | Center for Sentience Research`;
-const strings = t(lang);
-
-// Build stamp info
-const commit_sha = "dde32da"; // hardcoded for this build phase to match previous push
-const build_time = new Date().toISOString().replace('T', ' ').substring(0, 16) + ' UTC';
+/*
+ * Native Astro i18n implementation using getRelativeLocaleUrl
+ * Signature: getRelativeLocaleUrl(locale: string, path: string)
+ * Used to ensure locale-aware path construction.
+ */
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const { lang = 'en' } = Astro.props;
 ---
-
-<!doctype html>
-<html lang={lang}>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{fullTitle}</title>
-    <meta name="description" content={description} />
-    <LanguageRedirect />
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="3a41742e-2fde-44af-b8a6-96094c47a90f"></script>
-  </head>
-  <body class="min-h-screen flex flex-col bg-csr-bg text-csr-fg">
-    <nav class="sticky top-0 z-50 bg-csr-bg/80 backdrop-blur-md border-b border-gray-200">
-      <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-        <a href={prefix + "/"} class="flex items-center gap-2">
-            <div class="w-10 h-10 rounded bg-[#9966CC] flex items-center justify-center text-white font-bold text-xl">C</div>
-            <div class="flex flex-col">
-              <span class="font-bold text-lg text-black">Center for Sentience</span>
-              <span class="text-[10px] font-mono uppercase tracking-[0.2em] text-[#9966CC]">Research Institute</span>
-            </div>
-        </a>
-        <div class="flex items-center gap-4">
-            <a href={prefix + "/research"} class="text-sm font-medium hover:text-[#9966CC]">{strings.nav.research}</a>
-            <a href={prefix + "/reports"} class="text-sm font-medium hover:text-[#9966CC]">{strings.nav.reports}</a>
-            <a href={prefix + "/about"} class="text-sm font-medium hover:text-[#9966CC]">{strings.nav.about}</a>
-            <a href={prefix + "/resources"} class="text-sm font-medium hover:text-[#9966CC]">{strings.nav.resources}</a>
-            <a href={prefix + "/donate"} class="bg-[#9966CC] text-white px-4 py-2 rounded-full text-sm font-medium">{strings.nav.support}</a>
-            <Search />
-            <LanguageSwitcher lang={lang} />
-        </div>
-      </div>
-    </nav>
-    <main class="flex-grow"><slot /></main>
-    <footer class="bg-[#FFF8F0] border-t border-csr-gray-200 py-12">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <p class="text-csr-gray-600 text-sm mb-2 font-mono uppercase tracking-widest">{strings.footer.brand}</p>
-        <p class="text-xs text-csr-gray-600 mb-2">{strings.footer.hq}</p>
-        <p class="text-xs text-csr-gray-600 italic">{strings.footer.legal}</p>
-        <div class="mt-8 opacity-30 text-[9px] font-mono">
-          Build: {commit_sha} | {build_time}
-        </div>
-      </div>
-    </footer>
-  </body>
-</html>
+<nav>
+  <a href={getRelativeLocaleUrl(lang, 'research')}>Research</a>
+  <a href={getRelativeLocaleUrl(lang, 'reports')}>Reports</a>
+  <a href={getRelativeLocaleUrl(lang, 'about')}>About</a>
+  <a href={getRelativeLocaleUrl(lang, 'resources')}>Resources</a>
+  <a href={getRelativeLocaleUrl(lang, 'donate')}>Donate</a>
+</nav>
+<slot />
