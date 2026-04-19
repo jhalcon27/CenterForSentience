@@ -1,4 +1,5 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import Search from '../components/Search.astro';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
 import LanguageRedirect from '../components/LanguageRedirect.astro';
@@ -18,13 +19,12 @@ const {
   lang = "en",
 } = Astro.props;
 
-const siteURL = "https://centerforsentience.org";
+const currentLang = Astro.currentLocale ?? lang;
 const fullTitle = `${title} | Center for Sentience Research`;
-const prefix = lang === 'en' ? '' : `/${lang}`;
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={currentLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -38,7 +38,7 @@ const prefix = lang === 'en' ? '' : `/${lang}`;
   <body class="min-h-screen flex flex-col bg-[#FFF8F0]">
     <nav class="sticky top-0 z-50 bg-[#FFF8F0]/80 backdrop-blur-md border-b border-gray-200">
       <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-        <a href="/" class="flex items-center gap-2">
+        <a href={getRelativeLocaleUrl(currentLang, '/')} class="flex items-center gap-2">
             <div class="w-10 h-10 rounded bg-[#9966CC] flex items-center justify-center text-white font-bold text-xl">C</div>
             <div class="flex flex-col">
               <span class="font-bold text-lg text-black">Center for Sentience</span>
@@ -46,12 +46,12 @@ const prefix = lang === 'en' ? '' : `/${lang}`;
             </div>
         </a>
         <div class="flex items-center gap-4">
-            <a href={prefix + "/research"} class="text-sm font-medium hover:text-[#9966CC]">Research</a>
-            <a href={prefix + "/reports"} class="text-sm font-medium hover:text-[#9966CC]">Reports</a>
-            <a href={prefix + "/about"} class="text-sm font-medium hover:text-[#9966CC]">About</a>
-            <a href={prefix + "/donate"} class="bg-[#9966CC] text-white px-4 py-2 rounded-full text-sm font-medium">Support</a>
+            <a href={getRelativeLocaleUrl(currentLang, 'research')} class="text-sm font-medium hover:text-[#9966CC]">Research</a>
+            <a href={getRelativeLocaleUrl(currentLang, 'reports')} class="text-sm font-medium hover:text-[#9966CC]">Reports</a>
+            <a href={getRelativeLocaleUrl(currentLang, 'about')} class="text-sm font-medium hover:text-[#9966CC]">About</a>
+            <a href={getRelativeLocaleUrl(currentLang, 'donate')} class="bg-[#9966CC] text-white px-4 py-2 rounded-full text-sm font-medium">Support</a>
             <Search />
-            <LanguageSwitcher lang={lang} />
+            <LanguageSwitcher lang={currentLang} />
         </div>
       </div>
     </nav>

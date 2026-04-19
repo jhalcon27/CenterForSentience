@@ -1,27 +1,32 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
 interface Props {
   lang?: string;
 }
 const { lang = 'en' } = Astro.props;
 
-// Compute base path by stripping locale prefix
-let basePath = Astro.url.pathname;
+// Compute path suffix by stripping the current locale prefix from the pathname
+let pathSuffix = Astro.url.pathname;
 const locales = ['de', 'es', 'fr', 'zh', 'ja'];
 for (const loc of locales) {
-  if (basePath.startsWith(`/${loc}/`)) { basePath = basePath.slice(loc.length + 1); break; }
-  if (basePath === `/${loc}` || basePath === `/${loc}/`) { basePath = '/'; break; }
+  if (pathSuffix.startsWith(`/${loc}/`)) { pathSuffix = pathSuffix.slice(loc.length + 1); break; }
+  if (pathSuffix === `/${loc}` || pathSuffix === `/${loc}/`) { pathSuffix = '/'; break; }
 }
-if (!basePath.startsWith('/')) basePath = '/' + basePath;
+if (!pathSuffix.startsWith('/')) pathSuffix = '/' + pathSuffix;
 
-const enHref = basePath;
-const deHref = '/de' + (basePath === '/' ? '' : basePath);
-const esHref = '/es' + (basePath === '/' ? '' : basePath);
-const frHref = '/fr' + (basePath === '/' ? '' : basePath);
-const zhHref = '/zh' + (basePath === '/' ? '' : basePath);
-const jaHref = '/ja' + (basePath === '/' ? '' : basePath);
+// Strip leading slash for getRelativeLocaleUrl (it expects a path without leading slash, or '/')
+const pathArg = pathSuffix === '/' ? '/' : pathSuffix.replace(/^\//, '');
 
 const labels: Record<string, string> = { en: 'EN', de: 'DE', es: 'ES', fr: 'FR', zh: '中文', ja: '日本語' };
-const hrefs: Record<string, string> = { en: enHref, de: deHref, es: esHref, fr: frHref, zh: zhHref, ja: jaHref };
+const hrefs: Record<string, string> = {
+  en: getRelativeLocaleUrl('en', pathArg),
+  de: getRelativeLocaleUrl('de', pathArg),
+  es: getRelativeLocaleUrl('es', pathArg),
+  fr: getRelativeLocaleUrl('fr', pathArg),
+  zh: getRelativeLocaleUrl('zh', pathArg),
+  ja: getRelativeLocaleUrl('ja', pathArg),
+};
 ---
 
 <div class="lang-switcher relative group" data-lang-switcher>
