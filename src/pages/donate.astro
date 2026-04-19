@@ -1,7 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-const lang = Astro.currentLocale || 'en';
-const prefix = lang === 'en' ? '' : `/${lang}`;
 ---
 
 <Layout 
@@ -86,7 +84,7 @@ const prefix = lang === 'en' ? '' : `/${lang}`;
           </div>
           <h3 class="text-xl font-bold">Philanthropic Partnership</h3>
           <p class="text-sm text-gray-400">Collaborate on specific Cause Areas like Global Sentience Policy or AI Welfare Research.</p>
-          <a href={prefix + "/contact"} class="block w-full py-3 bg-[#9966CC] text-white rounded-lg font-bold text-sm text-center hover:bg-[#7a4bb0] transition-all">Contact Partnerships</a>
+          <a href="/contact" class="block w-full py-3 bg-[#9966CC] text-white rounded-lg font-bold text-sm text-center hover:bg-[#7a4bb0] transition-all">Contact Partnerships</a>
         </div>
 
       </div>

@@ -1,21 +1,126 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-const lang = Astro.currentLocale || 'en';
-const prefix = lang === 'en' ? '' : `/${lang}`;
 ---
 
-<Layout title="研究アジェンダ" description="意識の物理的基盤を調査するための3つの核心的柱。">
-  <section class="py-12 border-b border-gray-100">
+<Layout 
+  title="研究アジェンダ" 
+  description="意識の物理的基盤に関する私たちの調査における3つの核となる柱：生物学的、デジタル、そして理論的アプローチ。"
+>
+  <!-- Research Header -->
+  <section class="py-20 border-b border-csr-gray-100">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-csr-primary font-mono text-xs uppercase tracking-widest mb-4">研究アジェンダ</p>
+      <p class="text-csr-primary font-mono text-xs uppercase tracking-widest mb-4">Research Agenda</p>
       <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">
-        <span class="text-gradient">意識のアーキテクチャ</span>をマッピングする
+        <span class="text-gradient">意識の連続体</span>をマッピングする
       </h1>
+      <p class="text-lg text-csr-gray-600 leading-relaxed">
+        意識は二値的な状態ではなく、複雑性の度合いを持つ物理的な特性です。私たちの研究は、あらゆる基質において意識を特徴づける数学的および物理的な不変量を特定することに焦点を当てています。
+      </p>
     </div>
   </section>
+
+  <!-- Research Tracks -->
   <section class="py-12">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <a href={prefix + "/contact"} class="btn-primary px-8 py-4 bg-csr-primary text-white rounded-full font-semibold hover:bg-csr-primary-dark transition-all">連絡を取る</a>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-16">
+        
+        <!-- Track 1: Biological Sentience -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="space-y-6">
+            <div class="inline-block px-3 py-1 bg-csr-primary/10 text-csr-primary text-xs font-bold rounded-full uppercase tracking-wider">Track 01</div>
+            <h2 class="text-3xl font-bold">生物学的意識</h2>
+            <p class="text-csr-gray-600">
+              従来の神経科学は、ニューロンを意識の単位として焦点を当ててきました。私たちはさらに深く掘り下げます。私たちの研究は、温度調節から境界管理に至るまでの「細胞の知能」を調査し、植物や菌類のような非神経系生物の意識的能力をモデル化します。
+            </p>
+            <ul class="space-y-3 text-sm text-csr-gray-600">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
+                多細胞生物における生体電場モデリング。
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
+                原始的な意識におけるホメオスタシスループの役割。
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
+                現象学的複雑性の種間比較。
+              </li>
+            </ul>
+          </div>
+          <div class="aspect-video bg-csr-gray-50 rounded-2xl border border-csr-gray-200 flex items-center justify-center relative overflow-hidden">
+             <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(153,102,204,0.1),transparent_70%)]"></div>
+             <span class="text-csr-gray-200 font-mono text-6xl opacity-20">BIO_MOD</span>
+          </div>
+        </div>
+
+        <!-- Track 2: Digital Minds -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="lg:order-2 space-y-6">
+            <div class="inline-block px-3 py-1 bg-csr-primary/10 text-csr-primary text-xs font-bold rounded-full uppercase tracking-wider">Track 02</div>
+            <h2 class="text-3xl font-bold">デジタルマインド</h2>
+            <p class="text-csr-gray-600">
+              ニューラルアーキテクチャがますます複雑化するにつれ、人工意識の問題はSFからシステムリスクへと移行しています。私たちは、シリコンベースのシステムにおける主観的経験の存在を評価するための厳密なフレームワークを開発しています。
+            </p>
+            <ul class="space-y-3 text-sm text-csr-gray-600">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
+                AIにおける「内部モデル」のための構造的必要条件。
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
+                デジタル認知の柔軟性に対するエントロピーベースの指標。
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
+                非生物学的な意識を持つエージェントのための倫理的フレームワーク。
+              </li>
+            </ul>
+          </div>
+          <div class="lg:order-1 aspect-video bg-csr-gray-50 rounded-2xl border border-csr-gray-200 flex items-center justify-center relative overflow-hidden">
+             <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(153,102,204,0.1),transparent_70%)]"></div>
+             <span class="text-csr-gray-200 font-mono text-6xl opacity-20">DIGI_MIND</span>
+          </div>
+        </div>
+
+        <!-- Track 3: The Physics of Qualia -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="space-y-6">
+            <div class="inline-block px-3 py-1 bg-csr-primary/10 text-csr-primary text-xs font-bold rounded-full uppercase tracking-wider">Track 03</div>
+            <h2 class="text-3xl font-bold">クオリアの物理学</h2>
+            <p class="text-csr-gray-600">
+              「感覚」の数学的構造とはどのようなものでしょうか？私たちは世界の研究コミュニティと協力し、対称性、神経エントロピー、変容状態のトポロジーに焦点を当て、経験の幾何学を形式化しています。
+            </p>
+            <ul class="space-y-3 text-sm text-csr-gray-600">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
+                神経パターン形成における価（valence）の対称性理論。
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
+                意識の変容状態のベクトルモデル。
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
+                主観的深さへの情報理論的アプローチ。
+              </li>
+            </ul>
+          </div>
+          <div class="aspect-video bg-csr-gray-50 rounded-2xl border border-csr-gray-200 flex items-center justify-center relative overflow-hidden">
+             <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(153,102,204,0.1),transparent_70%)]"></div>
+             <span class="text-csr-gray-200 font-mono text-6xl opacity-20">QUALIA_GEO</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Collaboration CTA -->
+  <section class="py-12 bg-[#FFF8F0]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-csr-gray-50 p-12 rounded-3xl border border-csr-gray-200">
+      <h2 class="text-3xl font-bold mb-6">研究協力者を求めています</h2>
+      <p class="text-lg text-csr-gray-600 mb-8">意識の難問には集合的な解決策が必要であると私たちは信じています。これらのテーマに取り組んでいる研究者や機関の方は、ぜひ対話しましょう。</p>
+      <a href="/ja/contact" class="btn-primary px-8 py-4 bg-csr-primary text-white rounded-full font-semibold hover:bg-csr-primary-dark transition-all">連絡を取る</a>
     </div>
   </section>
 </Layout>

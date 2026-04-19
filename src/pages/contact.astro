@@ -1,16 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
-const lang = Astro.currentLocale || 'en';
-const prefix = lang === 'en' ? '' : `/${lang}`;
+import Search from '../components/Search.astro';
 ---
 
 <Layout 
   title="Contact" 
   description="Connect with the Center for Sentience Research."
 >
-  <section class="py-24">
+  <section class="py-12">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-8">Let's Connect</h1>
+      <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">Let's Connect</h1>
       <p class="text-lg text-csr-gray-600 mb-12">
         We are open to partnerships, research inquiries, and strategic dialogue. 
         Reach out to our team via the form below.

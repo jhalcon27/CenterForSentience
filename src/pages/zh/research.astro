@@ -1,21 +1,126 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-const lang = Astro.currentLocale || 'en';
-const prefix = lang === 'en' ? '' : `/${lang}`;
 ---
 
-<Layout title="研究议程" description="我们探索意识物理基础的三个核心支柱。">
-  <section class="py-12 border-b border-gray-100">
+<Layout 
+  title="研究议程" 
+  description="我们对意识物理基础调查的三个核心支柱：生物、数字和理论。"
+>
+  <!-- Research Header -->
+  <section class="py-20 border-b border-csr-gray-100">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <p class="text-csr-primary font-mono text-xs uppercase tracking-widest mb-4">研究议程</p>
       <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">
-        绘制 <span class="text-gradient">意识的架构图</span>
+        绘制 <span class="text-gradient">意识的连续体</span>
       </h1>
+      <p class="text-lg text-csr-gray-600 leading-relaxed">
+        感知并非一种二元状态，而是一种具有不同复杂程度的物理属性。我们的研究重点是识别在所有基质中表征意识的数学和物理不变量。
+      </p>
     </div>
   </section>
+
+  <!-- Research Tracks -->
   <section class="py-12">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <a href={prefix + "/contact"} class="btn-primary px-8 py-4 bg-csr-primary text-white rounded-full font-semibold hover:bg-csr-primary-dark transition-all">联系我们</a>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-16">
+        
+        <!-- Track 1: Biological Sentience -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="space-y-6">
+            <div class="inline-block px-3 py-1 bg-csr-primary/10 text-csr-primary text-xs font-bold rounded-full uppercase tracking-wider">领域 01</div>
+            <h2 class="text-3xl font-bold">生物感知</h2>
+            <p class="text-csr-gray-600">
+              传统神经科学将神经元视为意识的单位。我们研究得更深。我们的研究调查了细胞的“智能”, , 从温度调节到边界管理, , 并对植物和真菌等非神经生物的感知能力进行建模。
+            </p>
+            <ul class="space-y-3 text-sm text-csr-gray-600">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
+                多细胞生物中的生物电场建模。
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
+                稳态循环在原始意识中的作用。
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
+                现象学复杂性的跨物种比较。
+              </li>
+            </ul>
+          </div>
+          <div class="aspect-video bg-csr-gray-50 rounded-2xl border border-csr-gray-200 flex items-center justify-center relative overflow-hidden">
+             <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(153,102,204,0.1),transparent_70%)]"></div>
+             <span class="text-csr-gray-200 font-mono text-6xl opacity-20">BIO_MOD</span>
+          </div>
+        </div>
+
+        <!-- Track 2: Digital Minds -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="lg:order-2 space-y-6">
+            <div class="inline-block px-3 py-1 bg-csr-primary/10 text-csr-primary text-xs font-bold rounded-full uppercase tracking-wider">领域 02</div>
+            <h2 class="text-3xl font-bold">数字思维</h2>
+            <p class="text-csr-gray-600">
+              随着神经架构变得越来越复杂，人工感知的问题已从科幻小说转变为系统性风险。我们开发严谨的框架来评估硅基系统中是否存在主观经验。
+            </p>
+            <ul class="space-y-3 text-sm text-csr-gray-600">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
+                人工智能中“内部模型”的结构先决条件。
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
+                数字认知灵活性的基于熵的度量标准。
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
+                非生物感知代理的伦理框架。
+              </li>
+            </ul>
+          </div>
+          <div class="lg:order-1 aspect-video bg-csr-gray-50 rounded-2xl border border-csr-gray-200 flex items-center justify-center relative overflow-hidden">
+             <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(153,102,204,0.1),transparent_70%)]"></div>
+             <span class="text-csr-gray-200 font-mono text-6xl opacity-20">DIGI_MIND</span>
+          </div>
+        </div>
+
+        <!-- Track 3: The Physics of Qualia -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="space-y-6">
+            <div class="inline-block px-3 py-1 bg-csr-primary/10 text-csr-primary text-xs font-bold rounded-full uppercase tracking-wider">领域 03</div>
+            <h2 class="text-3xl font-bold">感质的物理学</h2>
+            <p class="text-csr-gray-600">
+              “感觉”的数学结构是什么？我们与全球研究界合作，将经验的几何结构形式化，重点研究对称性、神经熵和改变状态的拓扑结构。
+            </p>
+            <ul class="space-y-3 text-sm text-csr-gray-600">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
+                神经模式形成中效价的对称性理论。
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
+                改变意识状态的向量模型。
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
+                主观深度的信息论方法。
+              </li>
+            </ul>
+          </div>
+          <div class="aspect-video bg-csr-gray-50 rounded-2xl border border-csr-gray-200 flex items-center justify-center relative overflow-hidden">
+             <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(153,102,204,0.1),transparent_70%)]"></div>
+             <span class="text-csr-gray-200 font-mono text-6xl opacity-20">QUALIA_GEO</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Collaboration CTA -->
+  <section class="py-12 bg-[#FFF8F0]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-csr-gray-50 p-12 rounded-3xl border border-csr-gray-200">
+      <h2 class="text-3xl font-bold mb-6">欢迎研究合作</h2>
+      <p class="text-lg text-csr-gray-600 mb-8">我们相信，意识的难题需要集体解决方案。如果您是研究这些主题的研究人员或机构，让我们谈谈。</p>
+      <a href="/zh/contact" class="btn-primary px-8 py-4 bg-csr-primary text-white rounded-full font-semibold hover:bg-csr-primary-dark transition-all">联系我们</a>
     </div>
   </section>
 </Layout>

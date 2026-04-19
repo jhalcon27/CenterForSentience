@@ -10,7 +10,7 @@
     </svg>
   </button>
 
-  <div class="search-overlay hidden fixed inset-0 z-[60] bg-csr-bg/95 backdrop-blur-sm p-4 md:p-20">
+  <div class="search-overlay hidden fixed inset-0 z-[60] bg-[#FFF8F0]/95 backdrop-blur-sm p-4 md:p-20">
     <div class="max-w-3xl mx-auto">
       <div class="flex items-center justify-between mb-8 border-b-2 border-csr-primary pb-4">
         <input
@@ -34,8 +34,6 @@
 <script>
   function initSearch() {
     const containers = document.querySelectorAll('[data-csr-search]');
-    const lang = document.documentElement.lang || 'en';
-    const prefix = lang === 'en' ? '' : `/${lang}`;
     
     containers.forEach(container => {
       const btn = container.querySelector('.search-btn');
@@ -59,8 +57,34 @@
         if (e.target === overlay) close();
       });
 
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') close();
+      });
+
+      // Search index covering all site pages
+      const pages = [
+        { title: 'First Principles of Sentience Research', type: 'White Paper', url: '/reports/first-principles' },
+        { title: 'Bio-Electric Fields as Sentience Substrates', type: 'White Paper', url: '/reports/bio-electric-fields' },
+        { title: 'Assembly Theory as a Metric for Sentience', type: 'White Paper', url: '/reports/assembly-theory' },
+        { title: 'Symmetry Landscapes of Valenced Experience', type: 'White Paper', url: '/reports/symmetry-landscapes' },
+        { title: 'Research Reports', type: 'Page', url: '/reports/' },
+        { title: 'Research Agenda', type: 'Page', url: '/research' },
+        { title: 'Biological Intelligence', type: 'Research Track', url: '/research#biological' },
+        { title: 'Digital Minds & AI Safety', type: 'Research Track', url: '/research#digital' },
+        { title: 'Physics of Qualia', type: 'Research Track', url: '/research#qualia' },
+        { title: 'About the Center for Sentience Research', type: 'Page', url: '/about' },
+        { title: 'Support / Donate', type: 'Page', url: '/donate' },
+        { title: 'Tax-Deductible Contributions', type: 'Policy', url: '/donate' },
+        { title: 'Contact', type: 'Page', url: '/contact' },
+        { title: 'Substrate Neutrality', type: 'Concept', url: '/research#biological' },
+        { title: 'Neural Entropy', type: 'Concept', url: '/reports/first-principles' },
+        { title: 'Active Inference', type: 'Concept', url: '/reports/first-principles' },
+        { title: 'Phenomenology Engineering', type: 'Concept', url: '/reports/first-principles' },
+        { title: 'Qualia Research Institute', type: 'Partner', url: 'https://qri.org' },
+      ];
+
       input?.addEventListener('input', (e) => {
-        const query = (e.target as HTMLInputElement).value.toLowerCase();
+        const query = (e.target as HTMLInputElement).value.toLowerCase().trim();
         const resultsContainer = container.querySelector('.search-results');
         if (!resultsContainer) return;
 
@@ -69,25 +93,19 @@
           return;
         }
 
-        const pages = [
-          { title: 'Qualia Research Institute', type: 'Partner', url: 'https://qri.org' },
-          { title: 'First Principles', type: 'Report', url: '/reports/first-principles' },
-          { title: 'Biological Intelligence', type: 'Research Track', url: '/research#biological' },
-          { title: 'Digital Minds', type: 'Research Track', url: '/research#digital' },
-          { title: 'Physics of Qualia', type: 'Research Track', url: '/research#qualia' },
-          { title: 'Donate', type: 'Policy', url: '/donate' }
-        ];
-
-        const matches = pages.filter(p => p.title.toLowerCase().includes(query));
+        const matches = pages.filter(p => 
+          p.title.toLowerCase().includes(query) || 
+          p.type.toLowerCase().includes(query)
+        );
         
         resultsContainer.innerHTML = matches.length > 0 
           ? matches.map(m => `
-              <a href="${m.url.startsWith('http') ? m.url : prefix + m.url}" class="block p-4 rounded-xl hover:bg-csr-gray-50 border border-transparent hover:border-csr-gray-100 transition-all">
+              <a href="${m.url}" class="block p-4 rounded-xl hover:bg-csr-gray-100 border border-transparent hover:border-csr-gray-200 transition-all">
                 <p class="text-xs font-mono uppercase tracking-widest text-csr-primary mb-1">${m.type}</p>
                 <h4 class="text-xl font-bold text-csr-black">${m.title}</h4>
               </a>
             `).join('')
-          : `<p class="text-csr-gray-600 italic">No research results found for "${query}"</p>`;
+          : `<p class="text-csr-gray-600 italic">No results found for "<strong>${query}</strong>"</p>`;
       });
     });
   }

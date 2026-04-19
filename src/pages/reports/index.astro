@@ -1,0 +1,77 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const reports = [
+  {
+    slug: 'first-principles',
+    title: 'First Principles of Sentience Research',
+    code: 'CSR-WP-01',
+    excerpt: 'The foundational framework for modeling awareness as a physical phenomenon across biological and digital substrates.',
+    date: '2026-04-17',
+    tags: ['Foundational', 'Physics'],
+  },
+  {
+    slug: 'bio-electric-fields',
+    title: 'Bio-Electric Fields as Sentience Substrates',
+    code: 'CSR-WP-02',
+    excerpt: 'Exploring morphological intelligence and cellular decision-making as evidence of substrate-neutral awareness.',
+    date: '2026-04-17',
+    tags: ['Biology', 'Intelligence'],
+  },
+  {
+    slug: 'assembly-theory',
+    title: 'Assembly Theory as a Metric for Sentience',
+    code: 'CSR-WP-03',
+    excerpt: 'Quantifying sentience through the assembly index of physical information structures.',
+    date: '2026-04-17',
+    tags: ['Physics', 'Information'],
+  },
+  {
+    slug: 'symmetry-landscapes',
+    title: 'Symmetry Landscapes of Valenced Experience',
+    code: 'CSR-WP-04',
+    excerpt: 'Mapping the neural energy landscapes of experience and the geometry of valence.',
+    date: '2026-04-17',
+    tags: ['Neuroscience', 'Qualia'],
+  },
+];
+---
+
+<Layout title="Research Reports" description="Working papers and research reports from the Center for Sentience Research.">
+  <section class="py-20 border-b border-csr-gray-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-csr-primary font-mono text-xs uppercase tracking-widest mb-4">Working Papers</p>
+      <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">
+        Research <span class="text-gradient">Reports</span>
+      </h1>
+      <p class="text-lg text-csr-gray-600 leading-relaxed">
+        Our working papers represent ongoing research into the physical foundations of sentience. All papers are works in progress and subject to revision.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-6">
+        {reports.map(report => (
+          <a href={`/reports/${report.slug}`} class="block p-8 border border-csr-gray-100 rounded-2xl hover:border-csr-primary/30 transition-all bg-[#FFF8F0]">
+            <div class="flex items-start justify-between gap-4">
+              <div class="flex-1">
+                <p class="text-csr-primary font-mono text-xs uppercase tracking-widest mb-2">{report.code} · {report.date}</p>
+                <h2 class="text-xl font-bold mb-3">{report.title}</h2>
+                <p class="text-csr-gray-600 text-sm leading-relaxed">{report.excerpt}</p>
+                <div class="flex gap-2 mt-4">
+                  {report.tags.map(tag => (
+                    <span class="text-xs font-mono px-2 py-1 bg-csr-primary/10 text-csr-primary rounded">{tag}</span>
+                  ))}
+                  <span class="text-xs font-mono px-2 py-1 bg-gray-100 text-gray-500 rounded">WIP</span>
+                </div>
+              </div>
+              <span class="text-csr-primary text-sm font-bold shrink-0">Read &rarr;</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
