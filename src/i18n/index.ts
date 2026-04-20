@@ -13,6 +13,7 @@ export const ui = {
   en: {
     'nav.research': 'Research',
     'nav.reports': 'Reports',
+    'nav.ecosystem': 'Ecosystem',
     'nav.about': 'About',
     'nav.donate': 'Support',
     'hero.title': 'Modeling the physical foundations of awareness',
@@ -24,6 +25,7 @@ export const ui = {
   de: {
     'nav.research': 'Forschung',
     'nav.reports': 'Berichte',
+    'nav.ecosystem': 'Ökosystem',
     'nav.about': 'Über uns',
     'nav.donate': 'Unterstützen',
     'hero.title': 'Modellierung der physikalischen Grundlagen des Bewusstseins',
@@ -35,6 +37,7 @@ export const ui = {
   es: {
     'nav.research': 'Investigación',
     'nav.reports': 'Informes',
+    'nav.ecosystem': 'Ecosistema',
     'nav.about': 'Acerca de',
     'nav.donate': 'Apoyar',
     'hero.title': 'Modelando los fundamentos físicos de la conciencia',
@@ -46,6 +49,7 @@ export const ui = {
   fr: {
     'nav.research': 'Recherche',
     'nav.reports': 'Rapports',
+    'nav.ecosystem': 'Écosystème',
     'nav.about': 'À propos',
     'nav.donate': 'Soutenir',
     'hero.title': 'Modéliser les fondements physiques de la conscience',
@@ -57,6 +61,7 @@ export const ui = {
   zh: {
     'nav.research': '研究',
     'nav.reports': '报告',
+    'nav.ecosystem': '生态系统',
     'nav.about': '关于',
     'nav.donate': '支持',
     'hero.title': '为意识的物理基础建模',
@@ -68,6 +73,7 @@ export const ui = {
   ja: {
     'nav.research': '研究',
     'nav.reports': 'レポート',
+    'nav.ecosystem': 'エコシステム',
     'nav.about': '概要',
     'nav.donate': 'サポート',
     'hero.title': '意識の物理的基盤をモデル化する',
