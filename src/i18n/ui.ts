@@ -3,6 +3,7 @@ export const ui = {
     nav: {
       research: 'Research',
       reports: 'Reports',
+      ecosystem: 'Ecosystem',
       about: 'About',
       resources: 'Resources',
       support: 'Support'
@@ -17,6 +18,7 @@ export const ui = {
     nav: {
       research: 'Forschung',
       reports: 'Berichte',
+      ecosystem: 'Ökosystem',
       about: 'Über uns',
       resources: 'Ressourcen',
       support: 'Unterstützen'
@@ -31,6 +33,7 @@ export const ui = {
     nav: {
       research: 'Investigación',
       reports: 'Informes',
+      ecosystem: 'Ecosistema',
       about: 'Acerca de',
       resources: 'Recursos',
       support: 'Apoyar'
@@ -45,6 +48,7 @@ export const ui = {
     nav: {
       research: 'Recherche',
       reports: 'Rapports',
+      ecosystem: 'Écosystème',
       about: 'À propos',
       resources: 'Ressources',
       support: 'Soutenir'
@@ -59,6 +63,7 @@ export const ui = {
     nav: {
       research: '研究',
       reports: '报告',
+      ecosystem: '生态系统',
       about: '关于',
       resources: '资源',
       support: '支持'
@@ -73,6 +78,7 @@ export const ui = {
     nav: {
       research: '研究',
       reports: 'レポート',
+      ecosystem: 'エコシステム',
       about: '当センターについて',
       resources: 'リソース',
       support: '支援'

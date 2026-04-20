@@ -1,0 +1,98 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const institutes = [
+  {
+    name: "Qualia Research Institute (QRI)",
+    description: "Una organización sin fines de lucro dedicada a mapear la estructura matemática de la experiencia consciente.",
+    link: "https://qri.org",
+    tag: "Sin fines de lucro"
+  },
+  {
+    name: "Levin Lab",
+    description: "Dirigido por Michael Levin en la Universidad de Tufts, investigando bioelectricidad, medicina regenerativa y morfología sintética.",
+    link: "https://www.drmichaellevin.org",
+    tag: "Laboratorio de Investigación"
+  },
+  {
+    name: "Cronin Group",
+    description: "Dirigido por Lee Cronin en la Universidad de Glasgow, explorando los orígenes de la vida y la Teoría de Ensamblaje.",
+    link: "https://www.chem.gla.ac.uk/cronin/",
+    tag: "Laboratorio de Investigación"
+  },
+  {
+    name: "Robin Carhart-Harris",
+    description: "Director fundador de la División de Psicodélicos Neuroscape en la UCSF, enfocado en el mecanismo de acción de los psicodélicos en el cerebro.",
+    link: "https://profiles.ucsf.edu/robin.carhart-harris",
+    tag: "Investigación"
+  },
+  {
+    name: "Sentience Institute",
+    description: "Un centro de pensamiento interdisciplinario que investiga las estrategias más efectivas para expandir el círculo moral de la humanidad.",
+    link: "https://www.sentienceinstitute.org",
+    tag: "Centro de Pensamiento"
+  }
+];
+---
+
+<Layout 
+  title="Ecosistema" 
+  description="Organizaciones aliadas e institutos de investigación que trabajan en los fundamentos físicos de la conciencia y la expansión de nuestro círculo moral."
+>
+  <!-- Header -->
+  <section class="py-20 border-b border-csr-gray-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-csr-primary font-mono text-xs uppercase tracking-widest mb-4">Ecosistema</p>
+      <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">
+        La <span class="text-gradient">red</span> de investigación
+      </h1>
+      <p class="text-lg text-csr-gray-600 leading-relaxed">
+        CSR opera dentro de un ecosistema más amplio de investigadores, laboratorios y organizaciones sin fines de lucro dedicados a comprender la naturaleza de la mente y los fundamentos físicos de la sintiencia.
+      </p>
+    </div>
+  </section>
+
+  <!-- Institutes Grid -->
+  <section class="py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {institutes.map((inst) => (
+          <a 
+            href={inst.link} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="group p-8 bg-white border border-gray-100 rounded-3xl hover:border-[#9966CC]/30 hover:shadow-xl hover:shadow-[#9966CC]/5 transition-all duration-300 flex flex-col justify-between"
+          >
+            <div>
+              <div class="flex justify-between items-start mb-4">
+                <span class="text-[10px] font-mono uppercase tracking-wider text-[#9966CC] bg-[#9966CC]/5 px-2 py-1 rounded">
+                  {inst.tag}
+                </span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300 group-hover:text-[#9966CC] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold mb-3 group-hover:text-[#9966CC] transition-colors">{inst.name}</h3>
+              <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                {inst.description}
+              </p>
+            </div>
+            <div class="text-[#9966CC] text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+              Visitar Sitio Web
+              <span>&rarr;</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Collaboration CTA -->
+  <section class="py-20 bg-csr-gray-50 border-t border-csr-gray-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl font-bold mb-4">Crecimiento de la Red</h2>
+      <p class="text-csr-gray-600 mb-8">Buscamos constantemente alinearnos con organizaciones e investigadores que desafían los límites de la ciencia de la conciencia.</p>
+      <a href="/es/contact" class="inline-block bg-[#9966CC] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#8055ab] transition-all">Sugerir una adición</a>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,98 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const institutes = [
+  {
+    name: "Qualia Research Institute (QRI)",
+    description: "一家致力于绘制人类意识体验数学结构的非营利组织。",
+    link: "https://qri.org",
+    tag: "非营利组织"
+  },
+  {
+    name: "Levin Lab",
+    description: "由塔夫茨大学的 Michael Levin 领导，研究生物电、再生医学和合成形态学。",
+    link: "https://www.drmichaellevin.org",
+    tag: "研究实验室"
+  },
+  {
+    name: "Cronin Group",
+    description: "由格拉斯哥大学的 Lee Cronin 领导，探索生命的起源和组装理论（Assembly Theory）。",
+    link: "https://www.chem.gla.ac.uk/cronin/",
+    tag: "研究实验室"
+  },
+  {
+    name: "Robin Carhart-Harris",
+    description: "加州大学旧金山分校（UCSF）Neuroscape 精神药物部门的创始人，专注于研究精神药物在大脑中的作用机制。",
+    link: "https://profiles.ucsf.edu/robin.carhart-harris",
+    tag: "研究人员"
+  },
+  {
+    name: "Sentience Institute",
+    description: "一家跨学科智库，研究扩展人类道德圈的最有效策略。",
+    link: "https://www.sentienceinstitute.org",
+    tag: "智库"
+  }
+];
+---
+
+<Layout 
+  title="生态系统" 
+  description="致力于意识的物理基础研究和扩大我们道德圈的盟友组织与研究机构。"
+>
+  <!-- Header -->
+  <section class="py-20 border-b border-csr-gray-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-csr-primary font-mono text-xs uppercase tracking-widest mb-4">生态系统</p>
+      <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">
+        研究<span class="text-gradient">网络</span>
+      </h1>
+      <p class="text-lg text-csr-gray-600 leading-relaxed">
+        CSR 在一个更广泛的研究人员、实验室和非营利组织生态系统中运作，致力于理解思想的本质和感知力的物理基础。
+      </p>
+    </div>
+  </section>
+
+  <!-- Institutes Grid -->
+  <section class="py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {institutes.map((inst) => (
+          <a 
+            href={inst.link} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="group p-8 bg-white border border-gray-100 rounded-3xl hover:border-[#9966CC]/30 hover:shadow-xl hover:shadow-[#9966CC]/5 transition-all duration-300 flex flex-col justify-between"
+          >
+            <div>
+              <div class="flex justify-between items-start mb-4">
+                <span class="text-[10px] font-mono uppercase tracking-wider text-[#9966CC] bg-[#9966CC]/5 px-2 py-1 rounded">
+                  {inst.tag}
+                </span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300 group-hover:text-[#9966CC] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold mb-3 group-hover:text-[#9966CC] transition-colors">{inst.name}</h3>
+              <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                {inst.description}
+              </p>
+            </div>
+            <div class="text-[#9966CC] text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+              访问网站
+              <span>&rarr;</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Collaboration CTA -->
+  <section class="py-20 bg-csr-gray-50 border-t border-csr-gray-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl font-bold mb-4">网络增长</h2>
+      <p class="text-csr-gray-600 mb-8">我们一直在寻求与那些突破意识科学界限的组织和研究人员保持一致。</p>
+      <a href="/zh/contact" class="inline-block bg-[#9966CC] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#8055ab] transition-all">建议添加</a>
+    </div>
+  </section>
+</Layout>
