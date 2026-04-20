@@ -41,13 +41,20 @@ const t = useTranslations(currentLang as any);
     <nav class="sticky top-0 z-50 bg-[#FFF8F0]/80 backdrop-blur-md border-b border-gray-200">
       <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
         <a href={getRelativeLocaleUrl(currentLang, '/')} class="flex items-center gap-2">
-            <div class="w-10 h-10 rounded bg-[#9966CC] flex items-center justify-center text-white font-bold text-xl">C</div>
+            <div class="w-10 h-10 rounded bg-[#9966CC] flex items-center justify-center text-white font-bold text-xl shrink-0">C</div>
             <div class="flex flex-col">
-              <span class="font-bold text-lg text-black">Center for Sentience</span>
-              <span class="text-[10px] font-mono uppercase tracking-[0.2em] text-[#9966CC]">Research Institute</span>
+              <span class="font-bold text-lg text-black sm:text-lg text-base">Center for Sentience</span>
+              <span class="text-[10px] font-mono uppercase tracking-[0.2em] text-[#9966CC] hidden sm:block">Research Institute</span>
             </div>
         </a>
-        <div class="flex items-center gap-4">
+        
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 hover:text-black">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+
+        <div class="hidden md:flex items-center gap-4">
             <a href={getRelativeLocaleUrl(currentLang, 'research')} class="text-sm font-medium hover:text-[#9966CC]">{t('nav.research')}</a>
             <a href={getRelativeLocaleUrl(currentLang, 'reports')} class="text-sm font-medium hover:text-[#9966CC]">{t('nav.reports')}</a>
             <a href={getRelativeLocaleUrl(currentLang, 'about')} class="text-sm font-medium hover:text-[#9966CC]">{t('nav.about')}</a>
@@ -56,7 +63,29 @@ const t = useTranslations(currentLang as any);
             <LanguageSwitcher lang={currentLang} />
         </div>
       </div>
+
+      <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200 bg-[#FFF8F0]">
+        <div class="px-4 py-4 flex flex-col gap-4">
+            <a href={getRelativeLocaleUrl(currentLang, 'research')} class="text-sm font-medium hover:text-[#9966CC]">{t('nav.research')}</a>
+            <a href={getRelativeLocaleUrl(currentLang, 'reports')} class="text-sm font-medium hover:text-[#9966CC]">{t('nav.reports')}</a>
+            <a href={getRelativeLocaleUrl(currentLang, 'about')} class="text-sm font-medium hover:text-[#9966CC]">{t('nav.about')}</a>
+            <a href={getRelativeLocaleUrl(currentLang, 'donate')} class="bg-[#9966CC] text-white px-4 py-2 rounded-full text-sm font-medium text-center">{t('nav.donate')}</a>
+            <div class="flex items-center justify-between pt-4 border-t border-gray-200">
+              <Search />
+              <LanguageSwitcher lang={currentLang} />
+            </div>
+        </div>
+      </div>
     </nav>
     <main class="flex-grow"><slot /></main>
+    <script>
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      if (btn && menu) {
+        btn.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+        });
+      }
+    </script>
   </body>
 </html>
