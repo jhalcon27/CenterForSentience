@@ -4,19 +4,34 @@ import Layout from '../../layouts/Layout.astro';
 
 <Layout title="绘制意识架构">
   <!-- Hero Section -->
-  <section class="py-12 md:py-32 relative overflow-hidden">
+  <section class="py-16 md:py-20 relative overflow-hidden">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(153,102,204,0.05),transparent_50%)]"></div>
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-      <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">
-        测量并量化<br/>
-        <span class="text-gradient">意识</span>
-      </h1>
-      <p class="text-xl text-csr-gray-600 max-w-3xl mx-auto leading-relaxed mb-12">
-        感知研究中心 (CSR) 是一家独立的瑞士非营利组织，致力于建立在不同基质上测量感知的基本框架。我们在物理学、神经科学和哲学之间架起桥梁，研究三个领域：生物思维（形态智能和细胞决策）、数字思维（感知是否以及如何在非生物系统中出现）以及感受质（经验和效价的物理结构）。这项工作非常紧迫。随着人工智能系统越来越表现出感知能力，以及科学在意想不到的生物基质中揭示出类似意识的特性，社会需要严格的、独立于基质的方法来评估此类声明。如果没有科学基础，这些问题将由直觉、商业利益或意识形态来决定。CSR 的存在就是为了在这种情况发生之前提供测量框架。
-      </p>
+      
+      <!-- Header -->
+      <div class="mb-12">
+        <p class="text-sm md:text-base font-bold text-csr-primary uppercase tracking-widest mb-3">执行摘要</p>
+        <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+          测量并量化<br/>
+          <span class="text-gradient">意识</span>
+        </h1>
+        <p class="text-base md:text-lg text-csr-gray-500 max-w-2xl mx-auto">
+          一家总部位于瑞士的独立非营利组织。
+        </p>
+      </div>
+
+      <!-- Executive Summary Body -->
+      <div class="text-left max-w-3xl mx-auto bg-white/50 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-csr-gray-100 shadow-sm mb-12">
+        <p class="text-sm md:text-base text-csr-gray-600 leading-relaxed mb-4">
+          感知研究中心 (CSR) 是一家独立的瑞士非营利组织，致力于建立在不同基质上测量感知的基本框架。我们在物理学、神经科学和哲学之间架起桥梁，研究三个领域：生物思维（形态智能和细胞决策）、数字思维（感知是否以及如何在非生物系统中出现）以及感受质（经验和效价的物理结构）。
+        </p>
+        <p class="text-sm md:text-base text-csr-gray-600 leading-relaxed">
+          这项工作非常紧迫。随着人工智能系统越来越表现出感知能力，以及科学在意想不到的生物基质中揭示出类似意识的特性，社会需要严格的、独立于基质的方法来评估此类声明。如果没有科学基础，这些问题将由直觉、商业利益或意识形态来决定。CSR 的存在就是为了在这种情况发生之前提供测量框架。
+        </p>
+      </div>
       <div class="flex flex-wrap justify-center gap-4">
-        <a href="/zh/research" class="btn-primary px-8 py-4 bg-csr-primary text-white rounded-full font-semibold hover:bg-csr-primary-dark transition-all shadow-xl shadow-csr-primary/30">研究议程</a>
-        <a href="#outputs" class="px-8 py-4 border border-csr-gray-200 rounded-full font-semibold hover:bg-csr-gray-50 transition-all">白皮书</a>
+        <a href="/zh/research" class="btn-primary px-6 py-3 bg-csr-primary text-white rounded-full font-semibold hover:bg-csr-primary-dark transition-all shadow-lg shadow-csr-primary/20">研究议程</a>
+        <a href="#outputs" class="px-6 py-3 border border-csr-gray-200 rounded-full font-semibold hover:bg-csr-gray-50 transition-all">白皮书</a>
       </div>
     </div>
   </section>

@@ -4,19 +4,34 @@ import Layout from '../../layouts/Layout.astro';
 
 <Layout title="意識のアーキテクチャをマッピングする">
   <!-- Hero Section -->
-  <section class="py-12 md:py-32 relative overflow-hidden">
+  <section class="py-16 md:py-20 relative overflow-hidden">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(153,102,204,0.05),transparent_50%)]"></div>
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-      <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">
-        意識を測定し、<br/>
-        <span class="text-gradient">定量化する</span>
-      </h1>
-      <p class="text-xl text-csr-gray-600 max-w-3xl mx-auto leading-relaxed mb-12">
-        Center for Sentience Research (CSR) は、様々な基盤にわたる意識を測定するための基本的なフレームワークを構築している独立したスイスの非営利団体です。物理学、神経科学、哲学を融合させ、私たちは3つの領域を研究しています：生物学的な精神（形態学的知能と細胞の意思決定）、デジタルな精神（非生物学的システムにおいて感覚がどのように出現し得るか）、そしてクオリア（経験と感情の物理的構造）です。この研究は急務です。AIシステムが感覚を持つかのように振る舞うことが増え、科学が予期せぬ生物学的基盤に意識のような特性を明らかにしている今、社会はこのような主張を評価するための厳密で基盤に依存しない手法を必要としています。科学的根拠がなければ、これらの問題は直感、商業的利益、またはイデオロギーによって決定されることになります。CSRは、そうなる前に測定フレームワークを提供するために存在しています。
-      </p>
+      
+      <!-- Header -->
+      <div class="mb-12">
+        <p class="text-sm md:text-base font-bold text-csr-primary uppercase tracking-widest mb-3">エグゼクティブ・サマリー</p>
+        <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+          意識を測定し、<br/>
+          <span class="text-gradient">定量化する</span>
+        </h1>
+        <p class="text-base md:text-lg text-csr-gray-500 max-w-2xl mx-auto">
+          スイスを拠点とする独立した非営利団体です。
+        </p>
+      </div>
+
+      <!-- Executive Summary Body -->
+      <div class="text-left max-w-3xl mx-auto bg-white/50 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-csr-gray-100 shadow-sm mb-12">
+        <p class="text-sm md:text-base text-csr-gray-600 leading-relaxed mb-4">
+          Center for Sentience Research (CSR) は、様々な基盤にわたる意識を測定するための基本的なフレームワークを構築している独立したスイスの非営利団体です。物理学、神経科学、哲学を融合させ、私たちは3つの領域を研究しています：生物学的な精神（形態学的知能と細胞の意思決定）、デジタルな精神（非生物学的システムにおいて感覚がどのように出現し得るか）、そしてクオリア（経験と感情の物理的構造）です。
+        </p>
+        <p class="text-sm md:text-base text-csr-gray-600 leading-relaxed">
+          この研究は急務です。AIシステムが感覚を持つかのように振る舞うことが増え、科学が予期せぬ生物学的基盤に意識のような特性を明らかにしている今、社会はこのような主張を評価するための厳密で基盤に依存しない手法を必要としています。科学的根拠がなければ、これらの問題は直感、商業的利益、またはイデオロギーによって決定されることになります。CSRは、そうなる前に測定フレームワークを提供するために存在しています。
+        </p>
+      </div>
       <div class="flex flex-wrap justify-center gap-4">
-        <a href="/ja/research" class="btn-primary px-8 py-4 bg-csr-primary text-white rounded-full font-semibold hover:bg-csr-primary-dark transition-all shadow-xl shadow-csr-primary/30">研究アジェンダ</a>
-        <a href="#outputs" class="px-8 py-4 border border-csr-gray-200 rounded-full font-semibold hover:bg-csr-gray-50 transition-all">ホワイトペーパー</a>
+        <a href="/ja/research" class="btn-primary px-6 py-3 bg-csr-primary text-white rounded-full font-semibold hover:bg-csr-primary-dark transition-all shadow-lg shadow-csr-primary/20">研究アジェンダ</a>
+        <a href="#outputs" class="px-6 py-3 border border-csr-gray-200 rounded-full font-semibold hover:bg-csr-gray-50 transition-all">ホワイトペーパー</a>
       </div>
     </div>
   </section>

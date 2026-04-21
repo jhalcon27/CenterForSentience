@@ -4,19 +4,34 @@ import Layout from '../../layouts/Layout.astro';
 
 <Layout title="Cartographier l'architecture de la conscience">
   <!-- Section Héros -->
-  <section class="py-12 md:py-32 relative overflow-hidden">
+  <section class="py-16 md:py-20 relative overflow-hidden">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(153,102,204,0.05),transparent_50%)]"></div>
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-      <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">
-        Mesurer et quantifier la<br/>
-        <span class="text-gradient">conscience</span>
-      </h1>
-      <p class="text-xl text-csr-gray-600 max-w-3xl mx-auto leading-relaxed mb-12">
-        Le Center for Sentience Research (CSR) est une organisation indépendante suisse à but non lucratif qui construit le cadre fondamental pour mesurer la conscience à travers différents substrats. Faisant le pont entre la physique, les neurosciences et la philosophie, nous étudions trois domaines : les esprits biologiques (intelligence morphologique et prise de décision cellulaire), les esprits numériques (si et comment la sentience pourrait émerger dans des systèmes non biologiques), et les qualia (la structure physique de l'expérience et de la valence). Ce travail est urgent. Alors que les systèmes d'IA se présentent de plus en plus comme sentients et que la science révèle des propriétés similaires à la conscience dans des substrats biologiques inattendus, la société a besoin de méthodes rigoureuses et indépendantes des substrats pour évaluer de telles affirmations. Sans fondements scientifiques, ces questions seront décidées par l'intuition, les intérêts commerciaux ou l'idéologie. Le CSR existe pour fournir les cadres de mesure avant que cela ne se produise.
-      </p>
+      
+      <!-- Header -->
+      <div class="mb-12">
+        <p class="text-sm md:text-base font-bold text-csr-primary uppercase tracking-widest mb-3">Résumé Exécutif</p>
+        <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+          Mesurer et quantifier la<br/>
+          <span class="text-gradient">conscience</span>
+        </h1>
+        <p class="text-base md:text-lg text-csr-gray-500 max-w-2xl mx-auto">
+          Une organisation indépendante à but non lucratif basée en Suisse.
+        </p>
+      </div>
+
+      <!-- Executive Summary Body -->
+      <div class="text-left max-w-3xl mx-auto bg-white/50 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-csr-gray-100 shadow-sm mb-12">
+        <p class="text-sm md:text-base text-csr-gray-600 leading-relaxed mb-4">
+          Le Center for Sentience Research (CSR) est une organisation indépendante suisse à but non lucratif qui construit le cadre fondamental pour mesurer la conscience à travers différents substrats. Faisant le pont entre la physique, les neurosciences et la philosophie, nous étudions trois domaines : les esprits biologiques (intelligence morphologique et prise de décision cellulaire), les esprits numériques (si et comment la sentience pourrait émerger dans des systèmes non biologiques), et les qualia (la structure physique de l'expérience et de la valence).
+        </p>
+        <p class="text-sm md:text-base text-csr-gray-600 leading-relaxed">
+          Ce travail est urgent. Alors que les systèmes d'IA se présentent de plus en plus comme sentients et que la science révèle des propriétés similaires à la conscience dans des substrats biologiques inattendus, la société a besoin de méthodes rigoureuses et indépendantes des substrats pour évaluer de telles affirmations. Sans fondements scientifiques, ces questions seront décidées par l'intuition, les intérêts commerciaux ou l'idéologie. Le CSR existe pour fournir les cadres de mesure avant que cela ne se produise.
+        </p>
+      </div>
       <div class="flex flex-wrap justify-center gap-4">
-        <a href="/fr/research" class="btn-primary px-8 py-4 bg-csr-primary text-white rounded-full font-semibold hover:bg-csr-primary-dark transition-all shadow-xl shadow-csr-primary/30">Programme de Recherche</a>
-        <a href="#outputs" class="px-8 py-4 border border-csr-gray-200 rounded-full font-semibold hover:bg-csr-gray-50 transition-all">Livres Blancs</a>
+        <a href="/fr/research" class="btn-primary px-6 py-3 bg-csr-primary text-white rounded-full font-semibold hover:bg-csr-primary-dark transition-all shadow-lg shadow-csr-primary/20">Programme de Recherche</a>
+        <a href="#outputs" class="px-6 py-3 border border-csr-gray-200 rounded-full font-semibold hover:bg-csr-gray-50 transition-all">Livres Blancs</a>
       </div>
     </div>
   </section>

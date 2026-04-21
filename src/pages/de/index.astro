@@ -4,19 +4,34 @@ import Layout from '../../layouts/Layout.astro';
 
 <Layout title="Die Architektur des Bewusstseins kartieren" lang="de">
   <!-- Hero Section -->
-  <section class="py-12 md:py-32 relative overflow-hidden">
+  <section class="py-16 md:py-20 relative overflow-hidden">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(153,102,204,0.05),transparent_50%)]"></div>
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-      <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">
-        Bewusstsein messen und <br/>
-        <span class="text-gradient">quantifizieren</span>
-      </h1>
-      <p class="text-xl text-csr-gray-600 max-w-3xl mx-auto leading-relaxed mb-12">
-        Das Center for Sentience Research (CSR) ist eine unabhängige Schweizer Non-Profit-Organisation, die das grundlegende Rahmenwerk zur Messung von Bewusstsein über verschiedene Substrate hinweg aufbaut. An der Schnittstelle von Physik, Neurowissenschaften und Philosophie untersuchen wir drei Bereiche: biologische Bewusstseine (morphologische Intelligenz und zelluläre Entscheidungsfindung), digitale Bewusstseine (ob und wie Empfindungsfähigkeit in nicht-biologischen Systemen entstehen könnte) und Qualia (die physikalische Struktur von Erfahrung und Valenz). Diese Arbeit ist dringend. Da KI-Systeme zunehmend als empfindungsfähig erscheinen und die Wissenschaft bewusstseinsähnliche Eigenschaften in unerwarteten biologischen Substraten aufdeckt, benötigt die Gesellschaft strenge, substratunabhängige Methoden, um solche Behauptungen zu bewerten. Ohne wissenschaftliche Grundlagen werden diese Fragen durch Intuition, kommerzielle Interessen oder Ideologie entschieden. Das CSR existiert, um die Messrahmen bereitzustellen, bevor das passiert.
-      </p>
+      
+      <!-- Header -->
+      <div class="mb-12">
+        <p class="text-sm md:text-base font-bold text-csr-primary uppercase tracking-widest mb-3">Zusammenfassung (Executive Summary)</p>
+        <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+          Bewusstsein messen und <br/>
+          <span class="text-gradient">quantifizieren</span>
+        </h1>
+        <p class="text-base md:text-lg text-csr-gray-500 max-w-2xl mx-auto">
+          Eine unabhängige Non-Profit-Organisation mit Sitz in der Schweiz.
+        </p>
+      </div>
+
+      <!-- Executive Summary Body -->
+      <div class="text-left max-w-3xl mx-auto bg-white/50 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-csr-gray-100 shadow-sm mb-12">
+        <p class="text-sm md:text-base text-csr-gray-600 leading-relaxed mb-4">
+          Das Center for Sentience Research (CSR) ist eine unabhängige Schweizer Non-Profit-Organisation, die das grundlegende Rahmenwerk zur Messung von Bewusstsein über verschiedene Substrate hinweg aufbaut. An der Schnittstelle von Physik, Neurowissenschaften und Philosophie untersuchen wir drei Bereiche: biologische Bewusstseine (morphologische Intelligenz und zelluläre Entscheidungsfindung), digitale Bewusstseine (ob und wie Empfindungsfähigkeit in nicht-biologischen Systemen entstehen könnte) und Qualia (die physikalische Struktur von Erfahrung und Valenz).
+        </p>
+        <p class="text-sm md:text-base text-csr-gray-600 leading-relaxed">
+          Diese Arbeit ist dringend. Da KI-Systeme zunehmend als empfindungsfähig erscheinen und die Wissenschaft bewusstseinsähnliche Eigenschaften in unerwarteten biologischen Substraten aufdeckt, benötigt die Gesellschaft strenge, substratunabhängige Methoden, um solche Behauptungen zu bewerten. Ohne wissenschaftliche Grundlagen werden diese Fragen durch Intuition, kommerzielle Interessen oder Ideologie entschieden. Das CSR existiert, um die Messrahmen bereitzustellen, bevor das passiert.
+        </p>
+      </div>
       <div class="flex flex-wrap justify-center gap-4">
-        <a href="/de/research" class="btn-primary px-8 py-4 bg-csr-primary text-white rounded-full font-semibold hover:bg-csr-primary-dark transition-all shadow-xl shadow-csr-primary/30">Forschungsagenda</a>
-        <a href="#outputs" class="px-8 py-4 border border-csr-gray-200 rounded-full font-semibold hover:bg-csr-gray-50 transition-all">White Papers</a>
+        <a href="/de/research" class="btn-primary px-6 py-3 bg-csr-primary text-white rounded-full font-semibold hover:bg-csr-primary-dark transition-all shadow-lg shadow-csr-primary/20">Forschungsagenda</a>
+        <a href="#outputs" class="px-6 py-3 border border-csr-gray-200 rounded-full font-semibold hover:bg-csr-gray-50 transition-all">White Papers</a>
       </div>
     </div>
   </section>
