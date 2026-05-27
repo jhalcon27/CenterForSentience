@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import SectionMark from '../../components/SectionMark.astro';
+import Glyph from '../../components/Glyph.astro';
 ---
 
 <Layout
@@ -31,8 +32,9 @@ import SectionMark from '../../components/SectionMark.astro';
 
       <div class="bg-white border border-csr-primary/25 rounded-2xl p-6 md:p-8 shadow-card">
         <div class="flex flex-col sm:flex-row sm:items-start gap-4">
-          <div class="shrink-0">
+          <div class="shrink-0 flex flex-col items-start gap-2">
             <span class="label-mono text-[10px]">CSR-WP-05</span>
+            <Glyph name="qualia" size={40} class="opacity-60" />
           </div>
           <div class="flex-1">
             <div class="flex items-center gap-2 mb-3 flex-wrap">

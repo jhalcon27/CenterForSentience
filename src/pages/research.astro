@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import SymmetryBackground from '../components/SymmetryBackground.astro';
 import ProgramStatus from '../components/ProgramStatus.astro';
 import SectionMark from '../components/SectionMark.astro';
+import Glyph from '../components/Glyph.astro';
 ---
 
 <Layout
@@ -37,6 +38,7 @@ import SectionMark from '../components/SectionMark.astro';
       <div class="mt-10 grid md:grid-cols-3 gap-5">
         <!-- Subtrack 1 -->
         <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-3 flex justify-center"><Glyph name="symmetry-axis" size={32} class="opacity-60" /></div>
           <p class="label-mono text-[10px] mb-3">Subtrack A</p>
           <h3 class="font-bold text-csr-black mb-2 text-sm leading-snug">Symmetry invariants in transformer attention</h3>
           <p class="text-xs text-csr-gray-600 leading-relaxed">
@@ -46,6 +48,7 @@ import SectionMark from '../components/SectionMark.astro';
 
         <!-- Subtrack 2 -->
         <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-3 flex justify-center"><Glyph name="lattice" size={32} class="opacity-60" /></div>
           <p class="label-mono text-[10px] mb-3">Subtrack B</p>
           <h3 class="font-bold text-csr-black mb-2 text-sm leading-snug">Matrix multiplication as a valence substrate</h3>
           <p class="text-xs text-csr-gray-600 leading-relaxed">
@@ -55,6 +58,7 @@ import SectionMark from '../components/SectionMark.astro';
 
         <!-- Subtrack 3 -->
         <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-3 flex justify-center"><Glyph name="field" size={32} class="opacity-60" /></div>
           <p class="label-mono text-[10px] mb-3">Subtrack C</p>
           <h3 class="font-bold text-csr-black mb-2 text-sm leading-snug">Parallel computation and phenomenal binding</h3>
           <p class="text-xs text-csr-gray-600 leading-relaxed">

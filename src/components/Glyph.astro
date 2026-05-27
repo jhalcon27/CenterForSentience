@@ -1,0 +1,235 @@
+---
+/**
+ * Glyph.astro
+ * Reusable inline SVG glyph library for CSR.
+ * All glyphs share: viewBox="0 0 64 64", stroke="#9966CC", stroke-width="1.2", fill="none"
+ * unless noted. No raster assets, no external files.
+ *
+ * Props:
+ *   name: string  — glyph identifier (see list below)
+ *   size: number  — rendered size in px (default 64)
+ *   class: string — additional CSS classes (e.g. "opacity-60")
+ */
+interface Props {
+  name:
+    | 'biological'
+    | 'digital'
+    | 'qualia'
+    | 'symmetry-axis'
+    | 'phase-portrait'
+    | 'entropy'
+    | 'measurement'
+    | 'lattice'
+    | 'invariant'
+    | 'field';
+  size?: number;
+  class?: string;
+}
+
+const { name, size = 64, class: cls = '' } = Astro.props;
+---
+
+<svg
+  width={size}
+  height={size}
+  viewBox="0 0 64 64"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  class={cls}
+>
+  {name === 'biological' && (
+    <>
+      {/* Nested isopotential contours — bioelectric field map */}
+      <ellipse cx="32" cy="32" rx="28" ry="20" stroke="#9966CC" stroke-width="1.2" opacity="0.25"/>
+      <ellipse cx="32" cy="32" rx="22" ry="15" stroke="#9966CC" stroke-width="1.2" opacity="0.4" transform="rotate(8 32 32)"/>
+      <ellipse cx="32" cy="32" rx="16" ry="11" stroke="#9966CC" stroke-width="1.2" opacity="0.55" transform="rotate(-5 32 32)"/>
+      <ellipse cx="32" cy="32" rx="10" ry="7" stroke="#9966CC" stroke-width="1.2" opacity="0.7" transform="rotate(12 32 32)"/>
+      <ellipse cx="32" cy="32" rx="5" ry="3.5" stroke="#9966CC" stroke-width="1.2" opacity="0.85" transform="rotate(-8 32 32)"/>
+      {/* Branching dendrite lines */}
+      <path d="M32 32 L20 18" stroke="#9966CC" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+      <path d="M20 18 L14 12" stroke="#9966CC" stroke-width="0.8" opacity="0.35" stroke-linecap="round"/>
+      <path d="M20 18 L16 22" stroke="#9966CC" stroke-width="0.8" opacity="0.35" stroke-linecap="round"/>
+      <path d="M32 32 L44 20" stroke="#9966CC" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+      <path d="M44 20 L50 14" stroke="#9966CC" stroke-width="0.8" opacity="0.35" stroke-linecap="round"/>
+      <path d="M44 20 L48 26" stroke="#9966CC" stroke-width="0.8" opacity="0.35" stroke-linecap="round"/>
+      <path d="M32 32 L32 48" stroke="#9966CC" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+      <path d="M32 48 L26 54" stroke="#9966CC" stroke-width="0.8" opacity="0.35" stroke-linecap="round"/>
+      <path d="M32 48 L38 54" stroke="#9966CC" stroke-width="0.8" opacity="0.35" stroke-linecap="round"/>
+      {/* Central node */}
+      <circle cx="32" cy="32" r="2.5" fill="#9966CC" opacity="0.9"/>
+    </>
+  )}
+
+  {name === 'digital' && (
+    <>
+      {/* 8x8 attention matrix with varying opacity */}
+      {[0,1,2,3,4,5,6,7].map((row) =>
+        [0,1,2,3,4,5,6,7].map((col) => {
+          const x = 6 + col * 7;
+          const y = 6 + row * 7;
+          const dist = Math.abs(row - col);
+          const op = dist === 0 ? 0.9 : dist === 1 ? 0.55 : dist === 2 ? 0.3 : 0.1;
+          return (
+            <rect x={x} y={y} width="5" height="5" rx="0.5" fill="#9966CC" opacity={op}/>
+          );
+        })
+      )}
+      {/* Attention arc: row 1 attending to row 6 */}
+      <path d="M8.5 13 Q32 4 55.5 48" stroke="#9966CC" stroke-width="0.8" opacity="0.4" stroke-dasharray="2 2" fill="none"/>
+      {/* Attention arc: row 3 attending to row 5 */}
+      <path d="M8.5 27 Q32 20 55.5 34" stroke="#9966CC" stroke-width="0.8" opacity="0.3" stroke-dasharray="2 2" fill="none"/>
+    </>
+  )}
+
+  {name === 'qualia' && (
+    <>
+      {/* Three rotated Lissajous loops forming a six-fold rosette */}
+      {/* Loop 1: 0° */}
+      <ellipse cx="32" cy="32" rx="22" ry="10" stroke="#9966CC" stroke-width="1.2" opacity="0.7" transform="rotate(0 32 32)"/>
+      {/* Loop 2: 60° */}
+      <ellipse cx="32" cy="32" rx="22" ry="10" stroke="#9966CC" stroke-width="1.2" opacity="0.7" transform="rotate(60 32 32)"/>
+      {/* Loop 3: 120° */}
+      <ellipse cx="32" cy="32" rx="22" ry="10" stroke="#9966CC" stroke-width="1.2" opacity="0.7" transform="rotate(120 32 32)"/>
+      {/* Inner resonance ring */}
+      <circle cx="32" cy="32" r="8" stroke="#9966CC" stroke-width="1" opacity="0.4" stroke-dasharray="3 2"/>
+      {/* Central node */}
+      <circle cx="32" cy="32" r="2" fill="#9966CC" opacity="1"/>
+    </>
+  )}
+
+  {name === 'symmetry-axis' && (
+    <>
+      {/* Vertical axis */}
+      <line x1="32" y1="8" x2="32" y2="56" stroke="#9966CC" stroke-width="1.2" opacity="0.6"/>
+      {/* Three mirrored point pairs */}
+      <circle cx="20" cy="20" r="2" fill="#9966CC" opacity="0.8"/>
+      <circle cx="44" cy="20" r="2" fill="#9966CC" opacity="0.8"/>
+      <circle cx="18" cy="32" r="2" fill="#9966CC" opacity="0.8"/>
+      <circle cx="46" cy="32" r="2" fill="#9966CC" opacity="0.8"/>
+      <circle cx="20" cy="44" r="2" fill="#9966CC" opacity="0.8"/>
+      <circle cx="44" cy="44" r="2" fill="#9966CC" opacity="0.8"/>
+      {/* Dashed mirror lines */}
+      <line x1="20" y1="20" x2="44" y2="20" stroke="#9966CC" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.4"/>
+      <line x1="18" y1="32" x2="46" y2="32" stroke="#9966CC" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.4"/>
+      <line x1="20" y1="44" x2="44" y2="44" stroke="#9966CC" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.4"/>
+    </>
+  )}
+
+  {name === 'phase-portrait' && (
+    <>
+      {/* Spiral converging to attractor */}
+      <path d="M54 32 C54 18 44 10 32 10 C20 10 10 20 10 32 C10 40 16 46 24 48 C28 49 30 48 31 46 C32 44 31 42 32 41 C33 40 34 40 34 39 C35 38 34 37 33 37 C32.5 37 32 37.2 32 37.5" stroke="#9966CC" stroke-width="1.2" opacity="0.7" stroke-linecap="round" fill="none"/>
+      {/* Trajectory lines */}
+      <path d="M8 16 C14 20 20 26 32 37.5" stroke="#9966CC" stroke-width="0.8" opacity="0.35" stroke-dasharray="2 2" fill="none"/>
+      <path d="M56 12 C50 18 44 26 32 37.5" stroke="#9966CC" stroke-width="0.8" opacity="0.35" stroke-dasharray="2 2" fill="none"/>
+      <path d="M32 58 C32 52 32 46 32 37.5" stroke="#9966CC" stroke-width="0.8" opacity="0.35" stroke-dasharray="2 2" fill="none"/>
+      {/* Attractor point */}
+      <circle cx="32" cy="37.5" r="2" fill="#9966CC" opacity="1"/>
+    </>
+  )}
+
+  {name === 'entropy' && (
+    <>
+      {/* Gradient of dots: dense bottom-left to sparse top-right */}
+      {/* Dense cluster */}
+      <circle cx="10" cy="54" r="1.5" fill="#9966CC" opacity="0.9"/>
+      <circle cx="14" cy="50" r="1.5" fill="#9966CC" opacity="0.9"/>
+      <circle cx="18" cy="54" r="1.5" fill="#9966CC" opacity="0.9"/>
+      <circle cx="12" cy="46" r="1.5" fill="#9966CC" opacity="0.85"/>
+      <circle cx="20" cy="48" r="1.5" fill="#9966CC" opacity="0.85"/>
+      <circle cx="16" cy="42" r="1.5" fill="#9966CC" opacity="0.8"/>
+      <circle cx="24" cy="44" r="1.5" fill="#9966CC" opacity="0.75"/>
+      {/* Mid density */}
+      <circle cx="22" cy="38" r="1.5" fill="#9966CC" opacity="0.65"/>
+      <circle cx="30" cy="40" r="1.5" fill="#9966CC" opacity="0.6"/>
+      <circle cx="28" cy="34" r="1.5" fill="#9966CC" opacity="0.55"/>
+      <circle cx="36" cy="36" r="1.5" fill="#9966CC" opacity="0.5"/>
+      {/* Sparse */}
+      <circle cx="34" cy="28" r="1.5" fill="#9966CC" opacity="0.4"/>
+      <circle cx="42" cy="30" r="1.5" fill="#9966CC" opacity="0.35"/>
+      <circle cx="40" cy="22" r="1.5" fill="#9966CC" opacity="0.28"/>
+      <circle cx="48" cy="24" r="1.5" fill="#9966CC" opacity="0.22"/>
+      <circle cx="46" cy="16" r="1.5" fill="#9966CC" opacity="0.16"/>
+      <circle cx="54" cy="18" r="1.5" fill="#9966CC" opacity="0.12"/>
+      <circle cx="52" cy="10" r="1.5" fill="#9966CC" opacity="0.08"/>
+      {/* Diagonal axis */}
+      <line x1="8" y1="56" x2="56" y2="8" stroke="#9966CC" stroke-width="0.6" opacity="0.2" stroke-dasharray="3 3"/>
+    </>
+  )}
+
+  {name === 'measurement' && (
+    <>
+      {/* Horizontal baseline */}
+      <line x1="8" y1="38" x2="56" y2="38" stroke="#9966CC" stroke-width="1.2" opacity="0.7"/>
+      {/* Arrow head */}
+      <path d="M52 34 L56 38 L52 42" stroke="#9966CC" stroke-width="1.2" opacity="0.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      {/* Calibration ticks */}
+      <line x1="16" y1="33" x2="16" y2="43" stroke="#9966CC" stroke-width="1.2" opacity="0.7"/>
+      <line x1="32" y1="31" x2="32" y2="45" stroke="#9966CC" stroke-width="1.2" opacity="0.7"/>
+      <line x1="48" y1="33" x2="48" y2="43" stroke="#9966CC" stroke-width="1.2" opacity="0.7"/>
+      {/* Tick labels (small dots above) */}
+      <circle cx="16" cy="28" r="1.5" fill="#9966CC" opacity="0.5"/>
+      <circle cx="32" cy="26" r="1.5" fill="#9966CC" opacity="0.5"/>
+      <circle cx="48" cy="28" r="1.5" fill="#9966CC" opacity="0.5"/>
+      {/* Measurement arc above center tick */}
+      <path d="M24 26 Q32 20 40 26" stroke="#9966CC" stroke-width="0.8" opacity="0.4" fill="none"/>
+    </>
+  )}
+
+  {name === 'lattice' && (
+    <>
+      {/* 5x5 dot lattice with nearest-neighbor edges */}
+      {[0,1,2,3,4].map((row) =>
+        [0,1,2,3,4].map((col) => {
+          const x = 10 + col * 11;
+          const y = 10 + row * 11;
+          return (
+            <>
+              <circle cx={x} cy={y} r="1.8" fill="#9966CC" opacity="0.8"/>
+              {col < 4 && <line x1={x} y1={y} x2={x+11} y2={y} stroke="#9966CC" stroke-width="0.6" opacity="0.3"/>}
+              {row < 4 && <line x1={x} y1={y} x2={x} y2={y+11} stroke="#9966CC" stroke-width="0.6" opacity="0.3"/>}
+            </>
+          );
+        })
+      )}
+    </>
+  )}
+
+  {name === 'invariant' && (
+    <>
+      {/* Two overlapping circles */}
+      <circle cx="24" cy="32" r="16" stroke="#9966CC" stroke-width="1.2" opacity="0.6"/>
+      <circle cx="40" cy="32" r="16" stroke="#9966CC" stroke-width="1.2" opacity="0.6"/>
+      {/* Intersection fill (lens shape) */}
+      <path d="M32 17.5 C37 22 37 42 32 46.5 C27 42 27 22 32 17.5 Z" fill="#9966CC" opacity="0.2"/>
+      {/* Center dot */}
+      <circle cx="32" cy="32" r="1.5" fill="#9966CC" opacity="0.9"/>
+    </>
+  )}
+
+  {name === 'field' && (
+    <>
+      {/* Central node */}
+      <circle cx="32" cy="32" r="2.5" fill="#9966CC" opacity="0.9"/>
+      {/* 8 radial field lines with arrowheads */}
+      {[0, 45, 90, 135, 180, 225, 270, 315].map((deg) => {
+        const rad = (deg * Math.PI) / 180;
+        const x1 = 32 + Math.cos(rad) * 8;
+        const y1 = 32 + Math.sin(rad) * 8;
+        const x2 = 32 + Math.cos(rad) * 22;
+        const y2 = 32 + Math.sin(rad) * 22;
+        const ax = x2 - Math.cos(rad + 0.4) * 4;
+        const ay = y2 - Math.sin(rad + 0.4) * 4;
+        const bx = x2 - Math.cos(rad - 0.4) * 4;
+        const by = y2 - Math.sin(rad - 0.4) * 4;
+        return (
+          <>
+            <line x1={x1} y1={y1} x2={x2} y2={y2} stroke="#9966CC" stroke-width="1" opacity="0.65" stroke-linecap="round"/>
+            <path d={`M${ax} ${ay} L${x2} ${y2} L${bx} ${by}`} stroke="#9966CC" stroke-width="0.8" opacity="0.65" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </>
+        );
+      })}
+    </>
+  )}
+</svg>

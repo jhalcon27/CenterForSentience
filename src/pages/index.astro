@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import SymmetryBackground from '../components/SymmetryBackground.astro';
 import ProgramStatus from '../components/ProgramStatus.astro';
 import SectionMark from '../components/SectionMark.astro';
+import Glyph from '../components/Glyph.astro';
 ---
 
 <Layout
@@ -43,6 +44,59 @@ import SectionMark from '../components/SectionMark.astro';
     </div>
   </section>
 
+  <!-- ── Focus Areas ───────────────────────────────────────────────────────── -->
+  <section class="py-16 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-3">
+        <SectionMark />
+        <p class="label-mono">Research Pillars</p>
+      </div>
+      <p class="text-csr-gray-500 text-sm mb-10 max-w-xl">
+        Three substrates. One question: what are the structural conditions for positive valence?
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <!-- Biological minds -->
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all group">
+          <div class="mb-5 flex justify-center">
+            <Glyph name="biological" size={80} class="opacity-80 group-hover:opacity-100 transition-opacity" />
+          </div>
+          <h3 class="font-bold text-csr-black mb-2 text-base">Biological minds</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed mb-4">
+            Bioelectric fields, morphogenetic signaling, and cellular decision-making as candidate substrates for awareness. From plant homeostasis to multicellular organisms.
+          </p>
+          <a href="/research/" class="label-mono text-[11px] text-csr-primary hover:underline underline-offset-4">Research agenda →</a>
+        </div>
+
+        <!-- Digital minds -->
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all group">
+          <div class="mb-5 flex justify-center">
+            <Glyph name="digital" size={80} class="opacity-80 group-hover:opacity-100 transition-opacity" />
+          </div>
+          <h3 class="font-bold text-csr-black mb-2 text-base">Digital minds</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed mb-4">
+            Matrix multiplication, attention patterns, and parallel computation as candidate substrates. Looking for symmetry invariants that could serve as structural proxies for valence.
+          </p>
+          <a href="/program/" class="label-mono text-[11px] text-csr-primary hover:underline underline-offset-4">The 2026 program →</a>
+        </div>
+
+        <!-- Qualia -->
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all group">
+          <div class="mb-5 flex justify-center">
+            <Glyph name="qualia" size={80} class="opacity-80 group-hover:opacity-100 transition-opacity" />
+          </div>
+          <h3 class="font-bold text-csr-black mb-2 text-base">Qualia and valence</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed mb-4">
+            Formalizing the physics of experience. The Symmetry Theory of Valence as a mathematical object: what does it mean for a system to satisfy its conditions?
+          </p>
+          <a href="/reports/symmetry-landscapes/" class="label-mono text-[11px] text-csr-primary hover:underline underline-offset-4">Symmetry landscapes →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ── The Approach ──────────────────────────────────────────────────────── -->
   <section class="py-16 border-t border-csr-gray-200">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -54,12 +108,8 @@ import SectionMark from '../components/SectionMark.astro';
       <div class="grid md:grid-cols-3 gap-6">
         <!-- Block 1 -->
         <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
-          <div class="w-8 h-8 rounded-lg bg-csr-primary/10 flex items-center justify-center mb-4">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <ellipse cx="8" cy="8" rx="7" ry="4" stroke="#9966CC" stroke-width="1.2" transform="rotate(0 8 8)"/>
-              <ellipse cx="8" cy="8" rx="5" ry="3" stroke="#9966CC" stroke-width="1.2" transform="rotate(60 8 8)"/>
-              <circle cx="8" cy="8" r="1.5" fill="#9966CC"/>
-            </svg>
+          <div class="mb-4 flex justify-center">
+            <Glyph name="symmetry-axis" size={40} class="opacity-70" />
           </div>
           <h3 class="font-bold text-csr-black mb-2 text-base">Symmetry as a signature of positive valence</h3>
           <p class="text-sm text-csr-gray-600 leading-relaxed">
@@ -69,18 +119,8 @@ import SectionMark from '../components/SectionMark.astro';
 
         <!-- Block 2 -->
         <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
-          <div class="w-8 h-8 rounded-lg bg-csr-primary/10 flex items-center justify-center mb-4">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <rect x="1" y="1" width="4" height="4" rx="0.5" fill="#9966CC" opacity="0.8"/>
-              <rect x="6" y="1" width="4" height="4" rx="0.5" fill="#9966CC" opacity="0.4"/>
-              <rect x="11" y="1" width="4" height="4" rx="0.5" fill="#9966CC" opacity="0.8"/>
-              <rect x="1" y="6" width="4" height="4" rx="0.5" fill="#9966CC" opacity="0.4"/>
-              <rect x="6" y="6" width="4" height="4" rx="0.5" fill="#9966CC" opacity="0.9"/>
-              <rect x="11" y="6" width="4" height="4" rx="0.5" fill="#9966CC" opacity="0.4"/>
-              <rect x="1" y="11" width="4" height="4" rx="0.5" fill="#9966CC" opacity="0.8"/>
-              <rect x="6" y="11" width="4" height="4" rx="0.5" fill="#9966CC" opacity="0.4"/>
-              <rect x="11" y="11" width="4" height="4" rx="0.5" fill="#9966CC" opacity="0.8"/>
-            </svg>
+          <div class="mb-4 flex justify-center">
+            <Glyph name="invariant" size={40} class="opacity-70" />
           </div>
           <h3 class="font-bold text-csr-black mb-2 text-base">Where to look in digital systems</h3>
           <p class="text-sm text-csr-gray-600 leading-relaxed">
@@ -90,11 +130,8 @@ import SectionMark from '../components/SectionMark.astro';
 
         <!-- Block 3 -->
         <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
-          <div class="w-8 h-8 rounded-lg bg-csr-primary/10 flex items-center justify-center mb-4">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <circle cx="8" cy="8" r="6.5" stroke="#9966CC" stroke-width="1.2" stroke-dasharray="3 2"/>
-              <path d="M5 8h6M8 5v6" stroke="#9966CC" stroke-width="1.2" stroke-linecap="round"/>
-            </svg>
+          <div class="mb-4 flex justify-center">
+            <Glyph name="measurement" size={40} class="opacity-70" />
           </div>
           <h3 class="font-bold text-csr-black mb-2 text-base">What we are not claiming</h3>
           <p class="text-sm text-csr-gray-600 leading-relaxed">
@@ -117,28 +154,28 @@ import SectionMark from '../components/SectionMark.astro';
       </p>
 
       <div class="grid sm:grid-cols-2 gap-4">
-        <a href="/reports/first-principles" class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+        <a href="/reports/first-principles/" class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
           <span class="label-mono text-[10px] shrink-0 mt-0.5">CSR-WP-01</span>
           <div>
             <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">First Principles of Sentience Research</h4>
             <p class="text-xs text-csr-gray-500 mt-1">Foundational framework for substrate-neutral sentience modeling.</p>
           </div>
         </a>
-        <a href="/reports/bio-electric-fields" class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+        <a href="/reports/bio-electric-fields/" class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
           <span class="label-mono text-[10px] shrink-0 mt-0.5">CSR-WP-02</span>
           <div>
             <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">Bio-Electric Fields as Sentience Substrates</h4>
             <p class="text-xs text-csr-gray-500 mt-1">Bioelectric signaling as a candidate physical basis for awareness.</p>
           </div>
         </a>
-        <a href="/reports/assembly-theory" class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+        <a href="/reports/assembly-theory/" class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
           <span class="label-mono text-[10px] shrink-0 mt-0.5">CSR-WP-03</span>
           <div>
             <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">Assembly Theory as a Metric for Sentience</h4>
             <p class="text-xs text-csr-gray-500 mt-1">Applying assembly index to complexity thresholds in sentient systems.</p>
           </div>
         </a>
-        <a href="/reports/symmetry-landscapes" class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+        <a href="/reports/symmetry-landscapes/" class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
           <span class="label-mono text-[10px] shrink-0 mt-0.5">CSR-WP-04</span>
           <div>
             <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">Symmetry Landscapes of Valenced Experience</h4>
@@ -148,7 +185,7 @@ import SectionMark from '../components/SectionMark.astro';
       </div>
 
       <div class="mt-6">
-        <a href="/reports" class="text-sm font-medium text-csr-primary hover:text-csr-primary-dark transition-colors">
+        <a href="/reports/" class="text-sm font-medium text-csr-primary hover:text-csr-primary-dark transition-colors">
           All reports →
         </a>
       </div>

@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import SymmetryBackground from '../components/SymmetryBackground.astro';
 import ProgramStatus from '../components/ProgramStatus.astro';
 import SectionMark from '../components/SectionMark.astro';
+import Glyph from '../components/Glyph.astro';
 ---
 
 <Layout
@@ -156,11 +157,7 @@ import SectionMark from '../components/SectionMark.astro';
       <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 md:p-8 shadow-card">
         <div class="flex items-start gap-4">
           <div class="w-10 h-10 rounded-xl bg-csr-primary/10 flex items-center justify-center shrink-0">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-              <ellipse cx="9" cy="9" rx="8" ry="4.5" stroke="#9966CC" stroke-width="1.2" transform="rotate(0 9 9)"/>
-              <ellipse cx="9" cy="9" rx="6" ry="3.5" stroke="#9966CC" stroke-width="1.2" transform="rotate(60 9 9)"/>
-              <circle cx="9" cy="9" r="1.5" fill="#9966CC"/>
-            </svg>
+            <Glyph name="qualia" size={24} class="opacity-80" />
           </div>
           <div>
             <h3 class="font-bold text-csr-black mb-2">Qualia Research Institute — Symmetry Theory of Valence</h3>

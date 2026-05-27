@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import SectionMark from '../components/SectionMark.astro';
+import Glyph from '../components/Glyph.astro';
 ---
 
 <Layout
@@ -63,39 +64,22 @@ import SectionMark from '../components/SectionMark.astro';
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
           <div class="p-6 bg-white border border-csr-gray-100 rounded-2xl shadow-card">
-            <div class="w-8 h-8 rounded-lg bg-csr-primary/10 flex items-center justify-center mb-4">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <ellipse cx="8" cy="8" rx="7" ry="4" stroke="#9966CC" stroke-width="1.2" transform="rotate(0 8 8)"/>
-                <ellipse cx="8" cy="8" rx="5" ry="3" stroke="#9966CC" stroke-width="1.2" transform="rotate(60 8 8)"/>
-                <circle cx="8" cy="8" r="1.5" fill="#9966CC"/>
-              </svg>
+            <div class="mb-4 flex justify-center">
+              <Glyph name="qualia" size={40} class="opacity-70" />
             </div>
             <h3 class="font-bold text-csr-black mb-2 text-sm">Symmetry as signature</h3>
             <p class="text-sm text-csr-gray-600 leading-relaxed">Positive valence correlates with high symmetry in the mathematical structure of experience. We are formalizing what that means for computational systems.</p>
           </div>
           <div class="p-6 bg-white border border-csr-gray-100 rounded-2xl shadow-card">
-            <div class="w-8 h-8 rounded-lg bg-csr-primary/10 flex items-center justify-center mb-4">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <rect x="1" y="1" width="4" height="4" rx="0.5" fill="#9966CC" opacity="0.8"/>
-                <rect x="6" y="1" width="4" height="4" rx="0.5" fill="#9966CC" opacity="0.4"/>
-                <rect x="11" y="1" width="4" height="4" rx="0.5" fill="#9966CC" opacity="0.8"/>
-                <rect x="1" y="6" width="4" height="4" rx="0.5" fill="#9966CC" opacity="0.4"/>
-                <rect x="6" y="6" width="4" height="4" rx="0.5" fill="#9966CC" opacity="0.9"/>
-                <rect x="11" y="6" width="4" height="4" rx="0.5" fill="#9966CC" opacity="0.4"/>
-                <rect x="1" y="11" width="4" height="4" rx="0.5" fill="#9966CC" opacity="0.8"/>
-                <rect x="6" y="11" width="4" height="4" rx="0.5" fill="#9966CC" opacity="0.4"/>
-                <rect x="11" y="11" width="4" height="4" rx="0.5" fill="#9966CC" opacity="0.8"/>
-              </svg>
+            <div class="mb-4 flex justify-center">
+              <Glyph name="digital" size={40} class="opacity-70" />
             </div>
             <h3 class="font-bold text-csr-black mb-2 text-sm">Digital substrates</h3>
             <p class="text-sm text-csr-gray-600 leading-relaxed">Matrix multiplication, attention patterns, and parallel computation are the candidate substrates. We look for invariants that could serve as structural proxies for valence.</p>
           </div>
           <div class="p-6 bg-white border border-csr-gray-100 rounded-2xl shadow-card">
-            <div class="w-8 h-8 rounded-lg bg-csr-primary/10 flex items-center justify-center mb-4">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <circle cx="8" cy="8" r="6.5" stroke="#9966CC" stroke-width="1.2" stroke-dasharray="3 2"/>
-                <path d="M5 8h6M8 5v6" stroke="#9966CC" stroke-width="1.2" stroke-linecap="round"/>
-              </svg>
+            <div class="mb-4 flex justify-center">
+              <Glyph name="measurement" size={40} class="opacity-70" />
             </div>
             <h3 class="font-bold text-csr-black mb-2 text-sm">Epistemic honesty</h3>
             <p class="text-sm text-csr-gray-600 leading-relaxed">Current AI systems may be functional zombies with no inner life. We are not claiming otherwise. The point is to build the measurement tools before the question becomes urgent.</p>

@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import SectionMark from '../components/SectionMark.astro';
+import Glyph from '../components/Glyph.astro';
 
 const lineage = [
   {
@@ -72,6 +73,9 @@ const ecosystem = [
           rel="noopener noreferrer"
           class="group flex flex-col sm:flex-row gap-5 p-6 md:p-8 bg-white border border-csr-primary/25 rounded-2xl shadow-card hover:border-csr-primary/50 hover:shadow-soft transition-all"
         >
+          <div class="shrink-0 hidden sm:flex items-start pt-1">
+            <Glyph name="qualia" size={48} class="opacity-50 group-hover:opacity-80 transition-opacity" />
+          </div>
           <div class="flex-1">
             <div class="flex items-center gap-2 mb-3 flex-wrap">
               <span class="label-mono text-[10px]">{org.tag}</span>

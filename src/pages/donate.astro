@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import ProgramStatus from '../components/ProgramStatus.astro';
 import SectionMark from '../components/SectionMark.astro';
+import Glyph from '../components/Glyph.astro';
 ---
 
 <Layout
@@ -47,16 +48,19 @@ import SectionMark from '../components/SectionMark.astro';
       </div>
       <div class="grid md:grid-cols-3 gap-5">
         <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-3 flex justify-center"><Glyph name="digital" size={36} class="opacity-60" /></div>
           <p class="text-2xl font-bold text-csr-primary mb-2">CHF 50k</p>
           <h3 class="font-bold text-csr-black mb-2 text-sm">Compute</h3>
           <p class="text-xs text-csr-gray-600 leading-relaxed">GPU access for symmetry invariant analysis across transformer attention patterns and matrix multiplication sequences. The core empirical work.</p>
         </div>
         <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-3 flex justify-center"><Glyph name="phase-portrait" size={36} class="opacity-60" /></div>
           <p class="text-2xl font-bold text-csr-primary mb-2">CHF 20k</p>
           <h3 class="font-bold text-csr-black mb-2 text-sm">Literature synthesis</h3>
           <p class="text-xs text-csr-gray-600 leading-relaxed">Systematic review of the STV lineage, IIT, active inference, and group-theoretic approaches to neural computation. Builds the formal scaffolding.</p>
         </div>
         <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-3 flex justify-center"><Glyph name="invariant" size={36} class="opacity-60" /></div>
           <p class="text-2xl font-bold text-csr-primary mb-2">CHF 10k</p>
           <h3 class="font-bold text-csr-black mb-2 text-sm">Advisor honoraria</h3>
           <p class="text-xs text-csr-gray-600 leading-relaxed">Compensates external advisors in mathematical physics and consciousness research for structured review sessions and stress-testing the framework.</p>
