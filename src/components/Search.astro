@@ -31,33 +31,33 @@
   </div>
 </div>
 
-<script>
+<script is:inline>
   function initSearch() {
     const containers = document.querySelectorAll('[data-csr-search]');
     
-    containers.forEach(container => {
+    containers.forEach(function(container) {
       const btn = container.querySelector('.search-btn');
       const overlay = container.querySelector('.search-overlay');
       const closeBtn = container.querySelector('.close-search');
-      const input = container.querySelector('.search-input') as HTMLInputElement;
+      const input = container.querySelector('.search-input');
 
-      btn?.addEventListener('click', () => {
-        overlay?.classList.remove('hidden');
-        input?.focus();
+      if (btn) btn.addEventListener('click', function() {
+        if (overlay) overlay.classList.remove('hidden');
+        if (input) input.focus();
         document.body.style.overflow = 'hidden';
       });
 
-      const close = () => {
-        overlay?.classList.add('hidden');
+      const close = function() {
+        if (overlay) overlay.classList.add('hidden');
         document.body.style.overflow = '';
       };
 
-      closeBtn?.addEventListener('click', close);
-      overlay?.addEventListener('click', (e) => {
+      if (closeBtn) closeBtn.addEventListener('click', close);
+      if (overlay) overlay.addEventListener('click', function(e) {
         if (e.target === overlay) close();
       });
 
-      document.addEventListener('keydown', (e) => {
+      document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') close();
       });
 
@@ -83,8 +83,8 @@
         { title: 'Qualia Research Institute', type: 'Partner', url: 'https://qri.org' },
       ];
 
-      input?.addEventListener('input', (e) => {
-        const query = (e.target as HTMLInputElement).value.toLowerCase().trim();
+      if (input) input.addEventListener('input', function(e) {
+        const query = e.target.value.toLowerCase().trim();
         const resultsContainer = container.querySelector('.search-results');
         if (!resultsContainer) return;
 
@@ -93,18 +93,17 @@
           return;
         }
 
-        const matches = pages.filter(p => 
-          p.title.toLowerCase().includes(query) || 
-          p.type.toLowerCase().includes(query)
-        );
+        const matches = pages.filter(function(p) {
+          return p.title.toLowerCase().includes(query) || p.type.toLowerCase().includes(query);
+        });
         
         resultsContainer.innerHTML = matches.length > 0 
-          ? matches.map(m => `
+          ? matches.map(function(m) { return `
               <a href="${m.url}" class="block p-4 rounded-xl hover:bg-csr-gray-100 border border-transparent hover:border-csr-gray-200 transition-all">
                 <p class="text-xs font-mono uppercase tracking-widest text-csr-primary mb-1">${m.type}</p>
                 <h4 class="text-xl font-bold text-csr-black">${m.title}</h4>
               </a>
-            `).join('')
+            `; }).join('')
           : `<p class="text-csr-gray-600 italic">No results found for "<strong>${query}</strong>"</p>`;
       });
     });

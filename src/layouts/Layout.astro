@@ -33,54 +33,96 @@ const t = useTranslations(currentLang as any);
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <LanguageRedirect />
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="3a41742e-2fde-44af-b8a6-96094c47a90f"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet" />
+    <script is:inline defer src="https://cloud.umami.is/script.js" data-website-id="3a41742e-2fde-44af-b8a6-96094c47a90f"></script>
   </head>
-  <body class="min-h-screen flex flex-col bg-[#FFF8F0]">
-    <nav class="sticky top-0 z-50 bg-[#FFF8F0]/80 backdrop-blur-md border-b border-gray-200">
-      <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-        <a href={getRelativeLocaleUrl(currentLang, '/')} class="flex items-center gap-2">
-            <div class="w-10 h-10 rounded bg-[#9966CC] flex items-center justify-center text-white font-bold text-xl shrink-0">C</div>
-            <div class="flex flex-col">
-              <span class="font-bold text-lg text-black sm:text-lg text-base">Center for Sentience</span>
-              <span class="text-[10px] font-mono uppercase tracking-[0.2em] text-[#9966CC] hidden sm:block">Research Institute</span>
-            </div>
+  <body class="min-h-screen flex flex-col bg-csr-cream">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+
+        <!-- Logo -->
+        <a href={getRelativeLocaleUrl(currentLang, '/')} class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-csr-primary flex items-center justify-center shrink-0 shadow-purple/40 shadow-md group-hover:bg-csr-primary-dark transition-colors">
+            <!-- Abstract glyph: two concentric arcs suggesting a waveform / consciousness topology -->
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="10" cy="10" r="3" fill="white" opacity="0.9"/>
+              <path d="M10 3 C6.13 3 3 6.13 3 10 C3 13.87 6.13 17 10 17" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+              <path d="M10 6 C8.07 6 6.5 7.57 6.5 9.5 C6.5 11.43 8.07 13 10 13 C11.93 13 13.5 11.43 13.5 9.5" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+              <path d="M14 5 L16 3 M16 3 L14 3 M16 3 L16 5" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+            </svg>
+          </div>
+          <div class="flex flex-col leading-none">
+            <span class="font-bold text-base text-csr-black tracking-tight">Center for Sentience</span>
+            <span class="text-[10px] font-mono uppercase tracking-[0.2em] text-csr-primary hidden sm:block mt-0.5">Research Institute</span>
+          </div>
         </a>
-        
-        <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 hover:text-black">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
+        <!-- Mobile menu button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-csr-gray-500 hover:text-csr-black rounded-lg hover:bg-csr-gray-100 transition-colors" aria-label="Open menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
 
-        <div class="hidden md:flex items-center gap-4">
-            <a href={getRelativeLocaleUrl(currentLang, 'research')} class="text-sm font-medium hover:text-[#9966CC]">{t('nav.research')}</a>
-            <a href={getRelativeLocaleUrl(currentLang, 'reports')} class="text-sm font-medium hover:text-[#9966CC]">{t('nav.reports')}</a>
-            <a href={getRelativeLocaleUrl(currentLang, 'ecosystem')} class="text-sm font-medium hover:text-[#9966CC]">{t('nav.ecosystem')}</a>
-            <a href={getRelativeLocaleUrl(currentLang, 'about')} class="text-sm font-medium hover:text-[#9966CC]">{t('nav.about')}</a>
-            <a href={getRelativeLocaleUrl(currentLang, 'donate')} class="bg-[#9966CC] text-white px-4 py-2 rounded-full text-sm font-medium">{t('nav.donate')}</a>
-            <Search />
-            <LanguageSwitcher lang={currentLang} />
+        <!-- Desktop nav -->
+        <div class="hidden md:flex items-center gap-1">
+          <a href={getRelativeLocaleUrl(currentLang, 'research')} class="px-3 py-2 text-sm font-medium text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100 rounded-lg transition-all">{t('nav.research')}</a>
+          <a href={getRelativeLocaleUrl(currentLang, 'program')} class="px-3 py-2 text-sm font-medium text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100 rounded-lg transition-all">{t('nav.program')}</a>
+          <a href={getRelativeLocaleUrl(currentLang, 'reports')} class="px-3 py-2 text-sm font-medium text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100 rounded-lg transition-all">{t('nav.reports')}</a>
+          <a href={getRelativeLocaleUrl(currentLang, 'ecosystem')} class="px-3 py-2 text-sm font-medium text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100 rounded-lg transition-all">{t('nav.ecosystem')}</a>
+          <a href={getRelativeLocaleUrl(currentLang, 'about')} class="px-3 py-2 text-sm font-medium text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100 rounded-lg transition-all">{t('nav.about')}</a>
+          <div class="w-px h-5 bg-csr-gray-200 mx-2"></div>
+          <a href={getRelativeLocaleUrl(currentLang, 'donate')} class="px-4 py-2 bg-csr-primary text-white text-sm font-semibold rounded-full hover:bg-csr-primary-dark transition-all shadow-sm">{t('nav.donate')}</a>
+          <Search />
+          <LanguageSwitcher lang={currentLang} />
         </div>
       </div>
 
-      <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200 bg-[#FFF8F0]">
-        <div class="px-4 py-4 flex flex-col gap-4">
-            <a href={getRelativeLocaleUrl(currentLang, 'research')} class="text-sm font-medium hover:text-[#9966CC]">{t('nav.research')}</a>
-            <a href={getRelativeLocaleUrl(currentLang, 'reports')} class="text-sm font-medium hover:text-[#9966CC]">{t('nav.reports')}</a>
-            <a href={getRelativeLocaleUrl(currentLang, 'ecosystem')} class="text-sm font-medium hover:text-[#9966CC]">{t('nav.ecosystem')}</a>
-            <a href={getRelativeLocaleUrl(currentLang, 'about')} class="text-sm font-medium hover:text-[#9966CC]">{t('nav.about')}</a>
-            <a href={getRelativeLocaleUrl(currentLang, 'donate')} class="bg-[#9966CC] text-white px-4 py-2 rounded-full text-sm font-medium text-center">{t('nav.donate')}</a>
-            <div class="flex items-center justify-between pt-4 border-t border-gray-200">
-              <Search />
-              <LanguageSwitcher lang={currentLang} />
-            </div>
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="hidden md:hidden border-t border-csr-gray-200 bg-csr-cream">
+        <div class="px-4 py-4 flex flex-col gap-1">
+          <a href={getRelativeLocaleUrl(currentLang, 'research')} class="px-3 py-2.5 text-sm font-medium text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100 rounded-lg transition-all">{t('nav.research')}</a>
+          <a href={getRelativeLocaleUrl(currentLang, 'program')} class="px-3 py-2.5 text-sm font-medium text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100 rounded-lg transition-all">{t('nav.program')}</a>
+          <a href={getRelativeLocaleUrl(currentLang, 'reports')} class="px-3 py-2.5 text-sm font-medium text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100 rounded-lg transition-all">{t('nav.reports')}</a>
+          <a href={getRelativeLocaleUrl(currentLang, 'ecosystem')} class="px-3 py-2.5 text-sm font-medium text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100 rounded-lg transition-all">{t('nav.ecosystem')}</a>
+          <a href={getRelativeLocaleUrl(currentLang, 'about')} class="px-3 py-2.5 text-sm font-medium text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100 rounded-lg transition-all">{t('nav.about')}</a>
+          <div class="pt-2 mt-1 border-t border-csr-gray-200">
+            <a href={getRelativeLocaleUrl(currentLang, 'donate')} class="block w-full text-center px-4 py-2.5 bg-csr-primary text-white text-sm font-semibold rounded-full hover:bg-csr-primary-dark transition-all">{t('nav.donate')}</a>
+          </div>
+          <div class="flex items-center justify-between pt-3 border-t border-csr-gray-200 mt-1">
+            <Search />
+            <LanguageSwitcher lang={currentLang} />
+          </div>
         </div>
       </div>
     </nav>
-    <main class="flex-grow"><slot /></main>
-    <script>
+
+    <!-- Main content -->
+    <main class="flex-grow">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-csr-gray-200 bg-csr-cream">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-2">
+          <div class="w-6 h-6 rounded bg-csr-primary flex items-center justify-center shrink-0">
+            <svg width="12" height="12" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="10" cy="10" r="3" fill="white" opacity="0.9"/>
+              <path d="M10 3 C6.13 3 3 6.13 3 10 C3 13.87 6.13 17 10 17" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+            </svg>
+          </div>
+          <span class="text-sm font-semibold text-csr-black">{t('footer.org')}</span>
+          <span class="text-csr-gray-300 hidden sm:inline">·</span>
+          <span class="text-sm text-csr-gray-500 hidden sm:inline">{t('footer.hq')}</span>
+        </div>
+        <p class="text-xs text-csr-gray-400 font-mono">{t('footer.copyright')}</p>
+      </div>
+    </footer>
+
+    <script is:inline>
       const btn = document.getElementById('mobile-menu-btn');
       const menu = document.getElementById('mobile-menu');
       if (btn && menu) {

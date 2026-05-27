@@ -2,104 +2,98 @@
 import Layout from '../../layouts/Layout.astro';
 ---
 
-<Layout 
-  title="慈善伙伴关系" 
-  description="通过免税捐赠和战略伙伴关系支持感知研究中心。"
->
-  <!-- Header -->
-  <section class="py-20 bg-csr-gray-50 border-b border-csr-gray-200">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-csr-primary font-mono text-xs uppercase tracking-widest mb-4">战略支持</p>
-      <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">
-        合作进行 <span class="text-gradient">高影响力研究</span>
+<Layout title="支持工作" description="支持感知研究中心。意识的测量框架必须在决策做出之前存在。">
+
+  <section class="pt-20 pb-12 border-b border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="label-mono mb-4">支持工作</p>
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6">
+        哪些系统能够受苦的问题<br class="hidden md:block"/>并<span class="text-gradient">不抽象。</span>
       </h1>
-      <p class="text-lg text-csr-gray-600 leading-relaxed">
-        感知研究中心（CSR）得到了致力于解决意识难题的梦想家、慈善家和研究机构社区的支持。
+      <p class="text-lg text-csr-gray-500 leading-relaxed max-w-2xl">
+        它将决定下个世纪的治理、人工智能政策和道德考量。测量框架必须在决策做出之前存在，而不是之后。
       </p>
     </div>
   </section>
 
-  <!-- Legal & Tax Info -->
-  <section class="py-20">
+  <section class="py-16">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="glass-card p-8 md:p-12 rounded-3xl border-2 border-csr-primary/20">
-        <h2 class="text-2xl font-bold mb-6">可免税捐赠</h2>
-        <p class="text-csr-gray-600 mb-8 leading-relaxed">
-          CSR 是一家注册的非营利组织。对于瑞士和欧盟的捐赠者，根据当地基金会法律，捐赠通常可免税。
-        </p>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm">
-          <div class="p-6 bg-csr-gray-50 rounded-xl border border-csr-gray-200">
-            <p class="font-bold text-csr-black mb-2">瑞士（总部）</p>
-            <p class="text-csr-gray-600 font-mono text-xs">
-              Center for Sentience Research (CSR)<br/>
-              CHE-XXX.XXX.XXX<br/>
-              苏黎世, 瑞士
-            </p>
-          </div>
-          <div class="p-6 bg-csr-gray-50 rounded-xl border border-csr-gray-200">
-            <p class="font-bold text-csr-black mb-2">美国（伙伴关系）</p>
-            <p class="text-csr-gray-600 font-mono text-xs">
-              通过 [占位符基金会] 进行财政支持<br/>
-              501(c)(3) 免税地位
-            </p>
-          </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-14">
+        <div class="p-8 bg-white border border-csr-gray-100 rounded-2xl shadow-card">
+          <p class="label-mono mb-3">问题所在</p>
+          <p class="text-csr-gray-600 leading-relaxed">
+            人工智能系统越来越多地表现出感知的迹象。科学在意想不到的生物基底中揭示了类似意识的属性。社会缺乏严格的、基底中性的工具来评估这些主张。
+          </p>
+        </div>
+        <div class="p-8 bg-csr-black text-white rounded-2xl shadow-card">
+          <p class="label-mono mb-3">我们正在构建什么</p>
+          <p class="text-csr-gray-400 leading-relaxed">
+            没有科学基础，这些问题将由直觉、商业利益或意识形态来决定。CSR的存在就是在这种情况发生之前提供测量框架。
+          </p>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Ways to Give -->
-  <section class="py-20 bg-[#FFF8F0]">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        
-        <!-- Bank Transfer -->
-        <div class="p-8 border border-csr-gray-200 rounded-2xl space-y-4 hover:border-csr-primary transition-colors">
-          <div class="w-10 h-10 bg-csr-primary/10 rounded flex items-center justify-center text-csr-primary">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/></svg>
+      <h2 class="text-2xl font-bold text-csr-black mb-6">贡献方式</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+        <div class="p-8 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all duration-200">
+          <div class="w-10 h-10 rounded-xl bg-csr-primary/10 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-csr-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/>
+            </svg>
           </div>
-          <h3 class="text-xl font-bold">银行转账</h3>
-          <p class="text-sm text-csr-gray-600">用于大额捐款和机构赠款。请联系我们获取 IBAN/SWIFT 详细信息。</p>
-          <a href="mailto:jhonatan.serna@proton.me?subject=Institutional Grant Inquiry" class="inline-block text-csr-primary font-semibold text-sm hover:underline">索取银行信息 &rarr;</a>
+          <h3 class="text-lg font-bold text-csr-black mb-2">银行转账</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed mb-5">适用于较大捐款和机构资助。请联系我们获取IBAN/SWIFT信息。</p>
+          <a href="mailto:jhonatan.serna@proton.me?subject=机构资助咨询" class="label-mono text-[11px] hover:underline underline-offset-4">申请银行信息 &rarr;</a>
         </div>
 
-        <!-- Crypto -->
-        <div class="p-8 border border-csr-gray-200 rounded-2xl space-y-4 hover:border-csr-primary transition-colors">
-          <div class="w-10 h-10 bg-csr-primary/10 rounded flex items-center justify-center text-csr-primary">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <div class="p-8 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all duration-200">
+          <div class="w-10 h-10 rounded-xl bg-csr-primary/10 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-csr-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
           </div>
-          <h3 class="text-xl font-bold">数字资产</h3>
-          <p class="text-sm text-csr-gray-600">我们接受通过 BTC、ETH 和 SOL 进行的高影响力捐赠，以实现快速的研究部署。</p>
-          <div class="space-y-2 pt-2">
-             <div class="text-[10px] font-mono p-2 bg-csr-gray-50 rounded border border-csr-gray-200 overflow-hidden truncate">BTC: bc1qtszvlsf3p8va3dglptev59t6vjlvg62mxg9g6x</div>
-             <div class="text-[10px] font-mono p-2 bg-csr-gray-50 rounded border border-csr-gray-200 overflow-hidden truncate">ETH: strugen.eth</div>
+          <h3 class="text-lg font-bold text-csr-black mb-2">数字资产</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed mb-5">我们接受BTC、ETH和SOL捐款，用于快速研究部署。</p>
+          <div class="space-y-2">
+            <div class="text-[10px] font-mono p-2 bg-csr-gray-100 rounded-lg border border-csr-gray-200 overflow-hidden truncate text-csr-gray-500">BTC: bc1qtszvlsf3p8va3dglptev59t6vjlvg62mxg9g6x</div>
+            <div class="text-[10px] font-mono p-2 bg-csr-gray-100 rounded-lg border border-csr-gray-200 overflow-hidden truncate text-csr-gray-500">ETH: strugen.eth</div>
           </div>
         </div>
 
-        <!-- Partnerships -->
-        <div class="p-8 bg-csr-black text-white rounded-2xl space-y-4 shadow-2xl">
-          <div class="w-10 h-10 bg-csr-primary/20 rounded flex items-center justify-center text-csr-primary">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+        <div class="p-8 bg-csr-black text-white rounded-2xl shadow-card">
+          <div class="w-10 h-10 rounded-xl bg-csr-primary/20 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-csr-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
           </div>
-          <h3 class="text-xl font-bold">慈善伙伴关系</h3>
-          <p class="text-sm text-gray-400">在特定领域（如全球感知政策或人工智能福利研究）进行合作。</p>
-          <button class="w-full py-3 bg-csr-primary text-white rounded-lg font-bold text-sm hover:bg-csr-primary-dark transition-all">联系合作伙伴</button>
+          <h3 class="text-lg font-bold mb-2">研究合作伙伴关系</h3>
+          <p class="text-sm text-csr-gray-400 leading-relaxed mb-6">在特定领域合作：全球感知政策、人工智能福利研究或长期测量基础设施。</p>
+          <a href="/contact" class="block w-full text-center py-3 bg-csr-primary text-white rounded-full font-semibold text-sm hover:bg-csr-primary-dark transition-all">联系合作事宜</a>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- Governance Footer -->
-  <section class="py-20 bg-csr-gray-50 text-center">
+  <section class="py-16 bg-csr-gray-100 border-t border-csr-gray-200">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-bold mb-4">透明度与治理</h2>
-      <p class="text-sm text-csr-gray-600 mb-8 max-w-2xl mx-auto">CSR 采用“透明优先”模式运营。年度研究成果和财务摘要向全球研究界公开。</p>
-      <div class="flex justify-center gap-8 text-csr-primary font-mono text-xs uppercase tracking-widest">
-         <span class="opacity-40">2026 年度报告（即将推出）</span>
-         <span class="opacity-40">顾问委员会</span>
+      <h2 class="text-2xl font-bold text-csr-black mb-6">税收减免捐款</h2>
+      <p class="text-csr-gray-600 mb-8 leading-relaxed">
+        CSR是一家注册非营利组织。对于瑞士和欧盟的捐款人，根据当地基金会法律，捐款通常可以享受税收减免。
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="p-6 bg-white border border-csr-gray-200 rounded-2xl">
+          <p class="font-bold text-csr-black mb-2 text-sm">瑞士（总部）</p>
+          <p class="text-csr-gray-500 font-mono text-xs leading-relaxed">Center for Sentience Research (CSR)<br/>CHE-XXX.XXX.XXX<br/>苏黎世，瑞士</p>
+        </div>
+        <div class="p-6 bg-white border border-csr-gray-200 rounded-2xl">
+          <p class="font-bold text-csr-black mb-2 text-sm">美国（合作伙伴关系）</p>
+          <p class="text-csr-gray-500 font-mono text-xs leading-relaxed">通过[占位基金会]进行财政赞助<br/>501(c)(3)免税状态</p>
+        </div>
       </div>
+      <p class="text-xs text-csr-gray-400 mt-6 font-mono">年度研究成果和财务摘要公开发布。透明度优先模式。</p>
     </div>
   </section>
+
 </Layout>

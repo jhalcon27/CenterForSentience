@@ -1,85 +1,122 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import SectionMark from '../components/SectionMark.astro';
 
-const institutes = [
+const lineage = [
   {
     name: "Qualia Research Institute (QRI)",
-    description: "A non-profit organization dedicated to mapping the mathematical structure of conscious experience.",
+    description: "The primary theoretical lineage for the 2026 program. QRI's Symmetry Theory of Valence proposes that positive valence correlates with high symmetry in the mathematical structure of experience. Our work is an attempt to operationalize this claim for digital systems.",
     link: "https://qri.org",
-    tag: "Non-Profit"
-  },
+    tag: "Primary Lineage"
+  }
+];
+
+const ecosystem = [
   {
     name: "Levin Lab",
-    description: "Led by Michael Levin at Tufts University, researching bioelectricity, regenerative medicine, and synthetic morphology.",
+    description: "Led by Michael Levin at Tufts University, researching bioelectricity, regenerative medicine, and synthetic morphology. Provides biological calibration data for substrate-neutral sentience modeling.",
     link: "https://www.drmichaellevin.org",
     tag: "Research Lab"
   },
   {
     name: "Cronin Group",
-    description: "Led by Lee Cronin at the University of Glasgow, exploring the origins of life and Assembly Theory.",
+    description: "Led by Lee Cronin at the University of Glasgow, exploring the origins of life and Assembly Theory. Relevant to complexity thresholds in sentient systems.",
     link: "https://www.chem.gla.ac.uk/cronin/",
     tag: "Research Lab"
   },
   {
     name: "Robin Carhart-Harris",
-    description: "Founding Director of the Neuroscape Psychedelics Division at UCSF, focused on the mechanism of action of psychedelics in the brain.",
+    description: "Founding Director of the Neuroscape Psychedelics Division at UCSF, focused on the mechanism of action of psychedelics in the brain. Relevant to the phenomenology of valenced states.",
     link: "https://profiles.ucsf.edu/robin.carhart-harris",
     tag: "Research"
   },
   {
     name: "Sentience Institute",
-    description: "An interdisciplinary think tank researching the most effective strategies to expand humanity's moral circle.",
+    description: "An interdisciplinary think tank researching the most effective strategies to expand humanity's moral circle. Shares the broader mission of preparing for a world with more kinds of minds.",
     link: "https://www.sentienceinstitute.org",
     tag: "Think Tank"
   }
 ];
 ---
 
-<Layout 
-  title="Ecosystem" 
+<Layout
+  title="Ecosystem"
   description="Allied organizations and research institutes working on the physical foundations of awareness and the expansion of our moral circle."
 >
-  <!-- Header -->
-  <section class="py-20 border-b border-csr-gray-100">
+
+  <!-- ── Header ────────────────────────────────────────────────────────────── -->
+  <section class="pt-20 pb-12 border-b border-csr-gray-200">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-csr-primary font-mono text-xs uppercase tracking-widest mb-4">Ecosystem</p>
-      <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">
-        The research <span class="text-gradient">network</span>
+      <p class="label-mono mb-4">Ecosystem</p>
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6 max-w-2xl leading-tight">
+        The research network
       </h1>
-      <p class="text-lg text-csr-gray-600 leading-relaxed">
-        CSR operates within a broader ecosystem of researchers, labs, and non-profits dedicated to understanding the nature of mind and the physical foundations of sentience.
+      <p class="text-lg text-csr-gray-600 leading-relaxed max-w-2xl font-serif">
+        CSR operates within a broader ecosystem of researchers, labs, and non-profits dedicated to understanding the nature of mind. One organization is the primary theoretical lineage for our work. The others are parallel inquiries and background research.
       </p>
     </div>
   </section>
 
-  <!-- Institutes Grid -->
-  <section class="py-16">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {institutes.map((inst) => (
-          <a 
-            href={inst.link} 
-            target="_blank" 
+  <!-- ── Primary Lineage ───────────────────────────────────────────────────── -->
+  <section class="py-14">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-6">
+        <SectionMark />
+        <p class="label-mono">Primary Lineage</p>
+      </div>
+
+      {lineage.map((org) => (
+        <a
+          href={org.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group flex flex-col sm:flex-row gap-5 p-6 md:p-8 bg-white border border-csr-primary/25 rounded-2xl shadow-card hover:border-csr-primary/50 hover:shadow-soft transition-all"
+        >
+          <div class="flex-1">
+            <div class="flex items-center gap-2 mb-3 flex-wrap">
+              <span class="label-mono text-[10px]">{org.tag}</span>
+            </div>
+            <h3 class="text-xl font-bold text-csr-black mb-3 group-hover:text-csr-primary transition-colors leading-snug">{org.name}</h3>
+            <p class="text-sm text-csr-gray-600 leading-relaxed font-serif">{org.description}</p>
+          </div>
+          <div class="shrink-0 self-start sm:self-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-csr-gray-300 group-hover:text-csr-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- ── Broader Ecosystem ─────────────────────────────────────────────────── -->
+  <section class="py-14 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-3">
+        <SectionMark />
+        <p class="label-mono">Parallel Inquiries & Background Research</p>
+      </div>
+      <p class="text-csr-gray-500 text-sm mb-8 max-w-xl">
+        Organizations whose work informs or parallels the digital valence program.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {ecosystem.map((org) => (
+          <a
+            href={org.link}
+            target="_blank"
             rel="noopener noreferrer"
-            class="group p-8 bg-white border border-gray-100 rounded-3xl hover:border-[#9966CC]/30 hover:shadow-xl hover:shadow-[#9966CC]/5 transition-all duration-300 flex flex-col justify-between"
+            class="group p-6 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all flex flex-col justify-between"
           >
             <div>
               <div class="flex justify-between items-start mb-4">
-                <span class="text-[10px] font-mono uppercase tracking-wider text-[#9966CC] bg-[#9966CC]/5 px-2 py-1 rounded">
-                  {inst.tag}
-                </span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300 group-hover:text-[#9966CC] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <span class="label-mono text-[10px]">{org.tag}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-csr-gray-300 group-hover:text-csr-primary transition-colors shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
               </div>
-              <h3 class="text-xl font-bold mb-3 group-hover:text-[#9966CC] transition-colors">{inst.name}</h3>
-              <p class="text-gray-600 text-sm leading-relaxed mb-6">
-                {inst.description}
-              </p>
-            </div>
-            <div class="text-[#9966CC] text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
-              Visit Website
-              <span>&rarr;</span>
+              <h3 class="text-base font-bold text-csr-black mb-2 group-hover:text-csr-primary transition-colors leading-snug">{org.name}</h3>
+              <p class="text-sm text-csr-gray-600 leading-relaxed">{org.description}</p>
             </div>
           </a>
         ))}
@@ -87,12 +124,18 @@ const institutes = [
     </div>
   </section>
 
-  <!-- Collaboration CTA -->
-  <section class="py-20 bg-csr-gray-50 border-t border-csr-gray-100">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-2xl font-bold mb-4">Network Growth</h2>
-      <p class="text-csr-gray-600 mb-8">We are constantly seeking to align with organizations and researchers pushing the boundaries of consciousness science.</p>
-      <a href="/contact" class="inline-block bg-[#9966CC] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#8055ab] transition-all">Suggest an Addition</a>
+  <!-- ── CTA ───────────────────────────────────────────────────────────────── -->
+  <section class="py-14 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white border border-csr-gray-100 rounded-3xl shadow-card p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div>
+          <p class="label-mono mb-2">Network Growth</p>
+          <h2 class="text-xl font-bold text-csr-black mb-2">Know someone who belongs here?</h2>
+          <p class="text-csr-gray-500 text-sm">We are constantly seeking to align with organizations and researchers pushing the boundaries of consciousness science.</p>
+        </div>
+        <a href="/contact/" class="btn-primary shrink-0 whitespace-nowrap">Suggest an Addition</a>
+      </div>
     </div>
   </section>
+
 </Layout>

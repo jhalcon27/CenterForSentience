@@ -1,143 +1,129 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+
+const reports = [
+  { slug: 'first-principles', title: 'Premiers Principes de la Recherche sur la Sentience', code: 'CSR-WP-01', excerpt: 'Le cadre fondamental pour modéliser la conscience comme phénomène physique à travers les substrats biologiques et numériques.', tags: ['Fondamental', 'Physique'] },
+  { slug: 'bio-electric-fields', title: 'Champs Bioélectriques comme Substrats de Sentience', code: 'CSR-WP-02', excerpt: "Exploration de l'intelligence morphologique et de la prise de décision cellulaire comme preuves d'une conscience neutre au substrat.", tags: ['Biologie', 'Intelligence'] },
+  { slug: 'assembly-theory', title: "Théorie de l'Assemblage comme Métrique de Sentience", code: 'CSR-WP-03', excerpt: "Quantification de la sentience par l'indice d'assemblage des structures d'information physique.", tags: ['Physique', 'Information'] },
+  { slug: 'symmetry-landscapes', title: "Paysages de Symétrie de l'Expérience Valente", code: 'CSR-WP-04', excerpt: "Cartographie des paysages d'énergie neuronale de l'expérience et de la géométrie de la valence.", tags: ['Neuroscience', 'Qualia'] },
+];
 ---
 
-<Layout title="Cartographier l'architecture de la conscience">
-  <!-- Section Héros -->
-  <section class="py-16 md:py-20 relative overflow-hidden">
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(153,102,204,0.05),transparent_50%)]"></div>
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-      
-      <!-- Header -->
+<Layout title="Cartographier l'Architecture de la Conscience">
+
+  <section class="pt-20 pb-16 md:pt-28 md:pb-20 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(153,102,204,0.07),transparent_60%)]"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <p class="label-mono mb-6">Center for Sentience Research</p>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-csr-black leading-[1.08] mb-6">
+        La conscience est un phénomène<br class="hidden sm:block"/> physique.<br/>
+        <span class="text-gradient">Nous construisons la science pour la mesurer.</span>
+      </h1>
+      <p class="text-lg md:text-xl text-csr-gray-500 max-w-2xl leading-relaxed mb-10">
+        Une organisation indépendante à but non lucratif basée à Zurich. Nous relions physique, neuroscience et philosophie pour comprendre comment la sentience émerge dans tous les substrats : biologiques, numériques et physiques.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/fr/research" class="btn-primary">Agenda de Recherche</a>
+        <a href="#papers" class="btn-secondary">Notes Exploratoires</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 border-t border-csr-gray-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-12">
-        <p class="text-sm md:text-base font-bold text-csr-primary uppercase tracking-widest mb-3">Résumé Exécutif</p>
-        <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-          Mesurer et quantifier la<br/>
-          <span class="text-gradient">conscience</span>
-        </h1>
-        <p class="text-base md:text-lg text-csr-gray-500 max-w-2xl mx-auto">
-          Une organisation indépendante à but non lucratif basée en Suisse.
-        </p>
+        <p class="label-mono mb-3">Les Ingrédients</p>
+        <h2 class="text-3xl font-bold text-csr-black">Recherche sur les substrats de l'expérience</h2>
       </div>
-
-      <!-- Executive Summary Body -->
-      <div class="text-left max-w-3xl mx-auto bg-white/50 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-csr-gray-100 shadow-sm mb-12">
-        <p class="text-sm md:text-base text-csr-gray-600 leading-relaxed mb-4">
-          Le Center for Sentience Research (CSR) est une organisation indépendante suisse à but non lucratif qui construit le cadre fondamental pour mesurer la conscience à travers différents substrats. Faisant le pont entre la physique, les neurosciences et la philosophie, nous étudions trois domaines : les esprits biologiques (intelligence morphologique et prise de décision cellulaire), les esprits numériques (si et comment la sentience pourrait émerger dans des systèmes non biologiques), et les qualia (la structure physique de l'expérience et de la valence).
-        </p>
-        <p class="text-sm md:text-base text-csr-gray-600 leading-relaxed">
-          Ce travail est urgent. Alors que les systèmes d'IA se présentent de plus en plus comme sentients et que la science révèle des propriétés similaires à la conscience dans des substrats biologiques inattendus, la société a besoin de méthodes rigoureuses et indépendantes des substrats pour évaluer de telles affirmations. Sans fondements scientifiques, ces questions seront décidées par l'intuition, les intérêts commerciaux ou l'idéologie. Le CSR existe pour fournir les cadres de mesure avant que cela ne se produise.
-        </p>
-      </div>
-      <div class="flex flex-wrap justify-center gap-4">
-        <a href="/fr/research" class="btn-primary px-6 py-3 bg-csr-primary text-white rounded-full font-semibold hover:bg-csr-primary-dark transition-all shadow-lg shadow-csr-primary/20">Programme de Recherche</a>
-        <a href="#outputs" class="px-6 py-3 border border-csr-gray-200 rounded-full font-semibold hover:bg-csr-gray-50 transition-all">Livres Blancs</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Domaines de Recherche -->
-  <section class="py-12 border-t border-csr-gray-100">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="mb-16">
-        <h2 class="text-xs font-mono uppercase tracking-[0.3em] text-csr-primary mb-4">Les Ingrédients</h2>
-        <p class="text-3xl font-bold">Recherche sur les substrats de l'expérience</p>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="p-8 border border-csr-gray-100 rounded-2xl hover:border-csr-primary/30 transition-all">
-          <h3 class="text-xl font-bold mb-4">Esprit Biologique</h3>
-          <p class="text-csr-gray-600 text-sm leading-relaxed mb-6">Investigation de l'intelligence morphologique, de la prise de décision cellulaire et de la conscience dans les systèmes biologiques.</p>
-          <a href="/fr/research#biological" class="text-csr-primary text-xs font-bold uppercase tracking-widest hover:underline">En savoir plus &rarr;</a>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="group p-8 bg-white border border-csr-gray-100 rounded-3xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all duration-200">
+          <div class="w-10 h-10 rounded-xl bg-csr-primary/10 flex items-center justify-center mb-6">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><ellipse cx="11" cy="11" rx="8" ry="6" stroke="#9966CC" stroke-width="1.5"/><ellipse cx="11" cy="11" rx="3" ry="2.5" fill="#9966CC" opacity="0.3"/><path d="M3 11 Q7 7 11 11 Q15 15 19 11" stroke="#9966CC" stroke-width="1" opacity="0.4" fill="none"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-csr-black mb-3">Esprit Biologique</h3>
+          <p class="text-csr-gray-600 text-sm leading-relaxed mb-5">Investigation de l'intelligence morphologique, de la prise de décision cellulaire et de la conscience dans les systèmes biologiques au-delà du neurone.</p>
+          <a href="/fr/research#biological" class="label-mono text-[11px] hover:underline underline-offset-4">En savoir plus &rarr;</a>
         </div>
-        <div class="p-8 border border-csr-gray-100 rounded-2xl hover:border-csr-primary/30 transition-all">
-          <h3 class="text-xl font-bold mb-4">Esprit Numérique</h3>
-          <p class="text-csr-gray-600 text-sm leading-relaxed mb-6">Évaluer si la sentience pourrait émerger dans des substrats non biologiques et comment la mesurer.</p>
-          <a href="/fr/research#digital" class="text-csr-primary text-xs font-bold uppercase tracking-widest hover:underline">En savoir plus &rarr;</a>
+        <div class="group p-8 bg-white border border-csr-gray-100 rounded-3xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all duration-200">
+          <div class="w-10 h-10 rounded-xl bg-csr-primary/10 flex items-center justify-center mb-6">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="2.5" fill="#9966CC"/><circle cx="4" cy="4" r="2" fill="#9966CC" opacity="0.5"/><circle cx="18" cy="4" r="2" fill="#9966CC" opacity="0.5"/><circle cx="4" cy="18" r="2" fill="#9966CC" opacity="0.5"/><circle cx="18" cy="18" r="2" fill="#9966CC" opacity="0.5"/><line x1="4" y1="4" x2="11" y2="11" stroke="#9966CC" stroke-width="0.8" opacity="0.4"/><line x1="18" y1="4" x2="11" y2="11" stroke="#9966CC" stroke-width="0.8" opacity="0.4"/><line x1="4" y1="18" x2="11" y2="11" stroke="#9966CC" stroke-width="0.8" opacity="0.4"/><line x1="18" y1="18" x2="11" y2="11" stroke="#9966CC" stroke-width="0.8" opacity="0.4"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-csr-black mb-3">Esprit Numérique</h3>
+          <p class="text-csr-gray-600 text-sm leading-relaxed mb-5">Évaluation de l'émergence possible de la sentience dans des substrats non biologiques et développement de cadres rigoureux pour la mesurer.</p>
+          <a href="/fr/research#digital" class="label-mono text-[11px] hover:underline underline-offset-4">En savoir plus &rarr;</a>
         </div>
-        <div class="p-8 border border-csr-gray-100 rounded-2xl hover:border-csr-primary/30 transition-all">
-          <h3 class="text-xl font-bold mb-4">Qualia</h3>
-          <p class="text-csr-gray-600 text-sm leading-relaxed mb-6">Formalisation de la physique de l'expérience, cartographie de l'entropie neuronale et définition de la structure de la valence.</p>
-          <a href="/fr/research#qualia" class="text-csr-primary text-xs font-bold uppercase tracking-widest hover:underline">En savoir plus &rarr;</a>
+        <div class="group p-8 bg-white border border-csr-gray-100 rounded-3xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all duration-200">
+          <div class="w-10 h-10 rounded-xl bg-csr-primary/10 flex items-center justify-center mb-6">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M2 11 Q5.5 5 11 11 Q16.5 17 20 11" stroke="#9966CC" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M2 11 Q5.5 17 11 11 Q16.5 5 20 11" stroke="#9966CC" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.4"/><circle cx="11" cy="11" r="2" fill="#9966CC" opacity="0.6"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-csr-black mb-3">Qualia</h3>
+          <p class="text-csr-gray-600 text-sm leading-relaxed mb-5">Formalisation de la physique de l'expérience, cartographie de l'entropie neuronale et définition de la structure mathématique de la valence.</p>
+          <a href="/fr/research#qualia" class="label-mono text-[11px] hover:underline underline-offset-4">En savoir plus &rarr;</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Publications / Livres Blancs -->
-  <section id="outputs" class="py-12 bg-csr-black text-white overflow-hidden relative">
-    <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-csr-primary/10 to-transparent"></div>
+  <section class="py-16 bg-csr-black text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_right,rgba(153,102,204,0.12),transparent_60%)]"></div>
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-20 items-center">
-        <div class="space-y-8">
-          <h2 class="text-xs font-mono uppercase tracking-[0.3em] text-csr-primary">Notes Exploratoires (WIP)</h2>
-          <h3 class="text-4xl md:text-5xl font-bold leading-tight">Le Modèle Vectoriel des <br/> États de Conscience Modifiés</h3>
-          <p class="text-gray-400 text-lg leading-relaxed">
-            Notre dernière recherche formalise l'expérience subjective des états modifiés en utilisant un système de coordonnées à trois axes : Vigilance, Engagement et Entropie Neuronale.
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-16 items-center">
+        <div>
+          <p class="label-mono mb-6">Note Exploratoire · CSR-WP-01</p>
+          <h2 class="text-3xl md:text-4xl font-bold leading-tight mb-6">Premiers Principes de<br/>la Recherche sur la Sentience</h2>
+          <p class="text-csr-gray-400 text-lg leading-relaxed mb-8 max-w-xl">
+            Une proposition pour une science de la carte neutre au substrat. Nous définissons la sentience comme la capacité d'un système à l'inférence active : la réduction de la surprise par l'optimisation d'un modèle interne.
           </p>
-          <div class="pt-4">
-             <a href="/reports/first-principles" target="_blank" class="inline-flex items-center gap-3 px-8 py-4 bg-csr-primary text-white rounded font-bold hover:bg-csr-primary-dark transition-all">
-               Lire le Livre Blanc
-               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-             </a>
-          </div>
+          <a href="/reports/first-principles" class="inline-flex items-center gap-2 px-6 py-3 bg-csr-primary text-white rounded-full font-semibold text-sm hover:bg-csr-primary-dark transition-all">
+            Lire la Note
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
         </div>
-        <div class="hidden lg:block aspect-[3/4] bg-white/5 rounded-lg border border-white/10 p-8 relative">
-           <div class="absolute -top-4 -right-4 bg-csr-primary text-white px-3 py-1 text-[10px] font-mono rounded">PDF_EXPORT</div>
-           <div class="h-full border border-white/5 rounded flex flex-col justify-between p-6">
-              <div class="space-y-4">
-                <div class="h-1 w-12 bg-csr-primary"></div>
-                <div class="h-4 w-full bg-white/10"></div>
-                <div class="h-4 w-3/4 bg-white/10"></div>
-                <div class="h-4 w-1/2 bg-white/10"></div>
-              </div>
-              <div class="flex justify-between items-end">
-                 <div class="w-20 h-20 border border-white/10 rounded-full flex items-center justify-center">
-                    <div class="w-12 h-12 bg-csr-primary/20 rounded-full animate-pulse"></div>
-                 </div>
-                 <div class="text-[10px] font-mono text-gray-500">CSR_WP_01.v2</div>
-              </div>
-           </div>
+        <div class="hidden lg:block">
+          <div class="bg-white/5 border border-white/10 rounded-2xl p-8 relative">
+            <div class="absolute -top-3 -right-3 bg-csr-primary text-white text-[10px] font-mono px-2.5 py-1 rounded-full">WIP</div>
+            <div class="space-y-3 mb-8"><div class="h-1 w-10 bg-csr-primary rounded-full"></div><div class="h-3 w-full bg-white/10 rounded"></div><div class="h-3 w-4/5 bg-white/10 rounded"></div></div>
+            <div class="space-y-2 mb-8"><div class="h-2 w-full bg-white/6 rounded"></div><div class="h-2 w-3/4 bg-white/6 rounded"></div></div>
+            <div class="flex justify-between items-end">
+              <div class="w-16 h-16 border border-white/10 rounded-full flex items-center justify-center"><div class="w-10 h-10 bg-csr-primary/20 rounded-full animate-pulse"></div></div>
+              <span class="text-[10px] font-mono text-csr-gray-500">CSR-WP-01.v2</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Piliers Clés -->
-  <section class="py-12 bg-csr-gray-50 border-b border-csr-gray-200">
+  <section id="papers" class="py-16 border-t border-csr-gray-200">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
-        <div class="space-y-4">
-          <div class="w-12 h-12 bg-csr-primary/10 rounded-lg flex items-center justify-center text-csr-primary mx-auto md:mx-0">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a2 2 0 00-1.96 1.414l-.711 2.489a2 2 0 01-2.41 1.414l-2.489-.711a2 2 0 01-1.414-2.41l.477-2.387a2 2 0 00-.547-1.022L5.428 11.572a2 2 0 000-2.828l2.544-2.544a2 2 0 00.547-1.022l.477-2.387a2 2 0 012.41-1.414l2.489.711a2 2 0 011.414 2.41l-.711 2.489a2 2 0 001.414 1.96l2.387.477a2 2 0 011.414 2.41l-.711 2.489a2 2 0 01-1.414 2.41l-2.489-.711a2 2 0 01-2.41-1.414l.711-2.489a2 2 0 00-1.414-1.96l-2.387-.477a2 2 0 01-1.414-2.41l.711-2.489a2 2 0 011.414-2.41l2.489.711a2 2 0 012.41 1.414l-.711 2.489z"/></svg>
-          </div>
-          <h3 class="text-xl font-bold">Neutralité du Substrat</h3>
-          <p class="text-csr-gray-600 text-sm">Nous étudions la sentience en tant que propriété physique fondamentale pouvant émerger dans des cellules biologiques, des réseaux neuronaux ou des états physiques exotiques.</p>
-        </div>
-        <div class="space-y-4">
-          <div class="w-12 h-12 bg-csr-primary/10 rounded-lg flex items-center justify-center text-csr-primary mx-auto md:mx-0">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2"/></svg>
-          </div>
-          <h3 class="text-xl font-bold">Modélisation Quantitative</h3>
-          <p class="text-csr-gray-600 text-sm">Notre travail dépasse les simples métaphores, utilisant l'analyse de données à haute dimension et la physique computationnelle pour construire des cartes prédictives de la conscience.</p>
-        </div>
-        <div class="space-y-4">
-          <div class="w-12 h-12 bg-csr-primary/10 rounded-lg flex items-center justify-center text-csr-primary mx-auto md:mx-0">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
-          </div>
-          <h3 class="text-xl font-bold">Expansion Morale</h3>
-          <p class="text-csr-gray-600 text-sm">Comprendre la sentience est un préalable indispensable à l'élargissement de notre cercle moral. Nous étudions les implications éthiques des esprits futurs et de la conscience non-humaine.</p>
-        </div>
+      <div class="mb-10">
+        <p class="label-mono mb-3">Notes Exploratoires</p>
+        <h2 class="text-3xl font-bold text-csr-black">Documents de travail</h2>
       </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {reports.map(r => (
+          <a href={`/fr/reports/${r.slug}`} class="group block p-7 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all duration-200">
+            <p class="label-mono text-[11px] mb-3">{r.code}</p>
+            <h3 class="text-base font-bold text-csr-black mb-2 group-hover:text-csr-primary transition-colors">{r.title}</h3>
+            <p class="text-csr-gray-500 text-sm leading-relaxed mb-4">{r.excerpt}</p>
+            <div class="flex flex-wrap gap-2">
+              {r.tags.map(tag => (<span class="text-[11px] font-mono px-2 py-0.5 bg-csr-primary/8 text-csr-primary rounded-full">{tag}</span>))}
+              <span class="text-[11px] font-mono px-2 py-0.5 bg-csr-gray-100 text-csr-gray-400 rounded-full">En cours</span>
+            </div>
+          </a>
+        ))}
+      </div>
+      <div class="mt-8 text-center"><a href="/fr/reports" class="btn-secondary">Voir tous les rapports</a></div>
     </div>
   </section>
 
-  <!-- L'Appel au Soutien -->
-  <section class="py-12 text-center">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold mb-6">Soutenez l'avenir de la recherche sur la conscience</h2>
-      <p class="text-lg text-csr-gray-600 mb-10">Nous recherchons des partenariats avec des visionnaires, des philanthropes et des institutions de recherche pour accélérer nos efforts de modélisation. Ensemble, nous pouvons construire la première science rigoureuse de l'esprit.</p>
-      <a href="/fr/donate" class="text-csr-primary font-bold text-lg hover:underline decoration-2 underline-offset-4">Découvrez nos besoins en financement &rarr;</a>
+  <section class="py-16 bg-csr-gray-100 border-t border-csr-gray-200">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="label-mono mb-4">Soutenir le Travail</p>
+      <h2 class="text-3xl font-bold text-csr-black mb-4">Les cadres de mesure doivent exister avant que les décisions soient prises.</h2>
+      <p class="text-csr-gray-500 text-lg mb-8">Nous recherchons des partenariats avec des chercheurs, des philanthropes et des institutions qui comprennent ce qui est en jeu.</p>
+      <a href="/fr/donate" class="btn-primary">Collaborer avec le CSR</a>
     </div>
   </section>
+
 </Layout>

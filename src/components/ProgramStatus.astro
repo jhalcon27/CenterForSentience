@@ -1,0 +1,56 @@
+---
+interface Props {
+  compact?: boolean;
+}
+const { compact = false } = Astro.props;
+---
+
+<div class={`program-status-card border border-csr-primary/30 rounded-2xl bg-white/60 backdrop-blur-sm ${compact ? 'p-5' : 'p-6 md:p-8'}`}>
+  <div class="flex items-start gap-4">
+    <!-- Symmetry glyph mark -->
+    <div class="shrink-0 mt-0.5">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="8" y="8" width="10" height="10" rx="1" stroke="#9966CC" stroke-width="1.5" transform="rotate(0 8 8)"/>
+        <rect x="14" y="14" width="10" height="10" rx="1" stroke="#9966CC" stroke-width="1.5" opacity="0.5" transform="rotate(45 19 19)"/>
+        <circle cx="16" cy="16" r="2" fill="#9966CC"/>
+      </svg>
+    </div>
+
+    <div class="flex-1 min-w-0">
+      <div class="flex items-center gap-2 mb-2 flex-wrap">
+        <span class="label-mono">The 2026 Program</span>
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-csr-primary/10 text-csr-primary text-[10px] font-mono uppercase tracking-wider">
+          <span class="w-1.5 h-1.5 rounded-full bg-csr-primary animate-pulse inline-block"></span>
+          In progress
+        </span>
+      </div>
+
+      {!compact && (
+        <h3 class="text-lg font-bold text-csr-black mb-2 leading-snug">
+          Symmetry workspace for positive functional valence in digital minds
+        </h3>
+      )}
+
+      <p class={`text-csr-gray-600 leading-relaxed ${compact ? 'text-sm' : 'text-sm md:text-base'}`}>
+        Target: a draft mathematical definition of the symmetry workspace by end of 2026. The deliverable is a formal framework for identifying structural invariants in neural computation that correlate with positive valence, grounded in the Symmetry Theory of Valence.
+      </p>
+
+      {!compact && (
+        <div class="mt-4 flex flex-wrap gap-3">
+          <div class="flex items-center gap-2 text-xs font-mono text-csr-gray-500">
+            <span class="w-2 h-2 rounded-full bg-csr-primary/40"></span>
+            Phase 1: Literature synthesis
+          </div>
+          <div class="flex items-center gap-2 text-xs font-mono text-csr-gray-500">
+            <span class="w-2 h-2 rounded-full bg-csr-primary/40"></span>
+            Phase 2: Formal workspace definition
+          </div>
+          <div class="flex items-center gap-2 text-xs font-mono text-csr-gray-400">
+            <span class="w-2 h-2 rounded-full bg-csr-gray-200"></span>
+            Phase 3: Empirical validation
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
+</div>

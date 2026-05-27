@@ -12,15 +12,14 @@ export const defaultLang = 'en';
 export const ui = {
   en: {
     'nav.research': 'Research',
+    'nav.program': 'Program',
     'nav.reports': 'Reports',
     'nav.ecosystem': 'Ecosystem',
     'nav.about': 'About',
     'nav.donate': 'Support',
-    'hero.title': 'Modeling the physical foundations of awareness',
-    'hero.subtitle': 'The Center for Sentience Research (CSR) is an independent non-profit based in Switzerland. We bridge physics, neuroscience, and philosophy to understand how sentience arises across all substrates.',
-    'pillars.substrate.title': 'Substrate Neutrality',
-    'pillars.substrate.desc': 'We investigate sentience as a fundamental physical property that can emerge in biological cells, neural networks, or exotic physical states.',
-    'footer.headquarters': 'Headquartered in Zurich, Switzerland'
+    'footer.org': 'Center for Sentience Research',
+    'footer.hq': 'Zurich, Switzerland',
+    'footer.copyright': '© 2026 Center for Sentience Research. All rights reserved.',
   },
   de: {
     'nav.research': 'Forschung',
@@ -28,11 +27,9 @@ export const ui = {
     'nav.ecosystem': 'Ökosystem',
     'nav.about': 'Über uns',
     'nav.donate': 'Unterstützen',
-    'hero.title': 'Modellierung der physikalischen Grundlagen des Bewusstseins',
-    'hero.subtitle': 'Das Center for Sentience Research (CSR) ist eine unabhängige gemeinnützige Organisation mit Sitz in der Schweiz.',
-    'pillars.substrate.title': 'Substratneutralität',
-    'pillars.substrate.desc': 'Wir untersuchen Empfindungsfähigkeit als fundamentale physikalische Eigenschaft.',
-    'footer.headquarters': 'Hauptsitz in Zürich, Schweiz'
+    'footer.org': 'Center for Sentience Research',
+    'footer.hq': 'Zürich, Schweiz',
+    'footer.copyright': '© 2026 Center for Sentience Research. Alle Rechte vorbehalten.',
   },
   es: {
     'nav.research': 'Investigación',
@@ -40,11 +37,9 @@ export const ui = {
     'nav.ecosystem': 'Ecosistema',
     'nav.about': 'Acerca de',
     'nav.donate': 'Apoyar',
-    'hero.title': 'Modelando los fundamentos físicos de la conciencia',
-    'hero.subtitle': 'El Center for Sentience Research (CSR) es una organización sin fines de lucro independiente con sede en Suiza.',
-    'pillars.substrate.title': 'Neutralidad de sustrato',
-    'pillars.substrate.desc': 'Investigamos la sensibilidad como una propiedad física fundamental.',
-    'footer.headquarters': 'Con sede en Zúrich, Suiza'
+    'footer.org': 'Center for Sentience Research',
+    'footer.hq': 'Zúrich, Suiza',
+    'footer.copyright': '© 2026 Center for Sentience Research. Todos los derechos reservados.',
   },
   fr: {
     'nav.research': 'Recherche',
@@ -52,11 +47,9 @@ export const ui = {
     'nav.ecosystem': 'Écosystème',
     'nav.about': 'À propos',
     'nav.donate': 'Soutenir',
-    'hero.title': 'Modéliser les fondements physiques de la conscience',
-    'hero.subtitle': 'Le Center for Sentience Research (CSR) est une organisation à but non lucratif indépendante basée en Suisse.',
-    'pillars.substrate.title': 'Neutralité du substrat',
-    'pillars.substrate.desc': 'Nous étudions la sentience comme une propriété physique fondamentale.',
-    'footer.headquarters': 'Basé à Zurich, Suisse'
+    'footer.org': 'Center for Sentience Research',
+    'footer.hq': 'Zurich, Suisse',
+    'footer.copyright': '© 2026 Center for Sentience Research. Tous droits réservés.',
   },
   zh: {
     'nav.research': '研究',
@@ -64,11 +57,9 @@ export const ui = {
     'nav.ecosystem': '生态系统',
     'nav.about': '关于',
     'nav.donate': '支持',
-    'hero.title': '为意识的物理基础建模',
-    'hero.subtitle': '感知研究中心（CSR）是一家位于瑞士的独立非营利组织。',
-    'pillars.substrate.title': '基质中立性',
-    'pillars.substrate.desc': '我们研究感知作为一种基本物理属性。',
-    'footer.headquarters': '总部位于瑞士苏黎世'
+    'footer.org': '感知研究中心',
+    'footer.hq': '瑞士苏黎世',
+    'footer.copyright': '© 2026 感知研究中心。保留所有权利。',
   },
   ja: {
     'nav.research': '研究',
@@ -76,11 +67,9 @@ export const ui = {
     'nav.ecosystem': 'エコシステム',
     'nav.about': '概要',
     'nav.donate': 'サポート',
-    'hero.title': '意識の物理的基盤をモデル化する',
-    'hero.subtitle': '感性研究センター（CSR）はスイスに拠点を置く独立した非営利組織です。',
-    'pillars.substrate.title': '基盤非依存性',
-    'pillars.substrate.desc': '私たちは感性を基本的な物理的特性として研究しています。',
-    'footer.headquarters': 'スイス、チューリッヒに本拠地'
+    'footer.org': '意識研究センター',
+    'footer.hq': 'スイス、チューリッヒ',
+    'footer.copyright': '© 2026 意識研究センター。無断転載を禁じます。',
   }
 } as const;
 

@@ -2,122 +2,112 @@
 import Layout from '../../layouts/Layout.astro';
 ---
 
-<Layout 
-  title="关于我们" 
-  description="感知研究中心 (CSR) 是一家总部位于瑞士苏黎世的独立非营利组织，致力于构建意识物理基础的模型。"
-  lang="zh"
->
-  <!-- Header -->
-  <section class="py-20 border-b border-csr-gray-100">
+<Layout title="关于我们" description="感知研究中心（CSR）是一家总部位于瑞士苏黎世的独立非营利研究机构。">
+
+  <section class="pt-20 pb-12 border-b border-csr-gray-200">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-csr-primary font-mono text-xs uppercase tracking-widest mb-4">关于 CSR</p>
-      <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">
-        为<span class="text-gradient">体验地图</span>建立的新科学
+      <p class="label-mono mb-4">关于CSR</p>
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6">
+        一门关于<span class="text-gradient">体验地图</span>的新科学
       </h1>
-      <p class="text-lg text-csr-gray-600 leading-relaxed">
-        感知研究中心 (CSR) 是一家总部位于瑞士苏黎世的独立非营利研究机构。我们的存在是为了建立第一个严谨的、跨基质的意识科学。
+      <p class="text-lg text-csr-gray-500 leading-relaxed max-w-2xl">
+        感知研究中心（CSR）是一家总部位于瑞士苏黎世的独立非营利研究机构。我们致力于建立第一门严格的、基底中性的意识科学。
       </p>
     </div>
   </section>
 
-  <!-- Mission -->
-  <section class="py-12">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-      <div>
-        <h2 class="text-2xl font-bold mb-4">我们的使命</h2>
-        <p class="text-csr-gray-600 leading-relaxed">
-          我们连接物理学、神经科学和哲学，以了解感知是如何在所有基质——生物、数字和物理中产生的。我们的工作基于这样一种信念：意识不是一个哲学之谜，而是一个受数学建模约束的物理现象。
-        </p>
-            <p class="text-xs text-csr-gray-400 italic mt-2">保持好奇，去理解。</p>
-      </div>
+  <section class="py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
 
       <div>
-        <h2 class="text-2xl font-bold mb-4">为什么这很重要</h2>
-        <p class="text-csr-gray-600 leading-relaxed">
-          随着我们走向一个自主和人工系统日益复杂的时代，了解感知的物理基础是生存的先决条件。我们必须学会在意识可能出现的任何地方认识和测量它，而不仅仅是在它看起来像我们的地方。如果我们在这一点上犯错，将会产生深远的道德和治理影响。
+        <h2 class="text-2xl font-bold text-csr-black mb-4">我们的使命</h2>
+        <p class="text-csr-gray-600 leading-relaxed text-lg">
+          我们连接物理学、神经科学和哲学，以理解感知如何在所有基底中涌现：生物的、数字的和物理的。我们的工作建立在这样一个信念之上：意识不是一个哲学谜题，而是一种可以进行数学建模的物理现象。
         </p>
       </div>
 
       <div>
-        <h2 class="text-2xl font-bold mb-4">我们的方法</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-6">
-          <div class="p-6 border border-csr-gray-100 rounded-2xl">
-            <h3 class="font-bold mb-2">基质中立性</h3>
-            <p class="text-sm text-csr-gray-600">我们将感知作为一种基本的物理特性进行研究，它可以出现在生物细胞、神经网络或奇异的物理状态中。</p>
+        <h2 class="text-2xl font-bold text-csr-black mb-4">为何重要</h2>
+        <p class="text-csr-gray-600 leading-relaxed text-lg">
+          随着我们进入一个日益复杂的自主和人工系统时代，理解感知的物理基础是生存的必要条件。我们必须学会在任何可能出现意识的地方识别和测量它，而不仅仅是在它看起来像我们的地方。犯错的道德和治理影响是深远的。
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-bold text-csr-black mb-6">我们的方法</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div class="p-6 bg-white border border-csr-gray-100 rounded-2xl shadow-card">
+            <div class="w-8 h-8 rounded-lg bg-csr-primary/10 flex items-center justify-center mb-4">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="3" fill="#9966CC" opacity="0.6"/><circle cx="8" cy="8" r="6" stroke="#9966CC" stroke-width="1" opacity="0.4"/></svg>
+            </div>
+            <h3 class="font-bold text-csr-black mb-2">基底中性</h3>
+            <p class="text-sm text-csr-gray-600 leading-relaxed">我们将感知作为一种基本物理属性来研究，它可以在生物细胞、神经网络或奇异物理状态中涌现。</p>
           </div>
-          <div class="p-6 border border-csr-gray-100 rounded-2xl">
-            <h3 class="font-bold mb-2">定量建模</h3>
-            <p class="text-sm text-csr-gray-600">我们的工作超越了隐喻，利用高维数据分析和计算物理学来构建意识的预测地图。</p>
+          <div class="p-6 bg-white border border-csr-gray-100 rounded-2xl shadow-card">
+            <div class="w-8 h-8 rounded-lg bg-csr-primary/10 flex items-center justify-center mb-4">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="10" width="3" height="4" fill="#9966CC" opacity="0.5"/><rect x="6.5" y="6" width="3" height="8" fill="#9966CC" opacity="0.7"/><rect x="11" y="2" width="3" height="12" fill="#9966CC" opacity="0.9"/></svg>
+            </div>
+            <h3 class="font-bold text-csr-black mb-2">定量建模</h3>
+            <p class="text-sm text-csr-gray-600 leading-relaxed">我们的工作超越隐喻，使用高维数据分析和计算物理学来构建意识的预测地图。</p>
           </div>
-          <div class="p-6 border border-csr-gray-100 rounded-2xl">
-            <h3 class="font-bold mb-2">伦理扩展</h3>
-            <p class="text-sm text-csr-gray-600">理解感知是扩大我们道德圈的前提。我们研究未来思想和非人类意识的伦理含义。</p>
+          <div class="p-6 bg-white border border-csr-gray-100 rounded-2xl shadow-card">
+            <div class="w-8 h-8 rounded-lg bg-csr-primary/10 flex items-center justify-center mb-4">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#9966CC" stroke-width="1" opacity="0.4"/><circle cx="8" cy="8" r="3" stroke="#9966CC" stroke-width="1" opacity="0.7"/><line x1="8" y1="2" x2="8" y2="14" stroke="#9966CC" stroke-width="0.8" opacity="0.3"/><line x1="2" y1="8" x2="14" y2="8" stroke="#9966CC" stroke-width="0.8" opacity="0.3"/></svg>
+            </div>
+            <h3 class="font-bold text-csr-black mb-2">伦理扩展</h3>
+            <p class="text-sm text-csr-gray-600 leading-relaxed">理解感知是扩大我们道德圈的先决条件。我们研究未来心智和非人类意识的伦理影响。</p>
           </div>
         </div>
       </div>
 
-      <!-- Leadership & Advisors -->
       <div>
-        <h2 class="text-2xl font-bold mb-4">领导与咨询委员会</h2>
-        <p class="text-csr-gray-600 leading-relaxed mb-6">
-          我们的工作由一个核心团队指导，并由一个跨越哲学、神经科学和慈善事业的独立思想家组成的咨询委员会提供指导：
-        </p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          
-          <!-- Director -->
-          <div class="p-6 border border-csr-gray-100 rounded-2xl flex flex-col items-center text-center">
-            <div class="w-24 h-24 rounded-full bg-csr-gray-100 mb-4 overflow-hidden border-2 border-csr-gray-200">
-               <img src="/images/jhonatan-serna.jpg" alt="Jhonatan Serna" class="w-full h-full object-cover object-center" />
+        <h2 class="text-2xl font-bold text-csr-black mb-2">领导层与顾问委员会</h2>
+        <p class="text-csr-gray-500 mb-8 leading-relaxed">我们的工作由核心团队领导，并由来自哲学、神经科学和慈善领域的独立思想家顾问委员会指导。</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-7 bg-white border border-csr-gray-100 rounded-2xl shadow-card flex flex-col items-center text-center">
+            <div class="w-20 h-20 rounded-full bg-csr-gray-100 mb-5 overflow-hidden border-2 border-csr-gray-200 shrink-0">
+              <img src="/images/jhonatan-serna.jpg" alt="Jhonatan Serna" class="w-full h-full object-cover object-center" />
             </div>
-            <h3 class="font-bold text-lg mb-1">Jhonatan Serna</h3>
-            <p class="text-sm text-csr-primary font-mono uppercase tracking-widest mb-3">总监</p>
-            <p class="text-sm text-csr-gray-600 leading-relaxed italic">
-              在这里，保持好奇，去理解。
-            </p>
+            <h3 class="font-bold text-lg text-csr-black mb-1">Jhonatan Serna</h3>
+            <p class="label-mono text-[10px] mb-3">主任</p>
+            <p class="text-sm text-csr-gray-500 leading-relaxed italic">在这里保持好奇心并理解。</p>
           </div>
-
-          <!-- Advisor 1 -->
-          <div class="p-6 border border-csr-gray-100 rounded-2xl flex flex-col items-center text-center">
-            <div class="w-24 h-24 rounded-full bg-csr-gray-100 mb-4 overflow-hidden border-2 border-csr-gray-200">
-               <img src="/images/david-pearce.jpg" alt="David Pearce" class="w-full h-full object-cover object-center" />
+          <div class="p-7 bg-white border border-csr-gray-100 rounded-2xl shadow-card flex flex-col items-center text-center">
+            <div class="w-20 h-20 rounded-full bg-csr-gray-100 mb-5 overflow-hidden border-2 border-csr-gray-200 shrink-0">
+              <img src="/images/david-pearce.jpg" alt="David Pearce" class="w-full h-full object-cover object-center" />
             </div>
-            <h3 class="font-bold text-lg mb-1">David Pearce</h3>
-            <p class="text-sm text-csr-primary font-mono uppercase tracking-widest mb-3">顾问</p>
-            <p class="text-sm text-csr-gray-600 leading-relaxed">
-              哲学家和超人类主义者。Humanity+ 的联合创始人，也是<i>The Hedonistic Imperative</i>一书的作者，该书是通过生物技术消除苦难的基础文本。
-            </p>
+            <h3 class="font-bold text-lg text-csr-black mb-1">David Pearce</h3>
+            <p class="label-mono text-[10px] mb-3">顾问</p>
+            <p class="text-sm text-csr-gray-500 leading-relaxed">哲学家和超人类主义者。Humanity+联合创始人，《享乐主义命令》作者，该书是关于通过生物技术消除痛苦的奠基性文本。</p>
           </div>
-          
-          <!-- Advisor 2 -->
-          <div class="p-6 border border-csr-gray-100 rounded-2xl flex flex-col items-center text-center">
-            <div class="w-24 h-24 rounded-full bg-csr-gray-100 mb-4 overflow-hidden border-2 border-csr-gray-200">
-               <img src="/images/alexander-bjorkman.jpg" alt="Alexander Björkman" class="w-full h-full object-cover object-center" />
+          <div class="p-7 bg-white border border-csr-gray-100 rounded-2xl shadow-card flex flex-col items-center text-center">
+            <div class="w-20 h-20 rounded-full bg-csr-gray-100 mb-5 overflow-hidden border-2 border-csr-gray-200 shrink-0">
+              <img src="/images/alexander-bjorkman.jpg" alt="Alexander Björkman" class="w-full h-full object-cover object-center" />
             </div>
-            <h3 class="font-bold text-lg mb-1">Alexander Björkman</h3>
-            <p class="text-sm text-csr-primary font-mono uppercase tracking-widest mb-3">顾问</p>
-            <p class="text-sm text-csr-gray-600 leading-relaxed">
-              Ekskäret 基金会。专注于促进有意识的社会发展、终身学习，并为深度反思和系统性变革创造空间。
-            </p>
+            <h3 class="font-bold text-lg text-csr-black mb-1">Alexander Björkman</h3>
+            <p class="label-mono text-[10px] mb-3">顾问</p>
+            <p class="text-sm text-csr-gray-500 leading-relaxed">Ekskäret基金会。专注于促进有意识的社会发展、终身学习，以及创造深度反思和系统性变革的空间。</p>
           </div>
-
         </div>
       </div>
 
       <div>
-        <h2 class="text-2xl font-bold mb-4">成立与结构</h2>
-        <p class="text-csr-gray-600 leading-relaxed">
-          CSR 由 Jhonatan Serna 成立于 2026 年。我们作为一家具有“透明优先”模式的独立非营利组织运营——年度研究成果和财务摘要向全球研究社区公开。我们的总部位于瑞士苏黎世。
+        <h2 class="text-2xl font-bold text-csr-black mb-4">创立与结构</h2>
+        <p class="text-csr-gray-600 leading-relaxed text-lg">
+          CSR由Jhonatan Serna于2026年创立。我们以"透明度优先"模式运营为独立非营利组织：年度研究成果和财务摘要向全球研究社区公开。我们总部位于瑞士苏黎世。
         </p>
       </div>
+
     </div>
   </section>
 
-  <!-- Contact CTA -->
-  <section class="py-12 bg-csr-gray-50 border-t border-csr-gray-100">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-2xl font-bold mb-4">参与其中</h2>
-      <p class="text-csr-gray-600 mb-8">我们欢迎那些与我们有共同承诺去了解心灵本质的合作者、研究人员和慈善伙伴。</p>
-      <a href="/zh/contact" class="btn-primary px-8 py-4 bg-csr-primary text-white rounded-full font-semibold hover:bg-csr-primary-dark transition-all">联系我们</a>
+  <section class="py-16 bg-csr-gray-100 border-t border-csr-gray-200">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="label-mono mb-4">参与其中</p>
+      <h2 class="text-2xl font-bold text-csr-black mb-4">与我们合作</h2>
+      <p class="text-csr-gray-500 mb-8">我们欢迎与我们共同致力于理解心智本质的合作者、研究人员和慈善合作伙伴。</p>
+      <a href="/contact" class="btn-primary">联系我们</a>
     </div>
   </section>
+
 </Layout>

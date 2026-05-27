@@ -57,16 +57,16 @@ const hrefs: Record<string, string> = {
   </div>
 </div>
 
-<script>
+<script is:inline>
   function initLangSwitchers() {
     const switchers = document.querySelectorAll('[data-lang-switcher]');
     
-    switchers.forEach(switcher => {
+    switchers.forEach(function(switcher) {
       const btn = switcher.querySelector('.lang-btn');
       const dropdown = switcher.querySelector('.lang-dropdown');
 
       if (btn && dropdown) {
-        const toggleDropdown = (open: boolean) => {
+        const toggleDropdown = function(open) {
           if (open) {
             dropdown.classList.remove('hidden');
             btn.setAttribute('aria-expanded', 'true');
@@ -76,10 +76,10 @@ const hrefs: Record<string, string> = {
           }
         };
 
-        const handleClick = (e: Event) => {
+        const handleClick = function(e) {
           e.stopPropagation();
           const isOpen = !dropdown.classList.contains('hidden');
-          document.querySelectorAll('.lang-dropdown').forEach(d => {
+          document.querySelectorAll('.lang-dropdown').forEach(function(d) {
              if (d !== dropdown) d.classList.add('hidden');
           });
           toggleDropdown(!isOpen);
@@ -89,11 +89,11 @@ const hrefs: Record<string, string> = {
       }
     });
 
-    document.addEventListener('click', (e) => {
-      const isInsideAny = (e.target as Element).closest('[data-lang-switcher]');
+    document.addEventListener('click', function(e) {
+      const isInsideAny = e.target.closest('[data-lang-switcher]');
       if (!isInsideAny) {
-        document.querySelectorAll('.lang-dropdown').forEach(d => d.classList.add('hidden'));
-        document.querySelectorAll('.lang-btn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+        document.querySelectorAll('.lang-dropdown').forEach(function(d) { d.classList.add('hidden'); });
+        document.querySelectorAll('.lang-btn').forEach(function(b) { b.setAttribute('aria-expanded', 'false'); });
       }
     });
   }

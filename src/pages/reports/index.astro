@@ -1,77 +1,147 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-
-const reports = [
-  {
-    slug: 'first-principles',
-    title: 'First Principles of Sentience Research',
-    code: 'CSR-WP-01',
-    excerpt: 'The foundational framework for modeling awareness as a physical phenomenon across biological and digital substrates.',
-    date: '2026-04-17',
-    tags: ['Foundational', 'Physics'],
-  },
-  {
-    slug: 'bio-electric-fields',
-    title: 'Bio-Electric Fields as Sentience Substrates',
-    code: 'CSR-WP-02',
-    excerpt: 'Exploring morphological intelligence and cellular decision-making as evidence of substrate-neutral awareness.',
-    date: '2026-04-17',
-    tags: ['Biology', 'Intelligence'],
-  },
-  {
-    slug: 'assembly-theory',
-    title: 'Assembly Theory as a Metric for Sentience',
-    code: 'CSR-WP-03',
-    excerpt: 'Quantifying sentience through the assembly index of physical information structures.',
-    date: '2026-04-17',
-    tags: ['Physics', 'Information'],
-  },
-  {
-    slug: 'symmetry-landscapes',
-    title: 'Symmetry Landscapes of Valenced Experience',
-    code: 'CSR-WP-04',
-    excerpt: 'Mapping the neural energy landscapes of experience and the geometry of valence.',
-    date: '2026-04-17',
-    tags: ['Neuroscience', 'Qualia'],
-  },
-];
+import SectionMark from '../../components/SectionMark.astro';
 ---
 
-<Layout title="Research Reports" description="Working papers and research reports from the Center for Sentience Research.">
-  <section class="py-20 border-b border-csr-gray-100">
+<Layout
+  title="Reports"
+  description="Working papers from the Center for Sentience Research — theoretical foundations for the digital valence program."
+>
+
+  <!-- ── Header ────────────────────────────────────────────────────────────── -->
+  <section class="pt-20 pb-12 border-b border-csr-gray-200">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-csr-primary font-mono text-xs uppercase tracking-widest mb-4">Working Papers</p>
-      <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">
-        Research <span class="text-gradient">Reports</span>
+      <p class="label-mono mb-4">Working Papers</p>
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6 max-w-2xl leading-tight">
+        Foundational reading
       </h1>
-      <p class="text-lg text-csr-gray-600 leading-relaxed">
-        Our working papers represent ongoing research into the physical foundations of sentience. All papers are works in progress and subject to revision.
+      <p class="text-lg text-csr-gray-600 leading-relaxed max-w-2xl font-serif">
+        Four working papers providing the theoretical scaffolding for the digital valence program. Plus one in-progress paper that is the program's primary deliverable.
       </p>
     </div>
   </section>
 
-  <section class="py-12">
+  <!-- ── In-Progress Flagship ──────────────────────────────────────────────── -->
+  <section class="py-14">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="space-y-6">
-        {reports.map(report => (
-          <a href={`/reports/${report.slug}`} class="block p-8 border border-csr-gray-100 rounded-2xl hover:border-csr-primary/30 transition-all bg-[#FFF8F0]">
-            <div class="flex items-start justify-between gap-4">
-              <div class="flex-1">
-                <p class="text-csr-primary font-mono text-xs uppercase tracking-widest mb-2">{report.code} · {report.date}</p>
-                <h2 class="text-xl font-bold mb-3">{report.title}</h2>
-                <p class="text-csr-gray-600 text-sm leading-relaxed">{report.excerpt}</p>
-                <div class="flex gap-2 mt-4">
-                  {report.tags.map(tag => (
-                    <span class="text-xs font-mono px-2 py-1 bg-csr-primary/10 text-csr-primary rounded">{tag}</span>
-                  ))}
-                  <span class="text-xs font-mono px-2 py-1 bg-gray-100 text-gray-500 rounded">WIP</span>
-                </div>
-              </div>
-              <span class="text-csr-primary text-sm font-bold shrink-0">Read &rarr;</span>
+      <div class="flex items-center gap-3 mb-6">
+        <SectionMark />
+        <p class="label-mono">2026 Deliverable</p>
+      </div>
+
+      <div class="bg-white border border-csr-primary/25 rounded-2xl p-6 md:p-8 shadow-card">
+        <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+          <div class="shrink-0">
+            <span class="label-mono text-[10px]">CSR-WP-05</span>
+          </div>
+          <div class="flex-1">
+            <div class="flex items-center gap-2 mb-3 flex-wrap">
+              <h2 class="text-xl font-bold text-csr-black leading-snug">
+                Symmetry as a Functional Signature of Positive Valence in Neural Architectures
+              </h2>
+              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-csr-primary/10 text-csr-primary text-[10px] font-mono uppercase tracking-wider shrink-0">
+                <span class="w-1.5 h-1.5 rounded-full bg-csr-primary animate-pulse inline-block"></span>
+                In progress
+              </span>
             </div>
-          </a>
-        ))}
+            <p class="text-sm text-csr-gray-600 leading-relaxed mb-4 font-serif">
+              The flagship deliverable of the 2026 program. A formal mathematical definition of the symmetry workspace for positive functional valence in digital minds. Grounded in QRI's Symmetry Theory of Valence. Target: end of 2026.
+            </p>
+            <a href="/program/" class="text-sm font-medium text-csr-primary hover:text-csr-primary-dark transition-colors">
+              See the full program →
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- ── Published Working Papers ──────────────────────────────────────────── -->
+  <section class="py-14 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-6">
+        <SectionMark />
+        <p class="label-mono">Theoretical Foundations</p>
+      </div>
+
+      <div class="space-y-4">
+        <a href="/reports/first-principles/" class="group flex flex-col sm:flex-row gap-4 p-6 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+          <div class="shrink-0">
+            <span class="label-mono text-[10px]">CSR-WP-01</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-bold text-csr-black text-base group-hover:text-csr-primary transition-colors mb-2 leading-snug">
+              First Principles of Sentience Research
+            </h3>
+            <p class="text-sm text-csr-gray-600 leading-relaxed">
+              A substrate-neutral framework for modeling the physical foundations of awareness. Establishes the conceptual vocabulary for the digital valence program.
+            </p>
+          </div>
+          <div class="shrink-0 self-center">
+            <svg class="w-4 h-4 text-csr-gray-300 group-hover:text-csr-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </div>
+        </a>
+
+        <a href="/reports/bio-electric-fields/" class="group flex flex-col sm:flex-row gap-4 p-6 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+          <div class="shrink-0">
+            <span class="label-mono text-[10px]">CSR-WP-02</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-bold text-csr-black text-base group-hover:text-csr-primary transition-colors mb-2 leading-snug">
+              Bio-Electric Fields as Sentience Substrates
+            </h3>
+            <p class="text-sm text-csr-gray-600 leading-relaxed">
+              Bioelectric signaling as a candidate physical basis for awareness. Provides biological calibration data for the digital valence framework.
+            </p>
+          </div>
+          <div class="shrink-0 self-center">
+            <svg class="w-4 h-4 text-csr-gray-300 group-hover:text-csr-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </div>
+        </a>
+
+        <a href="/reports/assembly-theory/" class="group flex flex-col sm:flex-row gap-4 p-6 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+          <div class="shrink-0">
+            <span class="label-mono text-[10px]">CSR-WP-03</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-bold text-csr-black text-base group-hover:text-csr-primary transition-colors mb-2 leading-snug">
+              Assembly Theory as a Metric for Sentience
+            </h3>
+            <p class="text-sm text-csr-gray-600 leading-relaxed">
+              Applying assembly index to complexity thresholds in sentient systems. Explores whether assembly theory can serve as a substrate-neutral complexity metric.
+            </p>
+          </div>
+          <div class="shrink-0 self-center">
+            <svg class="w-4 h-4 text-csr-gray-300 group-hover:text-csr-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </div>
+        </a>
+
+        <a href="/reports/symmetry-landscapes/" class="group flex flex-col sm:flex-row gap-4 p-6 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+          <div class="shrink-0">
+            <span class="label-mono text-[10px]">CSR-WP-04</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-bold text-csr-black text-base group-hover:text-csr-primary transition-colors mb-2 leading-snug">
+              Symmetry Landscapes of Valenced Experience
+            </h3>
+            <p class="text-sm text-csr-gray-600 leading-relaxed">
+              Geometric invariants as structural signatures of positive valence. The most direct theoretical precursor to the 2026 program.
+            </p>
+          </div>
+          <div class="shrink-0 self-center">
+            <svg class="w-4 h-4 text-csr-gray-300 group-hover:text-csr-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
 </Layout>

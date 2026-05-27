@@ -2,97 +2,57 @@
 import Layout from '../../layouts/Layout.astro';
 
 const institutes = [
-  {
-    name: "Qualia Research Institute (QRI)",
-    description: "Une organisation à but non lucratif dédiée à la cartographie de la structure mathématique de l'expérience consciente.",
-    link: "https://qri.org",
-    tag: "À but non lucratif"
-  },
-  {
-    name: "Levin Lab",
-    description: "Dirigé par Michael Levin à l'Université Tufts, effectuant des recherches sur la bioélectricité, la médecine régénérative et la morphologie synthétique.",
-    link: "https://www.drmichaellevin.org",
-    tag: "Laboratoire de recherche"
-  },
-  {
-    name: "Cronin Group",
-    description: "Dirigé par Lee Cronin à l'Université de Glasgow, explorant les origines de la vie et la théorie de l'assemblage.",
-    link: "https://www.chem.gla.ac.uk/cronin/",
-    tag: "Laboratoire de recherche"
-  },
-  {
-    name: "Robin Carhart-Harris",
-    description: "Directeur fondateur de la division Neuroscape Psychedelics à l'UCSF, concentré sur le mécanisme d'action des psychédéliques dans le cerveau.",
-    link: "https://profiles.ucsf.edu/robin.carhart-harris",
-    tag: "Recherche"
-  },
-  {
-    name: "Sentience Institute",
-    description: "Un groupe de réflexion interdisciplinaire recherchant les stratégies les plus efficaces pour étendre le cercle moral de l'humanité.",
-    link: "https://www.sentienceinstitute.org",
-    tag: "Think Tank"
-  }
+  { name: "Qualia Research Institute (QRI)", description: "Une organisation à but non lucratif dédiée à cartographier la structure mathématique de l'expérience consciente.", link: "https://qri.org", tag: "Non-Profit" },
+  { name: "Levin Lab", description: "Dirigé par Michael Levin à l'Université Tufts, recherche la bioélectricité, la médecine régénérative et la morphologie synthétique.", link: "https://www.drmichaellevin.org", tag: "Laboratoire" },
+  { name: "Cronin Group", description: "Dirigé par Lee Cronin à l'Université de Glasgow, explore les origines de la vie et la Théorie de l'Assemblage.", link: "https://www.chem.gla.ac.uk/cronin/", tag: "Laboratoire" },
+  { name: "Robin Carhart-Harris", description: "Directeur fondateur de la Division Psychédéliques de Neuroscape à l'UCSF, axé sur le mécanisme d'action des psychédéliques dans le cerveau.", link: "https://profiles.ucsf.edu/robin.carhart-harris", tag: "Recherche" },
+  { name: "Sentience Institute", description: "Un think tank interdisciplinaire qui recherche les stratégies les plus efficaces pour élargir le cercle moral de l'humanité.", link: "https://www.sentienceinstitute.org", tag: "Think Tank" }
 ];
 ---
 
-<Layout 
-  title="Écosystème" 
-  description="Organisations alliées et instituts de recherche travaillant sur les fondements physiques de la conscience et l'élargissement de notre cercle moral."
->
-  <!-- Header -->
-  <section class="py-20 border-b border-csr-gray-100">
+<Layout title="Écosystème" description="Organisations alliées et instituts de recherche travaillant sur les fondements physiques de la conscience.">
+
+  <section class="pt-20 pb-12 border-b border-csr-gray-200">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-csr-primary font-mono text-xs uppercase tracking-widest mb-4">Écosystème</p>
-      <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">
-        Le <span class="text-gradient">réseau</span> de recherche
+      <p class="label-mono mb-4">Écosystème</p>
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6">
+        Le <span class="text-gradient">réseau de recherche</span>
       </h1>
-      <p class="text-lg text-csr-gray-600 leading-relaxed">
-        Le CSR opère au sein d'un écosystème plus large de chercheurs, de laboratoires et d'organisations à but non lucratif dédiés à la compréhension de la nature de l'esprit et des fondements physiques de la sentience.
+      <p class="text-lg text-csr-gray-500 leading-relaxed max-w-2xl">
+        Le CSR opère au sein d'un écosystème plus large de chercheurs, laboratoires et organisations à but non lucratif dédiés à comprendre la nature de l'esprit et les fondements physiques de la sentience.
       </p>
     </div>
   </section>
 
-  <!-- Institutes Grid -->
   <section class="py-16">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {institutes.map((inst) => (
-          <a 
-            href={inst.link} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            class="group p-8 bg-white border border-gray-100 rounded-3xl hover:border-[#9966CC]/30 hover:shadow-xl hover:shadow-[#9966CC]/5 transition-all duration-300 flex flex-col justify-between"
-          >
+          <a href={inst.link} target="_blank" rel="noopener noreferrer" class="group p-8 bg-white border border-csr-gray-100 rounded-3xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all duration-200 flex flex-col justify-between">
             <div>
-              <div class="flex justify-between items-start mb-4">
-                <span class="text-[10px] font-mono uppercase tracking-wider text-[#9966CC] bg-[#9966CC]/5 px-2 py-1 rounded">
-                  {inst.tag}
-                </span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300 group-hover:text-[#9966CC] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div class="flex justify-between items-start mb-5">
+                <span class="text-[10px] font-mono uppercase tracking-wider text-csr-primary bg-csr-primary/8 px-2.5 py-1 rounded-full">{inst.tag}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-csr-gray-300 group-hover:text-csr-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
               </div>
-              <h3 class="text-xl font-bold mb-3 group-hover:text-[#9966CC] transition-colors">{inst.name}</h3>
-              <p class="text-gray-600 text-sm leading-relaxed mb-6">
-                {inst.description}
-              </p>
+              <h3 class="text-lg font-bold text-csr-black mb-3 group-hover:text-csr-primary transition-colors">{inst.name}</h3>
+              <p class="text-csr-gray-600 text-sm leading-relaxed mb-6">{inst.description}</p>
             </div>
-            <div class="text-[#9966CC] text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
-              Visiter le site web
-              <span>&rarr;</span>
-            </div>
+            <div class="label-mono text-[11px] flex items-center gap-1 group-hover:gap-2 transition-all">Visiter le Site <span>&rarr;</span></div>
           </a>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Collaboration CTA -->
-  <section class="py-20 bg-csr-gray-50 border-t border-csr-gray-100">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-2xl font-bold mb-4">Croissance du réseau</h2>
-      <p class="text-csr-gray-600 mb-8">Nous cherchons constamment à nous aligner avec des organisations et des chercheurs repoussant les limites de la science de la conscience.</p>
-      <a href="/fr/contact" class="inline-block bg-[#9966CC] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#8055ab] transition-all">Suggérer un ajout</a>
+  <section class="py-16 bg-csr-gray-100 border-t border-csr-gray-200">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="label-mono mb-4">Croissance du Réseau</p>
+      <h2 class="text-2xl font-bold text-csr-black mb-4">Vous connaissez quelqu'un qui devrait figurer ici ?</h2>
+      <p class="text-csr-gray-500 mb-8">Nous cherchons constamment à nous aligner avec des organisations et des chercheurs qui repoussent les limites de la science de la conscience.</p>
+      <a href="/contact" class="btn-primary">Suggérer un Ajout</a>
     </div>
   </section>
+
 </Layout>

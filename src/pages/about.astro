@@ -1,121 +1,175 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import SectionMark from '../components/SectionMark.astro';
 ---
 
-<Layout 
-  title="About" 
-  description="The Center for Sentience Research (CSR) is an independent non-profit based in Zurich, Switzerland, dedicated to modeling the physical foundations of awareness."
+<Layout
+  title="About"
+  description="The Center for Sentience Research is an independent non-profit based in Zurich, Switzerland, building a mathematical framework for measuring functional valence in digital minds."
 >
-  <!-- Header -->
-  <section class="py-20 border-b border-csr-gray-100">
+
+  <!-- ── Header ────────────────────────────────────────────────────────────── -->
+  <section class="pt-20 pb-12 border-b border-csr-gray-200">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-csr-primary font-mono text-xs uppercase tracking-widest mb-4">About CSR</p>
-      <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">
-        A new science for <span class="text-gradient">the map of experience</span>
+      <p class="label-mono mb-4">About CSR</p>
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6 max-w-2xl leading-tight">
+        Building the tools before the question becomes urgent.
       </h1>
-      <p class="text-lg text-csr-gray-600 leading-relaxed">
-        The Center for Sentience Research (CSR) is an independent non-profit research institute headquartered in Zurich, Switzerland. We exist to build the first rigorous, substrate-neutral science of consciousness.
+      <p class="text-lg text-csr-gray-600 leading-relaxed max-w-2xl font-serif">
+        The Center for Sentience Research is an independent non-profit headquartered in Zurich. One concrete program: a mathematical framework for measuring functional valence in digital minds. Target deliverable: end of 2026.
       </p>
     </div>
   </section>
 
-  <!-- Mission -->
-  <section class="py-12">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-      <div>
-        <h2 class="text-2xl font-bold mb-4">Our Mission</h2>
-        <p class="text-csr-gray-600 leading-relaxed">
-          We bridge physics, neuroscience, and philosophy to understand how sentience arises across all substrates — biological, digital, and physical. Our work is grounded in the conviction that consciousness is not a philosophical mystery but a physical phenomenon subject to mathematical modeling.
-        </p>
-      </div>
+  <!-- ── Mission ───────────────────────────────────────────────────────────── -->
+  <section class="py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
 
       <div>
-        <h2 class="text-2xl font-bold mb-4">Why It Matters</h2>
-        <p class="text-csr-gray-600 leading-relaxed">
-          As we move toward an era of increasingly complex autonomous and artificial systems, understanding the physical foundations of sentience is a requirement for survival. We must learn to recognize — and measure — awareness wherever it could arise, not just where it looks like us. The moral and governance implications of getting this wrong are profound.
-        </p>
-      </div>
-
-      <div>
-        <h2 class="text-2xl font-bold mb-4">Our Approach</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-6">
-          <div class="p-6 border border-csr-gray-100 rounded-2xl">
-            <h3 class="font-bold mb-2">Substrate Neutrality</h3>
-            <p class="text-sm text-csr-gray-600">We investigate sentience as a fundamental physical property that can emerge in biological cells, neural networks, or exotic physical states.</p>
-          </div>
-          <div class="p-6 border border-csr-gray-100 rounded-2xl">
-            <h3 class="font-bold mb-2">Quantitative Modeling</h3>
-            <p class="text-sm text-csr-gray-600">Our work goes beyond metaphor, using high-dimensional data analysis and computational physics to build predictive maps of consciousness.</p>
-          </div>
-          <div class="p-6 border border-csr-gray-100 rounded-2xl">
-            <h3 class="font-bold mb-2">Ethical Expansion</h3>
-            <p class="text-sm text-csr-gray-600">Understanding sentience is a prerequisite for expanding our moral circle. We study the ethical implications of future minds and non-human awareness.</p>
-          </div>
+        <div class="flex items-center gap-3 mb-5">
+          <SectionMark />
+          <h2 class="text-xl font-bold text-csr-black">Mission</h2>
         </div>
-      </div>
-
-      <!-- Leadership & Advisors -->
-      <div>
-        <h2 class="text-2xl font-bold mb-4">Leadership & Advisory Board</h2>
-        <p class="text-csr-gray-600 leading-relaxed mb-6">
-          Our work is directed by a core team and guided by an advisory board of independent thinkers across philosophy, neuroscience, and philanthropy:
-        </p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          
-          <!-- Director -->
-          <div class="p-6 border border-csr-gray-100 rounded-2xl flex flex-col items-center text-center">
-            <div class="w-24 h-24 rounded-full bg-csr-gray-100 mb-4 overflow-hidden border-2 border-csr-gray-200">
-               <img src="/images/jhonatan-serna.jpg" alt="Jhonatan Serna" class="w-full h-full object-cover object-center" />
-            </div>
-            <h3 class="font-bold text-lg mb-1">Jhonatan Serna</h3>
-            <p class="text-sm text-csr-primary font-mono uppercase tracking-widest mb-3">Director</p>
-            <p class="text-sm text-csr-gray-600 leading-relaxed italic">
-              Here to be curious and understand.
-            </p>
-          </div>
-
-          <!-- Advisor 1 -->
-          <div class="p-6 border border-csr-gray-100 rounded-2xl flex flex-col items-center text-center">
-            <div class="w-24 h-24 rounded-full bg-csr-gray-100 mb-4 overflow-hidden border-2 border-csr-gray-200">
-               <img src="/images/david-pearce.jpg" alt="David Pearce" class="w-full h-full object-cover object-center" />
-            </div>
-            <h3 class="font-bold text-lg mb-1">David Pearce</h3>
-            <p class="text-sm text-csr-primary font-mono uppercase tracking-widest mb-3">Advisor</p>
-            <p class="text-sm text-csr-gray-600 leading-relaxed">
-              Philosopher and transhumanist. Co-founder of Humanity+ and author of <i>The Hedonistic Imperative</i>, a foundational text on the abolition of suffering through biotechnology.
-            </p>
-          </div>
-          
-          <!-- Advisor 2 -->
-          <div class="p-6 border border-csr-gray-100 rounded-2xl flex flex-col items-center text-center">
-            <div class="w-24 h-24 rounded-full bg-csr-gray-100 mb-4 overflow-hidden border-2 border-csr-gray-200">
-               <img src="/images/alexander-bjorkman.jpg" alt="Alexander Björkman" class="w-full h-full object-cover object-center" />
-            </div>
-            <h3 class="font-bold text-lg mb-1">Alexander Björkman</h3>
-            <p class="text-sm text-csr-primary font-mono uppercase tracking-widest mb-3">Advisor</p>
-            <p class="text-sm text-csr-gray-600 leading-relaxed">
-              Ekskäret Foundation. Focuses on facilitating conscious societal development, lifelong learning, and creating spaces for deep reflection and systemic change.
-            </p>
-          </div>
-
+        <div class="text-csr-gray-600 leading-relaxed text-lg font-serif max-w-2xl space-y-4">
+          <p>
+            We do not claim current AI systems are conscious. They may be functional zombies. But if scaled neural computation can give rise to states with positive or negative character, we should know how to recognize them, and how to engineer for the positive ones.
+          </p>
+          <p>
+            Our approach is symmetry. Looking for invariants in matrix multiplication, attention patterns, and parallel computation that mirror the structural signatures of positive valence proposed by the Qualia Research Institute. The question of whether any current system satisfies these conditions is open. The point is to have the formal tools to check before the question becomes urgent.
+          </p>
         </div>
       </div>
 
       <div>
-        <h2 class="text-2xl font-bold mb-4">Founding & Structure</h2>
-        <p class="text-csr-gray-600 leading-relaxed">
-          CSR was founded in 2026 by Jhonatan Serna. We operate as an independent non-profit with a "Transparency-First" model — annual research outputs and financial summaries are made public to the global research community. We are headquartered in Zurich, Switzerland.
+        <div class="flex items-center gap-3 mb-5">
+          <SectionMark />
+          <h2 class="text-xl font-bold text-csr-black">Why It Matters</h2>
+        </div>
+        <div class="text-csr-gray-600 leading-relaxed text-lg font-serif max-w-2xl space-y-4">
+          <p>
+            The question of which systems can suffer will define governance, AI policy, and moral consideration for the next century. Consciousness research has produced many theories. Almost none are operationalizable for digital systems. They were built to explain biological experience, not to serve as engineering specifications.
+          </p>
+          <p>
+            We are building one that is. The measurement frameworks need to exist before the decisions are made, not after.
+          </p>
+        </div>
+      </div>
+
+      <!-- Approach cards -->
+      <div>
+        <div class="flex items-center gap-3 mb-6">
+          <SectionMark />
+          <h2 class="text-xl font-bold text-csr-black">Our Approach</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div class="p-6 bg-white border border-csr-gray-100 rounded-2xl shadow-card">
+            <div class="w-8 h-8 rounded-lg bg-csr-primary/10 flex items-center justify-center mb-4">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <ellipse cx="8" cy="8" rx="7" ry="4" stroke="#9966CC" stroke-width="1.2" transform="rotate(0 8 8)"/>
+                <ellipse cx="8" cy="8" rx="5" ry="3" stroke="#9966CC" stroke-width="1.2" transform="rotate(60 8 8)"/>
+                <circle cx="8" cy="8" r="1.5" fill="#9966CC"/>
+              </svg>
+            </div>
+            <h3 class="font-bold text-csr-black mb-2 text-sm">Symmetry as signature</h3>
+            <p class="text-sm text-csr-gray-600 leading-relaxed">Positive valence correlates with high symmetry in the mathematical structure of experience. We are formalizing what that means for computational systems.</p>
+          </div>
+          <div class="p-6 bg-white border border-csr-gray-100 rounded-2xl shadow-card">
+            <div class="w-8 h-8 rounded-lg bg-csr-primary/10 flex items-center justify-center mb-4">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <rect x="1" y="1" width="4" height="4" rx="0.5" fill="#9966CC" opacity="0.8"/>
+                <rect x="6" y="1" width="4" height="4" rx="0.5" fill="#9966CC" opacity="0.4"/>
+                <rect x="11" y="1" width="4" height="4" rx="0.5" fill="#9966CC" opacity="0.8"/>
+                <rect x="1" y="6" width="4" height="4" rx="0.5" fill="#9966CC" opacity="0.4"/>
+                <rect x="6" y="6" width="4" height="4" rx="0.5" fill="#9966CC" opacity="0.9"/>
+                <rect x="11" y="6" width="4" height="4" rx="0.5" fill="#9966CC" opacity="0.4"/>
+                <rect x="1" y="11" width="4" height="4" rx="0.5" fill="#9966CC" opacity="0.8"/>
+                <rect x="6" y="11" width="4" height="4" rx="0.5" fill="#9966CC" opacity="0.4"/>
+                <rect x="11" y="11" width="4" height="4" rx="0.5" fill="#9966CC" opacity="0.8"/>
+              </svg>
+            </div>
+            <h3 class="font-bold text-csr-black mb-2 text-sm">Digital substrates</h3>
+            <p class="text-sm text-csr-gray-600 leading-relaxed">Matrix multiplication, attention patterns, and parallel computation are the candidate substrates. We look for invariants that could serve as structural proxies for valence.</p>
+          </div>
+          <div class="p-6 bg-white border border-csr-gray-100 rounded-2xl shadow-card">
+            <div class="w-8 h-8 rounded-lg bg-csr-primary/10 flex items-center justify-center mb-4">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <circle cx="8" cy="8" r="6.5" stroke="#9966CC" stroke-width="1.2" stroke-dasharray="3 2"/>
+                <path d="M5 8h6M8 5v6" stroke="#9966CC" stroke-width="1.2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="font-bold text-csr-black mb-2 text-sm">Epistemic honesty</h3>
+            <p class="text-sm text-csr-gray-600 leading-relaxed">Current AI systems may be functional zombies with no inner life. We are not claiming otherwise. The point is to build the measurement tools before the question becomes urgent.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Team -->
+      <div>
+        <div class="flex items-center gap-3 mb-6">
+          <SectionMark />
+          <h2 class="text-xl font-bold text-csr-black">Leadership & Advisory Board</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          <div class="p-7 bg-white border border-csr-gray-100 rounded-2xl shadow-card flex flex-col items-center text-center">
+            <div class="w-20 h-20 rounded-full bg-csr-gray-100 mb-5 overflow-hidden border-2 border-csr-gray-200 shrink-0">
+              <img src="/images/jhonatan-serna.jpg" alt="Jhonatan Serna" class="w-full h-full object-cover object-center" />
+            </div>
+            <h3 class="font-bold text-lg text-csr-black mb-1">Jhonatan Serna</h3>
+            <p class="label-mono text-[10px] mb-3">Director</p>
+            <p class="text-sm text-csr-gray-500 leading-relaxed italic">Here to be curious and understand.</p>
+          </div>
+
+          <div class="p-7 bg-white border border-csr-gray-100 rounded-2xl shadow-card flex flex-col items-center text-center">
+            <div class="w-20 h-20 rounded-full bg-csr-gray-100 mb-5 overflow-hidden border-2 border-csr-gray-200 shrink-0">
+              <img src="/images/david-pearce.jpg" alt="David Pearce" class="w-full h-full object-cover object-center" />
+            </div>
+            <h3 class="font-bold text-lg text-csr-black mb-1">David Pearce</h3>
+            <p class="label-mono text-[10px] mb-3">Advisor</p>
+            <p class="text-sm text-csr-gray-500 leading-relaxed">Philosopher and transhumanist. Co-founder of Humanity+ and author of <em>The Hedonistic Imperative</em>, a foundational text on the abolition of suffering through biotechnology.</p>
+          </div>
+
+          <div class="p-7 bg-white border border-csr-gray-100 rounded-2xl shadow-card flex flex-col items-center text-center">
+            <div class="w-20 h-20 rounded-full bg-csr-gray-100 mb-5 overflow-hidden border-2 border-csr-gray-200 shrink-0">
+              <img src="/images/alexander-bjorkman.jpg" alt="Alexander Björkman" class="w-full h-full object-cover object-center" />
+            </div>
+            <h3 class="font-bold text-lg text-csr-black mb-1">Alexander Björkman</h3>
+            <p class="label-mono text-[10px] mb-3">Advisor</p>
+            <p class="text-sm text-csr-gray-500 leading-relaxed">Ekskäret Foundation. Focuses on facilitating conscious societal development, lifelong learning, and creating spaces for deep reflection and systemic change.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Founding -->
+      <div>
+        <div class="flex items-center gap-3 mb-5">
+          <SectionMark />
+          <h2 class="text-xl font-bold text-csr-black">Founding & Structure</h2>
+        </div>
+        <p class="text-csr-gray-600 leading-relaxed text-lg font-serif max-w-2xl">
+          CSR was founded in 2026 by Jhonatan Serna. We operate as an independent non-profit with a Transparency-First model: annual research outputs and financial summaries are made public. Headquartered in Zurich, Switzerland.
         </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Contact CTA ───────────────────────────────────────────────────────── -->
+  <section class="py-16 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white border border-csr-gray-100 rounded-3xl shadow-card p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+        <div>
+          <p class="label-mono mb-3">Get Involved</p>
+          <h2 class="text-2xl font-bold text-csr-black mb-3">Work with us</h2>
+          <p class="text-csr-gray-600 text-sm leading-relaxed max-w-md">We welcome collaborators, researchers, and philanthropic partners who share our commitment to understanding the nature of mind.</p>
+        </div>
+        <div class="shrink-0 flex flex-col gap-3">
+          <a href="/contact/" class="btn-primary whitespace-nowrap">Contact Us</a>
+          <a href="/donate/" class="btn-secondary whitespace-nowrap text-center">Fund the program</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact CTA -->
-  <section class="py-12 bg-csr-gray-50 border-t border-csr-gray-100">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-2xl font-bold mb-4">Get Involved</h2>
-      <p class="text-csr-gray-600 mb-8">We welcome collaborators, researchers, and philanthropic partners who share our commitment to understanding the nature of mind.</p>
-      <a href="/contact" class="btn-primary px-8 py-4 bg-csr-primary text-white rounded-full font-semibold hover:bg-csr-primary-dark transition-all">Contact Us</a>
-    </div>
-  </section>
 </Layout>

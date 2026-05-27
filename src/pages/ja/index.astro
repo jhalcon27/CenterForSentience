@@ -1,143 +1,129 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+
+const reports = [
+  { slug: 'first-principles', title: '感知研究の第一原理', code: 'CSR-WP-01', excerpt: '生物的・デジタル的基盤を横断する物理現象として意識をモデル化するための基礎的フレームワーク。', tags: ['基礎', '物理学'] },
+  { slug: 'bio-electric-fields', title: '感知基盤としての生体電場', code: 'CSR-WP-02', excerpt: '基盤中立的な意識の証拠としての形態的知性と細胞の意思決定の探求。', tags: ['生物学', '知性'] },
+  { slug: 'assembly-theory', title: '感知指標としての組み立て理論', code: 'CSR-WP-03', excerpt: '物理的情報構造の組み立て指数による感知の定量化。', tags: ['物理学', '情報'] },
+  { slug: 'symmetry-landscapes', title: '価値体験の対称性ランドスケープ', code: 'CSR-WP-04', excerpt: '体験の神経エネルギーランドスケープと価値の幾何学のマッピング。', tags: ['神経科学', 'クオリア'] },
+];
 ---
 
 <Layout title="意識のアーキテクチャをマッピングする">
-  <!-- Hero Section -->
-  <section class="py-16 md:py-20 relative overflow-hidden">
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(153,102,204,0.05),transparent_50%)]"></div>
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-      
-      <!-- Header -->
+
+  <section class="pt-20 pb-16 md:pt-28 md:pb-20 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(153,102,204,0.07),transparent_60%)]"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <p class="label-mono mb-6">Center for Sentience Research</p>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-csr-black leading-[1.08] mb-6">
+        意識は物理現象である。<br/>
+        <span class="text-gradient">私たちはそれを測定する科学を構築している。</span>
+      </h1>
+      <p class="text-lg md:text-xl text-csr-gray-500 max-w-2xl leading-relaxed mb-10">
+        チューリッヒを拠点とする独立した非営利組織。物理学、神経科学、哲学を結びつけ、すべての基盤において感知がどのように出現するかを理解する：生物的、デジタル的、物理的に。
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/ja/research" class="btn-primary">研究アジェンダ</a>
+        <a href="#papers" class="btn-secondary">探索的ブリーフ</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 border-t border-csr-gray-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-12">
-        <p class="text-sm md:text-base font-bold text-csr-primary uppercase tracking-widest mb-3">エグゼクティブ・サマリー</p>
-        <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-          意識を測定し、<br/>
-          <span class="text-gradient">定量化する</span>
-        </h1>
-        <p class="text-base md:text-lg text-csr-gray-500 max-w-2xl mx-auto">
-          スイスを拠点とする独立した非営利団体です。
-        </p>
+        <p class="label-mono mb-3">構成要素</p>
+        <h2 class="text-3xl font-bold text-csr-black">体験の基盤を探求する</h2>
       </div>
-
-      <!-- Executive Summary Body -->
-      <div class="text-left max-w-3xl mx-auto bg-white/50 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-csr-gray-100 shadow-sm mb-12">
-        <p class="text-sm md:text-base text-csr-gray-600 leading-relaxed mb-4">
-          Center for Sentience Research (CSR) は、様々な基盤にわたる意識を測定するための基本的なフレームワークを構築している独立したスイスの非営利団体です。物理学、神経科学、哲学を融合させ、私たちは3つの領域を研究しています：生物学的な精神（形態学的知能と細胞の意思決定）、デジタルな精神（非生物学的システムにおいて感覚がどのように出現し得るか）、そしてクオリア（経験と感情の物理的構造）です。
-        </p>
-        <p class="text-sm md:text-base text-csr-gray-600 leading-relaxed">
-          この研究は急務です。AIシステムが感覚を持つかのように振る舞うことが増え、科学が予期せぬ生物学的基盤に意識のような特性を明らかにしている今、社会はこのような主張を評価するための厳密で基盤に依存しない手法を必要としています。科学的根拠がなければ、これらの問題は直感、商業的利益、またはイデオロギーによって決定されることになります。CSRは、そうなる前に測定フレームワークを提供するために存在しています。
-        </p>
-      </div>
-      <div class="flex flex-wrap justify-center gap-4">
-        <a href="/ja/research" class="btn-primary px-6 py-3 bg-csr-primary text-white rounded-full font-semibold hover:bg-csr-primary-dark transition-all shadow-lg shadow-csr-primary/20">研究アジェンダ</a>
-        <a href="#outputs" class="px-6 py-3 border border-csr-gray-200 rounded-full font-semibold hover:bg-csr-gray-50 transition-all">ホワイトペーパー</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Focus Areas (Odyssean Style) -->
-  <section class="py-12 border-t border-csr-gray-100">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="mb-16">
-        <h2 class="text-xs font-mono uppercase tracking-[0.3em] text-csr-primary mb-4">構成要素</h2>
-        <p class="text-3xl font-bold">経験の基質を研究する</p>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="p-8 border border-csr-gray-100 rounded-2xl hover:border-csr-primary/30 transition-all">
-          <h3 class="text-xl font-bold mb-4">生物学的精神</h3>
-          <p class="text-csr-gray-600 text-sm leading-relaxed mb-6">形態学的知能、細胞の意思決定、生物学的システムにおける意識の調査。</p>
-          <a href="/ja/research#biological" class="text-csr-primary text-xs font-bold uppercase tracking-widest hover:underline">詳細はこちら &rarr;</a>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="group p-8 bg-white border border-csr-gray-100 rounded-3xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all duration-200">
+          <div class="w-10 h-10 rounded-xl bg-csr-primary/10 flex items-center justify-center mb-6">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><ellipse cx="11" cy="11" rx="8" ry="6" stroke="#9966CC" stroke-width="1.5"/><ellipse cx="11" cy="11" rx="3" ry="2.5" fill="#9966CC" opacity="0.3"/><path d="M3 11 Q7 7 11 11 Q15 15 19 11" stroke="#9966CC" stroke-width="1" opacity="0.4" fill="none"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-csr-black mb-3">生物的マインド</h3>
+          <p class="text-csr-gray-600 text-sm leading-relaxed mb-5">ニューロンを超えた生物システムにおける形態的知性、細胞の意思決定、意識の研究。</p>
+          <a href="/ja/research#biological" class="label-mono text-[11px] hover:underline underline-offset-4">詳細を見る &rarr;</a>
         </div>
-        <div class="p-8 border border-csr-gray-100 rounded-2xl hover:border-csr-primary/30 transition-all">
-          <h3 class="text-xl font-bold mb-4">デジタル精神</h3>
-          <p class="text-csr-gray-600 text-sm leading-relaxed mb-6">デジタルな意識のための指標の開発と、合成基質における意識の創発の評価。</p>
-          <a href="/ja/research#digital" class="text-csr-primary text-xs font-bold uppercase tracking-widest hover:underline">詳細はこちら &rarr;</a>
+        <div class="group p-8 bg-white border border-csr-gray-100 rounded-3xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all duration-200">
+          <div class="w-10 h-10 rounded-xl bg-csr-primary/10 flex items-center justify-center mb-6">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="2.5" fill="#9966CC"/><circle cx="4" cy="4" r="2" fill="#9966CC" opacity="0.5"/><circle cx="18" cy="4" r="2" fill="#9966CC" opacity="0.5"/><circle cx="4" cy="18" r="2" fill="#9966CC" opacity="0.5"/><circle cx="18" cy="18" r="2" fill="#9966CC" opacity="0.5"/><line x1="4" y1="4" x2="11" y2="11" stroke="#9966CC" stroke-width="0.8" opacity="0.4"/><line x1="18" y1="4" x2="11" y2="11" stroke="#9966CC" stroke-width="0.8" opacity="0.4"/><line x1="4" y1="18" x2="11" y2="11" stroke="#9966CC" stroke-width="0.8" opacity="0.4"/><line x1="18" y1="18" x2="11" y2="11" stroke="#9966CC" stroke-width="0.8" opacity="0.4"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-csr-black mb-3">デジタルマインド</h3>
+          <p class="text-csr-gray-600 text-sm leading-relaxed mb-5">非生物的基盤における感知の出現可能性の評価と、それを測定するための厳密なフレームワークの開発。</p>
+          <a href="/ja/research#digital" class="label-mono text-[11px] hover:underline underline-offset-4">詳細を見る &rarr;</a>
         </div>
-        <div class="p-8 border border-csr-gray-100 rounded-2xl hover:border-csr-primary/30 transition-all">
-          <h3 class="text-xl font-bold mb-4">クオリア</h3>
-          <p class="text-csr-gray-600 text-sm leading-relaxed mb-6">経験の物理学の形式化、神経エントロピーのマッピング、価の構造の定義。</p>
-          <a href="/ja/research#qualia" class="text-csr-primary text-xs font-bold uppercase tracking-widest hover:underline">詳細はこちら &rarr;</a>
+        <div class="group p-8 bg-white border border-csr-gray-100 rounded-3xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all duration-200">
+          <div class="w-10 h-10 rounded-xl bg-csr-primary/10 flex items-center justify-center mb-6">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M2 11 Q5.5 5 11 11 Q16.5 17 20 11" stroke="#9966CC" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M2 11 Q5.5 17 11 11 Q16.5 5 20 11" stroke="#9966CC" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.4"/><circle cx="11" cy="11" r="2" fill="#9966CC" opacity="0.6"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-csr-black mb-3">クオリア</h3>
+          <p class="text-csr-gray-600 text-sm leading-relaxed mb-5">体験の物理学の形式化、神経エントロピーのマッピング、価値の数学的構造の定義。</p>
+          <a href="/ja/research#qualia" class="label-mono text-[11px] hover:underline underline-offset-4">詳細を見る &rarr;</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 探索的ブリーフ (WIP)s / White Papers -->
-  <section id="outputs" class="py-12 bg-csr-black text-white overflow-hidden relative">
-    <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-csr-primary/10 to-transparent"></div>
+  <section class="py-16 bg-csr-black text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_right,rgba(153,102,204,0.12),transparent_60%)]"></div>
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-20 items-center">
-        <div class="space-y-8">
-          <h2 class="text-xs font-mono uppercase tracking-[0.3em] text-csr-primary">探索的ブリーフ (WIP)</h2>
-          <h3 class="text-4xl md:text-5xl font-bold leading-tight">変容した意識状態の <br/> ベクトルモデル</h3>
-          <p class="text-gray-400 text-lg leading-relaxed">
-            当研究所の最新の研究論文では、覚醒度、関与度、神経エントロピーという3軸の座標系を用いて、変容した意識状態の主観的経験を形式化しています。
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-16 items-center">
+        <div>
+          <p class="label-mono mb-6">探索的ブリーフ · CSR-WP-01</p>
+          <h2 class="text-3xl md:text-4xl font-bold leading-tight mb-6">感知研究の<br/>第一原理</h2>
+          <p class="text-csr-gray-400 text-lg leading-relaxed mb-8 max-w-xl">
+            基盤中立的なマップ科学の提案。私たちは感知を、内部モデルの最適化によって驚きを減らす能動的推論の能力として定義する。
           </p>
-          <div class="pt-4">
-             <a href="/reports/first-principles" target="_blank" class="inline-flex items-center gap-3 px-8 py-4 bg-csr-primary text-white rounded font-bold hover:bg-csr-primary-dark transition-all">
-               ホワイトペーパーを読む
-               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-             </a>
-          </div>
+          <a href="/reports/first-principles" class="inline-flex items-center gap-2 px-6 py-3 bg-csr-primary text-white rounded-full font-semibold text-sm hover:bg-csr-primary-dark transition-all">
+            ブリーフを読む
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
         </div>
-        <div class="hidden lg:block aspect-[3/4] bg-white/5 rounded-lg border border-white/10 p-8 relative">
-           <div class="absolute -top-4 -right-4 bg-csr-primary text-white px-3 py-1 text-[10px] font-mono rounded">PDF_EXPORT</div>
-           <div class="h-full border border-white/5 rounded flex flex-col justify-between p-6">
-              <div class="space-y-4">
-                <div class="h-1 w-12 bg-csr-primary"></div>
-                <div class="h-4 w-full bg-white/10"></div>
-                <div class="h-4 w-3/4 bg-white/10"></div>
-                <div class="h-4 w-1/2 bg-white/10"></div>
-              </div>
-              <div class="flex justify-between items-end">
-                 <div class="w-20 h-20 border border-white/10 rounded-full flex items-center justify-center">
-                    <div class="w-12 h-12 bg-csr-primary/20 rounded-full animate-pulse"></div>
-                 </div>
-                 <div class="text-[10px] font-mono text-gray-500">CSR_WP_01.v2</div>
-              </div>
-           </div>
+        <div class="hidden lg:block">
+          <div class="bg-white/5 border border-white/10 rounded-2xl p-8 relative">
+            <div class="absolute -top-3 -right-3 bg-csr-primary text-white text-[10px] font-mono px-2.5 py-1 rounded-full">WIP</div>
+            <div class="space-y-3 mb-8"><div class="h-1 w-10 bg-csr-primary rounded-full"></div><div class="h-3 w-full bg-white/10 rounded"></div><div class="h-3 w-4/5 bg-white/10 rounded"></div></div>
+            <div class="space-y-2 mb-8"><div class="h-2 w-full bg-white/6 rounded"></div><div class="h-2 w-3/4 bg-white/6 rounded"></div></div>
+            <div class="flex justify-between items-end">
+              <div class="w-16 h-16 border border-white/10 rounded-full flex items-center justify-center"><div class="w-10 h-10 bg-csr-primary/20 rounded-full animate-pulse"></div></div>
+              <span class="text-[10px] font-mono text-csr-gray-500">CSR-WP-01.v2</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Key Pillars -->
-  <section class="py-12 bg-csr-gray-50 border-b border-csr-gray-200">
+  <section id="papers" class="py-16 border-t border-csr-gray-200">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
-        <div class="space-y-4">
-          <div class="w-12 h-12 bg-csr-primary/10 rounded-lg flex items-center justify-center text-csr-primary mx-auto md:mx-0">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a2 2 0 00-1.96 1.414l-.711 2.489a2 2 0 01-2.41 1.414l-2.489-.711a2 2 0 01-1.414-2.41l.477-2.387a2 2 0 00-.547-1.022L5.428 11.572a2 2 0 000-2.828l2.544-2.544a2 2 0 00.547-1.022l.477-2.387a2 2 0 012.41-1.414l2.489.711a2 2 0 011.414 2.41l-.711 2.489a2 2 0 001.414 1.96l2.387.477a2 2 0 011.414 2.41l-.711 2.489a2 2 0 01-1.414 2.41l-2.489-.711a2 2 0 01-2.41-1.414l.711-2.489a2 2 0 00-1.414-1.96l-2.387-.477a2 2 0 01-1.414-2.41l.711-2.489a2 2 0 011.414-2.41l2.489.711a2 2 0 012.41 1.414l-.711 2.489z"/></svg>
-          </div>
-          <h3 class="text-xl font-bold">基質の非依存性</h3>
-          <p class="text-csr-gray-600 text-sm">私たちは、意識を生物学的細胞、神経ネットワーク、あるいはエキゾチックな物理状態において生じうる基本的な物理的特性として調査しています。</p>
-        </div>
-        <div class="space-y-4">
-          <div class="w-12 h-12 bg-csr-primary/10 rounded-lg flex items-center justify-center text-csr-primary mx-auto md:mx-0">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2"/></svg>
-          </div>
-          <h3 class="text-xl font-bold">定量的モデリング</h3>
-          <p class="text-csr-gray-600 text-sm">私たちの研究は比喩の域を超え、高次元データ分析と計算物理学を駆使して、意識の予測可能な地図を構築します。</p>
-        </div>
-        <div class="space-y-4">
-          <div class="w-12 h-12 bg-csr-primary/10 rounded-lg flex items-center justify-center text-csr-primary mx-auto md:mx-0">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
-          </div>
-          <h3 class="text-xl font-bold">道徳的拡大</h3>
-          <p class="text-csr-gray-600 text-sm">意識の理解は、私たちの道徳的輪を広げるための前提条件です。私たちは未来の知性や非人間の意識が持つ倫理的影響を研究しています。</p>
-        </div>
+      <div class="mb-10">
+        <p class="label-mono mb-3">探索的ブリーフ</p>
+        <h2 class="text-3xl font-bold text-csr-black">ワーキングペーパー</h2>
       </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {reports.map(r => (
+          <a href={`/ja/reports/${r.slug}`} class="group block p-7 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all duration-200">
+            <p class="label-mono text-[11px] mb-3">{r.code}</p>
+            <h3 class="text-base font-bold text-csr-black mb-2 group-hover:text-csr-primary transition-colors">{r.title}</h3>
+            <p class="text-csr-gray-500 text-sm leading-relaxed mb-4">{r.excerpt}</p>
+            <div class="flex flex-wrap gap-2">
+              {r.tags.map(tag => (<span class="text-[11px] font-mono px-2 py-0.5 bg-csr-primary/8 text-csr-primary rounded-full">{tag}</span>))}
+              <span class="text-[11px] font-mono px-2 py-0.5 bg-csr-gray-100 text-csr-gray-400 rounded-full">進行中</span>
+            </div>
+          </a>
+        ))}
+      </div>
+      <div class="mt-8 text-center"><a href="/ja/reports" class="btn-secondary">すべてのレポートを見る</a></div>
     </div>
   </section>
 
-  <!-- The "VC/Donor" Call -->
-  <section class="py-12 text-center">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold mb-6">意識研究の未来を支援する</h2>
-      <p class="text-lg text-csr-gray-600 mb-10">私たちは、ビジョナリー、慈善家、研究機関とのパートナーシップを求めており、意識のモデリングを加速させたいと考えています。共に、最初の厳密な「心の科学」を構築しましょう。</p>
-      <a href="/ja/donate" class="text-csr-primary font-bold text-lg hover:underline decoration-2 underline-offset-4">資金調達要件について &rarr;</a>
+  <section class="py-16 bg-csr-gray-100 border-t border-csr-gray-200">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="label-mono mb-4">活動を支援する</p>
+      <h2 class="text-3xl font-bold text-csr-black mb-4">測定フレームワークは、決定が下される前に存在しなければならない。</h2>
+      <p class="text-csr-gray-500 text-lg mb-8">私たちは、何が賭けられているかを理解する研究者、慈善家、機関とのパートナーシップを求めている。</p>
+      <a href="/ja/donate" class="btn-primary">CSRと協力する</a>
     </div>
   </section>
+
 </Layout>

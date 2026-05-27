@@ -2,12 +2,133 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─── Base ─────────────────────────────────────────────────────────────────── */
+
 body {
-  background-color: #FFF8F0 !important;
-  color: #0f172a !important;
+  background-color: #FFF8F0;
+  color: #1e293b;
+  font-feature-settings: "kern" 1, "liga" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* ─── Typography ────────────────────────────────────────────────────────────── */
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight text-csr-black;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+}
+
+/* ─── Component utilities ───────────────────────────────────────────────────── */
+
+@layer components {
+  .text-gradient {
+    @apply bg-gradient-to-r from-csr-primary to-csr-primary-light bg-clip-text text-transparent;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-csr-primary text-white rounded-full font-semibold text-sm
+           hover:bg-csr-primary-dark transition-all duration-200 shadow-purple;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 border border-csr-gray-200 text-csr-ink rounded-full font-semibold text-sm
+           hover:bg-csr-gray-100 hover:border-csr-gray-300 transition-all duration-200;
+  }
+
+  .label-mono {
+    @apply text-xs font-mono uppercase tracking-[0.25em] text-csr-primary;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl font-bold tracking-tight text-csr-black;
+  }
+
+  .card {
+    @apply bg-white border border-csr-gray-100 rounded-3xl shadow-card transition-all duration-200;
+  }
+
+  .card-hover {
+    @apply hover:border-csr-primary/30 hover:shadow-soft;
+  }
+
+  /* Geometric art panels for research tracks */
+  .art-panel {
+    @apply aspect-video rounded-2xl border border-csr-gray-200 relative overflow-hidden bg-csr-gray-50;
+  }
+}
+
+/* ─── Prose (research papers & long-form) ──────────────────────────────────── */
+
+.prose-serif {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: #475569;
+}
+
+.prose {
+  color: #475569;
+  max-width: none;
+}
+
+.prose h2 {
+  color: #0f172a;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.prose h3 {
+  color: #0f172a;
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose p {
+  margin-bottom: 1.25rem;
+  line-height: 1.75;
+}
+
+.prose ul {
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
+  line-height: 1.7;
+}
+
+.prose strong {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.prose blockquote {
+  border-left: 3px solid #9966CC;
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
+  background: #f8f5ff;
+  border-radius: 0 0.75rem 0.75rem 0;
+  font-style: italic;
+  color: #0f172a;
+}
+
+/* ─── Nav ───────────────────────────────────────────────────────────────────── */
+
 nav {
-  background-color: rgba(255, 248, 240, 0.8) !important;
+  background-color: rgba(255, 248, 240, 0.85) !important;
   border-bottom: 1px solid #e2e8f0;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
