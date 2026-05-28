@@ -8,10 +8,13 @@
   
   (function() {
     if (window.location.pathname !== '/') return; // Only redirect from home
-    
+
+    // Don't redirect if the user has explicitly chosen a language via the switcher
+    try { if (localStorage.getItem('csr-lang-explicit')) return; } catch(e) {}
+
     const userLang = navigator.language.split('-')[0]; // e.g., 'es' from 'es-CO'
     const supportedLangs = ['de', 'es', 'fr', 'zh', 'ja'];
-    
+
     if (supportedLangs.includes(userLang)) {
       window.location.replace(`/${userLang}/`);
     }
