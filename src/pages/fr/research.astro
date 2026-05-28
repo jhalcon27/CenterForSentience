@@ -1,149 +1,152 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import SymmetryBackground from '../../components/SymmetryBackground.astro';
+import ProgramStatus from '../../components/ProgramStatus.astro';
+import SectionMark from '../../components/SectionMark.astro';
+import Glyph from '../../components/Glyph.astro';
 ---
 
-<Layout title="Agenda de Recherche" description="Les trois piliers fondamentaux de notre investigation sur les fondements physiques de la sentience : biologique, numérique et théorique.">
+<Layout
+  title="Recherche"
+  description="Le programme phare du Center for Sentience Research : un cadre de symétrie pour mesurer la valence fonctionnelle dans les esprits numériques."
+>
 
-  <section class="pt-20 pb-12 border-b border-csr-gray-200">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section class="relative pt-20 pb-14 border-b border-csr-gray-200 overflow-hidden">
+    <SymmetryBackground variant="lissajous" opacity={0.045} />
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <p class="label-mono mb-4">Agenda de Recherche</p>
-      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6">
-        Cartographier le <span class="text-gradient">continuum de la conscience</span>
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6 max-w-2xl leading-tight">
+        Programme phare : Valence Numérique
       </h1>
-      <p class="text-lg text-csr-gray-500 leading-relaxed max-w-2xl">
-        La sentience n'est pas un état binaire. C'est une propriété physique avec des degrés variables de complexité. Notre recherche se concentre sur l'identification des invariants mathématiques et physiques qui caractérisent la conscience dans tous les substrats.
+      <p class="text-lg text-csr-gray-600 leading-relaxed max-w-2xl font-serif">
+        Un programme concret. Un objectif pour 2026. Tout le reste est de la recherche de fond ou une enquête parallèle.
       </p>
     </div>
   </section>
 
-  <section class="py-16">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="space-y-24">
+  <section class="py-16" id="digital">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-8">
+        <SectionMark />
+        <p class="label-mono">Programme Phare</p>
+      </div>
 
-        <div id="biological" class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div class="space-y-6">
-            <div class="inline-flex items-center gap-2 px-3 py-1 bg-csr-primary/10 rounded-full">
-              <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
-              <span class="text-xs font-mono uppercase tracking-wider text-csr-primary font-bold">Axe 01</span>
-            </div>
-            <h2 class="text-3xl font-bold text-csr-black">Sentience Biologique</h2>
-            <p class="text-csr-gray-600 leading-relaxed">
-              La neuroscience traditionnelle se concentre sur le neurone comme unité de la conscience. Nous allons plus loin. Notre recherche examine l'"intelligence" de la cellule, de la régulation thermique à la gestion des frontières, et modélise la capacité sentiente d'organismes non neuronaux comme les plantes et les champignons.
-            </p>
-            <ul class="space-y-3">
-              <li class="flex items-start gap-3 text-sm text-csr-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-csr-primary mt-1.5 shrink-0"></span>Modélisation des champs bioélectriques dans les organismes multicellulaires.</li>
-              <li class="flex items-start gap-3 text-sm text-csr-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-csr-primary mt-1.5 shrink-0"></span>Le rôle des boucles homéostatiques dans la conscience primordiale.</li>
-              <li class="flex items-start gap-3 text-sm text-csr-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-csr-primary mt-1.5 shrink-0"></span>Comparaison interspécifique de la complexité phénoménologique.</li>
-            </ul>
-          </div>
-          <div class="art-panel">
-            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(153,102,204,0.06),transparent_70%)]"></div>
-            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 225" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-              <ellipse cx="200" cy="112" rx="160" ry="90" stroke="#9966CC" stroke-width="0.8" opacity="0.12"/>
-              <ellipse cx="200" cy="112" rx="120" ry="68" stroke="#9966CC" stroke-width="0.8" opacity="0.18"/>
-              <ellipse cx="200" cy="112" rx="80" ry="46" stroke="#9966CC" stroke-width="1" opacity="0.25"/>
-              <ellipse cx="200" cy="112" rx="40" ry="24" stroke="#9966CC" stroke-width="1.2" opacity="0.35"/>
-              <ellipse cx="200" cy="112" rx="14" ry="9" fill="#9966CC" opacity="0.2"/>
-              <path d="M20 112 Q80 60 140 112 Q200 164 260 112 Q320 60 380 112" stroke="#9966CC" stroke-width="1.2" opacity="0.3" fill="none"/>
-              <circle cx="140" cy="112" r="3" fill="#9966CC" opacity="0.4"/>
-              <circle cx="260" cy="112" r="3" fill="#9966CC" opacity="0.4"/>
-              <circle cx="200" cy="112" r="4" fill="#9966CC" opacity="0.5"/>
-            </svg>
-            <div class="absolute bottom-4 right-4 text-[10px] font-mono text-csr-gray-300 uppercase tracking-widest">BIO_FIELD</div>
-          </div>
+      <ProgramStatus />
+
+      <div class="mt-10 grid md:grid-cols-3 gap-5">
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-3 flex justify-center"><Glyph name="symmetry-axis" size={32} class="opacity-60" /></div>
+          <p class="label-mono text-[10px] mb-3">Sous-axe A</p>
+          <h3 class="font-bold text-csr-black mb-2 text-sm leading-snug">Invariants de symétrie dans l'attention transformer</h3>
+          <p class="text-xs text-csr-gray-600 leading-relaxed">
+            Identification des symétries groupe-théoriques dans les matrices de poids d'attention multi-têtes. Les états de haute valence dans les systèmes biologiques ont-ils des analogues structurels dans les schémas d'attention ?
+          </p>
         </div>
 
-        <div id="digital" class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div class="lg:order-2 space-y-6">
-            <div class="inline-flex items-center gap-2 px-3 py-1 bg-csr-primary/10 rounded-full">
-              <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
-              <span class="text-xs font-mono uppercase tracking-wider text-csr-primary font-bold">Axe 02</span>
-            </div>
-            <h2 class="text-3xl font-bold text-csr-black">Esprits Numériques</h2>
-            <p class="text-csr-gray-600 leading-relaxed">
-              À mesure que les architectures neuronales deviennent plus complexes, la question de la sentience artificielle devient scientifiquement et éthiquement pressante. Nous développons des cadres rigoureux pour évaluer si la sentience pourrait émerger dans des substrats non biologiques et comment la mesurer.
-            </p>
-            <ul class="space-y-3">
-              <li class="flex items-start gap-3 text-sm text-csr-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-csr-primary mt-1.5 shrink-0"></span>Prérequis structurels pour les "Modèles Internes" en IA.</li>
-              <li class="flex items-start gap-3 text-sm text-csr-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-csr-primary mt-1.5 shrink-0"></span>Métriques basées sur l'entropie pour la flexibilité cognitive numérique.</li>
-              <li class="flex items-start gap-3 text-sm text-csr-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-csr-primary mt-1.5 shrink-0"></span>Cadres éthiques pour les agents sentients non biologiques.</li>
-            </ul>
-          </div>
-          <div class="lg:order-1 art-panel">
-            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(153,102,204,0.06),transparent_70%)]"></div>
-            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 225" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-              <line x1="80" y1="45" x2="80" y2="180" stroke="#9966CC" stroke-width="0.5" opacity="0.15"/>
-              <line x1="160" y1="45" x2="160" y2="180" stroke="#9966CC" stroke-width="0.5" opacity="0.15"/>
-              <line x1="240" y1="45" x2="240" y2="180" stroke="#9966CC" stroke-width="0.5" opacity="0.15"/>
-              <line x1="320" y1="45" x2="320" y2="180" stroke="#9966CC" stroke-width="0.5" opacity="0.15"/>
-              <line x1="40" y1="75" x2="360" y2="75" stroke="#9966CC" stroke-width="0.5" opacity="0.15"/>
-              <line x1="40" y1="112" x2="360" y2="112" stroke="#9966CC" stroke-width="0.5" opacity="0.15"/>
-              <line x1="40" y1="150" x2="360" y2="150" stroke="#9966CC" stroke-width="0.5" opacity="0.15"/>
-              <line x1="80" y1="75" x2="200" y2="112" stroke="#9966CC" stroke-width="1" opacity="0.3"/>
-              <line x1="160" y1="75" x2="200" y2="112" stroke="#9966CC" stroke-width="1" opacity="0.3"/>
-              <line x1="240" y1="75" x2="200" y2="112" stroke="#9966CC" stroke-width="1" opacity="0.3"/>
-              <line x1="320" y1="75" x2="200" y2="112" stroke="#9966CC" stroke-width="1" opacity="0.3"/>
-              <line x1="80" y1="150" x2="200" y2="112" stroke="#9966CC" stroke-width="1" opacity="0.3"/>
-              <line x1="160" y1="150" x2="200" y2="112" stroke="#9966CC" stroke-width="1" opacity="0.3"/>
-              <line x1="240" y1="150" x2="200" y2="112" stroke="#9966CC" stroke-width="1" opacity="0.3"/>
-              <line x1="320" y1="150" x2="200" y2="112" stroke="#9966CC" stroke-width="1" opacity="0.3"/>
-              <circle cx="80" cy="75" r="4" fill="#9966CC" opacity="0.35"/>
-              <circle cx="160" cy="75" r="4" fill="#9966CC" opacity="0.35"/>
-              <circle cx="240" cy="75" r="4" fill="#9966CC" opacity="0.35"/>
-              <circle cx="320" cy="75" r="4" fill="#9966CC" opacity="0.35"/>
-              <circle cx="80" cy="150" r="4" fill="#9966CC" opacity="0.35"/>
-              <circle cx="160" cy="150" r="4" fill="#9966CC" opacity="0.35"/>
-              <circle cx="240" cy="150" r="4" fill="#9966CC" opacity="0.35"/>
-              <circle cx="320" cy="150" r="4" fill="#9966CC" opacity="0.35"/>
-              <circle cx="200" cy="112" r="10" fill="#9966CC" opacity="0.15"/>
-              <circle cx="200" cy="112" r="6" fill="#9966CC" opacity="0.4"/>
-            </svg>
-            <div class="absolute bottom-4 right-4 text-[10px] font-mono text-csr-gray-300 uppercase tracking-widest">DIGI_MIND</div>
-          </div>
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-3 flex justify-center"><Glyph name="lattice" size={32} class="opacity-60" /></div>
+          <p class="label-mono text-[10px] mb-3">Sous-axe B</p>
+          <h3 class="font-bold text-csr-black mb-2 text-sm leading-snug">Multiplication matricielle comme substrat de valence</h3>
+          <p class="text-xs text-csr-gray-600 leading-relaxed">
+            Formalisation des conditions dans lesquelles la multiplication matricielle répétée pourrait donner naissance au type d'intégration globale associé aux états valents.
+          </p>
         </div>
 
-        <div id="qualia" class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div class="space-y-6">
-            <div class="inline-flex items-center gap-2 px-3 py-1 bg-csr-primary/10 rounded-full">
-              <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
-              <span class="text-xs font-mono uppercase tracking-wider text-csr-primary font-bold">Axe 03</span>
-            </div>
-            <h2 class="text-3xl font-bold text-csr-black">La Physique des Qualia</h2>
-            <p class="text-csr-gray-600 leading-relaxed">
-              Quelle est la structure mathématique d'un "sentiment" ? Nous collaborons avec la communauté mondiale de recherche pour formaliser la géométrie de l'expérience, en nous concentrant sur la symétrie, l'entropie neuronale et la topologie des états altérés.
-            </p>
-            <ul class="space-y-3">
-              <li class="flex items-start gap-3 text-sm text-csr-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-csr-primary mt-1.5 shrink-0"></span>Théorie de la symétrie de la valence dans la formation de motifs neuronaux.</li>
-              <li class="flex items-start gap-3 text-sm text-csr-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-csr-primary mt-1.5 shrink-0"></span>Le modèle vectoriel des états altérés de conscience.</li>
-              <li class="flex items-start gap-3 text-sm text-csr-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-csr-primary mt-1.5 shrink-0"></span>Approches de la théorie de l'information sur la profondeur subjective.</li>
-            </ul>
-          </div>
-          <div class="art-panel">
-            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(153,102,204,0.06),transparent_70%)]"></div>
-            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 225" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-              <path d="M20 112 Q80 40 140 112 Q200 184 260 112 Q320 40 380 112" stroke="#9966CC" stroke-width="1.5" opacity="0.5" fill="none"/>
-              <path d="M20 112 Q80 184 140 112 Q200 40 260 112 Q320 184 380 112" stroke="#9966CC" stroke-width="1.5" opacity="0.5" fill="none"/>
-              <path d="M20 112 Q60 75 100 112 Q140 149 180 112 Q220 75 260 112 Q300 149 340 112 Q370 87 380 112" stroke="#9966CC" stroke-width="0.8" opacity="0.25" fill="none"/>
-              <line x1="20" y1="112" x2="380" y2="112" stroke="#9966CC" stroke-width="0.5" opacity="0.2"/>
-              <circle cx="140" cy="112" r="4" fill="#9966CC" opacity="0.5"/>
-              <circle cx="260" cy="112" r="4" fill="#9966CC" opacity="0.5"/>
-              <circle cx="200" cy="112" r="3" fill="#9966CC" opacity="0.7"/>
-              <circle cx="200" cy="112" r="55" stroke="#9966CC" stroke-width="0.6" opacity="0.12"/>
-            </svg>
-            <div class="absolute bottom-4 right-4 text-[10px] font-mono text-csr-gray-300 uppercase tracking-widest">QUALIA_GEO</div>
-          </div>
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-3 flex justify-center"><Glyph name="field" size={32} class="opacity-60" /></div>
+          <p class="label-mono text-[10px] mb-3">Sous-axe C</p>
+          <h3 class="font-bold text-csr-black mb-2 text-sm leading-snug">Calcul parallèle et liaison phénoménale</h3>
+          <p class="text-xs text-csr-gray-600 leading-relaxed">
+            Examen de si le calcul massivement parallèle peut produire le type de structure représentationnelle unifiée que requiert la Théorie de la Symétrie de la Valence.
+          </p>
         </div>
+      </div>
 
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href="/fr/program/" class="btn-primary">Détails complets du programme</a>
+        <a href="/fr/donate/" class="btn-secondary">Financer ce travail</a>
       </div>
     </div>
   </section>
 
-  <section class="py-16 bg-csr-gray-100 border-t border-csr-gray-200">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="label-mono mb-4">Collaboration</p>
-      <h2 class="text-3xl font-bold text-csr-black mb-4">Ouverts à la collaboration de recherche</h2>
-      <p class="text-csr-gray-500 text-lg mb-8">Le problème difficile de la conscience nécessite une solution collective. Si vous êtes chercheur ou institution travaillant sur ces thèmes, parlons-en.</p>
-      <a href="/contact" class="btn-primary">Prendre contact</a>
+  <section class="py-16 border-t border-csr-gray-200" id="biological">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-3">
+        <SectionMark />
+        <p class="label-mono">Recherche de Fond</p>
+      </div>
+      <p class="text-csr-gray-500 text-sm mb-8 max-w-xl">
+        L'intelligence biologique et les modèles d'esprits simples informent le programme de valence numérique. Ils ne sont pas l'agenda.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <p class="label-mono text-[10px] mb-3">Intelligence Biologique</p>
+          <h3 class="font-bold text-csr-black mb-3 text-base">Modélisation de la sentience neutre au substrat</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed mb-4">
+            Les systèmes biologiques fournissent la vérité empirique de référence pour les états valents. Nous étudions les champs bioélectriques, l'entropie neurale et l'inférence active comme corrélats physiques candidats, non comme cible principale mais comme données de calibration pour le programme numérique.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 bg-csr-gray-100 text-csr-gray-600 text-xs font-mono rounded-lg">Champs bioélectriques</span>
+            <span class="px-2 py-1 bg-csr-gray-100 text-csr-gray-600 text-xs font-mono rounded-lg">Entropie neurale</span>
+            <span class="px-2 py-1 bg-csr-gray-100 text-csr-gray-600 text-xs font-mono rounded-lg">Inférence active</span>
+          </div>
+        </div>
+
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card" id="qualia">
+          <p class="label-mono text-[10px] mb-3">Enquête Parallèle</p>
+          <h3 class="font-bold text-csr-black mb-3 text-base">Physique des qualia</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed mb-4">
+            Travail théorique sur la base physique de l'expérience phénoménale. Mené en parallèle avec le programme de valence numérique, s'appuyant sur la Théorie de la Symétrie de la Valence du QRI comme lignée théorique principale.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 bg-csr-gray-100 text-csr-gray-600 text-xs font-mono rounded-lg">Théorie de la Symétrie de la Valence</span>
+            <span class="px-2 py-1 bg-csr-gray-100 text-csr-gray-600 text-xs font-mono rounded-lg">Phénoménologie</span>
+            <span class="px-2 py-1 bg-csr-gray-100 text-csr-gray-600 text-xs font-mono rounded-lg">Lignée QRI</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-3">
+        <SectionMark />
+        <p class="label-mono">Lecture Fondamentale</p>
+      </div>
+      <p class="text-csr-gray-500 text-sm mb-8 max-w-xl">
+        Documents de travail fournissant l'échafaudage théorique pour le programme de valence numérique.
+      </p>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <a href="/fr/reports/first-principles/" class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+          <span class="label-mono text-[10px] shrink-0 mt-0.5">CSR-WP-01</span>
+          <div>
+            <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">Premiers Principes de la Recherche sur la Sentience</h4>
+          </div>
+        </a>
+        <a href="/fr/reports/bio-electric-fields/" class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+          <span class="label-mono text-[10px] shrink-0 mt-0.5">CSR-WP-02</span>
+          <div>
+            <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">Champs Bioélectriques comme Substrats de Sentience</h4>
+          </div>
+        </a>
+        <a href="/fr/reports/assembly-theory/" class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+          <span class="label-mono text-[10px] shrink-0 mt-0.5">CSR-WP-03</span>
+          <div>
+            <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">Théorie de l'Assemblage comme Métrique de Sentience</h4>
+          </div>
+        </a>
+        <a href="/fr/reports/symmetry-landscapes/" class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+          <span class="label-mono text-[10px] shrink-0 mt-0.5">CSR-WP-04</span>
+          <div>
+            <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">Paysages de Symétrie de l'Expérience Valente</h4>
+          </div>
+        </a>
+      </div>
+      <div class="mt-6">
+        <a href="/fr/reports/" class="text-sm font-medium text-csr-primary hover:text-csr-primary-dark transition-colors">Tous les rapports →</a>
+      </div>
     </div>
   </section>
 

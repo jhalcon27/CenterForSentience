@@ -1,98 +1,147 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ProgramStatus from '../../components/ProgramStatus.astro';
+import SectionMark from '../../components/SectionMark.astro';
+import Glyph from '../../components/Glyph.astro';
 ---
 
-<Layout title="活動を支援する" description="感知研究センターを支援する。意識の測定フレームワークは、決定が下される前に存在しなければならない。">
+<Layout
+  title="感情価プログラムへの資金提供"
+  description="感覚研究センターの2026年プログラムを支援：デジタルマインドにおける機能的感情価を測定するための正式な数学的フレームワーク。"
+>
 
   <section class="pt-20 pb-12 border-b border-csr-gray-200">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="label-mono mb-4">活動を支援する</p>
-      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6">
-        どのシステムが苦しむことができるかという問いは<br class="hidden md:block"/><span class="text-gradient">抽象的ではない。</span>
+      <p class="label-mono mb-4">プログラムへの資金提供</p>
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6 max-w-2xl leading-tight">
+        測定ツールは問題が緊急になる前に存在しなければならない。
       </h1>
-      <p class="text-lg text-csr-gray-500 leading-relaxed max-w-2xl">
-        それは次の世紀のガバナンス、AI政策、道徳的配慮を決定する。測定フレームワークは、決定が下される前に存在しなければならない。後ではなく。
+      <p class="text-lg text-csr-gray-600 leading-relaxed max-w-2xl font-serif">
+        大規模なニューラル計算が正または負の性質を持つ状態を生み出せるなら、それらを認識する方法を知るべきです。あなたの貢献は2026年の目標に資金を提供します：デジタルマインドにおける機能的感情価を測定するための正式な数学的フレームワーク。
       </p>
     </div>
   </section>
 
-  <section class="py-16">
+  <section class="py-14">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-14">
-        <div class="p-8 bg-white border border-csr-gray-100 rounded-2xl shadow-card">
-          <p class="label-mono mb-3">問題</p>
-          <p class="text-csr-gray-600 leading-relaxed">
-            AIシステムはますます感知を示すようになっている。科学は予期しない生物的基盤において意識に似た特性を明らかにしている。社会はこれらの主張を評価するための厳密な基盤中立的なツールを欠いている。
-          </p>
+      <div class="flex items-center gap-3 mb-6">
+        <SectionMark />
+        <p class="label-mono">あなたが資金提供するもの</p>
+      </div>
+      <ProgramStatus />
+      <div class="mt-6">
+        <a href="/ja/program/" class="text-sm font-medium text-csr-primary hover:text-csr-primary-dark transition-colors">
+          プログラムの詳細 →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-8">
+        <SectionMark />
+        <p class="label-mono">予算の内訳</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-5">
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-3 flex justify-center"><Glyph name="digital" size={36} class="opacity-60" /></div>
+          <p class="text-2xl font-bold text-csr-primary mb-2">CHF 50k</p>
+          <h3 class="font-bold text-csr-black mb-2 text-sm">計算リソース</h3>
+          <p class="text-xs text-csr-gray-600 leading-relaxed">Transformer注意パターンと行列乗算シーケンスにおける対称性不変量の分析のためのGPUアクセス。中核的な実証作業。</p>
         </div>
-        <div class="p-8 bg-csr-black text-white rounded-2xl shadow-card">
-          <p class="label-mono mb-3">私たちが構築しているもの</p>
-          <p class="text-csr-gray-400 leading-relaxed">
-            科学的基盤なしには、これらの問いは直感、商業的利益、またはイデオロギーによって決定される。CSRはそれが起こる前に測定フレームワークを提供するために存在する。
-          </p>
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-3 flex justify-center"><Glyph name="phase-portrait" size={36} class="opacity-60" /></div>
+          <p class="text-2xl font-bold text-csr-primary mb-2">CHF 20k</p>
+          <h3 class="font-bold text-csr-black mb-2 text-sm">文献統合</h3>
+          <p class="text-xs text-csr-gray-600 leading-relaxed">STV系譜、IIT、能動的推論、ニューラル計算の群論的アプローチの系統的レビュー。正式な足場を構築。</p>
+        </div>
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-3 flex justify-center"><Glyph name="invariant" size={36} class="opacity-60" /></div>
+          <p class="text-2xl font-bold text-csr-primary mb-2">CHF 10k</p>
+          <h3 class="font-bold text-csr-black mb-2 text-sm">アドバイザー報酬</h3>
+          <p class="text-xs text-csr-gray-600 leading-relaxed">数理物理学と意識研究の外部アドバイザーへの構造化レビューセッションとフレームワークのストレステストへの報酬。</p>
         </div>
       </div>
+    </div>
+  </section>
 
-      <h2 class="text-2xl font-bold text-csr-black mb-6">貢献の方法</h2>
+  <section class="py-14 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-8">
+        <SectionMark />
+        <p class="label-mono">貢献方法</p>
+      </div>
+
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-        <div class="p-8 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all duration-200">
+        <div class="p-8 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
           <div class="w-10 h-10 rounded-xl bg-csr-primary/10 flex items-center justify-center mb-5">
             <svg class="w-5 h-5 text-csr-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/>
             </svg>
           </div>
-          <h3 class="text-lg font-bold text-csr-black mb-2">銀行振込</h3>
-          <p class="text-sm text-csr-gray-600 leading-relaxed mb-5">大口寄付や機関助成金に対応。IBAN/SWIFT情報についてはお問い合わせください。</p>
-          <a href="mailto:jhonatan.serna@proton.me?subject=機関助成金のお問い合わせ" class="label-mono text-[11px] hover:underline underline-offset-4">銀行情報を申請する &rarr;</a>
+          <h3 class="text-base font-bold text-csr-black mb-2">銀行振込</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed mb-5">大口寄付や機関助成金に。IBAN/SWIFT詳細についてはお問い合わせください。</p>
+          <a href="mailto:jhonatan.serna@proton.me?subject=Institutional Grant Inquiry" class="label-mono text-[11px] hover:underline underline-offset-4">銀行詳細を申請する →</a>
         </div>
 
-        <div class="p-8 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all duration-200">
+        <div class="p-8 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
           <div class="w-10 h-10 rounded-xl bg-csr-primary/10 flex items-center justify-center mb-5">
             <svg class="w-5 h-5 text-csr-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
           </div>
-          <h3 class="text-lg font-bold text-csr-black mb-2">デジタル資産</h3>
-          <p class="text-sm text-csr-gray-600 leading-relaxed mb-5">迅速な研究展開のためにBTC、ETH、SOLでの寄付を受け付けている。</p>
+          <h3 class="text-base font-bold text-csr-black mb-2">デジタル資産</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed mb-5">迅速な研究展開のためBTC、ETH、SOLを受け付けています。</p>
           <div class="space-y-2">
             <div class="text-[10px] font-mono p-2 bg-csr-gray-100 rounded-lg border border-csr-gray-200 overflow-hidden truncate text-csr-gray-500">BTC: bc1qtszvlsf3p8va3dglptev59t6vjlvg62mxg9g6x</div>
             <div class="text-[10px] font-mono p-2 bg-csr-gray-100 rounded-lg border border-csr-gray-200 overflow-hidden truncate text-csr-gray-500">ETH: strugen.eth</div>
           </div>
         </div>
 
-        <div class="p-8 bg-csr-black text-white rounded-2xl shadow-card">
-          <div class="w-10 h-10 rounded-xl bg-csr-primary/20 flex items-center justify-center mb-5">
+        <div class="p-8 bg-white border border-csr-primary/20 rounded-2xl shadow-card">
+          <div class="w-10 h-10 rounded-xl bg-csr-primary/10 flex items-center justify-center mb-5">
             <svg class="w-5 h-5 text-csr-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
             </svg>
           </div>
-          <h3 class="text-lg font-bold mb-2">研究パートナーシップ</h3>
-          <p class="text-sm text-csr-gray-400 leading-relaxed mb-6">特定の分野での協力：グローバル感知政策、AI福祉研究、または長期的な測定インフラ。</p>
-          <a href="/contact" class="block w-full text-center py-3 bg-csr-primary text-white rounded-full font-semibold text-sm hover:bg-csr-primary-dark transition-all">パートナーシップについて問い合わせる</a>
+          <h3 class="text-base font-bold text-csr-black mb-2">研究パートナーシップ</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed mb-6">感情価プログラム、AI福祉研究、または長期的な測定インフラについて協力する。</p>
+          <a href="/contact/" class="block w-full text-center py-3 bg-csr-primary text-white rounded-full font-semibold text-sm hover:bg-csr-primary-dark transition-all">パートナーシップについて連絡する</a>
         </div>
 
       </div>
     </div>
   </section>
 
-  <section class="py-16 bg-csr-gray-100 border-t border-csr-gray-200">
+  <section class="py-14 border-t border-csr-gray-200">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-bold text-csr-black mb-6">税控除対象の寄付</h2>
-      <p class="text-csr-gray-600 mb-8 leading-relaxed">
-        CSRは登録された非営利組織だ。スイスおよびEUの寄付者については、地域の財団法に基づき、寄付は通常税控除の対象となる。
+      <div class="flex items-center gap-3 mb-6">
+        <SectionMark />
+        <p class="label-mono">税控除対象の寄付</p>
+      </div>
+      <p class="text-csr-gray-600 mb-8 leading-relaxed max-w-2xl">
+        CSRは登録された非営利組織です。スイスおよびEUの寄付者については、地域の財団法に基づき、寄付は一般的に税控除対象となります。
       </p>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="p-6 bg-white border border-csr-gray-200 rounded-2xl">
           <p class="font-bold text-csr-black mb-2 text-sm">スイス（本部）</p>
-          <p class="text-csr-gray-500 font-mono text-xs leading-relaxed">Center for Sentience Research (CSR)<br/>CHE-XXX.XXX.XXX<br/>チューリッヒ、スイス</p>
+          <p class="text-csr-gray-500 font-mono text-xs leading-relaxed">
+            Center for Sentience Research (CSR)<br/>
+            CHE-XXX.XXX.XXX<br/>
+            チューリッヒ、スイス
+          </p>
         </div>
         <div class="p-6 bg-white border border-csr-gray-200 rounded-2xl">
           <p class="font-bold text-csr-black mb-2 text-sm">米国（パートナーシップ）</p>
-          <p class="text-csr-gray-500 font-mono text-xs leading-relaxed">[プレースホルダー財団]を通じた財政スポンサーシップ<br/>501(c)(3)免税ステータス</p>
+          <p class="text-csr-gray-500 font-mono text-xs leading-relaxed">
+            Fiscal Sponsorship via [Placeholder Foundation]<br/>
+            501(c)(3) Tax-Exempt Status
+          </p>
         </div>
       </div>
-      <p class="text-xs text-csr-gray-400 mt-6 font-mono">年次研究成果と財務概要は公開される。透明性優先モデル。</p>
+      <p class="text-xs text-csr-gray-400 mt-6 font-mono">年次研究成果と財務サマリーを公開。完全透明モデル。</p>
     </div>
   </section>
 

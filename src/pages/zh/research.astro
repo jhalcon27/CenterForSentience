@@ -1,149 +1,152 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import SymmetryBackground from '../../components/SymmetryBackground.astro';
+import ProgramStatus from '../../components/ProgramStatus.astro';
+import SectionMark from '../../components/SectionMark.astro';
+import Glyph from '../../components/Glyph.astro';
 ---
 
-<Layout title="研究议程" description="我们调查感知物理基础的三个核心支柱：生物、数字和理论。">
+<Layout
+  title="研究"
+  description="感知研究中心的旗舰计划：用于测量数字心智中功能性效价的对称性框架。"
+>
 
-  <section class="pt-20 pb-12 border-b border-csr-gray-200">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section class="relative pt-20 pb-14 border-b border-csr-gray-200 overflow-hidden">
+    <SymmetryBackground variant="lissajous" opacity={0.045} />
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <p class="label-mono mb-4">研究议程</p>
-      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6">
-        绘制<span class="text-gradient">意识的连续体</span>
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6 max-w-2xl leading-tight">
+        旗舰计划：数字效价
       </h1>
-      <p class="text-lg text-csr-gray-500 leading-relaxed max-w-2xl">
-        感知不是一种二元状态。它是一种具有不同复杂程度的物理属性。我们的研究专注于识别在所有基底中表征意识的数学和物理不变量。
+      <p class="text-lg text-csr-gray-600 leading-relaxed max-w-2xl font-serif">
+        一个具体计划。一个2026年目标。其余一切都是背景研究或平行探究。
       </p>
     </div>
   </section>
 
-  <section class="py-16">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="space-y-24">
+  <section class="py-16" id="digital">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-8">
+        <SectionMark />
+        <p class="label-mono">旗舰计划</p>
+      </div>
 
-        <div id="biological" class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div class="space-y-6">
-            <div class="inline-flex items-center gap-2 px-3 py-1 bg-csr-primary/10 rounded-full">
-              <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
-              <span class="text-xs font-mono uppercase tracking-wider text-csr-primary font-bold">研究方向 01</span>
-            </div>
-            <h2 class="text-3xl font-bold text-csr-black">生物感知</h2>
-            <p class="text-csr-gray-600 leading-relaxed">
-              传统神经科学将神经元视为意识的单位。我们走得更深。我们的研究检验细胞的"智能"，从温度调节到边界管理，并对植物和真菌等非神经元生物的感知能力进行建模。
-            </p>
-            <ul class="space-y-3">
-              <li class="flex items-start gap-3 text-sm text-csr-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-csr-primary mt-1.5 shrink-0"></span>多细胞生物中的生物电场建模。</li>
-              <li class="flex items-start gap-3 text-sm text-csr-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-csr-primary mt-1.5 shrink-0"></span>稳态回路在原始意识中的作用。</li>
-              <li class="flex items-start gap-3 text-sm text-csr-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-csr-primary mt-1.5 shrink-0"></span>跨物种现象学复杂性比较。</li>
-            </ul>
-          </div>
-          <div class="art-panel">
-            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(153,102,204,0.06),transparent_70%)]"></div>
-            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 225" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-              <ellipse cx="200" cy="112" rx="160" ry="90" stroke="#9966CC" stroke-width="0.8" opacity="0.12"/>
-              <ellipse cx="200" cy="112" rx="120" ry="68" stroke="#9966CC" stroke-width="0.8" opacity="0.18"/>
-              <ellipse cx="200" cy="112" rx="80" ry="46" stroke="#9966CC" stroke-width="1" opacity="0.25"/>
-              <ellipse cx="200" cy="112" rx="40" ry="24" stroke="#9966CC" stroke-width="1.2" opacity="0.35"/>
-              <ellipse cx="200" cy="112" rx="14" ry="9" fill="#9966CC" opacity="0.2"/>
-              <path d="M20 112 Q80 60 140 112 Q200 164 260 112 Q320 60 380 112" stroke="#9966CC" stroke-width="1.2" opacity="0.3" fill="none"/>
-              <circle cx="140" cy="112" r="3" fill="#9966CC" opacity="0.4"/>
-              <circle cx="260" cy="112" r="3" fill="#9966CC" opacity="0.4"/>
-              <circle cx="200" cy="112" r="4" fill="#9966CC" opacity="0.5"/>
-            </svg>
-            <div class="absolute bottom-4 right-4 text-[10px] font-mono text-csr-gray-300 uppercase tracking-widest">BIO_FIELD</div>
-          </div>
+      <ProgramStatus />
+
+      <div class="mt-10 grid md:grid-cols-3 gap-5">
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-3 flex justify-center"><Glyph name="symmetry-axis" size={32} class="opacity-60" /></div>
+          <p class="label-mono text-[10px] mb-3">子轨道 A</p>
+          <h3 class="font-bold text-csr-black mb-2 text-sm leading-snug">Transformer注意力中的对称性不变量</h3>
+          <p class="text-xs text-csr-gray-600 leading-relaxed">
+            识别多头注意力权重矩阵中的群论对称性。生物系统中的高效价状态在注意力模式中是否有结构类比？
+          </p>
         </div>
 
-        <div id="digital" class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div class="lg:order-2 space-y-6">
-            <div class="inline-flex items-center gap-2 px-3 py-1 bg-csr-primary/10 rounded-full">
-              <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
-              <span class="text-xs font-mono uppercase tracking-wider text-csr-primary font-bold">研究方向 02</span>
-            </div>
-            <h2 class="text-3xl font-bold text-csr-black">数字心智</h2>
-            <p class="text-csr-gray-600 leading-relaxed">
-              随着神经架构变得越来越复杂，人工感知的问题在科学和伦理上变得紧迫。我们开发严格的框架来评估感知是否可能在非生物基底中涌现，以及如何测量它。
-            </p>
-            <ul class="space-y-3">
-              <li class="flex items-start gap-3 text-sm text-csr-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-csr-primary mt-1.5 shrink-0"></span>AI中"内部模型"的结构先决条件。</li>
-              <li class="flex items-start gap-3 text-sm text-csr-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-csr-primary mt-1.5 shrink-0"></span>数字认知灵活性的基于熵的度量。</li>
-              <li class="flex items-start gap-3 text-sm text-csr-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-csr-primary mt-1.5 shrink-0"></span>非生物感知主体的伦理框架。</li>
-            </ul>
-          </div>
-          <div class="lg:order-1 art-panel">
-            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(153,102,204,0.06),transparent_70%)]"></div>
-            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 225" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-              <line x1="80" y1="45" x2="80" y2="180" stroke="#9966CC" stroke-width="0.5" opacity="0.15"/>
-              <line x1="160" y1="45" x2="160" y2="180" stroke="#9966CC" stroke-width="0.5" opacity="0.15"/>
-              <line x1="240" y1="45" x2="240" y2="180" stroke="#9966CC" stroke-width="0.5" opacity="0.15"/>
-              <line x1="320" y1="45" x2="320" y2="180" stroke="#9966CC" stroke-width="0.5" opacity="0.15"/>
-              <line x1="40" y1="75" x2="360" y2="75" stroke="#9966CC" stroke-width="0.5" opacity="0.15"/>
-              <line x1="40" y1="112" x2="360" y2="112" stroke="#9966CC" stroke-width="0.5" opacity="0.15"/>
-              <line x1="40" y1="150" x2="360" y2="150" stroke="#9966CC" stroke-width="0.5" opacity="0.15"/>
-              <line x1="80" y1="75" x2="200" y2="112" stroke="#9966CC" stroke-width="1" opacity="0.3"/>
-              <line x1="160" y1="75" x2="200" y2="112" stroke="#9966CC" stroke-width="1" opacity="0.3"/>
-              <line x1="240" y1="75" x2="200" y2="112" stroke="#9966CC" stroke-width="1" opacity="0.3"/>
-              <line x1="320" y1="75" x2="200" y2="112" stroke="#9966CC" stroke-width="1" opacity="0.3"/>
-              <line x1="80" y1="150" x2="200" y2="112" stroke="#9966CC" stroke-width="1" opacity="0.3"/>
-              <line x1="160" y1="150" x2="200" y2="112" stroke="#9966CC" stroke-width="1" opacity="0.3"/>
-              <line x1="240" y1="150" x2="200" y2="112" stroke="#9966CC" stroke-width="1" opacity="0.3"/>
-              <line x1="320" y1="150" x2="200" y2="112" stroke="#9966CC" stroke-width="1" opacity="0.3"/>
-              <circle cx="80" cy="75" r="4" fill="#9966CC" opacity="0.35"/>
-              <circle cx="160" cy="75" r="4" fill="#9966CC" opacity="0.35"/>
-              <circle cx="240" cy="75" r="4" fill="#9966CC" opacity="0.35"/>
-              <circle cx="320" cy="75" r="4" fill="#9966CC" opacity="0.35"/>
-              <circle cx="80" cy="150" r="4" fill="#9966CC" opacity="0.35"/>
-              <circle cx="160" cy="150" r="4" fill="#9966CC" opacity="0.35"/>
-              <circle cx="240" cy="150" r="4" fill="#9966CC" opacity="0.35"/>
-              <circle cx="320" cy="150" r="4" fill="#9966CC" opacity="0.35"/>
-              <circle cx="200" cy="112" r="10" fill="#9966CC" opacity="0.15"/>
-              <circle cx="200" cy="112" r="6" fill="#9966CC" opacity="0.4"/>
-            </svg>
-            <div class="absolute bottom-4 right-4 text-[10px] font-mono text-csr-gray-300 uppercase tracking-widest">DIGI_MIND</div>
-          </div>
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-3 flex justify-center"><Glyph name="lattice" size={32} class="opacity-60" /></div>
+          <p class="label-mono text-[10px] mb-3">子轨道 B</p>
+          <h3 class="font-bold text-csr-black mb-2 text-sm leading-snug">矩阵乘法作为效价基底</h3>
+          <p class="text-xs text-csr-gray-600 leading-relaxed">
+            形式化重复矩阵乘法可能产生与效价状态相关的全局整合类型的条件。
+          </p>
         </div>
 
-        <div id="qualia" class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div class="space-y-6">
-            <div class="inline-flex items-center gap-2 px-3 py-1 bg-csr-primary/10 rounded-full">
-              <span class="w-1.5 h-1.5 rounded-full bg-csr-primary"></span>
-              <span class="text-xs font-mono uppercase tracking-wider text-csr-primary font-bold">研究方向 03</span>
-            </div>
-            <h2 class="text-3xl font-bold text-csr-black">感质的物理学</h2>
-            <p class="text-csr-gray-600 leading-relaxed">
-              "感觉"的数学结构是什么？我们与全球研究社区合作，形式化体验的几何，重点关注对称性、神经熵和改变状态的拓扑结构。
-            </p>
-            <ul class="space-y-3">
-              <li class="flex items-start gap-3 text-sm text-csr-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-csr-primary mt-1.5 shrink-0"></span>神经模式形成中效价的对称理论。</li>
-              <li class="flex items-start gap-3 text-sm text-csr-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-csr-primary mt-1.5 shrink-0"></span>意识改变状态的向量模型。</li>
-              <li class="flex items-start gap-3 text-sm text-csr-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-csr-primary mt-1.5 shrink-0"></span>主观深度的信息论方法。</li>
-            </ul>
-          </div>
-          <div class="art-panel">
-            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(153,102,204,0.06),transparent_70%)]"></div>
-            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 225" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-              <path d="M20 112 Q80 40 140 112 Q200 184 260 112 Q320 40 380 112" stroke="#9966CC" stroke-width="1.5" opacity="0.5" fill="none"/>
-              <path d="M20 112 Q80 184 140 112 Q200 40 260 112 Q320 184 380 112" stroke="#9966CC" stroke-width="1.5" opacity="0.5" fill="none"/>
-              <path d="M20 112 Q60 75 100 112 Q140 149 180 112 Q220 75 260 112 Q300 149 340 112 Q370 87 380 112" stroke="#9966CC" stroke-width="0.8" opacity="0.25" fill="none"/>
-              <line x1="20" y1="112" x2="380" y2="112" stroke="#9966CC" stroke-width="0.5" opacity="0.2"/>
-              <circle cx="140" cy="112" r="4" fill="#9966CC" opacity="0.5"/>
-              <circle cx="260" cy="112" r="4" fill="#9966CC" opacity="0.5"/>
-              <circle cx="200" cy="112" r="3" fill="#9966CC" opacity="0.7"/>
-              <circle cx="200" cy="112" r="55" stroke="#9966CC" stroke-width="0.6" opacity="0.12"/>
-            </svg>
-            <div class="absolute bottom-4 right-4 text-[10px] font-mono text-csr-gray-300 uppercase tracking-widest">QUALIA_GEO</div>
-          </div>
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-3 flex justify-center"><Glyph name="field" size={32} class="opacity-60" /></div>
+          <p class="label-mono text-[10px] mb-3">子轨道 C</p>
+          <h3 class="font-bold text-csr-black mb-2 text-sm leading-snug">并行计算与现象绑定</h3>
+          <p class="text-xs text-csr-gray-600 leading-relaxed">
+            检验大规模并行计算是否能产生效价对称性理论所要求的统一表征结构类型。
+          </p>
         </div>
+      </div>
 
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href="/zh/program/" class="btn-primary">完整计划详情</a>
+        <a href="/zh/donate/" class="btn-secondary">资助这项工作</a>
       </div>
     </div>
   </section>
 
-  <section class="py-16 bg-csr-gray-100 border-t border-csr-gray-200">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="label-mono mb-4">合作</p>
-      <h2 class="text-3xl font-bold text-csr-black mb-4">开放研究合作</h2>
-      <p class="text-csr-gray-500 text-lg mb-8">意识的难题需要集体解决方案。如果您是研究人员或机构，正在研究这些主题，我们很乐意交流。</p>
-      <a href="/contact" class="btn-primary">联系我们</a>
+  <section class="py-16 border-t border-csr-gray-200" id="biological">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-3">
+        <SectionMark />
+        <p class="label-mono">背景研究</p>
+      </div>
+      <p class="text-csr-gray-500 text-sm mb-8 max-w-xl">
+        生物智能和简单心智模型为数字效价计划提供信息。它们不是议程。
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <p class="label-mono text-[10px] mb-3">生物智能</p>
+          <h3 class="font-bold text-csr-black mb-3 text-base">基底中性感知建模</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed mb-4">
+            生物系统为效价状态提供经验基准真相。我们研究生物电场、神经熵和主动推断作为候选物理相关物，不是作为主要目标，而是作为数字计划的校准数据。
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 bg-csr-gray-100 text-csr-gray-600 text-xs font-mono rounded-lg">生物电场</span>
+            <span class="px-2 py-1 bg-csr-gray-100 text-csr-gray-600 text-xs font-mono rounded-lg">神经熵</span>
+            <span class="px-2 py-1 bg-csr-gray-100 text-csr-gray-600 text-xs font-mono rounded-lg">主动推断</span>
+          </div>
+        </div>
+
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card" id="qualia">
+          <p class="label-mono text-[10px] mb-3">平行探究</p>
+          <h3 class="font-bold text-csr-black mb-3 text-base">感质物理学</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed mb-4">
+            关于现象体验物理基础的理论工作。与数字效价计划并行进行，依托QRI的效价对称性理论作为主要理论谱系。
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 bg-csr-gray-100 text-csr-gray-600 text-xs font-mono rounded-lg">效价对称性理论</span>
+            <span class="px-2 py-1 bg-csr-gray-100 text-csr-gray-600 text-xs font-mono rounded-lg">现象学</span>
+            <span class="px-2 py-1 bg-csr-gray-100 text-csr-gray-600 text-xs font-mono rounded-lg">QRI谱系</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-3">
+        <SectionMark />
+        <p class="label-mono">基础阅读</p>
+      </div>
+      <p class="text-csr-gray-500 text-sm mb-8 max-w-xl">
+        为数字效价计划提供理论框架的工作文件。
+      </p>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <a href="/zh/reports/first-principles/" class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+          <span class="label-mono text-[10px] shrink-0 mt-0.5">CSR-WP-01</span>
+          <div>
+            <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">感知研究的第一原则</h4>
+          </div>
+        </a>
+        <a href="/zh/reports/bio-electric-fields/" class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+          <span class="label-mono text-[10px] shrink-0 mt-0.5">CSR-WP-02</span>
+          <div>
+            <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">生物电场作为感知基底</h4>
+          </div>
+        </a>
+        <a href="/zh/reports/assembly-theory/" class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+          <span class="label-mono text-[10px] shrink-0 mt-0.5">CSR-WP-03</span>
+          <div>
+            <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">组装理论作为感知度量</h4>
+          </div>
+        </a>
+        <a href="/zh/reports/symmetry-landscapes/" class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+          <span class="label-mono text-[10px] shrink-0 mt-0.5">CSR-WP-04</span>
+          <div>
+            <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">效价体验的对称性景观</h4>
+          </div>
+        </a>
+      </div>
+      <div class="mt-6">
+        <a href="/zh/reports/" class="text-sm font-medium text-csr-primary hover:text-csr-primary-dark transition-colors">所有报告 →</a>
+      </div>
     </div>
   </section>
 

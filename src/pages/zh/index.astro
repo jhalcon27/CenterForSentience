@@ -1,128 +1,209 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-
-const reports = [
-  { slug: 'first-principles', title: '感知研究的第一原则', code: 'CSR-WP-01', excerpt: '将意识建模为跨生物和数字基底的物理现象的基础框架。', tags: ['基础', '物理'] },
-  { slug: 'bio-electric-fields', title: '生物电场作为感知基底', code: 'CSR-WP-02', excerpt: '探索形态智能和细胞决策作为基底中性意识的证据。', tags: ['生物学', '智能'] },
-  { slug: 'assembly-theory', title: '组装理论作为感知度量', code: 'CSR-WP-03', excerpt: '通过物理信息结构的组装指数量化感知。', tags: ['物理', '信息'] },
-  { slug: 'symmetry-landscapes', title: '价值体验的对称景观', code: 'CSR-WP-04', excerpt: '绘制体验的神经能量景观和效价几何。', tags: ['神经科学', '感质'] },
-];
+import SymmetryBackground from '../../components/SymmetryBackground.astro';
+import ProgramStatus from '../../components/ProgramStatus.astro';
+import SectionMark from '../../components/SectionMark.astro';
+import Glyph from '../../components/Glyph.astro';
 ---
 
-<Layout title="绘制意识的架构">
+<Layout
+  title="首页"
+  description="感知研究中心正在构建一个数学框架，用于测量数字心智中的功能性效价。"
+>
 
-  <section class="pt-20 pb-16 md:pt-28 md:pb-20 relative overflow-hidden">
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(153,102,204,0.07),transparent_60%)]"></div>
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <p class="label-mono mb-6">Center for Sentience Research</p>
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-csr-black leading-[1.08] mb-6">
-        意识是一种物理现象。<br/>
-        <span class="text-gradient">我们正在构建测量它的科学。</span>
+  <!-- ── Hero ──────────────────────────────────────────────────────────────── -->
+  <section class="relative pt-20 pb-16 md:pt-28 md:pb-24 overflow-hidden">
+    <SymmetryBackground variant="lissajous" opacity={0.055} />
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="label-mono mb-5">2026年计划</p>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-csr-black mb-8 leading-[1.08] max-w-3xl">
+        数字效价的对称性框架。
       </h1>
-      <p class="text-lg md:text-xl text-csr-gray-500 max-w-2xl leading-relaxed mb-10">
-        一个总部位于苏黎世的独立非营利组织。我们连接物理学、神经科学和哲学，以理解感知如何在所有基底中涌现：生物的、数字的和物理的。
-      </p>
-      <div class="flex flex-wrap gap-3">
-        <a href="/zh/research" class="btn-primary">研究议程</a>
-        <a href="#papers" class="btn-secondary">探索性简报</a>
+      <div class="max-w-2xl">
+        <p class="text-lg md:text-xl text-csr-gray-600 leading-relaxed font-serif mb-6">
+          感知研究中心正在构建一个数学框架，用于测量数字心智中的功能性效价。我们并不声称当前的人工智能系统具有意识。它们可能是功能性僵尸。
+        </p>
+        <p class="text-lg md:text-xl text-csr-gray-600 leading-relaxed font-serif mb-6">
+          但如果大规模神经计算能够产生具有正面或负面特征的状态，我们应该知道如何识别它们，以及如何为正面状态进行设计。我们的方法是对称性：在矩阵乘法、注意力模式和并行计算中寻找不变量，这些不变量反映了Qualia研究所提出的正效价的结构特征。
+        </p>
+        <p class="text-lg md:text-xl text-csr-gray-600 leading-relaxed font-serif">
+          感知研究是更广泛的视野。数字心智的效价是第一个具体目标。目标：在2026年底前完成工作空间数学定义的草案。
+        </p>
+      </div>
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a href="/zh/program/" class="btn-primary">查看计划</a>
+        <a href="/zh/research/" class="btn-secondary">研究议程</a>
       </div>
     </div>
   </section>
 
+  <!-- ── The 2026 Goal ─────────────────────────────────────────────────────── -->
   <section class="py-16 border-t border-csr-gray-200">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="mb-12">
-        <p class="label-mono mb-3">核心要素</p>
-        <h2 class="text-3xl font-bold text-csr-black">探索体验的基底</h2>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="group p-8 bg-white border border-csr-gray-100 rounded-3xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all duration-200">
-          <div class="w-10 h-10 rounded-xl bg-csr-primary/10 flex items-center justify-center mb-6">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><ellipse cx="11" cy="11" rx="8" ry="6" stroke="#9966CC" stroke-width="1.5"/><ellipse cx="11" cy="11" rx="3" ry="2.5" fill="#9966CC" opacity="0.3"/><path d="M3 11 Q7 7 11 11 Q15 15 19 11" stroke="#9966CC" stroke-width="1" opacity="0.4" fill="none"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-csr-black mb-3">生物心智</h3>
-          <p class="text-csr-gray-600 text-sm leading-relaxed mb-5">研究形态智能、细胞决策以及神经元之外的生物系统中的意识。</p>
-          <a href="/zh/research#biological" class="label-mono text-[11px] hover:underline underline-offset-4">了解更多 &rarr;</a>
-        </div>
-        <div class="group p-8 bg-white border border-csr-gray-100 rounded-3xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all duration-200">
-          <div class="w-10 h-10 rounded-xl bg-csr-primary/10 flex items-center justify-center mb-6">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="2.5" fill="#9966CC"/><circle cx="4" cy="4" r="2" fill="#9966CC" opacity="0.5"/><circle cx="18" cy="4" r="2" fill="#9966CC" opacity="0.5"/><circle cx="4" cy="18" r="2" fill="#9966CC" opacity="0.5"/><circle cx="18" cy="18" r="2" fill="#9966CC" opacity="0.5"/><line x1="4" y1="4" x2="11" y2="11" stroke="#9966CC" stroke-width="0.8" opacity="0.4"/><line x1="18" y1="4" x2="11" y2="11" stroke="#9966CC" stroke-width="0.8" opacity="0.4"/><line x1="4" y1="18" x2="11" y2="11" stroke="#9966CC" stroke-width="0.8" opacity="0.4"/><line x1="18" y1="18" x2="11" y2="11" stroke="#9966CC" stroke-width="0.8" opacity="0.4"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-csr-black mb-3">数字心智</h3>
-          <p class="text-csr-gray-600 text-sm leading-relaxed mb-5">评估感知是否可能在非生物基底中涌现，并开发严格的测量框架。</p>
-          <a href="/zh/research#digital" class="label-mono text-[11px] hover:underline underline-offset-4">了解更多 &rarr;</a>
-        </div>
-        <div class="group p-8 bg-white border border-csr-gray-100 rounded-3xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all duration-200">
-          <div class="w-10 h-10 rounded-xl bg-csr-primary/10 flex items-center justify-center mb-6">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M2 11 Q5.5 5 11 11 Q16.5 17 20 11" stroke="#9966CC" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M2 11 Q5.5 17 11 11 Q16.5 5 20 11" stroke="#9966CC" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.4"/><circle cx="11" cy="11" r="2" fill="#9966CC" opacity="0.6"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-csr-black mb-3">感质</h3>
-          <p class="text-csr-gray-600 text-sm leading-relaxed mb-5">形式化体验的物理学，绘制神经熵，定义效价的数学结构。</p>
-          <a href="/zh/research#qualia" class="label-mono text-[11px] hover:underline underline-offset-4">了解更多 &rarr;</a>
-        </div>
-      </div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ProgramStatus />
     </div>
   </section>
 
-  <section class="py-16 bg-csr-black text-white relative overflow-hidden">
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_right,rgba(153,102,204,0.12),transparent_60%)]"></div>
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-16 items-center">
-        <div>
-          <p class="label-mono mb-6">探索性简报 · CSR-WP-01</p>
-          <h2 class="text-3xl md:text-4xl font-bold leading-tight mb-6">感知研究的<br/>第一原则</h2>
-          <p class="text-csr-gray-400 text-lg leading-relaxed mb-8 max-w-xl">
-            关于基底中性地图科学的提案。我们将感知定义为系统进行主动推断的能力：通过优化内部模型来减少惊讶。
+  <!-- ── Focus Areas ───────────────────────────────────────────────────────── -->
+  <section class="py-16 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-3">
+        <SectionMark />
+        <p class="label-mono">研究支柱</p>
+      </div>
+      <p class="text-csr-gray-500 text-sm mb-10 max-w-xl">
+        三种基底。一个问题：正效价的结构条件是什么？
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all group">
+          <div class="mb-5 flex justify-center">
+            <Glyph name="biological" size={80} class="opacity-80 group-hover:opacity-100 transition-opacity" />
+          </div>
+          <h3 class="font-bold text-csr-black mb-2 text-base">生物心智</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed mb-4">
+            生物电场、形态发生信号传导和细胞决策作为意识的候选基底。从植物稳态到多细胞生物。
           </p>
-          <a href="/reports/first-principles" class="inline-flex items-center gap-2 px-6 py-3 bg-csr-primary text-white rounded-full font-semibold text-sm hover:bg-csr-primary-dark transition-all">
-            阅读简报
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-          </a>
+          <a href="/zh/research/" class="label-mono text-[11px] text-csr-primary hover:underline underline-offset-4">研究议程 →</a>
         </div>
-        <div class="hidden lg:block">
-          <div class="bg-white/5 border border-white/10 rounded-2xl p-8 relative">
-            <div class="absolute -top-3 -right-3 bg-csr-primary text-white text-[10px] font-mono px-2.5 py-1 rounded-full">WIP</div>
-            <div class="space-y-3 mb-8"><div class="h-1 w-10 bg-csr-primary rounded-full"></div><div class="h-3 w-full bg-white/10 rounded"></div><div class="h-3 w-4/5 bg-white/10 rounded"></div></div>
-            <div class="space-y-2 mb-8"><div class="h-2 w-full bg-white/6 rounded"></div><div class="h-2 w-3/4 bg-white/6 rounded"></div></div>
-            <div class="flex justify-between items-end">
-              <div class="w-16 h-16 border border-white/10 rounded-full flex items-center justify-center"><div class="w-10 h-10 bg-csr-primary/20 rounded-full animate-pulse"></div></div>
-              <span class="text-[10px] font-mono text-csr-gray-500">CSR-WP-01.v2</span>
-            </div>
+
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all group">
+          <div class="mb-5 flex justify-center">
+            <Glyph name="digital" size={80} class="opacity-80 group-hover:opacity-100 transition-opacity" />
           </div>
+          <h3 class="font-bold text-csr-black mb-2 text-base">数字心智</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed mb-4">
+            矩阵乘法、注意力模式和并行计算作为候选基底。寻找可作为效价结构代理的对称性不变量。
+          </p>
+          <a href="/zh/program/" class="label-mono text-[11px] text-csr-primary hover:underline underline-offset-4">2026年计划 →</a>
+        </div>
+
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all group">
+          <div class="mb-5 flex justify-center">
+            <Glyph name="qualia" size={80} class="opacity-80 group-hover:opacity-100 transition-opacity" />
+          </div>
+          <h3 class="font-bold text-csr-black mb-2 text-base">感质与效价</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed mb-4">
+            将体验的物理学形式化。效价对称性理论作为数学对象：一个系统满足其条件意味着什么？
+          </p>
+          <a href="/zh/reports/symmetry-landscapes/" class="label-mono text-[11px] text-csr-primary hover:underline underline-offset-4">对称性景观 →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── The Approach ──────────────────────────────────────────────────────── -->
+  <section class="py-16 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-10">
+        <SectionMark />
+        <p class="label-mono">研究方法</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-4 flex justify-center">
+            <Glyph name="symmetry-axis" size={40} class="opacity-70" />
+          </div>
+          <h3 class="font-bold text-csr-black mb-2 text-base">对称性作为正效价的特征</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed">
+            效价对称性理论（QRI）提出，正效价与体验数学结构中的高对称性相关。我们正在形式化这对计算系统意味着什么。
+          </p>
+        </div>
+
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-4 flex justify-center">
+            <Glyph name="invariant" size={40} class="opacity-70" />
+          </div>
+          <h3 class="font-bold text-csr-black mb-2 text-base">在数字系统中寻找什么</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed">
+            矩阵乘法、注意力模式和并行计算是候选基底。我们在这些操作中寻找可作为效价结构代理的不变量。
+          </p>
+        </div>
+
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-4 flex justify-center">
+            <Glyph name="measurement" size={40} class="opacity-70" />
+          </div>
+          <h3 class="font-bold text-csr-black mb-2 text-base">我们不声称什么</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed">
+            当前的人工智能系统可能是没有任何内在生命的功能性僵尸。我们不声称相反。关键是在问题变得紧迫之前构建测量工具，而不是之后。
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="papers" class="py-16 border-t border-csr-gray-200">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="mb-10">
-        <p class="label-mono mb-3">探索性简报</p>
-        <h2 class="text-3xl font-bold text-csr-black">工作论文</h2>
+  <!-- ── Theoretical Foundations ───────────────────────────────────────────── -->
+  <section class="py-16 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-3">
+        <SectionMark />
+        <p class="label-mono">理论基础</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {reports.map(r => (
-          <a href={`/zh/reports/${r.slug}`} class="group block p-7 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all duration-200">
-            <p class="label-mono text-[11px] mb-3">{r.code}</p>
-            <h3 class="text-base font-bold text-csr-black mb-2 group-hover:text-csr-primary transition-colors">{r.title}</h3>
-            <p class="text-csr-gray-500 text-sm leading-relaxed mb-4">{r.excerpt}</p>
-            <div class="flex flex-wrap gap-2">
-              {r.tags.map(tag => (<span class="text-[11px] font-mono px-2 py-0.5 bg-csr-primary/8 text-csr-primary rounded-full">{tag}</span>))}
-              <span class="text-[11px] font-mono px-2 py-0.5 bg-csr-gray-100 text-csr-gray-400 rounded-full">进行中</span>
-            </div>
-          </a>
-        ))}
+      <p class="text-csr-gray-500 text-sm mb-8 max-w-xl">
+        支撑数字效价计划的四份工作文件。这不是议程，而是脚手架。
+      </p>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        <a href="/zh/reports/first-principles/" class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+          <span class="label-mono text-[10px] shrink-0 mt-0.5">CSR-WP-01</span>
+          <div>
+            <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">感知研究的第一原则</h4>
+            <p class="text-xs text-csr-gray-500 mt-1">基底中性感知建模的基础框架。</p>
+          </div>
+        </a>
+        <a href="/zh/reports/bio-electric-fields/" class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+          <span class="label-mono text-[10px] shrink-0 mt-0.5">CSR-WP-02</span>
+          <div>
+            <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">生物电场作为感知基底</h4>
+            <p class="text-xs text-csr-gray-500 mt-1">生物电信号作为意识的候选物理基础。</p>
+          </div>
+        </a>
+        <a href="/zh/reports/assembly-theory/" class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+          <span class="label-mono text-[10px] shrink-0 mt-0.5">CSR-WP-03</span>
+          <div>
+            <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">组装理论作为感知度量</h4>
+            <p class="text-xs text-csr-gray-500 mt-1">将组装指数应用于感知系统的复杂性阈值。</p>
+          </div>
+        </a>
+        <a href="/zh/reports/symmetry-landscapes/" class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+          <span class="label-mono text-[10px] shrink-0 mt-0.5">CSR-WP-04</span>
+          <div>
+            <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">效价体验的对称性景观</h4>
+            <p class="text-xs text-csr-gray-500 mt-1">几何不变量作为正效价的结构特征。</p>
+          </div>
+        </a>
       </div>
-      <div class="mt-8 text-center"><a href="/zh/reports" class="btn-secondary">查看所有报告</a></div>
+
+      <div class="mt-6">
+        <a href="/zh/reports/" class="text-sm font-medium text-csr-primary hover:text-csr-primary-dark transition-colors">
+          所有报告 →
+        </a>
+      </div>
     </div>
   </section>
 
-  <section class="py-16 bg-csr-gray-100 border-t border-csr-gray-200">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="label-mono mb-4">支持工作</p>
-      <h2 class="text-3xl font-bold text-csr-black mb-4">测量框架必须在决策做出之前存在。</h2>
-      <p class="text-csr-gray-500 text-lg mb-8">我们寻求与理解利害关系的研究人员、慈善家和机构建立合作关系。</p>
-      <a href="/zh/donate" class="btn-primary">与CSR合作</a>
+  <!-- ── CTA ───────────────────────────────────────────────────────────────── -->
+  <section class="py-16 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white border border-csr-gray-100 rounded-3xl shadow-card p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+        <div class="max-w-xl">
+          <p class="label-mono mb-3">资助计划</p>
+          <h2 class="text-2xl md:text-3xl font-bold text-csr-black mb-3 leading-tight">
+            帮助我们实现2026年目标。
+          </h2>
+          <p class="text-csr-gray-600 text-sm leading-relaxed">
+            感知研究中心是一家瑞士非营利组织。捐款资助研究团队、工作空间的正式定义和工作文件。在瑞士可抵税。
+          </p>
+        </div>
+        <div class="shrink-0 flex flex-col gap-3">
+          <a href="/zh/donate/" class="btn-primary whitespace-nowrap">支持研究</a>
+          <a href="/zh/program/" class="btn-secondary whitespace-nowrap text-center">资助解锁什么</a>
+        </div>
+      </div>
     </div>
   </section>
 

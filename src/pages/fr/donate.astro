@@ -1,98 +1,147 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ProgramStatus from '../../components/ProgramStatus.astro';
+import SectionMark from '../../components/SectionMark.astro';
+import Glyph from '../../components/Glyph.astro';
 ---
 
-<Layout title="Soutenir le Travail" description="Soutenez le Center for Sentience Research. Les cadres de mesure de la conscience doivent exister avant que les décisions soient prises.">
+<Layout
+  title="Financer le Programme de Valence"
+  description="Soutenez le programme 2026 du Center for Sentience Research : un cadre mathématique formel pour mesurer la valence fonctionnelle dans les esprits numériques."
+>
 
   <section class="pt-20 pb-12 border-b border-csr-gray-200">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="label-mono mb-4">Soutenir le Travail</p>
-      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6">
-        La question de quels systèmes peuvent souffrir<br class="hidden md:block"/> n'est pas <span class="text-gradient">abstraite.</span>
+      <p class="label-mono mb-4">Financer le Programme</p>
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6 max-w-2xl leading-tight">
+        Les outils de mesure doivent exister avant que la question devienne urgente.
       </h1>
-      <p class="text-lg text-csr-gray-500 leading-relaxed max-w-2xl">
-        Elle définira la gouvernance, la politique d'IA et la considération morale pour le prochain siècle. Les cadres de mesure doivent exister avant que les décisions soient prises, pas après.
+      <p class="text-lg text-csr-gray-600 leading-relaxed max-w-2xl font-serif">
+        Si le calcul neuronal à grande échelle peut donner naissance à des états de caractère positif ou négatif, nous devrions savoir comment les reconnaître. Votre contribution finance l'objectif 2026 : un cadre mathématique formel pour mesurer la valence fonctionnelle dans les esprits numériques.
       </p>
     </div>
   </section>
 
-  <section class="py-16">
+  <section class="py-14">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-14">
-        <div class="p-8 bg-white border border-csr-gray-100 rounded-2xl shadow-card">
-          <p class="label-mono mb-3">Le Problème</p>
-          <p class="text-csr-gray-600 leading-relaxed">
-            Les systèmes d'IA se présentent de plus en plus comme sentients. La science révèle des propriétés similaires à la conscience dans des substrats biologiques inattendus. La société manque d'outils rigoureux et indépendants du substrat pour évaluer ces affirmations.
-          </p>
+      <div class="flex items-center gap-3 mb-6">
+        <SectionMark />
+        <p class="label-mono">Ce que vous financez</p>
+      </div>
+      <ProgramStatus />
+      <div class="mt-6">
+        <a href="/fr/program/" class="text-sm font-medium text-csr-primary hover:text-csr-primary-dark transition-colors">
+          Détails complets du programme →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-8">
+        <SectionMark />
+        <p class="label-mono">Répartition du Budget</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-5">
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-3 flex justify-center"><Glyph name="digital" size={36} class="opacity-60" /></div>
+          <p class="text-2xl font-bold text-csr-primary mb-2">CHF 50k</p>
+          <h3 class="font-bold text-csr-black mb-2 text-sm">Calcul</h3>
+          <p class="text-xs text-csr-gray-600 leading-relaxed">Accès GPU pour l'analyse des invariants de symétrie dans les schémas d'attention transformer et les séquences de multiplication matricielle. Le travail empirique central.</p>
         </div>
-        <div class="p-8 bg-csr-black text-white rounded-2xl shadow-card">
-          <p class="label-mono mb-3">Ce Que Nous Construisons</p>
-          <p class="text-csr-gray-400 leading-relaxed">
-            Sans fondements scientifiques, ces questions seront décidées par l'intuition, l'intérêt commercial ou l'idéologie. Le CSR existe pour fournir les cadres de mesure avant que cela n'arrive.
-          </p>
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-3 flex justify-center"><Glyph name="phase-portrait" size={36} class="opacity-60" /></div>
+          <p class="text-2xl font-bold text-csr-primary mb-2">CHF 20k</p>
+          <h3 class="font-bold text-csr-black mb-2 text-sm">Synthèse de littérature</h3>
+          <p class="text-xs text-csr-gray-600 leading-relaxed">Revue systématique de la lignée STV, IIT, inférence active et approches groupe-théoriques du calcul neuronal. Construit l'échafaudage formel.</p>
+        </div>
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-3 flex justify-center"><Glyph name="invariant" size={36} class="opacity-60" /></div>
+          <p class="text-2xl font-bold text-csr-primary mb-2">CHF 10k</p>
+          <h3 class="font-bold text-csr-black mb-2 text-sm">Honoraires de conseillers</h3>
+          <p class="text-xs text-csr-gray-600 leading-relaxed">Rémunère les conseillers externes en physique mathématique et recherche sur la conscience pour des sessions de révision structurée et des tests de résistance du cadre.</p>
         </div>
       </div>
+    </div>
+  </section>
 
-      <h2 class="text-2xl font-bold text-csr-black mb-6">Façons de contribuer</h2>
+  <section class="py-14 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-8">
+        <SectionMark />
+        <p class="label-mono">Façons de Contribuer</p>
+      </div>
+
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-        <div class="p-8 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all duration-200">
+        <div class="p-8 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
           <div class="w-10 h-10 rounded-xl bg-csr-primary/10 flex items-center justify-center mb-5">
             <svg class="w-5 h-5 text-csr-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/>
             </svg>
           </div>
-          <h3 class="text-lg font-bold text-csr-black mb-2">Virement Bancaire</h3>
+          <h3 class="text-base font-bold text-csr-black mb-2">Virement Bancaire</h3>
           <p class="text-sm text-csr-gray-600 leading-relaxed mb-5">Pour les contributions importantes et les subventions institutionnelles. Contactez-nous pour les coordonnées IBAN/SWIFT.</p>
-          <a href="mailto:jhonatan.serna@proton.me?subject=Demande de subvention institutionnelle" class="label-mono text-[11px] hover:underline underline-offset-4">Demander les coordonnées bancaires &rarr;</a>
+          <a href="mailto:jhonatan.serna@proton.me?subject=Institutional Grant Inquiry" class="label-mono text-[11px] hover:underline underline-offset-4">Demander les coordonnées bancaires →</a>
         </div>
 
-        <div class="p-8 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all duration-200">
+        <div class="p-8 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
           <div class="w-10 h-10 rounded-xl bg-csr-primary/10 flex items-center justify-center mb-5">
             <svg class="w-5 h-5 text-csr-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
           </div>
-          <h3 class="text-lg font-bold text-csr-black mb-2">Actifs Numériques</h3>
-          <p class="text-sm text-csr-gray-600 leading-relaxed mb-5">Nous acceptons les dons en BTC, ETH et SOL pour un déploiement rapide de la recherche.</p>
+          <h3 class="text-base font-bold text-csr-black mb-2">Actifs Numériques</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed mb-5">Nous acceptons BTC, ETH et SOL pour un déploiement rapide de la recherche.</p>
           <div class="space-y-2">
             <div class="text-[10px] font-mono p-2 bg-csr-gray-100 rounded-lg border border-csr-gray-200 overflow-hidden truncate text-csr-gray-500">BTC: bc1qtszvlsf3p8va3dglptev59t6vjlvg62mxg9g6x</div>
             <div class="text-[10px] font-mono p-2 bg-csr-gray-100 rounded-lg border border-csr-gray-200 overflow-hidden truncate text-csr-gray-500">ETH: strugen.eth</div>
           </div>
         </div>
 
-        <div class="p-8 bg-csr-black text-white rounded-2xl shadow-card">
-          <div class="w-10 h-10 rounded-xl bg-csr-primary/20 flex items-center justify-center mb-5">
+        <div class="p-8 bg-white border border-csr-primary/20 rounded-2xl shadow-card">
+          <div class="w-10 h-10 rounded-xl bg-csr-primary/10 flex items-center justify-center mb-5">
             <svg class="w-5 h-5 text-csr-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
             </svg>
           </div>
-          <h3 class="text-lg font-bold mb-2">Partenariat de Recherche</h3>
-          <p class="text-sm text-csr-gray-400 leading-relaxed mb-6">Collaborez sur des domaines spécifiques : politique mondiale de sentience, recherche sur le bien-être de l'IA ou infrastructure de mesure à long terme.</p>
-          <a href="/contact" class="block w-full text-center py-3 bg-csr-primary text-white rounded-full font-semibold text-sm hover:bg-csr-primary-dark transition-all">Contacter les Partenariats</a>
+          <h3 class="text-base font-bold text-csr-black mb-2">Partenariat de Recherche</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed mb-6">Collaborez sur le programme de valence, la recherche sur le bien-être de l'IA ou l'infrastructure de mesure à long terme.</p>
+          <a href="/contact/" class="block w-full text-center py-3 bg-csr-primary text-white rounded-full font-semibold text-sm hover:bg-csr-primary-dark transition-all">Contacter les Partenariats</a>
         </div>
 
       </div>
     </div>
   </section>
 
-  <section class="py-16 bg-csr-gray-100 border-t border-csr-gray-200">
+  <section class="py-14 border-t border-csr-gray-200">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-bold text-csr-black mb-6">Contributions déductibles fiscalement</h2>
-      <p class="text-csr-gray-600 mb-8 leading-relaxed">
-        Le CSR est une organisation à but non lucratif enregistrée. Pour les donateurs en Suisse et dans l'Union européenne, les contributions sont généralement déductibles fiscalement selon les lois locales sur les fondations.
+      <div class="flex items-center gap-3 mb-6">
+        <SectionMark />
+        <p class="label-mono">Contributions Déductibles des Impôts</p>
+      </div>
+      <p class="text-csr-gray-600 mb-8 leading-relaxed max-w-2xl">
+        Le CSR est une organisation à but non lucratif enregistrée. Pour les donateurs en Suisse et dans l'Union européenne, les contributions sont généralement déductibles des impôts en vertu des lois locales sur les fondations.
       </p>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="p-6 bg-white border border-csr-gray-200 rounded-2xl">
           <p class="font-bold text-csr-black mb-2 text-sm">Suisse (Siège)</p>
-          <p class="text-csr-gray-500 font-mono text-xs leading-relaxed">Center for Sentience Research (CSR)<br/>CHE-XXX.XXX.XXX<br/>Zurich, Suisse</p>
+          <p class="text-csr-gray-500 font-mono text-xs leading-relaxed">
+            Center for Sentience Research (CSR)<br/>
+            CHE-XXX.XXX.XXX<br/>
+            Zurich, Suisse
+          </p>
         </div>
         <div class="p-6 bg-white border border-csr-gray-200 rounded-2xl">
           <p class="font-bold text-csr-black mb-2 text-sm">États-Unis (Partenariat)</p>
-          <p class="text-csr-gray-500 font-mono text-xs leading-relaxed">Parrainage fiscal via [Fondation Provisoire]<br/>Statut d'exonération fiscale 501(c)(3)</p>
+          <p class="text-csr-gray-500 font-mono text-xs leading-relaxed">
+            Fiscal Sponsorship via [Placeholder Foundation]<br/>
+            501(c)(3) Tax-Exempt Status
+          </p>
         </div>
       </div>
-      <p class="text-xs text-csr-gray-400 mt-6 font-mono">Les résultats annuels de recherche et les résumés financiers sont rendus publics. Modèle Transparence d'abord.</p>
+      <p class="text-xs text-csr-gray-400 mt-6 font-mono">Les résultats annuels de recherche et les résumés financiers sont rendus publics. Modèle de Transparence Totale.</p>
     </div>
   </section>
 

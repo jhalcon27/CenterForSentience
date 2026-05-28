@@ -1,57 +1,140 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import SectionMark from '../../components/SectionMark.astro';
+import Glyph from '../../components/Glyph.astro';
 
-const institutes = [
-  { name: "Qualia Research Institute (QRI)", description: "意識的体験の数学的構造をマッピングすることに専念する非営利組織。", link: "https://qri.org", tag: "非営利" },
-  { name: "Levin Lab", description: "タフツ大学のMichael Levinが率い、生体電気、再生医学、合成形態学を研究する。", link: "https://www.drmichaellevin.org", tag: "研究室" },
-  { name: "Cronin Group", description: "グラスゴー大学のLee Croninが率い、生命の起源と組み立て理論を探求する。", link: "https://www.chem.gla.ac.uk/cronin/", tag: "研究室" },
-  { name: "Robin Carhart-Harris", description: "UCSFのNeuroscape精神活性薬部門の創設ディレクター。脳における精神活性薬の作用機序に焦点を当てる。", link: "https://profiles.ucsf.edu/robin.carhart-harris", tag: "研究" },
-  { name: "Sentience Institute", description: "人類の道徳的サークルを拡大するための最も効果的な戦略を研究する学際的シンクタンク。", link: "https://www.sentienceinstitute.org", tag: "シンクタンク" }
+const lineage = [
+  {
+    name: "Qualia Research Institute (QRI)",
+    description: "2026年プログラムの主要な理論的系譜。QRIの感情価対称性理論は、正の感情価が経験の数学的構造における高い対称性と相関すると提案します。私たちの研究は、この主張をデジタルシステムに対して操作化しようとする試みです。",
+    link: "https://qri.org",
+    tag: "主要系譜"
+  }
+];
+
+const ecosystem = [
+  {
+    name: "Levin Lab",
+    description: "タフツ大学のMichael Levinが率い、生体電気、再生医学、合成形態学を研究。基盤中立的な感覚モデリングのための生物学的キャリブレーションデータを提供。",
+    link: "https://www.drmichaellevin.org",
+    tag: "研究室"
+  },
+  {
+    name: "Cronin Group",
+    description: "グラスゴー大学のLee Croninが率い、生命の起源とアセンブリ理論を探求。感覚システムの複雑性閾値に関連。",
+    link: "https://www.chem.gla.ac.uk/cronin/",
+    tag: "研究室"
+  },
+  {
+    name: "Robin Carhart-Harris",
+    description: "UCSFのNeuroscape精神活性物質部門の創設ディレクター。脳内での精神活性物質の作用機序に焦点。感情価状態の現象学に関連。",
+    link: "https://profiles.ucsf.edu/robin.carhart-harris",
+    tag: "研究"
+  },
+  {
+    name: "Sentience Institute",
+    description: "人類の道徳的配慮の輪を広げる最も効果的な戦略を研究する学際的シンクタンク。より多くの種類のマインドを持つ世界への準備という広い使命を共有。",
+    link: "https://www.sentienceinstitute.org",
+    tag: "シンクタンク"
+  }
 ];
 ---
 
-<Layout title="エコシステム" description="意識の物理的基盤に取り組む同盟組織と研究機関。">
+<Layout
+  title="エコシステム"
+  description="意識の物理的基盤と道徳的配慮の輪の拡大に取り組む同盟組織と研究機関。"
+>
 
   <section class="pt-20 pb-12 border-b border-csr-gray-200">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <p class="label-mono mb-4">エコシステム</p>
-      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6">
-        <span class="text-gradient">研究ネットワーク</span>
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6 max-w-2xl leading-tight">
+        研究ネットワーク
       </h1>
-      <p class="text-lg text-csr-gray-500 leading-relaxed max-w-2xl">
-        CSRは、心の本質と感知の物理的基盤を理解することに専念する研究者、研究室、非営利組織のより広いエコシステムの中で活動している。
+      <p class="text-lg text-csr-gray-600 leading-relaxed max-w-2xl font-serif">
+        CSRは、心の本質を理解することに専念する研究者、研究室、非営利組織のより広いエコシステムの中で活動しています。一つの組織が私たちの研究の主要な理論的系譜です。その他は並行調査と背景研究です。
       </p>
     </div>
   </section>
 
-  <section class="py-16">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {institutes.map((inst) => (
-          <a href={inst.link} target="_blank" rel="noopener noreferrer" class="group p-8 bg-white border border-csr-gray-100 rounded-3xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all duration-200 flex flex-col justify-between">
+  <section class="py-14">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-6">
+        <SectionMark />
+        <p class="label-mono">主要系譜</p>
+      </div>
+
+      {lineage.map((org) => (
+        <a
+          href={org.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group flex flex-col sm:flex-row gap-5 p-6 md:p-8 bg-white border border-csr-primary/25 rounded-2xl shadow-card hover:border-csr-primary/50 hover:shadow-soft transition-all"
+        >
+          <div class="shrink-0 hidden sm:flex items-start pt-1">
+            <Glyph name="qualia" size={48} class="opacity-50 group-hover:opacity-80 transition-opacity" />
+          </div>
+          <div class="flex-1">
+            <div class="flex items-center gap-2 mb-3 flex-wrap">
+              <span class="label-mono text-[10px]">{org.tag}</span>
+            </div>
+            <h3 class="text-xl font-bold text-csr-black mb-3 group-hover:text-csr-primary transition-colors leading-snug">{org.name}</h3>
+            <p class="text-sm text-csr-gray-600 leading-relaxed font-serif">{org.description}</p>
+          </div>
+          <div class="shrink-0 self-start sm:self-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-csr-gray-300 group-hover:text-csr-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="py-14 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-3">
+        <SectionMark />
+        <p class="label-mono">並行調査と背景研究</p>
+      </div>
+      <p class="text-csr-gray-500 text-sm mb-8 max-w-xl">
+        デジタル感情価プログラムに情報を提供するか、それと並行して活動する組織。
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {ecosystem.map((org) => (
+          <a
+            href={org.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group p-6 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all flex flex-col justify-between"
+          >
             <div>
-              <div class="flex justify-between items-start mb-5">
-                <span class="text-[10px] font-mono uppercase tracking-wider text-csr-primary bg-csr-primary/8 px-2.5 py-1 rounded-full">{inst.tag}</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-csr-gray-300 group-hover:text-csr-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div class="flex justify-between items-start mb-4">
+                <span class="label-mono text-[10px]">{org.tag}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-csr-gray-300 group-hover:text-csr-primary transition-colors shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
               </div>
-              <h3 class="text-lg font-bold text-csr-black mb-3 group-hover:text-csr-primary transition-colors">{inst.name}</h3>
-              <p class="text-csr-gray-600 text-sm leading-relaxed mb-6">{inst.description}</p>
+              <h3 class="text-base font-bold text-csr-black mb-2 group-hover:text-csr-primary transition-colors leading-snug">{org.name}</h3>
+              <p class="text-sm text-csr-gray-600 leading-relaxed">{org.description}</p>
             </div>
-            <div class="label-mono text-[11px] flex items-center gap-1 group-hover:gap-2 transition-all">ウェブサイトを訪問 <span>&rarr;</span></div>
           </a>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="py-16 bg-csr-gray-100 border-t border-csr-gray-200">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="label-mono mb-4">ネットワークの拡大</p>
-      <h2 class="text-2xl font-bold text-csr-black mb-4">ここに掲載すべき人を知っていますか？</h2>
-      <p class="text-csr-gray-500 mb-8">意識科学の境界を押し広げる組織や研究者との連携を常に求めている。</p>
-      <a href="/contact" class="btn-primary">提案する</a>
+  <section class="py-14 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white border border-csr-gray-100 rounded-3xl shadow-card p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div>
+          <p class="label-mono mb-2">ネットワークの拡大</p>
+          <h2 class="text-xl font-bold text-csr-black mb-2">ここに掲載すべき人を知っていますか？</h2>
+          <p class="text-csr-gray-500 text-sm">意識科学の限界を押し広げる組織や研究者との連携を常に求めています。</p>
+        </div>
+        <a href="/contact/" class="btn-primary shrink-0 whitespace-nowrap">追加を提案する</a>
+      </div>
     </div>
   </section>
 

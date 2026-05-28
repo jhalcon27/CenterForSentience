@@ -1,57 +1,140 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import SectionMark from '../../components/SectionMark.astro';
+import Glyph from '../../components/Glyph.astro';
 
-const institutes = [
-  { name: "Qualia Research Institute (QRI)", description: "一家致力于绘制有意识体验数学结构的非营利组织。", link: "https://qri.org", tag: "非营利" },
-  { name: "Levin Lab", description: "由塔夫茨大学Michael Levin领导，研究生物电、再生医学和合成形态学。", link: "https://www.drmichaellevin.org", tag: "实验室" },
-  { name: "Cronin Group", description: "由格拉斯哥大学Lee Cronin领导，探索生命起源和组装理论。", link: "https://www.chem.gla.ac.uk/cronin/", tag: "实验室" },
-  { name: "Robin Carhart-Harris", description: "加州大学旧金山分校Neuroscape迷幻药部门创始主任，专注于迷幻药在大脑中的作用机制。", link: "https://profiles.ucsf.edu/robin.carhart-harris", tag: "研究" },
-  { name: "Sentience Institute", description: "一个跨学科智库，研究扩大人类道德圈的最有效策略。", link: "https://www.sentienceinstitute.org", tag: "智库" }
+const lineage = [
+  {
+    name: "Qualia Research Institute (QRI)",
+    description: "2026年计划的主要理论谱系。QRI的效价对称性理论提出，正效价与体验数学结构中的高对称性相关。我们的工作是尝试将这一主张针对数字系统进行操作化。",
+    link: "https://qri.org",
+    tag: "主要谱系"
+  }
+];
+
+const ecosystem = [
+  {
+    name: "Levin Lab",
+    description: "由Michael Levin在塔夫茨大学领导，研究生物电、再生医学和合成形态学。为基底中性感知建模提供生物校准数据。",
+    link: "https://www.drmichaellevin.org",
+    tag: "研究实验室"
+  },
+  {
+    name: "Cronin Group",
+    description: "由Lee Cronin在格拉斯哥大学领导，探索生命起源和组装理论。与感知系统的复杂性阈值相关。",
+    link: "https://www.chem.gla.ac.uk/cronin/",
+    tag: "研究实验室"
+  },
+  {
+    name: "Robin Carhart-Harris",
+    description: "UCSF神经景观迷幻药部门创始主任，专注于迷幻药在大脑中的作用机制。与效价状态的现象学相关。",
+    link: "https://profiles.ucsf.edu/robin.carhart-harris",
+    tag: "研究"
+  },
+  {
+    name: "Sentience Institute",
+    description: "一个跨学科智库，研究扩大人类道德圈的最有效策略。共享为拥有更多类型心智的世界做准备的更广泛使命。",
+    link: "https://www.sentienceinstitute.org",
+    tag: "智库"
+  }
 ];
 ---
 
-<Layout title="生态系统" description="致力于研究意识物理基础的联盟组织和研究机构。">
+<Layout
+  title="生态系统"
+  description="致力于意识物理基础和扩大道德圈的联盟组织和研究机构。"
+>
 
   <section class="pt-20 pb-12 border-b border-csr-gray-200">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <p class="label-mono mb-4">生态系统</p>
-      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6">
-        <span class="text-gradient">研究网络</span>
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6 max-w-2xl leading-tight">
+        研究网络
       </h1>
-      <p class="text-lg text-csr-gray-500 leading-relaxed max-w-2xl">
-        CSR在更广泛的研究人员、实验室和非营利组织生态系统中运营，这些组织致力于理解心智的本质和感知的物理基础。
+      <p class="text-lg text-csr-gray-600 leading-relaxed max-w-2xl font-serif">
+        CSR在更广泛的研究人员、实验室和非营利组织生态系统中运营，致力于理解心智的本质。一个组织是我们工作的主要理论谱系。其他是平行探究和背景研究。
       </p>
     </div>
   </section>
 
-  <section class="py-16">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {institutes.map((inst) => (
-          <a href={inst.link} target="_blank" rel="noopener noreferrer" class="group p-8 bg-white border border-csr-gray-100 rounded-3xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all duration-200 flex flex-col justify-between">
+  <section class="py-14">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-6">
+        <SectionMark />
+        <p class="label-mono">主要谱系</p>
+      </div>
+
+      {lineage.map((org) => (
+        <a
+          href={org.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group flex flex-col sm:flex-row gap-5 p-6 md:p-8 bg-white border border-csr-primary/25 rounded-2xl shadow-card hover:border-csr-primary/50 hover:shadow-soft transition-all"
+        >
+          <div class="shrink-0 hidden sm:flex items-start pt-1">
+            <Glyph name="qualia" size={48} class="opacity-50 group-hover:opacity-80 transition-opacity" />
+          </div>
+          <div class="flex-1">
+            <div class="flex items-center gap-2 mb-3 flex-wrap">
+              <span class="label-mono text-[10px]">{org.tag}</span>
+            </div>
+            <h3 class="text-xl font-bold text-csr-black mb-3 group-hover:text-csr-primary transition-colors leading-snug">{org.name}</h3>
+            <p class="text-sm text-csr-gray-600 leading-relaxed font-serif">{org.description}</p>
+          </div>
+          <div class="shrink-0 self-start sm:self-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-csr-gray-300 group-hover:text-csr-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="py-14 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-3">
+        <SectionMark />
+        <p class="label-mono">平行探究与背景研究</p>
+      </div>
+      <p class="text-csr-gray-500 text-sm mb-8 max-w-xl">
+        其工作为数字效价计划提供信息或与之并行的组织。
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {ecosystem.map((org) => (
+          <a
+            href={org.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group p-6 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all flex flex-col justify-between"
+          >
             <div>
-              <div class="flex justify-between items-start mb-5">
-                <span class="text-[10px] font-mono uppercase tracking-wider text-csr-primary bg-csr-primary/8 px-2.5 py-1 rounded-full">{inst.tag}</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-csr-gray-300 group-hover:text-csr-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div class="flex justify-between items-start mb-4">
+                <span class="label-mono text-[10px]">{org.tag}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-csr-gray-300 group-hover:text-csr-primary transition-colors shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
               </div>
-              <h3 class="text-lg font-bold text-csr-black mb-3 group-hover:text-csr-primary transition-colors">{inst.name}</h3>
-              <p class="text-csr-gray-600 text-sm leading-relaxed mb-6">{inst.description}</p>
+              <h3 class="text-base font-bold text-csr-black mb-2 group-hover:text-csr-primary transition-colors leading-snug">{org.name}</h3>
+              <p class="text-sm text-csr-gray-600 leading-relaxed">{org.description}</p>
             </div>
-            <div class="label-mono text-[11px] flex items-center gap-1 group-hover:gap-2 transition-all">访问网站 <span>&rarr;</span></div>
           </a>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="py-16 bg-csr-gray-100 border-t border-csr-gray-200">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="label-mono mb-4">网络扩展</p>
-      <h2 class="text-2xl font-bold text-csr-black mb-4">您认识应该出现在这里的人吗？</h2>
-      <p class="text-csr-gray-500 mb-8">我们不断寻求与推动意识科学边界的组织和研究人员建立联系。</p>
-      <a href="/contact" class="btn-primary">提出建议</a>
+  <section class="py-14 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white border border-csr-gray-100 rounded-3xl shadow-card p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div>
+          <p class="label-mono mb-2">网络扩展</p>
+          <h2 class="text-xl font-bold text-csr-black mb-2">您认识应该在这里的人吗？</h2>
+          <p class="text-csr-gray-500 text-sm">我们不断寻求与推动意识科学边界的组织和研究人员合作。</p>
+        </div>
+        <a href="/contact/" class="btn-primary shrink-0 whitespace-nowrap">建议添加</a>
+      </div>
     </div>
   </section>
 

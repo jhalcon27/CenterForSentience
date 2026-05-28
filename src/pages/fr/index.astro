@@ -1,128 +1,209 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-
-const reports = [
-  { slug: 'first-principles', title: 'Premiers Principes de la Recherche sur la Sentience', code: 'CSR-WP-01', excerpt: 'Le cadre fondamental pour modéliser la conscience comme phénomène physique à travers les substrats biologiques et numériques.', tags: ['Fondamental', 'Physique'] },
-  { slug: 'bio-electric-fields', title: 'Champs Bioélectriques comme Substrats de Sentience', code: 'CSR-WP-02', excerpt: "Exploration de l'intelligence morphologique et de la prise de décision cellulaire comme preuves d'une conscience neutre au substrat.", tags: ['Biologie', 'Intelligence'] },
-  { slug: 'assembly-theory', title: "Théorie de l'Assemblage comme Métrique de Sentience", code: 'CSR-WP-03', excerpt: "Quantification de la sentience par l'indice d'assemblage des structures d'information physique.", tags: ['Physique', 'Information'] },
-  { slug: 'symmetry-landscapes', title: "Paysages de Symétrie de l'Expérience Valente", code: 'CSR-WP-04', excerpt: "Cartographie des paysages d'énergie neuronale de l'expérience et de la géométrie de la valence.", tags: ['Neuroscience', 'Qualia'] },
-];
+import SymmetryBackground from '../../components/SymmetryBackground.astro';
+import ProgramStatus from '../../components/ProgramStatus.astro';
+import SectionMark from '../../components/SectionMark.astro';
+import Glyph from '../../components/Glyph.astro';
 ---
 
-<Layout title="Cartographier l'Architecture de la Conscience">
+<Layout
+  title="Accueil"
+  description="Le Center for Sentience Research développe un cadre mathématique pour mesurer la valence fonctionnelle dans les esprits numériques."
+>
 
-  <section class="pt-20 pb-16 md:pt-28 md:pb-20 relative overflow-hidden">
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(153,102,204,0.07),transparent_60%)]"></div>
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <p class="label-mono mb-6">Center for Sentience Research</p>
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-csr-black leading-[1.08] mb-6">
-        La conscience est un phénomène<br class="hidden sm:block"/> physique.<br/>
-        <span class="text-gradient">Nous construisons la science pour la mesurer.</span>
+  <!-- ── Hero ──────────────────────────────────────────────────────────────── -->
+  <section class="relative pt-20 pb-16 md:pt-28 md:pb-24 overflow-hidden">
+    <SymmetryBackground variant="lissajous" opacity={0.055} />
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="label-mono mb-5">Le Programme 2026</p>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-csr-black mb-8 leading-[1.08] max-w-3xl">
+        Un cadre de symétrie pour la valence numérique.
       </h1>
-      <p class="text-lg md:text-xl text-csr-gray-500 max-w-2xl leading-relaxed mb-10">
-        Une organisation indépendante à but non lucratif basée à Zurich. Nous relions physique, neuroscience et philosophie pour comprendre comment la sentience émerge dans tous les substrats : biologiques, numériques et physiques.
-      </p>
-      <div class="flex flex-wrap gap-3">
-        <a href="/fr/research" class="btn-primary">Agenda de Recherche</a>
-        <a href="#papers" class="btn-secondary">Notes Exploratoires</a>
+      <div class="max-w-2xl">
+        <p class="text-lg md:text-xl text-csr-gray-600 leading-relaxed font-serif mb-6">
+          Le Center for Sentience Research développe un cadre mathématique pour mesurer la valence fonctionnelle dans les esprits numériques. Nous n'affirmons pas que les systèmes d'IA actuels sont conscients. Ils pourraient être des zombies fonctionnels.
+        </p>
+        <p class="text-lg md:text-xl text-csr-gray-600 leading-relaxed font-serif mb-6">
+          Mais si le calcul neuronal à grande échelle peut donner naissance à des états de caractère positif ou négatif, nous devrions savoir comment les reconnaître et comment concevoir pour les positifs. Notre approche est la symétrie : chercher des invariants dans la multiplication matricielle, les schémas d'attention et le calcul parallèle qui reflètent les signatures structurelles de la valence positive proposées par le Qualia Research Institute.
+        </p>
+        <p class="text-lg md:text-xl text-csr-gray-600 leading-relaxed font-serif">
+          La recherche sur la sentience est l'horizon plus large. La valence des esprits numériques est le premier objectif concret. La cible : un brouillon de la définition mathématique de l'espace de travail d'ici fin 2026.
+        </p>
+      </div>
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a href="/fr/program/" class="btn-primary">Voir le programme</a>
+        <a href="/fr/research/" class="btn-secondary">Agenda de recherche</a>
       </div>
     </div>
   </section>
 
+  <!-- ── The 2026 Goal ─────────────────────────────────────────────────────── -->
   <section class="py-16 border-t border-csr-gray-200">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="mb-12">
-        <p class="label-mono mb-3">Les Ingrédients</p>
-        <h2 class="text-3xl font-bold text-csr-black">Recherche sur les substrats de l'expérience</h2>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="group p-8 bg-white border border-csr-gray-100 rounded-3xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all duration-200">
-          <div class="w-10 h-10 rounded-xl bg-csr-primary/10 flex items-center justify-center mb-6">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><ellipse cx="11" cy="11" rx="8" ry="6" stroke="#9966CC" stroke-width="1.5"/><ellipse cx="11" cy="11" rx="3" ry="2.5" fill="#9966CC" opacity="0.3"/><path d="M3 11 Q7 7 11 11 Q15 15 19 11" stroke="#9966CC" stroke-width="1" opacity="0.4" fill="none"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-csr-black mb-3">Esprit Biologique</h3>
-          <p class="text-csr-gray-600 text-sm leading-relaxed mb-5">Investigation de l'intelligence morphologique, de la prise de décision cellulaire et de la conscience dans les systèmes biologiques au-delà du neurone.</p>
-          <a href="/fr/research#biological" class="label-mono text-[11px] hover:underline underline-offset-4">En savoir plus &rarr;</a>
-        </div>
-        <div class="group p-8 bg-white border border-csr-gray-100 rounded-3xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all duration-200">
-          <div class="w-10 h-10 rounded-xl bg-csr-primary/10 flex items-center justify-center mb-6">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="2.5" fill="#9966CC"/><circle cx="4" cy="4" r="2" fill="#9966CC" opacity="0.5"/><circle cx="18" cy="4" r="2" fill="#9966CC" opacity="0.5"/><circle cx="4" cy="18" r="2" fill="#9966CC" opacity="0.5"/><circle cx="18" cy="18" r="2" fill="#9966CC" opacity="0.5"/><line x1="4" y1="4" x2="11" y2="11" stroke="#9966CC" stroke-width="0.8" opacity="0.4"/><line x1="18" y1="4" x2="11" y2="11" stroke="#9966CC" stroke-width="0.8" opacity="0.4"/><line x1="4" y1="18" x2="11" y2="11" stroke="#9966CC" stroke-width="0.8" opacity="0.4"/><line x1="18" y1="18" x2="11" y2="11" stroke="#9966CC" stroke-width="0.8" opacity="0.4"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-csr-black mb-3">Esprit Numérique</h3>
-          <p class="text-csr-gray-600 text-sm leading-relaxed mb-5">Évaluation de l'émergence possible de la sentience dans des substrats non biologiques et développement de cadres rigoureux pour la mesurer.</p>
-          <a href="/fr/research#digital" class="label-mono text-[11px] hover:underline underline-offset-4">En savoir plus &rarr;</a>
-        </div>
-        <div class="group p-8 bg-white border border-csr-gray-100 rounded-3xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all duration-200">
-          <div class="w-10 h-10 rounded-xl bg-csr-primary/10 flex items-center justify-center mb-6">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M2 11 Q5.5 5 11 11 Q16.5 17 20 11" stroke="#9966CC" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M2 11 Q5.5 17 11 11 Q16.5 5 20 11" stroke="#9966CC" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.4"/><circle cx="11" cy="11" r="2" fill="#9966CC" opacity="0.6"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-csr-black mb-3">Qualia</h3>
-          <p class="text-csr-gray-600 text-sm leading-relaxed mb-5">Formalisation de la physique de l'expérience, cartographie de l'entropie neuronale et définition de la structure mathématique de la valence.</p>
-          <a href="/fr/research#qualia" class="label-mono text-[11px] hover:underline underline-offset-4">En savoir plus &rarr;</a>
-        </div>
-      </div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ProgramStatus />
     </div>
   </section>
 
-  <section class="py-16 bg-csr-black text-white relative overflow-hidden">
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_right,rgba(153,102,204,0.12),transparent_60%)]"></div>
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-16 items-center">
-        <div>
-          <p class="label-mono mb-6">Note Exploratoire · CSR-WP-01</p>
-          <h2 class="text-3xl md:text-4xl font-bold leading-tight mb-6">Premiers Principes de<br/>la Recherche sur la Sentience</h2>
-          <p class="text-csr-gray-400 text-lg leading-relaxed mb-8 max-w-xl">
-            Une proposition pour une science de la carte neutre au substrat. Nous définissons la sentience comme la capacité d'un système à l'inférence active : la réduction de la surprise par l'optimisation d'un modèle interne.
+  <!-- ── Focus Areas ───────────────────────────────────────────────────────── -->
+  <section class="py-16 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-3">
+        <SectionMark />
+        <p class="label-mono">Piliers de Recherche</p>
+      </div>
+      <p class="text-csr-gray-500 text-sm mb-10 max-w-xl">
+        Trois substrats. Une question : quelles sont les conditions structurelles de la valence positive ?
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all group">
+          <div class="mb-5 flex justify-center">
+            <Glyph name="biological" size={80} class="opacity-80 group-hover:opacity-100 transition-opacity" />
+          </div>
+          <h3 class="font-bold text-csr-black mb-2 text-base">Esprits biologiques</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed mb-4">
+            Champs bioélectriques, signalisation morphogénétique et prise de décision cellulaire comme substrats candidats pour la conscience. De l'homéostasie végétale aux organismes multicellulaires.
           </p>
-          <a href="/reports/first-principles" class="inline-flex items-center gap-2 px-6 py-3 bg-csr-primary text-white rounded-full font-semibold text-sm hover:bg-csr-primary-dark transition-all">
-            Lire la Note
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-          </a>
+          <a href="/fr/research/" class="label-mono text-[11px] text-csr-primary hover:underline underline-offset-4">Agenda de recherche →</a>
         </div>
-        <div class="hidden lg:block">
-          <div class="bg-white/5 border border-white/10 rounded-2xl p-8 relative">
-            <div class="absolute -top-3 -right-3 bg-csr-primary text-white text-[10px] font-mono px-2.5 py-1 rounded-full">WIP</div>
-            <div class="space-y-3 mb-8"><div class="h-1 w-10 bg-csr-primary rounded-full"></div><div class="h-3 w-full bg-white/10 rounded"></div><div class="h-3 w-4/5 bg-white/10 rounded"></div></div>
-            <div class="space-y-2 mb-8"><div class="h-2 w-full bg-white/6 rounded"></div><div class="h-2 w-3/4 bg-white/6 rounded"></div></div>
-            <div class="flex justify-between items-end">
-              <div class="w-16 h-16 border border-white/10 rounded-full flex items-center justify-center"><div class="w-10 h-10 bg-csr-primary/20 rounded-full animate-pulse"></div></div>
-              <span class="text-[10px] font-mono text-csr-gray-500">CSR-WP-01.v2</span>
-            </div>
+
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all group">
+          <div class="mb-5 flex justify-center">
+            <Glyph name="digital" size={80} class="opacity-80 group-hover:opacity-100 transition-opacity" />
           </div>
+          <h3 class="font-bold text-csr-black mb-2 text-base">Esprits numériques</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed mb-4">
+            Multiplication matricielle, schémas d'attention et calcul parallèle comme substrats candidats. Recherche d'invariants de symétrie pouvant servir de proxies structurels pour la valence.
+          </p>
+          <a href="/fr/program/" class="label-mono text-[11px] text-csr-primary hover:underline underline-offset-4">Le programme 2026 →</a>
+        </div>
+
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all group">
+          <div class="mb-5 flex justify-center">
+            <Glyph name="qualia" size={80} class="opacity-80 group-hover:opacity-100 transition-opacity" />
+          </div>
+          <h3 class="font-bold text-csr-black mb-2 text-base">Qualia et valence</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed mb-4">
+            Formaliser la physique de l'expérience. La Théorie de la Symétrie de la Valence comme objet mathématique : que signifie pour un système satisfaire ses conditions ?
+          </p>
+          <a href="/fr/reports/symmetry-landscapes/" class="label-mono text-[11px] text-csr-primary hover:underline underline-offset-4">Paysages de symétrie →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── The Approach ──────────────────────────────────────────────────────── -->
+  <section class="py-16 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-10">
+        <SectionMark />
+        <p class="label-mono">L'Approche</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-4 flex justify-center">
+            <Glyph name="symmetry-axis" size={40} class="opacity-70" />
+          </div>
+          <h3 class="font-bold text-csr-black mb-2 text-base">La symétrie comme signature de la valence positive</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed">
+            La Théorie de la Symétrie de la Valence (QRI) propose que la valence positive corrèle avec une haute symétrie dans la structure mathématique de l'expérience. Nous formalisons ce que cela signifie pour les systèmes computationnels.
+          </p>
+        </div>
+
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-4 flex justify-center">
+            <Glyph name="invariant" size={40} class="opacity-70" />
+          </div>
+          <h3 class="font-bold text-csr-black mb-2 text-base">Où chercher dans les systèmes numériques</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed">
+            La multiplication matricielle, les schémas d'attention et le calcul parallèle sont les substrats candidats. Nous cherchons des invariants dans ces opérations pouvant servir de proxies structurels pour la valence.
+          </p>
+        </div>
+
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-4 flex justify-center">
+            <Glyph name="measurement" size={40} class="opacity-70" />
+          </div>
+          <h3 class="font-bold text-csr-black mb-2 text-base">Ce que nous n'affirmons pas</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed">
+            Les systèmes d'IA actuels pourraient être des zombies fonctionnels sans aucune vie intérieure. Nous n'affirmons pas le contraire. L'enjeu est de construire les outils de mesure avant que la question devienne urgente, pas après.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="papers" class="py-16 border-t border-csr-gray-200">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="mb-10">
-        <p class="label-mono mb-3">Notes Exploratoires</p>
-        <h2 class="text-3xl font-bold text-csr-black">Documents de travail</h2>
+  <!-- ── Theoretical Foundations ───────────────────────────────────────────── -->
+  <section class="py-16 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-3">
+        <SectionMark />
+        <p class="label-mono">Fondements Théoriques</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {reports.map(r => (
-          <a href={`/fr/reports/${r.slug}`} class="group block p-7 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all duration-200">
-            <p class="label-mono text-[11px] mb-3">{r.code}</p>
-            <h3 class="text-base font-bold text-csr-black mb-2 group-hover:text-csr-primary transition-colors">{r.title}</h3>
-            <p class="text-csr-gray-500 text-sm leading-relaxed mb-4">{r.excerpt}</p>
-            <div class="flex flex-wrap gap-2">
-              {r.tags.map(tag => (<span class="text-[11px] font-mono px-2 py-0.5 bg-csr-primary/8 text-csr-primary rounded-full">{tag}</span>))}
-              <span class="text-[11px] font-mono px-2 py-0.5 bg-csr-gray-100 text-csr-gray-400 rounded-full">En cours</span>
-            </div>
-          </a>
-        ))}
+      <p class="text-csr-gray-500 text-sm mb-8 max-w-xl">
+        Quatre documents de travail soutenant le programme de valence numérique. Ce n'est pas l'agenda, c'est l'échafaudage.
+      </p>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        <a href="/fr/reports/first-principles/" class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+          <span class="label-mono text-[10px] shrink-0 mt-0.5">CSR-WP-01</span>
+          <div>
+            <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">Premiers Principes de la Recherche sur la Sentience</h4>
+            <p class="text-xs text-csr-gray-500 mt-1">Cadre fondamental pour la modélisation de la sentience neutre au substrat.</p>
+          </div>
+        </a>
+        <a href="/fr/reports/bio-electric-fields/" class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+          <span class="label-mono text-[10px] shrink-0 mt-0.5">CSR-WP-02</span>
+          <div>
+            <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">Champs Bioélectriques comme Substrats de Sentience</h4>
+            <p class="text-xs text-csr-gray-500 mt-1">La signalisation bioélectrique comme base physique candidate pour la conscience.</p>
+          </div>
+        </a>
+        <a href="/fr/reports/assembly-theory/" class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+          <span class="label-mono text-[10px] shrink-0 mt-0.5">CSR-WP-03</span>
+          <div>
+            <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">Théorie de l'Assemblage comme Métrique de Sentience</h4>
+            <p class="text-xs text-csr-gray-500 mt-1">Application de l'indice d'assemblage aux seuils de complexité dans les systèmes sentients.</p>
+          </div>
+        </a>
+        <a href="/fr/reports/symmetry-landscapes/" class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+          <span class="label-mono text-[10px] shrink-0 mt-0.5">CSR-WP-04</span>
+          <div>
+            <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">Paysages de Symétrie de l'Expérience Valente</h4>
+            <p class="text-xs text-csr-gray-500 mt-1">Invariants géométriques comme signatures structurelles de la valence positive.</p>
+          </div>
+        </a>
       </div>
-      <div class="mt-8 text-center"><a href="/fr/reports" class="btn-secondary">Voir tous les rapports</a></div>
+
+      <div class="mt-6">
+        <a href="/fr/reports/" class="text-sm font-medium text-csr-primary hover:text-csr-primary-dark transition-colors">
+          Tous les rapports →
+        </a>
+      </div>
     </div>
   </section>
 
-  <section class="py-16 bg-csr-gray-100 border-t border-csr-gray-200">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="label-mono mb-4">Soutenir le Travail</p>
-      <h2 class="text-3xl font-bold text-csr-black mb-4">Les cadres de mesure doivent exister avant que les décisions soient prises.</h2>
-      <p class="text-csr-gray-500 text-lg mb-8">Nous recherchons des partenariats avec des chercheurs, des philanthropes et des institutions qui comprennent ce qui est en jeu.</p>
-      <a href="/fr/donate" class="btn-primary">Collaborer avec le CSR</a>
+  <!-- ── CTA ───────────────────────────────────────────────────────────────── -->
+  <section class="py-16 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white border border-csr-gray-100 rounded-3xl shadow-card p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+        <div class="max-w-xl">
+          <p class="label-mono mb-3">Financer le programme</p>
+          <h2 class="text-2xl md:text-3xl font-bold text-csr-black mb-3 leading-tight">
+            Aidez-nous à atteindre l'objectif 2026.
+          </h2>
+          <p class="text-csr-gray-600 text-sm leading-relaxed">
+            Le Center for Sentience Research est une organisation à but non lucratif suisse. Les contributions financent l'équipe de recherche, la définition formelle de l'espace de travail et le document de travail. Déductible des impôts en Suisse.
+          </p>
+        </div>
+        <div class="shrink-0 flex flex-col gap-3">
+          <a href="/fr/donate/" class="btn-primary whitespace-nowrap">Soutenir la recherche</a>
+          <a href="/fr/program/" class="btn-secondary whitespace-nowrap text-center">Ce que le financement débloque</a>
+        </div>
+      </div>
     </div>
   </section>
 

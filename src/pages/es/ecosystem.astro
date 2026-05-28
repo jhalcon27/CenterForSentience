@@ -1,57 +1,144 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import SectionMark from '../../components/SectionMark.astro';
+import Glyph from '../../components/Glyph.astro';
 
-const institutes = [
-  { name: "Qualia Research Institute (QRI)", description: "Una organización sin fines de lucro dedicada a mapear la estructura matemática de la experiencia consciente.", link: "https://qri.org", tag: "Sin Fines de Lucro" },
-  { name: "Levin Lab", description: "Dirigido por Michael Levin en la Universidad de Tufts, investiga la bioelectricidad, la medicina regenerativa y la morfología sintética.", link: "https://www.drmichaellevin.org", tag: "Laboratorio" },
-  { name: "Cronin Group", description: "Dirigido por Lee Cronin en la Universidad de Glasgow, explora los orígenes de la vida y la Teoría del Ensamblaje.", link: "https://www.chem.gla.ac.uk/cronin/", tag: "Laboratorio" },
-  { name: "Robin Carhart-Harris", description: "Director Fundador de la División de Psicodélicos de Neuroscape en la UCSF, centrado en el mecanismo de acción de los psicodélicos en el cerebro.", link: "https://profiles.ucsf.edu/robin.carhart-harris", tag: "Investigación" },
-  { name: "Sentience Institute", description: "Un think tank interdisciplinario que investiga las estrategias más efectivas para expandir el círculo moral de la humanidad.", link: "https://www.sentienceinstitute.org", tag: "Think Tank" }
+const lineage = [
+  {
+    name: "Qualia Research Institute (QRI)",
+    description: "El linaje teórico principal del programa 2026. La Teoría de la Simetría de la Valencia del QRI propone que la valencia positiva correlaciona con alta simetría en la estructura matemática de la experiencia. Nuestro trabajo es un intento de operacionalizar esta afirmación para sistemas digitales.",
+    link: "https://qri.org",
+    tag: "Linaje Principal"
+  }
+];
+
+const ecosystem = [
+  {
+    name: "Levin Lab",
+    description: "Dirigido por Michael Levin en la Universidad de Tufts, investiga la bioelectricidad, la medicina regenerativa y la morfología sintética. Proporciona datos de calibración biológica para la modelización de la sintiencia neutral al sustrato.",
+    link: "https://www.drmichaellevin.org",
+    tag: "Laboratorio de Investigación"
+  },
+  {
+    name: "Cronin Group",
+    description: "Dirigido por Lee Cronin en la Universidad de Glasgow, explora los orígenes de la vida y la Teoría del Ensamblaje. Relevante para los umbrales de complejidad en sistemas sintientes.",
+    link: "https://www.chem.gla.ac.uk/cronin/",
+    tag: "Laboratorio de Investigación"
+  },
+  {
+    name: "Robin Carhart-Harris",
+    description: "Director fundador de la División de Psicodélicos de Neuroscape en la UCSF, enfocado en el mecanismo de acción de los psicodélicos en el cerebro. Relevante para la fenomenología de los estados valentes.",
+    link: "https://profiles.ucsf.edu/robin.carhart-harris",
+    tag: "Investigación"
+  },
+  {
+    name: "Sentience Institute",
+    description: "Un think tank interdisciplinario que investiga las estrategias más efectivas para expandir el círculo moral de la humanidad. Comparte la misión más amplia de prepararse para un mundo con más tipos de mentes.",
+    link: "https://www.sentienceinstitute.org",
+    tag: "Think Tank"
+  }
 ];
 ---
 
-<Layout title="Ecosistema" description="Organizaciones aliadas e institutos de investigación que trabajan en los fundamentos físicos de la consciencia.">
+<Layout
+  title="Ecosistema"
+  description="Organizaciones aliadas e institutos de investigación que trabajan en los fundamentos físicos de la conciencia y la expansión de nuestro círculo moral."
+>
 
+  <!-- ── Header ────────────────────────────────────────────────────────────── -->
   <section class="pt-20 pb-12 border-b border-csr-gray-200">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <p class="label-mono mb-4">Ecosistema</p>
-      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6">
-        La <span class="text-gradient">red de investigación</span>
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6 max-w-2xl leading-tight">
+        La red de investigación
       </h1>
-      <p class="text-lg text-csr-gray-500 leading-relaxed max-w-2xl">
-        El CSR opera dentro de un ecosistema más amplio de investigadores, laboratorios y organizaciones sin fines de lucro dedicados a comprender la naturaleza de la mente y los fundamentos físicos de la sintiencia.
+      <p class="text-lg text-csr-gray-600 leading-relaxed max-w-2xl font-serif">
+        El CSR opera dentro de un ecosistema más amplio de investigadores, laboratorios y organizaciones sin fines de lucro dedicados a comprender la naturaleza de la mente. Una organización es el linaje teórico principal de nuestro trabajo. Las demás son indagaciones paralelas e investigación de fondo.
       </p>
     </div>
   </section>
 
-  <section class="py-16">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {institutes.map((inst) => (
-          <a href={inst.link} target="_blank" rel="noopener noreferrer" class="group p-8 bg-white border border-csr-gray-100 rounded-3xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all duration-200 flex flex-col justify-between">
+  <!-- ── Primary Lineage ───────────────────────────────────────────────────── -->
+  <section class="py-14">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-6">
+        <SectionMark />
+        <p class="label-mono">Linaje Principal</p>
+      </div>
+
+      {lineage.map((org) => (
+        <a
+          href={org.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group flex flex-col sm:flex-row gap-5 p-6 md:p-8 bg-white border border-csr-primary/25 rounded-2xl shadow-card hover:border-csr-primary/50 hover:shadow-soft transition-all"
+        >
+          <div class="shrink-0 hidden sm:flex items-start pt-1">
+            <Glyph name="qualia" size={48} class="opacity-50 group-hover:opacity-80 transition-opacity" />
+          </div>
+          <div class="flex-1">
+            <div class="flex items-center gap-2 mb-3 flex-wrap">
+              <span class="label-mono text-[10px]">{org.tag}</span>
+            </div>
+            <h3 class="text-xl font-bold text-csr-black mb-3 group-hover:text-csr-primary transition-colors leading-snug">{org.name}</h3>
+            <p class="text-sm text-csr-gray-600 leading-relaxed font-serif">{org.description}</p>
+          </div>
+          <div class="shrink-0 self-start sm:self-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-csr-gray-300 group-hover:text-csr-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- ── Broader Ecosystem ─────────────────────────────────────────────────── -->
+  <section class="py-14 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-3">
+        <SectionMark />
+        <p class="label-mono">Indagaciones Paralelas e Investigación de Fondo</p>
+      </div>
+      <p class="text-csr-gray-500 text-sm mb-8 max-w-xl">
+        Organizaciones cuyo trabajo informa o es paralelo al programa de valencia digital.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {ecosystem.map((org) => (
+          <a
+            href={org.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group p-6 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all flex flex-col justify-between"
+          >
             <div>
-              <div class="flex justify-between items-start mb-5">
-                <span class="text-[10px] font-mono uppercase tracking-wider text-csr-primary bg-csr-primary/8 px-2.5 py-1 rounded-full">{inst.tag}</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-csr-gray-300 group-hover:text-csr-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div class="flex justify-between items-start mb-4">
+                <span class="label-mono text-[10px]">{org.tag}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-csr-gray-300 group-hover:text-csr-primary transition-colors shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
               </div>
-              <h3 class="text-lg font-bold text-csr-black mb-3 group-hover:text-csr-primary transition-colors">{inst.name}</h3>
-              <p class="text-csr-gray-600 text-sm leading-relaxed mb-6">{inst.description}</p>
+              <h3 class="text-base font-bold text-csr-black mb-2 group-hover:text-csr-primary transition-colors leading-snug">{org.name}</h3>
+              <p class="text-sm text-csr-gray-600 leading-relaxed">{org.description}</p>
             </div>
-            <div class="label-mono text-[11px] flex items-center gap-1 group-hover:gap-2 transition-all">Visitar Sitio Web <span>&rarr;</span></div>
           </a>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="py-16 bg-csr-gray-100 border-t border-csr-gray-200">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="label-mono mb-4">Crecimiento de la Red</p>
-      <h2 class="text-2xl font-bold text-csr-black mb-4">¿Conoces a alguien que debería estar aquí?</h2>
-      <p class="text-csr-gray-500 mb-8">Buscamos constantemente alinearnos con organizaciones e investigadores que amplíen los límites de la ciencia de la consciencia.</p>
-      <a href="/contact" class="btn-primary">Sugerir una Adición</a>
+  <!-- ── CTA ───────────────────────────────────────────────────────────────── -->
+  <section class="py-14 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white border border-csr-gray-100 rounded-3xl shadow-card p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div>
+          <p class="label-mono mb-2">Crecimiento de la Red</p>
+          <h2 class="text-xl font-bold text-csr-black mb-2">¿Conoces a alguien que debería estar aquí?</h2>
+          <p class="text-csr-gray-500 text-sm">Buscamos constantemente alinearnos con organizaciones e investigadores que empujan los límites de la ciencia de la conciencia.</p>
+        </div>
+        <a href="/contact/" class="btn-primary shrink-0 whitespace-nowrap">Sugerir una Adición</a>
+      </div>
     </div>
   </section>
 

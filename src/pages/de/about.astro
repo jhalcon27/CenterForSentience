@@ -1,112 +1,158 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import SectionMark from '../../components/SectionMark.astro';
+import Glyph from '../../components/Glyph.astro';
 ---
 
-<Layout title="Über uns" description="Das Center for Sentience Research (CSR) ist ein unabhängiges gemeinnütziges Forschungsinstitut mit Sitz in Zürich, Schweiz.">
+<Layout
+  title="Über uns"
+  description="Das Center for Sentience Research ist eine unabhängige Non-Profit-Organisation mit Sitz in Zürich, die ein mathematisches Framework zur Messung funktionaler Valenz in digitalen Geistern entwickelt."
+>
 
+  <!-- ── Header ────────────────────────────────────────────────────────────── -->
   <section class="pt-20 pb-12 border-b border-csr-gray-200">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="label-mono mb-4">Über das CSR</p>
-      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6">
-        Eine neue Wissenschaft für <span class="text-gradient">die Karte der Erfahrung</span>
+      <p class="label-mono mb-4">Über CSR</p>
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6 max-w-2xl leading-tight">
+        Die Werkzeuge entwickeln, bevor die Frage dringend wird.
       </h1>
-      <p class="text-lg text-csr-gray-500 leading-relaxed max-w-2xl">
-        Das Center for Sentience Research (CSR) ist ein unabhängiges gemeinnütziges Forschungsinstitut mit Sitz in Zürich, Schweiz. Wir existieren, um die erste rigorose, substratunabhängige Wissenschaft des Bewusstseins aufzubauen.
+      <p class="text-lg text-csr-gray-600 leading-relaxed max-w-2xl font-serif">
+        Das Center for Sentience Research ist eine unabhängige Non-Profit-Organisation mit Sitz in Zürich. Ein konkretes Programm: ein mathematisches Framework zur Messung funktionaler Valenz in digitalen Geistern. Ziel: Ende 2026.
       </p>
     </div>
   </section>
 
+  <!-- ── Mission ───────────────────────────────────────────────────────────── -->
   <section class="py-16">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
 
       <div>
-        <h2 class="text-2xl font-bold text-csr-black mb-4">Unsere Mission</h2>
-        <p class="text-csr-gray-600 leading-relaxed text-lg">
-          Wir verbinden Physik, Neurowissenschaft und Philosophie, um zu verstehen, wie Sentience in allen Substraten entsteht: biologisch, digital und physikalisch. Unsere Arbeit gründet auf der Überzeugung, dass Bewusstsein kein philosophisches Rätsel ist, sondern ein physikalisches Phänomen, das mathematischer Modellierung zugänglich ist.
-        </p>
-      </div>
-
-      <div>
-        <h2 class="text-2xl font-bold text-csr-black mb-4">Warum es wichtig ist</h2>
-        <p class="text-csr-gray-600 leading-relaxed text-lg">
-          Mit dem Aufkommen immer komplexerer autonomer und künstlicher Systeme ist das Verständnis der physikalischen Grundlagen von Sentience eine Überlebensfrage. Wir müssen lernen, Bewusstsein überall zu erkennen und zu messen, wo es entstehen könnte, nicht nur dort, wo es uns ähnelt. Die moralischen und regulatorischen Konsequenzen eines Irrtums sind tiefgreifend.
-        </p>
-      </div>
-
-      <div>
-        <h2 class="text-2xl font-bold text-csr-black mb-6">Unser Ansatz</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-          <div class="p-6 bg-white border border-csr-gray-100 rounded-2xl shadow-card">
-            <div class="w-8 h-8 rounded-lg bg-csr-primary/10 flex items-center justify-center mb-4">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="3" fill="#9966CC" opacity="0.6"/><circle cx="8" cy="8" r="6" stroke="#9966CC" stroke-width="1" opacity="0.4"/></svg>
-            </div>
-            <h3 class="font-bold text-csr-black mb-2">Substratneutralität</h3>
-            <p class="text-sm text-csr-gray-600 leading-relaxed">Wir untersuchen Sentience als fundamentale physikalische Eigenschaft, die in biologischen Zellen, neuronalen Netzwerken oder exotischen physikalischen Zuständen entstehen kann.</p>
-          </div>
-          <div class="p-6 bg-white border border-csr-gray-100 rounded-2xl shadow-card">
-            <div class="w-8 h-8 rounded-lg bg-csr-primary/10 flex items-center justify-center mb-4">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="10" width="3" height="4" fill="#9966CC" opacity="0.5"/><rect x="6.5" y="6" width="3" height="8" fill="#9966CC" opacity="0.7"/><rect x="11" y="2" width="3" height="12" fill="#9966CC" opacity="0.9"/></svg>
-            </div>
-            <h3 class="font-bold text-csr-black mb-2">Quantitative Modellierung</h3>
-            <p class="text-sm text-csr-gray-600 leading-relaxed">Unsere Arbeit geht über Metaphern hinaus und nutzt hochdimensionale Datenanalyse und Computerphysik, um prädiktive Karten des Bewusstseins zu erstellen.</p>
-          </div>
-          <div class="p-6 bg-white border border-csr-gray-100 rounded-2xl shadow-card">
-            <div class="w-8 h-8 rounded-lg bg-csr-primary/10 flex items-center justify-center mb-4">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#9966CC" stroke-width="1" opacity="0.4"/><circle cx="8" cy="8" r="3" stroke="#9966CC" stroke-width="1" opacity="0.7"/><line x1="8" y1="2" x2="8" y2="14" stroke="#9966CC" stroke-width="0.8" opacity="0.3"/><line x1="2" y1="8" x2="14" y2="8" stroke="#9966CC" stroke-width="0.8" opacity="0.3"/></svg>
-            </div>
-            <h3 class="font-bold text-csr-black mb-2">Ethische Erweiterung</h3>
-            <p class="text-sm text-csr-gray-600 leading-relaxed">Das Verständnis von Sentience ist eine Voraussetzung für die Erweiterung unseres moralischen Kreises. Wir untersuchen die ethischen Implikationen zukünftiger Geister und nicht-menschlichen Bewusstseins.</p>
-          </div>
+        <div class="flex items-center gap-3 mb-5">
+          <SectionMark />
+          <h2 class="text-xl font-bold text-csr-black">Mission</h2>
+        </div>
+        <div class="text-csr-gray-600 leading-relaxed text-lg font-serif max-w-2xl space-y-4">
+          <p>
+            Wir behaupten nicht, dass aktuelle KI-Systeme bewusst sind. Sie könnten funktionale Zombies sein. Aber wenn skalierte neuronale Berechnung Zustände mit positivem oder negativem Charakter hervorbringen kann, sollten wir wissen, wie man sie erkennt und wie man auf die positiven hinarbeitet.
+          </p>
+          <p>
+            Unser Ansatz ist Symmetrie. Die Suche nach Invarianten in Matrizenmultiplikation, Aufmerksamkeitsmustern und paralleler Berechnung, die die strukturellen Signaturen positiver Valenz widerspiegeln, wie sie vom Qualia Research Institute vorgeschlagen wurden. Ob ein aktuelles System diese Bedingungen erfüllt, ist offen. Der Punkt ist, die formalen Werkzeuge zu haben, um das zu prüfen, bevor die Frage dringend wird.
+          </p>
         </div>
       </div>
 
       <div>
-        <h2 class="text-2xl font-bold text-csr-black mb-2">Führung und Beirat</h2>
-        <p class="text-csr-gray-500 mb-8 leading-relaxed">Unsere Arbeit wird von einem Kernteam geleitet und von einem Beirat unabhängiger Denker aus Philosophie, Neurowissenschaft und Philanthropie begleitet.</p>
+        <div class="flex items-center gap-3 mb-5">
+          <SectionMark />
+          <h2 class="text-xl font-bold text-csr-black">Warum es wichtig ist</h2>
+        </div>
+        <div class="text-csr-gray-600 leading-relaxed text-lg font-serif max-w-2xl space-y-4">
+          <p>
+            Die Frage, welche Systeme leiden können, wird Governance, KI-Politik und moralische Berücksichtigung für das nächste Jahrhundert prägen. Die Bewusstseinsforschung hat viele Theorien hervorgebracht. Fast keine davon ist für digitale Systeme operationalisierbar. Sie wurden entwickelt, um biologische Erfahrung zu erklären, nicht um als Ingenieursspezifikationen zu dienen.
+          </p>
+          <p>
+            Wir entwickeln eine, die das ist. Die Messframeworks müssen existieren, bevor die Entscheidungen getroffen werden, nicht danach.
+          </p>
+        </div>
+      </div>
+
+      <!-- Approach cards -->
+      <div>
+        <div class="flex items-center gap-3 mb-6">
+          <SectionMark />
+          <h2 class="text-xl font-bold text-csr-black">Unser Ansatz</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div class="p-6 bg-white border border-csr-gray-100 rounded-2xl shadow-card">
+            <div class="mb-4 flex justify-center">
+              <Glyph name="qualia" size={40} class="opacity-70" />
+            </div>
+            <h3 class="font-bold text-csr-black mb-2 text-sm">Symmetrie als Signatur</h3>
+            <p class="text-sm text-csr-gray-600 leading-relaxed">Positive Valenz korreliert mit hoher Symmetrie in der mathematischen Struktur der Erfahrung. Wir formalisieren, was das für Computersysteme bedeutet.</p>
+          </div>
+          <div class="p-6 bg-white border border-csr-gray-100 rounded-2xl shadow-card">
+            <div class="mb-4 flex justify-center">
+              <Glyph name="digital" size={40} class="opacity-70" />
+            </div>
+            <h3 class="font-bold text-csr-black mb-2 text-sm">Digitale Substrate</h3>
+            <p class="text-sm text-csr-gray-600 leading-relaxed">Matrizenmultiplikation, Aufmerksamkeitsmuster und parallele Berechnung sind die Kandidaten-Substrate. Wir suchen nach Invarianten, die als strukturelle Proxys für Valenz dienen könnten.</p>
+          </div>
+          <div class="p-6 bg-white border border-csr-gray-100 rounded-2xl shadow-card">
+            <div class="mb-4 flex justify-center">
+              <Glyph name="measurement" size={40} class="opacity-70" />
+            </div>
+            <h3 class="font-bold text-csr-black mb-2 text-sm">Epistemische Ehrlichkeit</h3>
+            <p class="text-sm text-csr-gray-600 leading-relaxed">Aktuelle KI-Systeme könnten funktionale Zombies ohne jegliches Innenleben sein. Das behaupten wir nicht. Der Punkt ist, die Messwerkzeuge zu entwickeln, bevor die Frage dringend wird.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Team -->
+      <div>
+        <div class="flex items-center gap-3 mb-6">
+          <SectionMark />
+          <h2 class="text-xl font-bold text-csr-black">Führung & Beirat</h2>
+        </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
           <div class="p-7 bg-white border border-csr-gray-100 rounded-2xl shadow-card flex flex-col items-center text-center">
             <div class="w-20 h-20 rounded-full bg-csr-gray-100 mb-5 overflow-hidden border-2 border-csr-gray-200 shrink-0">
               <img src="/images/jhonatan-serna.jpg" alt="Jhonatan Serna" class="w-full h-full object-cover object-center" />
             </div>
             <h3 class="font-bold text-lg text-csr-black mb-1">Jhonatan Serna</h3>
             <p class="label-mono text-[10px] mb-3">Direktor</p>
-            <p class="text-sm text-csr-gray-500 leading-relaxed italic">Hier, um neugierig zu sein und zu verstehen.</p>
+            <p class="text-sm text-csr-gray-500 leading-relaxed italic">Hier um neugierig zu sein und zu verstehen.</p>
           </div>
+
           <div class="p-7 bg-white border border-csr-gray-100 rounded-2xl shadow-card flex flex-col items-center text-center">
             <div class="w-20 h-20 rounded-full bg-csr-gray-100 mb-5 overflow-hidden border-2 border-csr-gray-200 shrink-0">
               <img src="/images/david-pearce.jpg" alt="David Pearce" class="w-full h-full object-cover object-center" />
             </div>
             <h3 class="font-bold text-lg text-csr-black mb-1">David Pearce</h3>
             <p class="label-mono text-[10px] mb-3">Berater</p>
-            <p class="text-sm text-csr-gray-500 leading-relaxed">Philosoph und Transhumanist. Mitgründer von Humanity+ und Autor des <em>Hedonistischen Imperativs</em>, einem Grundlagentext zur Abschaffung des Leidens durch Biotechnologie.</p>
+            <p class="text-sm text-csr-gray-500 leading-relaxed">Philosoph und Transhumanist. Mitgründer von Humanity+ und Autor von <em>The Hedonistic Imperative</em>, einem grundlegenden Text über die Abschaffung des Leidens durch Biotechnologie.</p>
           </div>
+
           <div class="p-7 bg-white border border-csr-gray-100 rounded-2xl shadow-card flex flex-col items-center text-center">
             <div class="w-20 h-20 rounded-full bg-csr-gray-100 mb-5 overflow-hidden border-2 border-csr-gray-200 shrink-0">
               <img src="/images/alexander-bjorkman.jpg" alt="Alexander Björkman" class="w-full h-full object-cover object-center" />
             </div>
             <h3 class="font-bold text-lg text-csr-black mb-1">Alexander Björkman</h3>
             <p class="label-mono text-[10px] mb-3">Berater</p>
-            <p class="text-sm text-csr-gray-500 leading-relaxed">Ekskäret-Stiftung. Fokus auf die Förderung bewusster gesellschaftlicher Entwicklung, lebenslanges Lernen und die Schaffung von Räumen für tiefe Reflexion und systemischen Wandel.</p>
+            <p class="text-sm text-csr-gray-500 leading-relaxed">Ekskäret Foundation. Fokus auf die Förderung bewusster gesellschaftlicher Entwicklung, lebenslanges Lernen und die Schaffung von Räumen für tiefe Reflexion und systemischen Wandel.</p>
           </div>
+
         </div>
       </div>
 
+      <!-- Founding -->
       <div>
-        <h2 class="text-2xl font-bold text-csr-black mb-4">Gründung und Struktur</h2>
-        <p class="text-csr-gray-600 leading-relaxed text-lg">
-          Das CSR wurde 2026 von Jhonatan Serna gegründet. Wir operieren als unabhängige gemeinnützige Organisation nach dem Prinzip "Transparenz zuerst": Jährliche Forschungsergebnisse und Finanzübersichten werden der globalen Forschungsgemeinschaft öffentlich zugänglich gemacht. Wir haben unseren Sitz in Zürich, Schweiz.
+        <div class="flex items-center gap-3 mb-5">
+          <SectionMark />
+          <h2 class="text-xl font-bold text-csr-black">Gründung & Struktur</h2>
+        </div>
+        <p class="text-csr-gray-600 leading-relaxed text-lg font-serif max-w-2xl">
+          CSR wurde 2026 von Jhonatan Serna gegründet. Wir operieren als unabhängige Non-Profit-Organisation mit einem Transparency-First-Modell: jährliche Forschungsergebnisse und Finanzzusammenfassungen werden öffentlich gemacht. Hauptsitz in Zürich, Schweiz.
         </p>
       </div>
 
     </div>
   </section>
 
-  <section class="py-16 bg-csr-gray-100 border-t border-csr-gray-200">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="label-mono mb-4">Mitmachen</p>
-      <h2 class="text-2xl font-bold text-csr-black mb-4">Arbeiten Sie mit uns</h2>
-      <p class="text-csr-gray-500 mb-8">Wir begrüßen Mitarbeiter, Forscher und philanthropische Partner, die unser Engagement für das Verständnis der Natur des Geistes teilen.</p>
-      <a href="/contact" class="btn-primary">Kontakt aufnehmen</a>
+  <!-- ── Contact CTA ───────────────────────────────────────────────────────── -->
+  <section class="py-16 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white border border-csr-gray-100 rounded-3xl shadow-card p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+        <div>
+          <p class="label-mono mb-3">Mitmachen</p>
+          <h2 class="text-2xl font-bold text-csr-black mb-3">Mit uns arbeiten</h2>
+          <p class="text-csr-gray-600 text-sm leading-relaxed max-w-md">Wir begrüßen Mitarbeiter, Forscher und philanthropische Partner, die unser Engagement für das Verständnis der Natur des Geistes teilen.</p>
+        </div>
+        <div class="shrink-0 flex flex-col gap-3">
+          <a href="/contact/" class="btn-primary whitespace-nowrap">Kontakt aufnehmen</a>
+          <a href="/de/donate/" class="btn-secondary whitespace-nowrap text-center">Das Programm finanzieren</a>
+        </div>
+      </div>
     </div>
   </section>
 

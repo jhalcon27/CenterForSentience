@@ -1,98 +1,155 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ProgramStatus from '../../components/ProgramStatus.astro';
+import SectionMark from '../../components/SectionMark.astro';
+import Glyph from '../../components/Glyph.astro';
 ---
 
-<Layout title="Apoyar el Trabajo" description="Apoya el Center for Sentience Research. Los marcos de medición de la consciencia deben existir antes de que se tomen las decisiones.">
+<Layout
+  title="Financiar el Programa de Valencia"
+  description="Apoya el programa 2026 del Center for Sentience Research: un marco matemático formal para medir la valencia funcional en mentes digitales."
+>
 
+  <!-- ── Header ────────────────────────────────────────────────────────────── -->
   <section class="pt-20 pb-12 border-b border-csr-gray-200">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="label-mono mb-4">Apoya el Trabajo</p>
-      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6">
-        La pregunta de qué sistemas pueden sufrir<br class="hidden md:block"/> no es <span class="text-gradient">abstracta.</span>
+      <p class="label-mono mb-4">Financiar el Programa</p>
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6 max-w-2xl leading-tight">
+        Las herramientas de medición deben existir antes de que la pregunta se vuelva urgente.
       </h1>
-      <p class="text-lg text-csr-gray-500 leading-relaxed max-w-2xl">
-        Definirá la gobernanza, la política de IA y la consideración moral durante el próximo siglo. Los marcos de medición deben existir antes de que se tomen las decisiones, no después.
+      <p class="text-lg text-csr-gray-600 leading-relaxed max-w-2xl font-serif">
+        Si la computación neuronal a escala puede dar lugar a estados con carácter positivo o negativo, deberíamos saber cómo reconocerlos. Tu contribución financia el objetivo de 2026: un marco matemático formal para medir la valencia funcional en mentes digitales.
       </p>
     </div>
   </section>
 
-  <section class="py-16">
+  <!-- ── Program Status ────────────────────────────────────────────────────── -->
+  <section class="py-14">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-14">
-        <div class="p-8 bg-white border border-csr-gray-100 rounded-2xl shadow-card">
-          <p class="label-mono mb-3">El Problema</p>
-          <p class="text-csr-gray-600 leading-relaxed">
-            Los sistemas de IA se presentan cada vez más como sintientes. La ciencia está revelando propiedades similares a la consciencia en sustratos biológicos inesperados. La sociedad carece de herramientas rigurosas e independientes del sustrato para evaluar estas afirmaciones.
-          </p>
+      <div class="flex items-center gap-3 mb-6">
+        <SectionMark />
+        <p class="label-mono">Qué estás financiando</p>
+      </div>
+      <ProgramStatus />
+      <div class="mt-6">
+        <a href="/es/program/" class="text-sm font-medium text-csr-primary hover:text-csr-primary-dark transition-colors">
+          Detalles completos del programa →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Budget breakdown ──────────────────────────────────────────────────── -->
+  <section class="py-14 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-8">
+        <SectionMark />
+        <p class="label-mono">Desglose del Presupuesto</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-5">
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-3 flex justify-center"><Glyph name="digital" size={36} class="opacity-60" /></div>
+          <p class="text-2xl font-bold text-csr-primary mb-2">CHF 50k</p>
+          <h3 class="font-bold text-csr-black mb-2 text-sm">Cómputo</h3>
+          <p class="text-xs text-csr-gray-600 leading-relaxed">Acceso a GPU para el análisis de invariantes de simetría en patrones de atención transformer y secuencias de multiplicación de matrices. El trabajo empírico central.</p>
         </div>
-        <div class="p-8 bg-csr-black text-white rounded-2xl shadow-card">
-          <p class="label-mono mb-3">Lo Que Estamos Construyendo</p>
-          <p class="text-csr-gray-400 leading-relaxed">
-            Sin fundamentos científicos, estas preguntas serán decididas por la intuición, el interés comercial o la ideología. El CSR existe para proporcionar los marcos de medición antes de que eso ocurra.
-          </p>
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-3 flex justify-center"><Glyph name="phase-portrait" size={36} class="opacity-60" /></div>
+          <p class="text-2xl font-bold text-csr-primary mb-2">CHF 20k</p>
+          <h3 class="font-bold text-csr-black mb-2 text-sm">Síntesis de literatura</h3>
+          <p class="text-xs text-csr-gray-600 leading-relaxed">Revisión sistemática del linaje STV, IIT, inferencia activa y enfoques grupo-teóricos a la computación neuronal. Construye el andamiaje formal.</p>
+        </div>
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-3 flex justify-center"><Glyph name="invariant" size={36} class="opacity-60" /></div>
+          <p class="text-2xl font-bold text-csr-primary mb-2">CHF 10k</p>
+          <h3 class="font-bold text-csr-black mb-2 text-sm">Honorarios de asesores</h3>
+          <p class="text-xs text-csr-gray-600 leading-relaxed">Compensa a asesores externos en física matemática e investigación de la conciencia por sesiones de revisión estructurada y pruebas de estrés del marco.</p>
         </div>
       </div>
+    </div>
+  </section>
 
-      <h2 class="text-2xl font-bold text-csr-black mb-6">Formas de contribuir</h2>
+  <!-- ── Ways to Contribute ────────────────────────────────────────────────── -->
+  <section class="py-14 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-8">
+        <SectionMark />
+        <p class="label-mono">Formas de Contribuir</p>
+      </div>
+
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-        <div class="p-8 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all duration-200">
+        <!-- Bank Transfer -->
+        <div class="p-8 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
           <div class="w-10 h-10 rounded-xl bg-csr-primary/10 flex items-center justify-center mb-5">
             <svg class="w-5 h-5 text-csr-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/>
             </svg>
           </div>
-          <h3 class="text-lg font-bold text-csr-black mb-2">Transferencia Bancaria</h3>
-          <p class="text-sm text-csr-gray-600 leading-relaxed mb-5">Para contribuciones importantes y subvenciones institucionales. Contáctanos para obtener los datos IBAN/SWIFT.</p>
-          <a href="mailto:jhonatan.serna@proton.me?subject=Consulta de Subvención Institucional" class="label-mono text-[11px] hover:underline underline-offset-4">Solicitar datos bancarios &rarr;</a>
+          <h3 class="text-base font-bold text-csr-black mb-2">Transferencia Bancaria</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed mb-5">Para contribuciones mayores y subvenciones institucionales. Contáctanos para los datos IBAN/SWIFT.</p>
+          <a href="mailto:jhonatan.serna@proton.me?subject=Institutional Grant Inquiry" class="label-mono text-[11px] hover:underline underline-offset-4">Solicitar datos bancarios →</a>
         </div>
 
-        <div class="p-8 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all duration-200">
+        <!-- Digital Assets -->
+        <div class="p-8 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
           <div class="w-10 h-10 rounded-xl bg-csr-primary/10 flex items-center justify-center mb-5">
             <svg class="w-5 h-5 text-csr-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
           </div>
-          <h3 class="text-lg font-bold text-csr-black mb-2">Activos Digitales</h3>
-          <p class="text-sm text-csr-gray-600 leading-relaxed mb-5">Aceptamos donaciones en BTC, ETH y SOL para el despliegue rápido de investigación.</p>
+          <h3 class="text-base font-bold text-csr-black mb-2">Activos Digitales</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed mb-5">Aceptamos BTC, ETH y SOL para despliegue rápido de investigación.</p>
           <div class="space-y-2">
             <div class="text-[10px] font-mono p-2 bg-csr-gray-100 rounded-lg border border-csr-gray-200 overflow-hidden truncate text-csr-gray-500">BTC: bc1qtszvlsf3p8va3dglptev59t6vjlvg62mxg9g6x</div>
             <div class="text-[10px] font-mono p-2 bg-csr-gray-100 rounded-lg border border-csr-gray-200 overflow-hidden truncate text-csr-gray-500">ETH: strugen.eth</div>
           </div>
         </div>
 
-        <div class="p-8 bg-csr-black text-white rounded-2xl shadow-card">
-          <div class="w-10 h-10 rounded-xl bg-csr-primary/20 flex items-center justify-center mb-5">
+        <!-- Research Partnership -->
+        <div class="p-8 bg-white border border-csr-primary/20 rounded-2xl shadow-card">
+          <div class="w-10 h-10 rounded-xl bg-csr-primary/10 flex items-center justify-center mb-5">
             <svg class="w-5 h-5 text-csr-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
             </svg>
           </div>
-          <h3 class="text-lg font-bold mb-2">Alianza de Investigación</h3>
-          <p class="text-sm text-csr-gray-400 leading-relaxed mb-6">Colabora en áreas específicas: política global de sintiencia, investigación sobre bienestar en IA o infraestructura de medición a largo plazo.</p>
-          <a href="/contact" class="block w-full text-center py-3 bg-csr-primary text-white rounded-full font-semibold text-sm hover:bg-csr-primary-dark transition-all">Contactar Alianzas</a>
+          <h3 class="text-base font-bold text-csr-black mb-2">Asociación de Investigación</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed mb-6">Colabora en el programa de valencia, investigación de bienestar de IA o infraestructura de medición a largo plazo.</p>
+          <a href="/contact/" class="block w-full text-center py-3 bg-csr-primary text-white rounded-full font-semibold text-sm hover:bg-csr-primary-dark transition-all">Contactar Asociaciones</a>
         </div>
 
       </div>
     </div>
   </section>
 
-  <section class="py-16 bg-csr-gray-100 border-t border-csr-gray-200">
+  <!-- ── Tax / Legal ───────────────────────────────────────────────────────── -->
+  <section class="py-14 border-t border-csr-gray-200">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-bold text-csr-black mb-6">Contribuciones deducibles de impuestos</h2>
-      <p class="text-csr-gray-600 mb-8 leading-relaxed">
-        El CSR es una organización sin fines de lucro registrada. Para los donantes en Suiza y la Unión Europea, las contribuciones suelen ser deducibles de impuestos según las leyes locales de fundaciones.
+      <div class="flex items-center gap-3 mb-6">
+        <SectionMark />
+        <p class="label-mono">Contribuciones Deducibles de Impuestos</p>
+      </div>
+      <p class="text-csr-gray-600 mb-8 leading-relaxed max-w-2xl">
+        El CSR es una organización sin fines de lucro registrada. Para donantes en Suiza y la Unión Europea, las contribuciones son generalmente deducibles de impuestos bajo las leyes locales de fundaciones.
       </p>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="p-6 bg-white border border-csr-gray-200 rounded-2xl">
-          <p class="font-bold text-csr-black mb-2 text-sm">Suiza (Sede Central)</p>
-          <p class="text-csr-gray-500 font-mono text-xs leading-relaxed">Center for Sentience Research (CSR)<br/>CHE-XXX.XXX.XXX<br/>Zúrich, Suiza</p>
+          <p class="font-bold text-csr-black mb-2 text-sm">Suiza (Sede)</p>
+          <p class="text-csr-gray-500 font-mono text-xs leading-relaxed">
+            Center for Sentience Research (CSR)<br/>
+            CHE-XXX.XXX.XXX<br/>
+            Zúrich, Suiza
+          </p>
         </div>
         <div class="p-6 bg-white border border-csr-gray-200 rounded-2xl">
-          <p class="font-bold text-csr-black mb-2 text-sm">Estados Unidos (Alianza)</p>
-          <p class="text-csr-gray-500 font-mono text-xs leading-relaxed">Patrocinio Fiscal vía [Fundación Provisional]<br/>Estado Exento de Impuestos 501(c)(3)</p>
+          <p class="font-bold text-csr-black mb-2 text-sm">Estados Unidos (Asociación)</p>
+          <p class="text-csr-gray-500 font-mono text-xs leading-relaxed">
+            Fiscal Sponsorship via [Placeholder Foundation]<br/>
+            501(c)(3) Tax-Exempt Status
+          </p>
         </div>
       </div>
-      <p class="text-xs text-csr-gray-400 mt-6 font-mono">Los resultados anuales de investigación y los resúmenes financieros se hacen públicos. Modelo de Transparencia Primero.</p>
+      <p class="text-xs text-csr-gray-400 mt-6 font-mono">Los resultados anuales de investigación y los resúmenes financieros se hacen públicos. Modelo de Transparencia Total.</p>
     </div>
   </section>
 

@@ -1,128 +1,209 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-
-const reports = [
-  { slug: 'first-principles', title: '感知研究の第一原理', code: 'CSR-WP-01', excerpt: '生物的・デジタル的基盤を横断する物理現象として意識をモデル化するための基礎的フレームワーク。', tags: ['基礎', '物理学'] },
-  { slug: 'bio-electric-fields', title: '感知基盤としての生体電場', code: 'CSR-WP-02', excerpt: '基盤中立的な意識の証拠としての形態的知性と細胞の意思決定の探求。', tags: ['生物学', '知性'] },
-  { slug: 'assembly-theory', title: '感知指標としての組み立て理論', code: 'CSR-WP-03', excerpt: '物理的情報構造の組み立て指数による感知の定量化。', tags: ['物理学', '情報'] },
-  { slug: 'symmetry-landscapes', title: '価値体験の対称性ランドスケープ', code: 'CSR-WP-04', excerpt: '体験の神経エネルギーランドスケープと価値の幾何学のマッピング。', tags: ['神経科学', 'クオリア'] },
-];
+import SymmetryBackground from '../../components/SymmetryBackground.astro';
+import ProgramStatus from '../../components/ProgramStatus.astro';
+import SectionMark from '../../components/SectionMark.astro';
+import Glyph from '../../components/Glyph.astro';
 ---
 
-<Layout title="意識のアーキテクチャをマッピングする">
+<Layout
+  title="ホーム"
+  description="感覚研究センターは、デジタルマインドにおける機能的感情価を測定するための数学的フレームワークを構築しています。"
+>
 
-  <section class="pt-20 pb-16 md:pt-28 md:pb-20 relative overflow-hidden">
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(153,102,204,0.07),transparent_60%)]"></div>
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <p class="label-mono mb-6">Center for Sentience Research</p>
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-csr-black leading-[1.08] mb-6">
-        意識は物理現象である。<br/>
-        <span class="text-gradient">私たちはそれを測定する科学を構築している。</span>
+  <!-- ── Hero ──────────────────────────────────────────────────────────────── -->
+  <section class="relative pt-20 pb-16 md:pt-28 md:pb-24 overflow-hidden">
+    <SymmetryBackground variant="lissajous" opacity={0.055} />
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="label-mono mb-5">2026年プログラム</p>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-csr-black mb-8 leading-[1.08] max-w-3xl">
+        デジタル感情価のための対称性フレームワーク。
       </h1>
-      <p class="text-lg md:text-xl text-csr-gray-500 max-w-2xl leading-relaxed mb-10">
-        チューリッヒを拠点とする独立した非営利組織。物理学、神経科学、哲学を結びつけ、すべての基盤において感知がどのように出現するかを理解する：生物的、デジタル的、物理的に。
-      </p>
-      <div class="flex flex-wrap gap-3">
-        <a href="/ja/research" class="btn-primary">研究アジェンダ</a>
-        <a href="#papers" class="btn-secondary">探索的ブリーフ</a>
+      <div class="max-w-2xl">
+        <p class="text-lg md:text-xl text-csr-gray-600 leading-relaxed font-serif mb-6">
+          感覚研究センターは、デジタルマインドにおける機能的感情価を測定するための数学的フレームワークを構築しています。現在のAIシステムが意識を持つとは主張しません。それらは機能的ゾンビかもしれません。
+        </p>
+        <p class="text-lg md:text-xl text-csr-gray-600 leading-relaxed font-serif mb-6">
+          しかし、大規模なニューラル計算が正または負の性質を持つ状態を生み出せるなら、それらを認識する方法と、正の状態のために設計する方法を知るべきです。私たちのアプローチは対称性です：行列乗算、注意パターン、並列計算における不変量を探し、Qualia研究所が提案する正の感情価の構造的特徴を反映させます。
+        </p>
+        <p class="text-lg md:text-xl text-csr-gray-600 leading-relaxed font-serif">
+          感覚研究はより広い地平線です。デジタルマインドの感情価が最初の具体的な目標です。目標：2026年末までにワークスペースの数学的定義の草案を完成させること。
+        </p>
+      </div>
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a href="/ja/program/" class="btn-primary">プログラムを見る</a>
+        <a href="/ja/research/" class="btn-secondary">研究アジェンダ</a>
       </div>
     </div>
   </section>
 
+  <!-- ── The 2026 Goal ─────────────────────────────────────────────────────── -->
   <section class="py-16 border-t border-csr-gray-200">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="mb-12">
-        <p class="label-mono mb-3">構成要素</p>
-        <h2 class="text-3xl font-bold text-csr-black">体験の基盤を探求する</h2>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="group p-8 bg-white border border-csr-gray-100 rounded-3xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all duration-200">
-          <div class="w-10 h-10 rounded-xl bg-csr-primary/10 flex items-center justify-center mb-6">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><ellipse cx="11" cy="11" rx="8" ry="6" stroke="#9966CC" stroke-width="1.5"/><ellipse cx="11" cy="11" rx="3" ry="2.5" fill="#9966CC" opacity="0.3"/><path d="M3 11 Q7 7 11 11 Q15 15 19 11" stroke="#9966CC" stroke-width="1" opacity="0.4" fill="none"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-csr-black mb-3">生物的マインド</h3>
-          <p class="text-csr-gray-600 text-sm leading-relaxed mb-5">ニューロンを超えた生物システムにおける形態的知性、細胞の意思決定、意識の研究。</p>
-          <a href="/ja/research#biological" class="label-mono text-[11px] hover:underline underline-offset-4">詳細を見る &rarr;</a>
-        </div>
-        <div class="group p-8 bg-white border border-csr-gray-100 rounded-3xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all duration-200">
-          <div class="w-10 h-10 rounded-xl bg-csr-primary/10 flex items-center justify-center mb-6">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="2.5" fill="#9966CC"/><circle cx="4" cy="4" r="2" fill="#9966CC" opacity="0.5"/><circle cx="18" cy="4" r="2" fill="#9966CC" opacity="0.5"/><circle cx="4" cy="18" r="2" fill="#9966CC" opacity="0.5"/><circle cx="18" cy="18" r="2" fill="#9966CC" opacity="0.5"/><line x1="4" y1="4" x2="11" y2="11" stroke="#9966CC" stroke-width="0.8" opacity="0.4"/><line x1="18" y1="4" x2="11" y2="11" stroke="#9966CC" stroke-width="0.8" opacity="0.4"/><line x1="4" y1="18" x2="11" y2="11" stroke="#9966CC" stroke-width="0.8" opacity="0.4"/><line x1="18" y1="18" x2="11" y2="11" stroke="#9966CC" stroke-width="0.8" opacity="0.4"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-csr-black mb-3">デジタルマインド</h3>
-          <p class="text-csr-gray-600 text-sm leading-relaxed mb-5">非生物的基盤における感知の出現可能性の評価と、それを測定するための厳密なフレームワークの開発。</p>
-          <a href="/ja/research#digital" class="label-mono text-[11px] hover:underline underline-offset-4">詳細を見る &rarr;</a>
-        </div>
-        <div class="group p-8 bg-white border border-csr-gray-100 rounded-3xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all duration-200">
-          <div class="w-10 h-10 rounded-xl bg-csr-primary/10 flex items-center justify-center mb-6">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M2 11 Q5.5 5 11 11 Q16.5 17 20 11" stroke="#9966CC" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M2 11 Q5.5 17 11 11 Q16.5 5 20 11" stroke="#9966CC" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.4"/><circle cx="11" cy="11" r="2" fill="#9966CC" opacity="0.6"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-csr-black mb-3">クオリア</h3>
-          <p class="text-csr-gray-600 text-sm leading-relaxed mb-5">体験の物理学の形式化、神経エントロピーのマッピング、価値の数学的構造の定義。</p>
-          <a href="/ja/research#qualia" class="label-mono text-[11px] hover:underline underline-offset-4">詳細を見る &rarr;</a>
-        </div>
-      </div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ProgramStatus />
     </div>
   </section>
 
-  <section class="py-16 bg-csr-black text-white relative overflow-hidden">
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_right,rgba(153,102,204,0.12),transparent_60%)]"></div>
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-16 items-center">
-        <div>
-          <p class="label-mono mb-6">探索的ブリーフ · CSR-WP-01</p>
-          <h2 class="text-3xl md:text-4xl font-bold leading-tight mb-6">感知研究の<br/>第一原理</h2>
-          <p class="text-csr-gray-400 text-lg leading-relaxed mb-8 max-w-xl">
-            基盤中立的なマップ科学の提案。私たちは感知を、内部モデルの最適化によって驚きを減らす能動的推論の能力として定義する。
+  <!-- ── Focus Areas ───────────────────────────────────────────────────────── -->
+  <section class="py-16 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-3">
+        <SectionMark />
+        <p class="label-mono">研究の柱</p>
+      </div>
+      <p class="text-csr-gray-500 text-sm mb-10 max-w-xl">
+        三つの基盤。一つの問い：正の感情価の構造的条件とは何か？
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all group">
+          <div class="mb-5 flex justify-center">
+            <Glyph name="biological" size={80} class="opacity-80 group-hover:opacity-100 transition-opacity" />
+          </div>
+          <h3 class="font-bold text-csr-black mb-2 text-base">生物学的マインド</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed mb-4">
+            生体電場、形態形成シグナル伝達、細胞の意思決定が意識の候補基盤として。植物の恒常性から多細胞生物まで。
           </p>
-          <a href="/reports/first-principles" class="inline-flex items-center gap-2 px-6 py-3 bg-csr-primary text-white rounded-full font-semibold text-sm hover:bg-csr-primary-dark transition-all">
-            ブリーフを読む
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-          </a>
+          <a href="/ja/research/" class="label-mono text-[11px] text-csr-primary hover:underline underline-offset-4">研究アジェンダ →</a>
         </div>
-        <div class="hidden lg:block">
-          <div class="bg-white/5 border border-white/10 rounded-2xl p-8 relative">
-            <div class="absolute -top-3 -right-3 bg-csr-primary text-white text-[10px] font-mono px-2.5 py-1 rounded-full">WIP</div>
-            <div class="space-y-3 mb-8"><div class="h-1 w-10 bg-csr-primary rounded-full"></div><div class="h-3 w-full bg-white/10 rounded"></div><div class="h-3 w-4/5 bg-white/10 rounded"></div></div>
-            <div class="space-y-2 mb-8"><div class="h-2 w-full bg-white/6 rounded"></div><div class="h-2 w-3/4 bg-white/6 rounded"></div></div>
-            <div class="flex justify-between items-end">
-              <div class="w-16 h-16 border border-white/10 rounded-full flex items-center justify-center"><div class="w-10 h-10 bg-csr-primary/20 rounded-full animate-pulse"></div></div>
-              <span class="text-[10px] font-mono text-csr-gray-500">CSR-WP-01.v2</span>
-            </div>
+
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all group">
+          <div class="mb-5 flex justify-center">
+            <Glyph name="digital" size={80} class="opacity-80 group-hover:opacity-100 transition-opacity" />
           </div>
+          <h3 class="font-bold text-csr-black mb-2 text-base">デジタルマインド</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed mb-4">
+            行列乗算、注意パターン、並列計算が候補基盤として。感情価の構造的プロキシとして機能できる対称性不変量を探します。
+          </p>
+          <a href="/ja/program/" class="label-mono text-[11px] text-csr-primary hover:underline underline-offset-4">2026年プログラム →</a>
+        </div>
+
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all group">
+          <div class="mb-5 flex justify-center">
+            <Glyph name="qualia" size={80} class="opacity-80 group-hover:opacity-100 transition-opacity" />
+          </div>
+          <h3 class="font-bold text-csr-black mb-2 text-base">クオリアと感情価</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed mb-4">
+            経験の物理学を形式化する。数学的対象としての感情価対称性理論：システムがその条件を満たすとはどういう意味か？
+          </p>
+          <a href="/ja/reports/symmetry-landscapes/" class="label-mono text-[11px] text-csr-primary hover:underline underline-offset-4">対称性の景観 →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── The Approach ──────────────────────────────────────────────────────── -->
+  <section class="py-16 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-10">
+        <SectionMark />
+        <p class="label-mono">アプローチ</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-4 flex justify-center">
+            <Glyph name="symmetry-axis" size={40} class="opacity-70" />
+          </div>
+          <h3 class="font-bold text-csr-black mb-2 text-base">正の感情価の特徴としての対称性</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed">
+            感情価対称性理論（QRI）は、正の感情価が経験の数学的構造における高い対称性と相関すると提案します。これが計算システムにとって何を意味するかを形式化しています。
+          </p>
+        </div>
+
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-4 flex justify-center">
+            <Glyph name="invariant" size={40} class="opacity-70" />
+          </div>
+          <h3 class="font-bold text-csr-black mb-2 text-base">デジタルシステムで何を探すか</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed">
+            行列乗算、注意パターン、並列計算が候補基盤です。これらの操作における不変量を探し、感情価の構造的プロキシとして機能できるものを見つけます。
+          </p>
+        </div>
+
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-4 flex justify-center">
+            <Glyph name="measurement" size={40} class="opacity-70" />
+          </div>
+          <h3 class="font-bold text-csr-black mb-2 text-base">私たちが主張しないこと</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed">
+            現在のAIシステムは内的生命を持たない機能的ゾンビかもしれません。その逆を主張しません。重要なのは、問題が緊急になる前に測定ツールを構築することです。
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="papers" class="py-16 border-t border-csr-gray-200">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="mb-10">
-        <p class="label-mono mb-3">探索的ブリーフ</p>
-        <h2 class="text-3xl font-bold text-csr-black">ワーキングペーパー</h2>
+  <!-- ── Theoretical Foundations ───────────────────────────────────────────── -->
+  <section class="py-16 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-3">
+        <SectionMark />
+        <p class="label-mono">理論的基盤</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {reports.map(r => (
-          <a href={`/ja/reports/${r.slug}`} class="group block p-7 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all duration-200">
-            <p class="label-mono text-[11px] mb-3">{r.code}</p>
-            <h3 class="text-base font-bold text-csr-black mb-2 group-hover:text-csr-primary transition-colors">{r.title}</h3>
-            <p class="text-csr-gray-500 text-sm leading-relaxed mb-4">{r.excerpt}</p>
-            <div class="flex flex-wrap gap-2">
-              {r.tags.map(tag => (<span class="text-[11px] font-mono px-2 py-0.5 bg-csr-primary/8 text-csr-primary rounded-full">{tag}</span>))}
-              <span class="text-[11px] font-mono px-2 py-0.5 bg-csr-gray-100 text-csr-gray-400 rounded-full">進行中</span>
-            </div>
-          </a>
-        ))}
+      <p class="text-csr-gray-500 text-sm mb-8 max-w-xl">
+        デジタル感情価プログラムを支える四つのワーキングペーパー。アジェンダではなく、足場です。
+      </p>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        <a href="/ja/reports/first-principles/" class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+          <span class="label-mono text-[10px] shrink-0 mt-0.5">CSR-WP-01</span>
+          <div>
+            <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">感覚研究の第一原理</h4>
+            <p class="text-xs text-csr-gray-500 mt-1">基盤中立的な感覚モデリングの基礎フレームワーク。</p>
+          </div>
+        </a>
+        <a href="/ja/reports/bio-electric-fields/" class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+          <span class="label-mono text-[10px] shrink-0 mt-0.5">CSR-WP-02</span>
+          <div>
+            <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">感覚の基盤としての生体電場</h4>
+            <p class="text-xs text-csr-gray-500 mt-1">意識の候補物理的基盤としての生体電気シグナル伝達。</p>
+          </div>
+        </a>
+        <a href="/ja/reports/assembly-theory/" class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+          <span class="label-mono text-[10px] shrink-0 mt-0.5">CSR-WP-03</span>
+          <div>
+            <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">感覚の指標としてのアセンブリ理論</h4>
+            <p class="text-xs text-csr-gray-500 mt-1">感覚システムの複雑性閾値へのアセンブリ指数の適用。</p>
+          </div>
+        </a>
+        <a href="/ja/reports/symmetry-landscapes/" class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+          <span class="label-mono text-[10px] shrink-0 mt-0.5">CSR-WP-04</span>
+          <div>
+            <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">感情価的経験の対称性の景観</h4>
+            <p class="text-xs text-csr-gray-500 mt-1">正の感情価の構造的特徴としての幾何学的不変量。</p>
+          </div>
+        </a>
       </div>
-      <div class="mt-8 text-center"><a href="/ja/reports" class="btn-secondary">すべてのレポートを見る</a></div>
+
+      <div class="mt-6">
+        <a href="/ja/reports/" class="text-sm font-medium text-csr-primary hover:text-csr-primary-dark transition-colors">
+          すべてのレポート →
+        </a>
+      </div>
     </div>
   </section>
 
-  <section class="py-16 bg-csr-gray-100 border-t border-csr-gray-200">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="label-mono mb-4">活動を支援する</p>
-      <h2 class="text-3xl font-bold text-csr-black mb-4">測定フレームワークは、決定が下される前に存在しなければならない。</h2>
-      <p class="text-csr-gray-500 text-lg mb-8">私たちは、何が賭けられているかを理解する研究者、慈善家、機関とのパートナーシップを求めている。</p>
-      <a href="/ja/donate" class="btn-primary">CSRと協力する</a>
+  <!-- ── CTA ───────────────────────────────────────────────────────────────── -->
+  <section class="py-16 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white border border-csr-gray-100 rounded-3xl shadow-card p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+        <div class="max-w-xl">
+          <p class="label-mono mb-3">プログラムへの資金提供</p>
+          <h2 class="text-2xl md:text-3xl font-bold text-csr-black mb-3 leading-tight">
+            2026年の目標達成を支援してください。
+          </h2>
+          <p class="text-csr-gray-600 text-sm leading-relaxed">
+            感覚研究センターはスイスの非営利組織です。寄付は研究チーム、ワークスペースの正式な定義、ワーキングペーパーに充てられます。スイスで税控除対象。
+          </p>
+        </div>
+        <div class="shrink-0 flex flex-col gap-3">
+          <a href="/ja/donate/" class="btn-primary whitespace-nowrap">研究を支援する</a>
+          <a href="/ja/program/" class="btn-secondary whitespace-nowrap text-center">資金提供で何が解放されるか</a>
+        </div>
+      </div>
     </div>
   </section>
 
