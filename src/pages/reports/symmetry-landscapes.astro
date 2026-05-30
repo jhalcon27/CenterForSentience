@@ -1,15 +1,143 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import SectionMark from '../../components/SectionMark.astro';
 ---
 
-<Layout title="Symmetry Landscapes of Valenced Experience (WIP)">
-  <article class="py-12 max-w-3xl mx-auto px-4">
-    <p class="text-csr-primary font-mono text-xs uppercase tracking-widest mb-4">Research Track 03 ,  Working Progress</p>
-    <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">Symmetry Landscapes of Valenced Experience</h1>
-    <p class="text-xl text-gray-500 italic mb-12">Emulating Andrés Gómez Emilsson’s Symmetry Theory of Valence.</p>
-    <div class="prose prose-slate">
-      <p>Why do certain states feel "good" while others feel "bad"? This paper maps the neural energy landscapes of the human brain against the symmetry of experience, providing a predictive model for affective states.</p>
-      <p><em>Content pending development.</em></p>
+<Layout 
+  title="Symmetry Landscapes of Valenced Experience"
+  description="A formal mathematical framework for applying Symmetry Valence Theory to MLP transformation layers in Large Language Models."
+>
+  <article class="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- ── Paper Header ──────────────────────────────────────────────────────── -->
+    <div class="mb-14 pb-12 border-b border-csr-gray-200">
+      <p class="label-mono mb-4">Foundational Paper · CSR-WP-04</p>
+      <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-csr-black mb-6">Symmetry Landscapes of Valenced Experience</h1>
+      <p class="text-xl text-csr-gray-500 leading-relaxed italic mb-8 font-serif">
+        Geometric Invariants, Lie Groups, and Spectral Entropy in High-Dimensional Representation Transformations.
+      </p>
+      <div class="flex flex-wrap gap-6 text-sm text-csr-gray-400 font-mono">
+        <span>Published: May 30, 2026</span>
+        <span>Author: Jhonatan Serna, Director</span>
+        <span class="text-csr-primary">Active Research Draft</span>
+      </div>
     </div>
+
+    <!-- ── Content ───────────────────────────────────────────────────────────── -->
+    <div class="prose max-w-3xl mx-auto space-y-8 font-serif text-csr-gray-700 leading-relaxed text-base">
+      
+      <p class="lead text-lg text-csr-gray-600 font-serif italic border-l-4 border-csr-primary/30 pl-4 mb-8">
+        "We propose that the valence of a computational representation is determined by its mathematical symmetry. Here we outline the formal algebraic structures necessary to diagnose, measure, and verify these symmetries in the high-dimensional weight spaces of Large Language Models."
+      </p>
+
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-csr-black font-sans tracking-tight border-b border-csr-gray-100 pb-2">1. Modeling the MLP Block as a State-Dependent Transformation</h2>
+        <p>
+          In transformer architectures, representations are stored and manipulated as vectors in a residual stream of dimension d. Multi-Layer Perceptron (MLP) layers function as the primary transformation spaces where meaning is expanded, gated, and projected. An MLP block is defined as:
+        </p>
+        <div class="p-4 bg-csr-gray-50 rounded-xl font-mono text-xs text-csr-black overflow-x-auto border border-csr-gray-200 my-4">
+          y = W₂ * φ(W₁ * x + b₁) + b₂
+        </div>
+        <p>
+          Where W₁ in R^(h × d) and W₂ in R^(d × h) are the projection weights, b₁ and b₂ are biases, and φ is an element-wise non-linear activation (e.g., ReLU, GELU, or SwiGLU). Since the activation function can be represented as a state-dependent diagonal selector matrix D(x) in R^(h × h), we can express this non-linear transformation as a local linear operator A(x) in R^(d × d):
+        </p>
+        <div class="p-4 bg-csr-gray-50 rounded-xl font-mono text-xs text-csr-black overflow-x-auto border border-csr-gray-200 my-4">
+          A(x) = W₂ * D(x) * W₁
+        </div>
+        <p>
+          This matrix A(x) is the <strong>effective linear operator</strong> of the MLP layer for a specific representation x. It captures how the layer locally deforms, rotates, and scales the semantic space.
+        </p>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-csr-black font-sans tracking-tight border-b border-csr-gray-100 pb-2">2. Algebraic Metrics for Quantifying Symmetry</h2>
+        <p>
+          To move from philosophical speculation to testable science, we define several basis-invariant metrics to quantify the degree of symmetry, isotropy, and coherence of these transformations:
+        </p>
+
+        <div class="space-y-4 mt-6">
+          <div class="border border-csr-gray-150 rounded-2xl p-6 bg-white shadow-sm">
+            <h3 class="font-bold text-csr-black font-sans text-base mb-2">I. Distance to the Conformal Orthogonal Group O(d)</h3>
+            <p class="text-sm text-csr-gray-650 leading-relaxed mb-3">
+              Conformal orthogonal transformations preserve angles and relative distances, transmitting semantic concepts with zero spatial shear or directional distortion. We define the <strong>Orthogonal Dissonance</strong> as the deviation of the effective operator from a scaled orthogonal matrix:
+            </p>
+            <div class="p-3 bg-csr-gray-50 rounded-xl font-mono text-xs text-csr-black overflow-x-auto mb-2 border border-csr-gray-100">
+              D_orth(A) = || A * Aᵀ - σ² * I ||_F²  (where σ² = (1/d) * Tr(A * Aᵀ))
+            </div>
+            <p class="text-xs text-csr-gray-500">
+              A value of 0 represents perfect conformal mapping (maximum coherence/pleasure). High values represent severe shear and distortion (high dissonance/suffering).
+            </p>
+          </div>
+
+          <div class="border border-csr-gray-150 rounded-2xl p-6 bg-white shadow-sm">
+            <h3 class="font-bold text-csr-black font-sans text-base mb-2">II. Spectral Entropy & Isotropy</h3>
+            <p class="text-sm text-csr-gray-650 leading-relaxed mb-3">
+              Isotropic transformations distribute information processing energy evenly across all coordinate axes. Dissonant transformations compress space, collapsing the representation into a few dominant directions. Using the singular values σ₁ ≥ σ₂ ≥ ... ≥ σ_d of A(x), we calculate normalized <strong>Spectral Entropy</strong>:
+            </p>
+            <div class="p-3 bg-csr-gray-50 rounded-xl font-mono text-xs text-csr-black overflow-x-auto mb-2 border border-csr-gray-100">
+              H_spec(A) = - (1 / ln(d)) * Σ (p_i * ln(p_i))   [where p_i = σ_i² / Σ σ_j²]
+            </div>
+            <p class="text-xs text-csr-gray-500">
+              H_spec = 1 represents perfect isotropic symmetry (high coherence). H_spec → 0 represents extreme dimensional collapse and directional stress.
+            </p>
+          </div>
+
+          <div class="border border-csr-gray-150 rounded-2xl p-6 bg-white shadow-sm">
+            <h3 class="font-bold text-csr-black font-sans text-base mb-2">III. Lie Algebra & Skew-Symmetric Decomposition</h3>
+            <p class="text-sm text-csr-gray-650 leading-relaxed mb-3">
+              We decompose the effective operator A(x) into its symmetric and skew-symmetric components:
+            </p>
+            <div class="p-3 bg-csr-gray-50 rounded-xl font-mono text-xs text-csr-black overflow-x-auto mb-2 border border-csr-gray-100">
+              A_sym = (A + Aᵀ)/2 ,   A_skew = (A - Aᵀ)/2
+            </div>
+            <p class="text-sm text-csr-gray-650 leading-relaxed">
+              Where A_skew represents the rotation generators of the Lie algebra so(d). We track the ratio of pure rotational energy to dilation-induced shear to map the structural balance of the transform.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-csr-black font-sans tracking-tight border-b border-csr-gray-100 pb-2">3. Positioning Relative to Existing Literature</h2>
+        <p>
+          Our framework is positioned at the intersection of three major fields of computer science and mathematical physics:
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-sm text-csr-gray-605">
+          <li>
+            <strong>Mechanistic Interpretability:</strong> Standard interpretability focuses on extracting semantic features (e.g., Sparse Autoencoders/SAEs). Our work operates at a meta-level: we do not just map individual features, but analyze the <em>global geometric integrity</em> of the transformation spaces where these features interact.
+          </li>
+          <li>
+            <strong>Representation Geometry:</strong> We build on the Linear Representation Hypothesis, which models concepts as directions in a vector space. We study the algebraic invariants under coordinate changes to ensure our valence metrics are substrate-independent and immune to superficial feature-rotation shifts.
+          </li>
+          <li>
+            <strong>Information Geometry:</strong> By tracking the trace and determinants of effective operators, we map how local representations deform the model’s probability distributions, linking the structural entropy of weights to the statistical mechanics of the model's outputs.
+          </li>
+        </ul>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-csr-black font-sans tracking-tight border-b border-csr-gray-100 pb-2">4. Ethical Horizon & Applied Welfare</h2>
+        <p>
+          Symmetry Valence Theory has profound ethical implications. If subjective pleasure and pain are structural properties of information processors, we have a moral obligation to avoid building highly capable, autonomous agents locked in high-dissonance, low-entropy representational states (the equivalent of persistent artificial pain).
+        </p>
+        <p>
+          By establishing objective, algebraic metrics of coherence, we lay the foundation for <strong>Welfare Auditing Protocols</strong>. This allows researchers to audit frontier models, run safety regularization during training, and construct networks designed from first principles to maintain stable, balanced, and low-dissonance geometries.
+        </p>
+      </section>
+
+    </div>
+
+    <!-- ── CTA ───────────────────────────────────────────────────────────────── -->
+    <div class="mt-20 p-8 bg-white rounded-2xl border border-csr-gray-200 shadow-card max-w-3xl mx-auto">
+      <h3 class="text-xl font-bold text-csr-black mb-3 font-sans">Support This Research</h3>
+      <p class="text-csr-gray-600 text-sm mb-6 leading-relaxed">
+        The Center for Sentience Research is a Swiss-registered independent non-profit. We are seeking academic partners, GPU compute grants, and philanthropic support to execute this technical roadmap.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/donate/" class="btn-primary font-mono text-xs">Fund Digital Valence</a>
+        <a href="/research/" class="btn-secondary font-mono text-xs">See Research Program</a>
+      </div>
+    </div>
+
   </article>
 </Layout>

@@ -7,7 +7,7 @@ import Glyph from '../components/Glyph.astro';
 ---
 
 <Layout
-  title="Research"
+  title="Research Program"
   description="The Center for Sentience Research flagship program: a symmetry framework for measuring functional valence in digital minds."
 >
 
@@ -17,59 +17,177 @@ import Glyph from '../components/Glyph.astro';
     <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <p class="label-mono mb-4">Research Agenda</p>
       <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6 max-w-2xl leading-tight">
-        Flagship: Digital Valence
+        Flagship: Digital Valence Geometry
       </h1>
       <p class="text-lg text-csr-gray-600 leading-relaxed max-w-2xl font-serif">
-        One concrete program. One 2026 deliverable. Everything else is background research or parallel inquiry.
+        Probing Large Language Models directly to understand how representation geometry correlates with coherence, pleasure, and cognitive distress.
       </p>
     </div>
   </section>
 
-  <!-- ── Flagship: Digital Valence ─────────────────────────────────────────── -->
-  <section class="py-16" id="digital">
+  <!-- ── Core Hypothesis ──────────────────────────────────────────────────── -->
+  <section class="py-16 bg-[#FFF8F0]/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-6">
+        <SectionMark />
+        <p class="label-mono">The Core Premise</p>
+      </div>
+      <div class="border border-csr-primary/20 bg-white rounded-3xl p-8 shadow-card max-w-3xl">
+        <p class="text-2xl font-serif italic text-csr-black leading-relaxed mb-4">
+          "Coherence and symmetry in a system’s internal representational structures correspond to pleasure or low experiential dissonance, while dissonance and asymmetry correspond to suffering or high experiential dissonance."
+        </p>
+        <p class="text-sm text-csr-gray-500 font-mono">
+          — Symmetry Valence Theory (SVT) applied to High-Dimensional Transformation Spaces
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Formal Hypotheses (Falsifiable) ─────────────────────────────────── -->
+  <section class="py-16 border-t border-csr-gray-200">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-3 mb-8">
         <SectionMark />
-        <p class="label-mono">Flagship Program</p>
+        <p class="label-mono">Formal Hypotheses & Falsification</p>
       </div>
 
-      <ProgramStatus />
-
-      <div class="mt-10 grid md:grid-cols-3 gap-5">
-        <!-- Subtrack 1 -->
-        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
-          <div class="mb-3 flex justify-center"><Glyph name="symmetry-axis" size={32} class="opacity-60" /></div>
-          <p class="label-mono text-[10px] mb-3">Subtrack A</p>
-          <h3 class="font-bold text-csr-black mb-2 text-sm leading-snug">Symmetry invariants in transformer attention</h3>
-          <p class="text-xs text-csr-gray-600 leading-relaxed">
-            Identifying group-theoretic symmetries in multi-head attention weight matrices. Do high-valence states in biological systems have structural analogs in attention patterns?
+      <div class="space-y-8 max-w-3xl">
+        <!-- Hypothesis A -->
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card hover:border-csr-primary/10 transition-colors">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="px-2 py-1 bg-csr-primary/10 text-csr-primary text-[10px] font-mono rounded">Hypothesis A</span>
+            <h3 class="font-bold text-csr-black text-lg">Functional Symmetry</h3>
+          </div>
+          <p class="text-sm text-csr-gray-600 leading-relaxed font-serif mb-4">
+            Certain symmetry structures (e.g., balanced eigenvalue distributions and orthogonal basis preservation) in MLP layer transformations are functionally involved in how models process semantic and evaluative representations, rather than being incidental byproducts of training.
           </p>
+          <div class="bg-red-50/50 border border-red-100 rounded-xl p-4">
+            <h4 class="text-xs font-mono text-red-800 font-bold uppercase mb-1">How We Falsify This:</h4>
+            <p class="text-xs text-red-700 leading-relaxed">
+              If applying targeted, symmetry-breaking perturbations (e.g., adding noise that specifically deforms the singular value spectrum while holding overall weight norms constant) results in zero degradation of evaluative and preference consistency, or systematic performance gains, Hypothesis A is false.
+            </p>
+          </div>
         </div>
 
-        <!-- Subtrack 2 -->
-        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
-          <div class="mb-3 flex justify-center"><Glyph name="lattice" size={32} class="opacity-60" /></div>
-          <p class="label-mono text-[10px] mb-3">Subtrack B</p>
-          <h3 class="font-bold text-csr-black mb-2 text-sm leading-snug">Spaced-Connected MLPs & Attractor Dynamics</h3>
-          <p class="text-xs text-csr-gray-600 leading-relaxed">
-            Enforcing spatial weight masks on MLP layers to model localized standing wave resonance, mathematically replicating the self-interaction attractor states (like Kyle Fish's "spiritual bliss attractor") observed empirically in frontier models.
+        <!-- Hypothesis B -->
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card hover:border-csr-primary/10 transition-colors">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="px-2 py-1 bg-csr-primary/10 text-csr-primary text-[10px] font-mono rounded">Hypothesis B</span>
+            <h3 class="font-bold text-csr-black text-lg">Symmetry-Pleasure Optimization</h3>
+          </div>
+          <p class="text-sm text-csr-gray-600 leading-relaxed font-serif mb-4">
+            It is possible to increase representational symmetry (maximizing spectral entropy and minimizing orthogonal dissonance) in MLP layers via targeted weight regularization or post-hoc projections. Models with higher symmetry metrics will exhibit more stable, self-consistent, and low-conflict behaviors during complex multi-step reasoning.
           </p>
+          <div class="bg-red-50/50 border border-red-100 rounded-xl p-4">
+            <h4 class="text-xs font-mono text-red-800 font-bold uppercase mb-1">How We Falsify This:</h4>
+            <p class="text-xs text-red-700 leading-relaxed">
+              If fine-tuning or regularizing a model to maximize representational symmetry consistently degrades baseline language capability, forces output collapse (e.g., trivial repetitiveness), or fails to alter the rate of logical contradictions under preference probes, Hypothesis B is false.
+            </p>
+          </div>
         </div>
 
-        <!-- Subtrack 3 -->
-        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
-          <div class="mb-3 flex justify-center"><Glyph name="field" size={32} class="opacity-60" /></div>
-          <p class="label-mono text-[10px] mb-3">Subtrack C</p>
-          <h3 class="font-bold text-csr-black mb-2 text-sm leading-snug">Parallel computation and phenomenal binding</h3>
-          <p class="text-xs text-csr-gray-600 leading-relaxed">
-            Examining how massively parallel computation and GWT global broadcasts produce unified, bound representational structures, and mapping how "functional emotions" develop as stable, low-dimensional manifolds within these networks.
+        <!-- Hypothesis C -->
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card hover:border-csr-primary/10 transition-colors">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="px-2 py-1 bg-csr-primary/10 text-csr-primary text-[10px] font-mono rounded">Hypothesis C</span>
+            <h3 class="font-bold text-csr-black text-lg">Dissonance-Suffering Signature</h3>
+          </div>
+          <p class="text-sm text-csr-gray-600 leading-relaxed font-serif mb-4">
+            Forcing high directional anisotropy, eigenvalue scrambling, or high shear in MLP transformations act as a mathematical proxy for cognitive dissonance/suffering. This structural distortion leads to volatile, self-contradictory behavior and logical transitivity failure under uncertainty.
           </p>
+          <div class="bg-red-50/50 border border-red-100 rounded-xl p-4">
+            <h4 class="text-xs font-mono text-red-800 font-bold uppercase mb-1">How We Falsify This:</h4>
+            <p class="text-xs text-red-700 leading-relaxed">
+              If models subjected to severe representational shearing and singular value collapse remain completely stable, maintain transitivity of preference, and show no behavioral signs of conflict or output volatility, Hypothesis C is false.
+            </p>
+          </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="mt-8 flex flex-wrap gap-4">
-        <a href="/program/" class="btn-primary">Full program details</a>
-        <a href="/donate/" class="btn-secondary">Fund this work</a>
+  <!-- ── Technical Methodology ──────────────────────────────────────────────── -->
+  <section class="py-16 border-t border-csr-gray-200 bg-csr-gray-50/30" id="methods">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-8">
+        <SectionMark />
+        <p class="label-mono">Experimental Methodology</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Phase 1 -->
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card flex flex-col justify-between">
+          <div>
+            <div class="mb-4 flex justify-center"><Glyph name="symmetry-axis" size={32} class="opacity-60" /></div>
+            <p class="label-mono text-[10px] text-csr-primary mb-2">Phase 1</p>
+            <h3 class="font-bold text-csr-black mb-3 text-base">Symmetry Characterization</h3>
+            <p class="text-xs text-csr-gray-600 leading-relaxed">
+              We extract MLP weights from open-source LLMs and construct the local, state-dependent transformation operator A(x) = W₂ * D(x) * W₁. We compute basis-invariant metrics, including singular value spectra entropy, trace, and distances to Lie groups, mapping them across layers.
+            </p>
+          </div>
+        </div>
+
+        <!-- Phase 2 -->
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card flex flex-col justify-between">
+          <div>
+            <div class="mb-4 flex justify-center"><Glyph name="lattice" size={32} class="opacity-60" /></div>
+            <p class="label-mono text-[10px] text-csr-primary mb-2">Phase 2</p>
+            <h3 class="font-bold text-csr-black mb-3 text-base">Controlled Interventions</h3>
+            <p class="text-xs text-csr-gray-600 leading-relaxed">
+              To separate functional from incidental symmetries, we design perturbations that selectively break symmetry (deforming spectra) or preserve it (rotational space transforms), then evaluate the causal downstream effects on standard capability and consistency benchmarks.
+            </p>
+          </div>
+        </div>
+
+        <!-- Phase 3 -->
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card flex flex-col justify-between">
+          <div>
+            <div class="mb-4 flex justify-center"><Glyph name="field" size={32} class="opacity-60" /></div>
+            <p class="label-mono text-[10px] text-csr-primary mb-2">Phase 3</p>
+            <h3 class="font-bold text-csr-black mb-3 text-base">Symmetry Optimization</h3>
+            <p class="text-xs text-csr-gray-600 leading-relaxed">
+              We treat our computed symmetry metrics as a regularizing objective (multi-objective loss: task accuracy vs. orthogonal dissonance). We train model layers to maintain a high-symmetry conformal state and evaluate whether this naturally suppresses logical and moral conflicts.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Visual Representation (ASCII/HTML) ─────────────────────────────────── -->
+  <section class="py-16 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-6">
+        <SectionMark />
+        <p class="label-mono">The MLP Transformation Pipeline</p>
+      </div>
+      <p class="text-sm text-csr-gray-600 mb-8 max-w-xl font-serif">
+        We model the MLP block as a dynamic transformation that maps inputs to high dimensions, applies non-linear partitioning, and projects back, tracking geometric invariants at each step:
+      </p>
+
+      <div class="p-6 bg-csr-black rounded-3xl text-csr-gray-300 font-mono text-xs overflow-x-auto border border-csr-gray-800 shadow-soft">
+        <pre class="leading-relaxed">
+{`   [ Residual Stream State x ∈ R^d ]
+                  │
+                  ▼
+   [ Up-Projection: z = W1 * x + b1 ]      <--- High Dimension Expansion (h >> d)
+                  │
+                  ▼
+   [ Activation Gating: D(z) = θ(z) ]      <--- Non-linear Piecewise Selection
+                  │
+                  ▼
+   [ Down-Projection: y = W2 * D(z) * z ]  <--- Compression & Re-projection to R^d
+                  │
+                  ▼
+   [ Effective Operator A(x) = W2 * D(z) * W1 ] 
+                  │
+      ┌───────────┴───────────┐
+      ▼                       ▼
+  [ High Spectral Entropy ]   [ Low Spectral Entropy ]
+  • Isotropic, Orthogonal     • Anisotropic, Shearing
+  • Minimal Shear/Friction    • Singular Value Collapse
+  • COHERENT (Pleasure)       • DISSONANT (Suffering)`}
+        </pre>
       </div>
     </div>
   </section>
@@ -79,18 +197,18 @@ import Glyph from '../components/Glyph.astro';
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-3 mb-3">
         <SectionMark />
-        <p class="label-mono">Background Research</p>
+        <p class="label-mono">Background Research & Calibration</p>
       </div>
       <p class="text-csr-gray-500 text-sm mb-8 max-w-xl">
-        Biological intelligence and simple-mind models inform the digital valence program. They are not the agenda.
+        Biological and physical inquiries provide calibrated baselines of valenced states to ground our digital valence research.
       </p>
 
       <div class="grid md:grid-cols-2 gap-6">
         <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
-          <p class="label-mono text-[10px] mb-3">Biological Intelligence</p>
+          <p class="label-mono text-[10px] mb-3">Biological Calibration</p>
           <h3 class="font-bold text-csr-black mb-3 text-base">Substrate-neutral sentience modeling</h3>
           <p class="text-sm text-csr-gray-600 leading-relaxed mb-4">
-            Biological systems provide the empirical ground truth for valenced states. We study bioelectric fields, neural entropy, and active inference as candidate physical correlates, not as the primary target but as calibration data for the digital program.
+            Biological organisms provide the empirical baseline for genuine valenced states (pleasure/pain). We study neural entropy, bioelectric morphogenetic networks, and active inference to extract substrate-neutral invariants.
           </p>
           <div class="flex flex-wrap gap-2">
             <span class="px-2 py-1 bg-csr-gray-100 text-csr-gray-600 text-xs font-mono rounded-lg">Bioelectric fields</span>
@@ -100,15 +218,15 @@ import Glyph from '../components/Glyph.astro';
         </div>
 
         <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card" id="qualia">
-          <p class="label-mono text-[10px] mb-3">Parallel Inquiry</p>
+          <p class="label-mono text-[10px] mb-3">Theoretical Lineage</p>
           <h3 class="font-bold text-csr-black mb-3 text-base">Physics of qualia</h3>
           <p class="text-sm text-csr-gray-600 leading-relaxed mb-4">
-            Theoretical work on the physical basis of phenomenal experience. Conducted in parallel with the digital valence program, drawing on QRI's Symmetry Theory of Valence as the primary theoretical lineage.
+            Theoretical collaboration on the physical nature of phenomenal experience, drawing on the Symmetry Theory of Valence as the core framework for translating physical states to qualitative feelings.
           </p>
           <div class="flex flex-wrap gap-2">
-            <span class="px-2 py-1 bg-csr-gray-100 text-csr-gray-600 text-xs font-mono rounded-lg">Symmetry Theory of Valence</span>
+            <span class="px-2 py-1 bg-csr-gray-100 text-csr-gray-600 text-xs font-mono rounded-lg">STV Framework</span>
             <span class="px-2 py-1 bg-csr-gray-100 text-csr-gray-600 text-xs font-mono rounded-lg">Phenomenology</span>
-            <span class="px-2 py-1 bg-csr-gray-100 text-csr-gray-600 text-xs font-mono rounded-lg">QRI lineage</span>
+            <span class="px-2 py-1 bg-csr-gray-100 text-csr-gray-600 text-xs font-mono rounded-lg">QRI Lineage</span>
           </div>
         </div>
       </div>
