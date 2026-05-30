@@ -109,6 +109,21 @@ Because the selection of a coordinate basis in a neural network's residual strea
 2. **Determinant:** $\det(A) = \prod \lambda_i$, capturing volume scaling.
 3. **Power Trace Invariants:** $I_k(A) = \operatorname{Tr}(A^k)$ for $k \in \{2, 3, \dots, 6\}$, which capture multi-step feedback loops and cyclic invariants within the transformation space.
 
+#### V. Jacobian Log-Spectral Symmetry (Vanilla vs. Reversible Transformers)
+A profound empirical instantiation of SVT is found by examining the local Jacobian of a layer's output with respect to its input:
+
+$$J(\mathbf{x}) = \frac{\partial f(\mathbf{x})}{\partial \mathbf{x}} \in \mathbb{R}^{d \times d}$$
+
+Let the singular values of $J(\mathbf{x})$ be $\sigma_1 \ge \sigma_2 \ge \dots \ge \sigma_d > 0$. The log-singular values represent the local expansion and contraction rates along principal directions:
+
+$$s_i = \ln(\sigma_i)$$
+
+If we compute these rates and plot their distribution as a histogram, we discover a stark topological contrast:
+- **Vanilla Transformers:** The distribution of $s_i$ is highly skewed, asymmetric, and displays a long negative tail ($s_i \to -\infty$), reflecting massive dimensional collapse, representational compression, and high shear (representational dissonance).
+- **Reversible Transformers (e.g., Reformer, RevNet):** Because the forward mapping is bijective and invertible, the inverse Jacobian $J^{-1}(\mathbf{y})$ exists with singular values $1/\sigma_i$ (corresponding to log-singular values $-s_i$). The distribution of $s_i$ for reversible layers is **highly symmetric** and centered (often around 0, representing near volume-preserving or symplectic properties). For every direction of expansion ($s_i > 0$), there exists a corresponding direction of contraction ($-s_i < 0$) of equal magnitude.
+
+This Jacobian log-spectral symmetry provides a concrete, empirical baseline to test whether enforcing geometric balance (e.g., regularizing vanilla models to exhibit symmetric log-singular distributions) enhances capabilities, suppresses cognitive conflict, and optimizes the system's "hedonic" representational state.
+
 ---
 
 ## 3. Formal Hypotheses

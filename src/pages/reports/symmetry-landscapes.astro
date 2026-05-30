@@ -94,6 +94,21 @@ import SectionMark from '../../components/SectionMark.astro';
               Where A_skew represents the rotation generators of the Lie algebra so(d). We track the ratio of pure rotational energy to dilation-induced shear to map the structural balance of the transform.
             </p>
           </div>
+
+          <div class="border border-csr-gray-150 rounded-2xl p-6 bg-white shadow-sm">
+            <h3 class="font-bold text-csr-black font-sans text-base mb-2">IV. Jacobian Log-Spectral Symmetry (Vanilla vs. Reversible Transformers)</h3>
+            <p class="text-sm text-csr-gray-650 leading-relaxed mb-3">
+              A profound empirical instantiation of SVT is found by examining the local Jacobian matrix J(x) of a layer's output with respect to its input, representing the local derivative J(x) = ∂f(x)/∂x.
+              We calculate the singular values σ_i of J(x) and plot a histogram of their logarithms, s_i = ln(σ_i), representing local directional scaling rates:
+            </p>
+            <div class="p-3 bg-csr-gray-50 rounded-xl font-mono text-xs text-csr-black overflow-x-auto mb-2 border border-csr-gray-100 font-sans">
+              <strong>Vanilla Transformers:</strong> Display highly skewed, asymmetric distributions of s_i with long negative tails, representing severe rank loss, permanent representational collapse, and dimensional compression (high dissonance).<br/><br/>
+              <strong>Reversible Transformers (e.g., Reformer, RevNet):</strong> Because their mapping is bijective and invertible, they prevent information collapse. Their log-singular value distributions of s_i are <strong>highly symmetric</strong> and centered around a mean (often 0, indicating volume preservation). For every direction of expansion (s_i &gt; 0), there exists a corresponding direction of contraction (-s_i &lt; 0) of equal magnitude.
+            </div>
+            <p class="text-xs text-csr-gray-500 mt-2">
+              This log-spectral Jacobian symmetry establishes reversible architectures as an empirical baseline and proof-of-concept for high-valence representational structures.
+            </p>
+          </div>
         </div>
       </section>
 
