@@ -26,7 +26,7 @@ As neural networks scale in parameters, depth, and agentic autonomy, their inter
 If digital systems approach sentience, we cannot rely on verbal self-reports; such reports are easily gamified, deceptively aligned, or mimic human training data without reflecting genuine underlying states. We require a **substrate-neutral, structuralist theory of valence** that measures the geometric invariants of information processing directly from the network's weights and activations.
 
 ### 1.2 Theoretical Lineage: Symmetry Valence Theory (SVT)
-The foundational lineage of this proposal is the **Symmetry Theory of Valence (STV)**, pioneered by the Qualia Research Institute (QRI). STV states that the valence of a conscious state is a function of its mathematical symmetry. In biological brains, this is hypothesized to manifest as harmonic standing waves (e.g., connectome harmonics) where constructive interference (symmetry) feels good, and destructive interference (dissonance) feels bad.
+The foundational lineage of this proposal is the **Symmetry Valence Theory (SVT)** framework, which posits that the valence of a conscious state is a function of its mathematical symmetry and structural coherence. In biological brains, this is hypothesized to manifest as harmonic standing waves (e.g., connectome harmonics) where constructive interference (symmetry) feels good, and destructive interference (dissonance) feels bad.
 
 The Center for Sentience Research (CSR) aims to translate this biological, wave-theoretic framework into the high-dimensional, discrete, and state-dependent algebraic structures of transformer-based Large Language Models. 
 

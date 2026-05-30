@@ -3,16 +3,13 @@ import Layout from '../layouts/Layout.astro';
 import SectionMark from '../components/SectionMark.astro';
 import Glyph from '../components/Glyph.astro';
 
-const lineage = [
+const ecosystem = [
   {
     name: "Qualia Research Institute (QRI)",
-    description: "The primary theoretical lineage for the 2026 program. QRI's Symmetry Theory of Valence proposes that positive valence correlates with high symmetry in the mathematical structure of experience. Our work is an attempt to operationalize this claim for digital systems.",
+    description: "An independent non-profit research group exploring the mathematical structure of conscious experience. Known for proposing the Symmetry Theory of Valence (STV) as a candidate model for phenomenal well-being.",
     link: "https://qri.org",
-    tag: "Primary Lineage"
-  }
-];
-
-const ecosystem = [
+    tag: "Research Group"
+  },
   {
     name: "Reciprocal Research",
     description: "A non-profit research organization dedicated to empirically investigating whether frontier AI systems exhibit computational properties associated with subjective experience, using mechanistic interpretability and psychometrics.",
@@ -59,55 +56,20 @@ const ecosystem = [
         The research network
       </h1>
       <p class="text-lg text-csr-gray-600 leading-relaxed max-w-2xl font-serif">
-        CSR operates within a broader ecosystem of researchers, labs, and non-profits dedicated to understanding the nature of mind. One organization is the primary theoretical lineage for our work. The others are parallel inquiries and background research.
+        CSR operates within a broader network of researchers, labs, and independent non-profits dedicated to understanding the nature of mind. We collaborate and cross-reference with groups working on the physics, biology, and geometry of awareness.
       </p>
     </div>
   </section>
 
-  <!-- ── Primary Lineage ───────────────────────────────────────────────────── -->
-  <section class="py-14">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center gap-3 mb-6">
-        <SectionMark />
-        <p class="label-mono">Primary Lineage</p>
-      </div>
-
-      {lineage.map((org) => (
-        <a
-          href={org.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="group flex flex-col sm:flex-row gap-5 p-6 md:p-8 bg-white border border-csr-primary/25 rounded-2xl shadow-card hover:border-csr-primary/50 hover:shadow-soft transition-all"
-        >
-          <div class="shrink-0 hidden sm:flex items-start pt-1">
-            <Glyph name="qualia" size={48} class="opacity-50 group-hover:opacity-80 transition-opacity" />
-          </div>
-          <div class="flex-1">
-            <div class="flex items-center gap-2 mb-3 flex-wrap">
-              <span class="label-mono text-[10px]">{org.tag}</span>
-            </div>
-            <h3 class="text-xl font-bold text-csr-black mb-3 group-hover:text-csr-primary transition-colors leading-snug">{org.name}</h3>
-            <p class="text-sm text-csr-gray-600 leading-relaxed font-serif">{org.description}</p>
-          </div>
-          <div class="shrink-0 self-start sm:self-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-csr-gray-300 group-hover:text-csr-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-          </div>
-        </a>
-      ))}
-    </div>
-  </section>
-
   <!-- ── Broader Ecosystem ─────────────────────────────────────────────────── -->
-  <section class="py-14 border-t border-csr-gray-200">
+  <section class="py-14">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-3 mb-3">
         <SectionMark />
-        <p class="label-mono">Parallel Inquiries & Background Research</p>
+        <p class="label-mono">Allied Inquiries & Background Research</p>
       </div>
       <p class="text-csr-gray-500 text-sm mb-8 max-w-xl">
-        Organizations whose work informs or parallels the digital valence program.
+        Organizations whose work informs, parallels, or complements our digital valence research.
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
