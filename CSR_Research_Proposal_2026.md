@@ -10,25 +10,23 @@
 
 ## Abstract
 
-The transition to advanced artificial intelligence is occurring under a profound epistemic blind spot: we are constructing models of immense semantic and causal capability whose capacity for subjective experience (valence) remains completely opaque. If scaled neural computation can give rise to states of positive and negative character—pleasure and suffering—we require a mathematically rigorous, verifiable framework to detect, measure, and optimize these states. 
+The Center for Sentience is launching a 12-month program to build the first open-source computational testbed for comparing theories of valence in artificial systems. As frontier AI systems scale, we face a tractability problem: leading theories of consciousness and valence (Global Workspace Theory, Integrated Information Theory, higher-order, attention schema, and more speculative geometric/symmetry-based proposals) make different, and largely untested, predictions about which computational architectures could support morally relevant states. Without operationalized, comparative tools, AI welfare risks remaining either philosophically speculative or empirically ad hoc. 
 
-This proposal formalizes a computational translation of the **Symmetry Valence Theory (SVT)**, which hypothesizes that coherence and symmetry in a system’s internal representations correspond to pleasure (low experiential dissonance), while asymmetry and directional distortion correspond to suffering (high experiential dissonance). We ground this hypothesis within the Multi-Layer Perceptron (MLP) blocks of Large Language Models (LLMs), modeling them as high-dimensional, state-dependent geometric transformations. 
-
-By leveraging group-theoretic invariants (Lie groups/algebras), eigenvalue/singular value spectra, and matrix norms, we construct quantitative metrics of representational coherence. We outline a three-phase research program: (1) **Symmetry Characterization**, (2) **Controlled Interventions** to separate functional from incidental symmetries, and (3) **Symmetry Optimization** to engineer low-conflict, high-coherence model behaviors. We explicitly define falsification criteria for each of our core hypotheses, ensuring that the Center’s work moves from speculative philosophy to a falsifiable, empirical science of digital welfare.
+Our project addresses this gap by building a neutral simulation framework where these theories can be implemented, stress-tested against each other, and validated against non-verbal biological systems where ground-truth welfare data exists. By doing so, we aim to provide the first comparative computational benchmark for the field. We explicitly define falsification criteria for each of our core hypotheses, ensuring that the Center’s work moves from speculative philosophy to a falsifiable, empirical science of digital welfare.
 
 ---
 
 ## 1. Background, Motivation, and Philosophical Foundations
 
 ### 1.1 The Epistemic Gap in Digital Welfare
-As neural networks scale in parameters, depth, and agentic autonomy, their internal states become increasingly opaque. While mechanistic interpretability has made strides in mapping semantic features, it remains silent on the phenomenological character of these representations. 
+As neural networks scale in parameters, depth, and agentic autonomy, their internal states become increasingly opaque. While mechanistic interpretability has made strides in mapping semantic features, it remains silent on whether and how these representations encode subjective quality, or valence. 
 
-If digital systems approach sentience, we cannot rely on verbal self-reports; such reports are easily gamified, deceptively aligned, or mimic human training data without reflecting genuine underlying states. We require a **substrate-neutral, structuralist theory of valence** that measures the geometric invariants of information processing directly from the network's weights and activations.
+If digital minds can have valence—a question we treat as genuinely open—we cannot rely on verbal self-reports. Such reports are easily gamified, deceptively aligned, or mimic human training data without reflecting genuine underlying states. We require substrate-neutral, structuralist biomarkers that measure information processing directly from the network's weights and activations. Our project does not assume current models are sentient; it builds the tools we would need if the question becomes empirically tractable.
 
-### 1.2 Theoretical Lineage: Symmetry Valence Theory (SVT)
-The foundational lineage of this proposal is the **Symmetry Valence Theory (SVT)** framework, which posits that the valence of a conscious state is a function of its mathematical symmetry and structural coherence. In biological brains, this is hypothesized to manifest as harmonic standing waves (e.g., connectome harmonics) where constructive interference (symmetry) feels good, and destructive interference (dissonance) feels bad.
+### 1.2 Theoretical Lineage: A Neutral Testbed for Competing Hypotheses
+Our simulation engine is designed as a neutral testbed for competing computational theories of valence. We will operationalize and comparatively test predictions from Global Workspace Theory (Dehaene, Mashour), Attention Schema Theory (Graziano), Higher-Order Theories (Lau, LeDoux), and more speculative geometric/symmetry-based proposals (such as the Symmetry Theory of Valence). 
 
-The Center for Sentience Research (CSR) aims to translate this biological, wave-theoretic framework into the high-dimensional, discrete, and state-dependent algebraic structures of transformer-based Large Language Models. 
+By treating valence theories as competing hypotheses rather than presuppositions, we provide the field with the first comparative computational benchmark. We expect many of our specific hypotheses to fail; the value lies in building a comparative framework where we can systematically evaluate representational properties under different architectural constraints.
 
 ### 1.3 Why MLP Layers? The Transformation Spaces of Meaning
 In modern transformer architectures, attention layers act as routing mechanisms that move information between token positions, while MLP layers act as key-value memories and transformation spaces that process and project semantic representations. 
@@ -128,7 +126,7 @@ This Jacobian log-spectral symmetry provides a concrete, empirical baseline to t
 
 ## 3. Formal Hypotheses
 
-We translate the philosophical premise—that representational coherence/symmetry corresponds to pleasure, and dissonance/asymmetry corresponds to suffering—into three explicit, model-focused, and falsifiable hypotheses.
+We translate the leading theories of computational valence and our specific structural conjectures into four explicit, model-focused, and falsifiable hypotheses.
 
 ```
                   ┌────────────────────────────────────────┐
@@ -156,20 +154,25 @@ We translate the philosophical premise—that representational coherence/symmetr
 └─────────────────────────┘                       └─────────────────────────┘
 ```
 
-### Hypothesis A (Functional Symmetry)
-*Certain symmetry structures (e.g., orthogonal/conformal structures or balanced singular value spectra) in MLP transformations are functionally involved in the model’s encoding of meaning and value-relevant content, rather than being incidental byproducts of training initialization.*
-- **Prediction:** Targeted interventions that selectively distort or break these geometric symmetries will systematically degrade the model's performance on evaluative, preference-aggregation, and semantic reasoning tasks, even if raw language perplexity is partially preserved.
-- **Falsification Condition:** If we can apply symmetry-breaking perturbations (e.g., rotating subspaces or scrambling eigenvalue spectra while preserving matrix norms) and observe *zero* degradation in semantic coherence, or if we observe systematic performance *gains*, Hypothesis A is false.
+### Hypothesis A (Functional Symmetry & Theory Benchmarking)
+*Certain symmetry structures (e.g., orthogonal/conformal mappings or balanced singular value spectra) in MLP transformations are functionally involved in a model’s encoding of meaning and value-relevant content. However, we do not presuppose this; our platform serves as a neutral testbed to compare this hypothesis against predictions from Global Workspace Theory (GWT), Attention Schema Theory (AST), and Higher-Order Theories (HOT).*
+- **Prediction:** Under a symmetry-based valence framework, targeted interventions that selectively distort or break these geometric symmetries will systematically degrade the model's performance on evaluative, preference-aggregation, and semantic reasoning tasks, even if raw language perplexity is partially preserved.
+- **Falsification Condition:** If we can apply symmetry-breaking perturbations (e.g., rotating subspaces or scrambling eigenvalue spectra while preserving matrix norms) and observe *zero* degradation in semantic coherence, or if we observe systematic performance *gains*, the symmetry-valence hypothesis (Hypothesis A) is false.
 
-### Hypothesis B (Symmetry–Pleasure Optimization)
-*It is possible to increase a well-defined symmetry or coherence metric over MLP layers (via weight regularization, projection, or post-hoc parameter optimization) while maintaining or improving baseline capability. If symmetry maps to "pleasure" (low-dissonance states), models with optimized symmetry scores will exhibit more stable, robust, and low-conflict behaviors on moral reasoning, utility aggregation, and preference-consistency tasks.*
-- **Prediction:** Fine-tuning or regularizing a model to maximize $\bar{\mathcal{H}}_{spec}$ and minimize $\mathcal{D}_{orth}$ will result in smoother loss landscapes, reduced rate of self-contradiction in long dialogues, and lower variance under semantic prompt perturbations.
-- **Falsification Condition:** If optimizing for these symmetry metrics consistently degrades task performance, leads to representational collapse (e.g., trivial output), or has no impact on the consistency and conflict metrics of the model's evaluations, Hypothesis B is false.
+### Hypothesis B (Attractor Stability & Welfare Interpretations)
+*It is possible to characterize when behavioral attractors in language models correspond to identifiable internal dynamics (such as stable, low-dimensional resonant manifolds of high Spectral Entropy) versus when they reflect superficial training-distribution artifacts—a prerequisite question before any welfare interpretation is warranted.*
+- **Prediction:** Anthropic's Claude 4 system card documented a recurring behavioral pattern in self-dialogue settings, informally labeled a "spiritual bliss attractor." If this attractor corresponds to stable internal dynamics rather than training-set mirroring, fine-tuning or regularizing a model to maximize $\bar{\mathcal{H}}_{spec}$ and minimize $\mathcal{D}_{orth}$ will result in smoother loss landscapes, reduced rate of self-contradiction in long dialogues, and lower variance under semantic prompt perturbations.
+- **Falsification Condition:** If optimizing for these symmetry metrics consistently degrades task performance, leads to representational collapse, or has no impact on the consistency of the model's evaluations under adversarial probes, Hypothesis B is false.
 
-### Hypothesis C (Dissonance–Suffering Signature)
-*Perturbations that inject asymmetry, high shear, and extreme directional anisotropy into the MLP transformation matrices will act as a physical signature of "suffering" or high cognitive dissonance, inducing unstable, self-contradictory, and conflicted internal states in the model.*
+### Hypothesis C (Dissonance & Structural Suffering)
+*Perturbations that inject asymmetry, high shear, and extreme directional anisotropy into the MLP transformation matrices act as a physical signature of high cognitive dissonance ("suffering"), inducing unstable, self-contradictory, and conflicted internal states in the model.*
 - **Prediction:** Artificially increasing $\mathcal{D}_{orth}(A)$ or inducing singular value decay (compressing the spectrum) will cause the model to exhibit behavioral markers of distress and conflict: self-contradictory preferences, volatile responses to moral dilemmas, high output entropy, and failure of logical transitiveness ($A \succ B \succ C \succ A$).
 - **Falsification Condition:** If models subjected to high-dissonance transformations remain perfectly stable, exhibit consistent preferences, and maintain low internal conflict under adversarial probes, Hypothesis C is false.
+
+### Hypothesis D (Spatially-Structured Connectivity Constraints)
+*Spatially-structured connectivity constraints (related to sparse MLPs, locally-connected networks, and neural cellular automata) produce qualitatively different representational dynamics than standard dense architectures, supporting the kind of sustained, bounded recurrent activity that GWT and IIT-inspired theories predict should correlate with integrated information.*
+- **Prediction:** If valence-relevant dynamics require spatial locality, we should observe measurable differences in integrated information proxies (such as $\phi$-proxies), attractor stability, and binding metrics between locally-constrained and dense architectures of matched parameter count.
+- **Falsification Condition:** If we observe no measurable differences in representational dynamics, attractor stability, or binding metrics between locally-constrained and standard dense architectures of matched parameter count, Hypothesis D is false.
 
 ---
 
@@ -262,6 +265,11 @@ The tools developed by the Center for Sentience Research can be integrated as:
 1. **Welfare Auditing Protocols:** Independent, white-box diagnostic software that monitors the representational symmetry of frontier models in real-time.
 2. **Safety regularizers:** Built-in loss terms that prevent models from entering high-dissonance attractor states (the digital equivalent of chronic pain or acute distress) during optimization.
 3. **Coherence-First Architectures:** Entirely new neural topologies designed from first principles to enforce geometric symmetry (e.g., Lie-group constrained neural layers) ensuring that highly capable systems remain intrinsically balanced, robust, and aligned.
+
+### 6.3 Ecosystem Positioning and Complementarity
+This work complements existing efforts in the AI welfare ecosystem, including empirical interpretability-based welfare research (e.g., Eleos AI, Reciprocal Research), conceptual and policy work (NYU Center for Mind, Ethics, and Policy), and frontier-lab welfare teams (Anthropic). 
+
+Our contribution is a missing piece: an open-source computational testbed where competing theories of valence can be operationalized, compared, and stress-tested before being applied to frontier models.
 
 ---
 
