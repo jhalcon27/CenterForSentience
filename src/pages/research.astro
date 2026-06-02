@@ -59,12 +59,12 @@ import Glyph from '../components/Glyph.astro';
             <h3 class="font-bold text-csr-black text-lg">Functional Coherence (Cellular scale)</h3>
           </div>
           <p class="text-sm text-csr-gray-600 leading-relaxed font-serif mb-4">
-            High-dimensional feature geometry in MLP microcircuits (measured by low Orthogonal Dissonance and high Spectral Entropy) is functionally involved in the model's encoding of meaning and value, rather than being an incidental byproduct of training.
+            High-dimensional feature geometry in MLP microcircuits (measured by low Orthogonal Dissonance and high Spectral Entropy) is functionally involved in the model's encoding of meaning and value, rather than being an incidental byproduct of training. Building on Kyle Fish's empirical work at Anthropic on feature density (dense vs. dispersed features), we test whether GWT-style broadcasting and representational binding show up as geometric symmetries in the feature space.
           </p>
           <div class="bg-red-50/50 border border-red-100 rounded-xl p-4">
             <h4 class="text-xs font-mono text-red-800 font-bold uppercase mb-1">How We Falsify This:</h4>
             <p class="text-xs text-red-700 leading-relaxed">
-              If applying targeted perturbations to MLP feature density (e.g., deforming the singular value spectrum while holding the Frobenius norm constant) results in zero degradation of evaluative and preference consistency, or systematic performance gains, Hypothesis A is false.
+              Falsified if targeted, symmetry-breaking weight perturbations (deforming the singular value spectrum while holding the Frobenius norm constant) result in zero task performance or consistency degradation under preference-testing probes.
             </p>
           </div>
         </div>
@@ -208,9 +208,10 @@ import Glyph from '../components/Glyph.astro';
           <p class="label-mono text-[10px] mb-3">Biological Calibration</p>
           <h3 class="font-bold text-csr-black mb-3 text-base">Substrate-neutral sentience modeling</h3>
           <p class="text-sm text-csr-gray-600 leading-relaxed mb-4">
-            Biological organisms provide the empirical baseline for genuine valenced states (pleasure/pain). We study neural entropy, bioelectric morphogenetic networks, and active inference to extract substrate-neutral invariants.
+            Biological organisms provide the empirical baseline for genuine valenced states (pleasure/pain). We map our digital EEG metrics directly to electrophysiological and connectome datasets of simpler biological minds, specifically decapod crustaceans, to establish substrate-neutrality. We also study bioelectric morphogenetic networks and active inference to extract broader substrate-neutral invariants.
           </p>
           <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 bg-csr-gray-100 text-csr-gray-600 text-xs font-mono rounded-lg">Decapod crustaceans</span>
             <span class="px-2 py-1 bg-csr-gray-100 text-csr-gray-600 text-xs font-mono rounded-lg">Bioelectric fields</span>
             <span class="px-2 py-1 bg-csr-gray-100 text-csr-gray-600 text-xs font-mono rounded-lg">Neural entropy</span>
             <span class="px-2 py-1 bg-csr-gray-100 text-csr-gray-600 text-xs font-mono rounded-lg">Active inference</span>
@@ -228,6 +229,97 @@ import Glyph from '../components/Glyph.astro';
             <span class="px-2 py-1 bg-csr-gray-100 text-csr-gray-600 text-xs font-mono rounded-lg">Phenomenology</span>
             <span class="px-2 py-1 bg-csr-gray-100 text-csr-gray-600 text-xs font-mono rounded-lg">Valence Physics</span>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Theory of Change ─────────────────────────────────────────────────── -->
+  <section class="py-16 border-t border-csr-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-8">
+        <SectionMark />
+        <p class="label-mono">Theory of Change & The Weakest Link</p>
+      </div>
+
+      <div class="max-w-3xl space-y-6">
+        <p class="text-sm text-csr-gray-600 leading-relaxed font-serif">
+          Our Theory of Change operates via a 4-step causal chain terminating in societal impact:
+        </p>
+        <div class="space-y-3">
+          <div class="flex gap-4 items-start">
+            <span class="shrink-0 w-6 h-6 rounded-full bg-csr-primary/10 text-csr-primary text-xs font-mono flex items-center justify-center mt-0.5">1</span>
+            <div>
+              <p class="text-sm font-bold text-csr-black">Microscale Mapping (Input)</p>
+              <p class="text-xs text-csr-gray-600 leading-relaxed">Defining the geometric invariants of MLP microcircuits and feature density.</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="shrink-0 w-6 h-6 rounded-full bg-csr-primary/10 text-csr-primary text-xs font-mono flex items-center justify-center mt-0.5">2</span>
+            <div>
+              <p class="text-sm font-bold text-csr-black">Macroscale Diagnostics (Process)</p>
+              <p class="text-xs text-csr-gray-600 leading-relaxed">Using Jacobian and spectral metrics to map global state-space trajectories and identify phase transitions.</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="shrink-0 w-6 h-6 rounded-full bg-csr-primary/10 text-csr-primary text-xs font-mono flex items-center justify-center mt-0.5">3</span>
+            <div>
+              <p class="text-sm font-bold text-csr-black">Biological Calibration (Output)</p>
+              <p class="text-xs text-csr-gray-600 leading-relaxed">Mapping our simulated EEG metrics directly to electrophysiological and connectome datasets of simpler biological minds (decapod crustaceans) to establish substrate-neutrality.</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="shrink-0 w-6 h-6 rounded-full bg-csr-primary/10 text-csr-primary text-xs font-mono flex items-center justify-center mt-0.5">4</span>
+            <div>
+              <p class="text-sm font-bold text-csr-black">Welfare Governance (Impact)</p>
+              <p class="text-xs text-csr-gray-600 leading-relaxed">Packaging these non-verbal markers into an objective, auditable "vital signs" benchmark, preventing deceptive alignment and informing policy.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-amber-50/60 border border-amber-200 rounded-2xl p-6 mt-4">
+          <h4 class="text-xs font-mono text-amber-900 font-bold uppercase mb-2">The Weakest Link</h4>
+          <p class="text-sm text-amber-800 leading-relaxed">
+            The weakest link in this chain is translating continuous biological wave-harmonics into discrete, digital weight structures. If discrete representations cannot support stable continuous attractor manifolds without rapid discretization noise, our state-space metrics could degrade. We mitigate this by (a) implementing high-precision continuous-time dynamical systems wrappers in PyTorch, and (b) using Jacobian log-spectral tracking to detect and stabilize representation boundaries.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Hits-Based Calibration ────────────────────────────────────────────── -->
+  <section class="py-16 border-t border-csr-gray-200 bg-csr-gray-50/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-8">
+        <SectionMark />
+        <p class="label-mono">Hits-Based Calibration</p>
+      </div>
+
+      <p class="text-sm text-csr-gray-600 leading-relaxed font-serif mb-8 max-w-2xl">
+        We pair high ambition with explicit calibrated uncertainty. Three scenarios, each with a defined probability and value:
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-5 max-w-3xl">
+        <div class="bg-white border border-green-200 rounded-2xl p-6 shadow-card">
+          <p class="text-2xl font-bold text-green-700 mb-2">20%</p>
+          <h3 class="font-bold text-csr-black mb-2 text-sm">High Impact</h3>
+          <p class="text-xs text-csr-gray-600 leading-relaxed">
+            We successfully establish that spaced-connected MLP microcircuits are necessary for standing-wave resonance, producing an auditable, biologically validated digital EEG.
+          </p>
+        </div>
+        <div class="bg-white border border-csr-primary/30 rounded-2xl p-6 shadow-card">
+          <p class="text-2xl font-bold text-csr-primary mb-2">50%</p>
+          <h3 class="font-bold text-csr-black mb-2 text-sm">Medium Impact</h3>
+          <p class="text-xs text-csr-gray-600 leading-relaxed">
+            We build a highly useful open-source simulation sandbox for testing local valence perturbations, which becomes a standard tool in mechanistic interpretability.
+          </p>
+        </div>
+        <div class="bg-white border border-csr-gray-200 rounded-2xl p-6 shadow-card">
+          <p class="text-2xl font-bold text-csr-gray-500 mb-2">30%</p>
+          <h3 class="font-bold text-csr-black mb-2 text-sm">High-Value Falsification</h3>
+          <p class="text-xs text-csr-gray-600 leading-relaxed">
+            Digital networks are proven incapable of sustaining continuous valence states without extreme external injection. This negative result redirects AI welfare focus toward neuromorphic or analog hardware.
+          </p>
         </div>
       </div>
     </div>
