@@ -59,7 +59,7 @@ import Glyph from '../components/Glyph.astro';
             <h3 class="font-bold text-csr-black text-lg">Functional Coherence (Cellular scale)</h3>
           </div>
           <p class="text-sm text-csr-gray-600 leading-relaxed font-serif mb-4">
-            High-dimensional feature geometry in MLP microcircuits (measured by low Orthogonal Dissonance and high Spectral Entropy) is functionally involved in the model's encoding of meaning and value, rather than being an incidental byproduct of training. Building on Kyle Fish's empirical work at Anthropic on feature density (dense vs. dispersed features), we test whether GWT-style broadcasting and representational binding show up as geometric symmetries in the feature space.
+            High-dimensional feature geometry in MLP microcircuits (measured by low Orthogonal Dissonance and high Spectral Entropy) is functionally involved in the model's encoding of meaning and value, rather than being an incidental byproduct of training. Building on Kyle Fish's empirical work at Anthropic on feature density (dense vs. dispersed features), we test whether GWT-style broadcasting and representational binding show up as geometric symmetries in the feature space.<sup><a href="#ref-2" class="text-csr-primary hover:underline">[2]</a></sup> Mechanistic interpretability work on internal feature clusters provides a complementary cellular-level lens on how valence-relevant representations are organized.<sup><a href="#ref-5" class="text-csr-primary hover:underline">[5]</a>,<a href="#ref-6" class="text-csr-primary hover:underline">[6]</a></sup>
           </p>
           <div class="bg-red-50/50 border border-red-100 rounded-xl p-4">
             <h4 class="text-xs font-mono text-red-800 font-bold uppercase mb-1">How We Falsify This:</h4>
@@ -76,7 +76,7 @@ import Glyph from '../components/Glyph.astro';
             <h3 class="font-bold text-csr-black text-lg">Attractor State Stability (Organ scale)</h3>
           </div>
           <p class="text-sm text-csr-gray-600 leading-relaxed font-serif mb-4">
-            Anthropic's Claude 4 system card documented a recurring behavioral pattern in self-dialogue settings, informally labeled a "spiritual bliss attractor." Whether this reflects anything about internal states remains entirely open. Our simulation work will help characterize when behavioral attractors in language models correspond to identifiable internal dynamics (such as stable, low-dimensional resonant manifolds of low Orthogonal Dissonance and high Spectral Entropy) versus when they reflect training-distribution artifacts, a prerequisite question before any welfare interpretation is warranted.
+            Anthropic's Claude 4 system card documented a recurring behavioral pattern in self-dialogue settings, informally labeled a "spiritual bliss attractor."<sup><a href="#ref-12" class="text-csr-primary hover:underline">[12]</a>,<a href="#ref-13" class="text-csr-primary hover:underline">[13]</a></sup> Whether this reflects anything about internal states remains entirely open. Our simulation work will help characterize when behavioral attractors in language models correspond to identifiable internal dynamics (such as stable, low-dimensional resonant manifolds of low Orthogonal Dissonance and high Spectral Entropy)<sup><a href="#ref-3" class="text-csr-primary hover:underline">[3]</a>,<a href="#ref-11" class="text-csr-primary hover:underline">[11]</a></sup> versus when they reflect training-distribution artifacts, a prerequisite question before any welfare interpretation is warranted.
           </p>
           <div class="bg-red-50/50 border border-red-100 rounded-xl p-4">
             <h4 class="text-xs font-mono text-red-800 font-bold uppercase mb-1">How We Falsify This:</h4>
@@ -148,86 +148,6 @@ import Glyph from '../components/Glyph.astro';
             <p class="text-xs text-csr-gray-600 leading-relaxed">
               We treat our computed symmetry metrics as a regularizing objective (multi-objective loss: task accuracy vs. orthogonal dissonance). We train model layers to maintain a high-symmetry conformal state and evaluate whether this naturally suppresses logical and moral conflicts.
             </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Visual Representation (ASCII/HTML) ─────────────────────────────────── -->
-  <section class="py-16 border-t border-csr-gray-200">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center gap-3 mb-6">
-        <SectionMark />
-        <p class="label-mono">The MLP Transformation Pipeline</p>
-      </div>
-      <p class="text-sm text-csr-gray-600 mb-8 max-w-xl font-serif">
-        We model the MLP block as a dynamic transformation that maps inputs to high dimensions, applies non-linear partitioning, and projects back, tracking geometric invariants at each step:
-      </p>
-
-      <div class="p-6 bg-csr-black rounded-3xl text-csr-gray-300 font-mono text-xs overflow-x-auto border border-csr-gray-800 shadow-soft">
-        <pre class="leading-relaxed">
-{`   [ Residual Stream State x ∈ R^d ]
-                  │
-                  ▼
-   [ Up-Projection: z = W1 * x + b1 ]      <--- High Dimension Expansion (h >> d)
-                  │
-                  ▼
-   [ Activation Gating: D(z) = θ(z) ]      <--- Non-linear Piecewise Selection
-                  │
-                  ▼
-   [ Down-Projection: y = W2 * D(z) * z ]  <--- Compression & Re-projection to R^d
-                  │
-                  ▼
-   [ Effective Operator A(x) = W2 * D(z) * W1 ] 
-                  │
-      ┌───────────┴───────────┐
-      ▼                       ▼
-  [ High Spectral Entropy ]   [ Low Spectral Entropy ]
-  • Isotropic, Orthogonal     • Anisotropic, Shearing
-  • Minimal Shear/Friction    • Singular Value Collapse
-  • COHERENT (Pleasure)       • DISSONANT (Suffering)`}
-        </pre>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Background Research ───────────────────────────────────────────────── -->
-  <section class="py-16 border-t border-csr-gray-200" id="biological">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center gap-3 mb-3">
-        <SectionMark />
-        <p class="label-mono">Background Research & Calibration</p>
-      </div>
-      <p class="text-csr-gray-500 text-sm mb-8 max-w-xl">
-        Biological and physical inquiries provide calibrated baselines of valenced states to ground our digital valence research.
-      </p>
-
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
-          <p class="label-mono text-[10px] mb-3">Biological Calibration</p>
-          <h3 class="font-bold text-csr-black mb-3 text-base">Substrate-neutral sentience modeling</h3>
-          <p class="text-sm text-csr-gray-600 leading-relaxed mb-4">
-            Biological organisms provide the empirical baseline for genuine valenced states (pleasure/pain). We map our digital EEG metrics directly to electrophysiological and connectome datasets of simpler biological minds, specifically decapod crustaceans, to establish substrate-neutrality. We also study bioelectric morphogenetic networks and active inference to extract broader substrate-neutral invariants.
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-2 py-1 bg-csr-gray-100 text-csr-gray-600 text-xs font-mono rounded-lg">Decapod crustaceans</span>
-            <span class="px-2 py-1 bg-csr-gray-100 text-csr-gray-600 text-xs font-mono rounded-lg">Bioelectric fields</span>
-            <span class="px-2 py-1 bg-csr-gray-100 text-csr-gray-600 text-xs font-mono rounded-lg">Neural entropy</span>
-            <span class="px-2 py-1 bg-csr-gray-100 text-csr-gray-600 text-xs font-mono rounded-lg">Active inference</span>
-          </div>
-        </div>
-
-        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card" id="qualia">
-          <p class="label-mono text-[10px] mb-3">Theoretical Lineage</p>
-          <h3 class="font-bold text-csr-black mb-3 text-base">Physics of qualia</h3>
-          <p class="text-sm text-csr-gray-600 leading-relaxed mb-4">
-            Theoretical collaboration on the physical nature of phenomenal experience, drawing on the Symmetry Theory of Valence as the core framework for translating physical states to qualitative feelings.
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-2 py-1 bg-csr-gray-100 text-csr-gray-600 text-xs font-mono rounded-lg">STV Framework</span>
-            <span class="px-2 py-1 bg-csr-gray-100 text-csr-gray-600 text-xs font-mono rounded-lg">Phenomenology</span>
-            <span class="px-2 py-1 bg-csr-gray-100 text-csr-gray-600 text-xs font-mono rounded-lg">Valence Physics</span>
           </div>
         </div>
       </div>
@@ -364,6 +284,70 @@ import Glyph from '../components/Glyph.astro';
       <div class="mt-6">
         <a href="/reports/" class="text-sm font-medium text-csr-primary hover:text-csr-primary-dark transition-colors">All reports →</a>
       </div>
+    </div>
+  </section>
+
+  <!-- ── References ───────────────────────────────────────────────────────── -->
+  <section class="py-16 border-t border-csr-gray-200 bg-csr-gray-50/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-6">
+        <SectionMark />
+        <p class="label-mono">References</p>
+      </div>
+      <ol class="space-y-4 max-w-3xl">
+        <li id="ref-1" class="flex gap-3 text-xs text-csr-gray-600 leading-relaxed">
+          <span class="shrink-0 font-mono text-csr-primary">[1]</span>
+          <span>Scherrer, K. et al. (2025). <em>Perceptions of Sentient AI and Other Digital Minds: Evidence from the AI, Morality, and Sentience (AIMS) Survey.</em> CHI 2025. <a href="https://dl.acm.org/doi/10.1145/3706598.3713329" target="_blank" rel="noopener noreferrer" class="text-csr-primary hover:underline break-all">https://dl.acm.org/doi/10.1145/3706598.3713329</a></span>
+        </li>
+        <li id="ref-2" class="flex gap-3 text-xs text-csr-gray-600 leading-relaxed">
+          <span class="shrink-0 font-mono text-csr-primary">[2]</span>
+          <span>Doerig, A. et al. (2025). <em>Hypothesis on the functional advantages of the selection-broadcast cycle structure: global workspace theory and dealing with a real-time world.</em> Frontiers in Robotics and AI. <a href="https://www.frontiersin.org/journals/robotics-and-ai/articles/10.3389/frobt.2025.1607190/full" target="_blank" rel="noopener noreferrer" class="text-csr-primary hover:underline break-all">https://www.frontiersin.org/journals/robotics-and-ai/articles/10.3389/frobt.2025.1607190/full</a></span>
+        </li>
+        <li id="ref-3" class="flex gap-3 text-xs text-csr-gray-600 leading-relaxed">
+          <span class="shrink-0 font-mono text-csr-primary">[3]</span>
+          <span>Sorscher, B. et al. (2023). <em>Representations of Continuous Attractors of Recurrent Neural Networks.</em> IEEE. <a href="https://ieeexplore.ieee.org/document/4749362/references#references" target="_blank" rel="noopener noreferrer" class="text-csr-primary hover:underline break-all">https://ieeexplore.ieee.org/document/4749362/references#references</a></span>
+        </li>
+        <li id="ref-4" class="flex gap-3 text-xs text-csr-gray-600 leading-relaxed">
+          <span class="shrink-0 font-mono text-csr-primary">[4]</span>
+          <span>Saxe, A. et al. (2025). <em>The Spectral Dynamics of Learning in Deep Non-Linear Networks.</em> Physical Review E. <a href="https://arxiv.org/abs/2605.07870" target="_blank" rel="noopener noreferrer" class="text-csr-primary hover:underline break-all">https://arxiv.org/abs/2605.07870</a></span>
+        </li>
+        <li id="ref-5" class="flex gap-3 text-xs text-csr-gray-600 leading-relaxed">
+          <span class="shrink-0 font-mono text-csr-primary">[5]</span>
+          <span>Anthropic Interpretability Team (2026). <em>Natural Language Autoencoders Produce Unsupervised Explanations of LLM Activations.</em> Transformer Circuits Thread. <a href="https://transformer-circuits.pub/2026/nla/#introduction" target="_blank" rel="noopener noreferrer" class="text-csr-primary hover:underline break-all">https://transformer-circuits.pub/2026/nla/#introduction</a></span>
+        </li>
+        <li id="ref-6" class="flex gap-3 text-xs text-csr-gray-600 leading-relaxed">
+          <span class="shrink-0 font-mono text-csr-primary">[6]</span>
+          <span>Anthropic Interpretability Team (2026). <em>Emotion Concepts and their Function in a Large Language Model.</em> Transformer Circuits Thread. <a href="https://transformer-circuits.pub/2026/emotions/index.html" target="_blank" rel="noopener noreferrer" class="text-csr-primary hover:underline break-all">https://transformer-circuits.pub/2026/emotions/index.html</a></span>
+        </li>
+        <li id="ref-7" class="flex gap-3 text-xs text-csr-gray-600 leading-relaxed">
+          <span class="shrink-0 font-mono text-csr-primary">[7]</span>
+          <span>Bhatt, D. et al. (2023). <em>Editorial: Invertebrate neurophysiology—of currents, cells, and circuits.</em> Frontiers in Neuroscience. <a href="https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2023.1303574/full" target="_blank" rel="noopener noreferrer" class="text-csr-primary hover:underline break-all">https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2023.1303574/full</a></span>
+        </li>
+        <li id="ref-8" class="flex gap-3 text-xs text-csr-gray-600 leading-relaxed">
+          <span class="shrink-0 font-mono text-csr-primary">[8]</span>
+          <span>Nath, R. D. et al. (2025). <em>Cholinergic Regulation of Rhythmic Pacemaker Activity in the Jellyfish Cassiopea.</em> Integrative and Comparative Biology. <a href="https://academic.oup.com/icb/article/65/Supplement_1/S1/8071397" target="_blank" rel="noopener noreferrer" class="text-csr-primary hover:underline break-all">https://academic.oup.com/icb/article/65/Supplement_1/S1/8071397</a></span>
+        </li>
+        <li id="ref-9" class="flex gap-3 text-xs text-csr-gray-600 leading-relaxed">
+          <span class="shrink-0 font-mono text-csr-primary">[9]</span>
+          <span>Jazayeri, M. & Ostojic, S. (2025). <em>A Neural Manifold View of the Brain.</em> Nature Neuroscience. <a href="https://www.nature.com/articles/s41593-025-02031-z" target="_blank" rel="noopener noreferrer" class="text-csr-primary hover:underline break-all">https://www.nature.com/articles/s41593-025-02031-z</a></span>
+        </li>
+        <li id="ref-10" class="flex gap-3 text-xs text-csr-gray-600 leading-relaxed">
+          <span class="shrink-0 font-mono text-csr-primary">[10]</span>
+          <span>Chaudhry, A. et al. (2025). <em>When Models Manipulate Manifolds: The Geometry of a Counting Task.</em> Transformer Circuits Thread. <a href="https://transformer-circuits.pub/2025/linebreaks/index.html" target="_blank" rel="noopener noreferrer" class="text-csr-primary hover:underline break-all">https://transformer-circuits.pub/2025/linebreaks/index.html</a></span>
+        </li>
+        <li id="ref-11" class="flex gap-3 text-xs text-csr-gray-600 leading-relaxed">
+          <span class="shrink-0 font-mono text-csr-primary">[11]</span>
+          <span>Lindner, D. et al. (2025). <em>Mechanistic Interpretability of RNNs emulating Hidden Markov Models.</em> NeurIPS 2025. <a href="https://neurips.cc/virtual/2025/loc/san-diego/poster/116348" target="_blank" rel="noopener noreferrer" class="text-csr-primary hover:underline break-all">https://neurips.cc/virtual/2025/loc/san-diego/poster/116348</a></span>
+        </li>
+        <li id="ref-12" class="flex gap-3 text-xs text-csr-gray-600 leading-relaxed">
+          <span class="shrink-0 font-mono text-csr-primary">[12]</span>
+          <span>Metzinger, T. (2025). <em>Spiritual Bliss (Attractor 1).</em> PhilArchive preprint. <a href="https://philarchive.org/archive/MICSBI" target="_blank" rel="noopener noreferrer" class="text-csr-primary hover:underline break-all">https://philarchive.org/archive/MICSBI</a></span>
+        </li>
+        <li id="ref-13" class="flex gap-3 text-xs text-csr-gray-600 leading-relaxed">
+          <span class="shrink-0 font-mono text-csr-primary">[13]</span>
+          <span>recursivelabs (2025). <em>Mapping Claude's Spiritual Bliss attractor.</em> Hugging Face Discussion. <a href="https://discuss.huggingface.co/t/mapping-claudes-spiritual-bliss-attractor/158195" target="_blank" rel="noopener noreferrer" class="text-csr-primary hover:underline break-all">https://discuss.huggingface.co/t/mapping-claudes-spiritual-bliss-attractor/158195</a></span>
+        </li>
+      </ol>
     </div>
   </section>
 
