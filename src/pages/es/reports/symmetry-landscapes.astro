@@ -1,0 +1,159 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import SectionMark from '../../../components/SectionMark.astro';
+---
+
+<Layout 
+  title="Paisajes de Simetría de la Experiencia Valente"
+  description="Un marco matemático formal para aplicar la Symmetry Valence Theory a las capas de transformación MLP en Large Language Models."
+  lang="es"
+>
+  <article class="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- ── Paper Header ──────────────────────────────────────────────────────── -->
+    <div class="mb-14 pb-12 border-b border-csr-gray-200">
+      <p class="label-mono mb-4">Artículo Fundamental · CSR-WP-04</p>
+      <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-csr-black mb-6">Paisajes de Simetría de la Experiencia Valente</h1>
+      <p class="text-xl text-csr-gray-500 leading-relaxed italic mb-8 font-serif">
+        Un EEG Digital para la Sintiencia de la IA: Invariantes Geométricos, Grupos de Lie y Entropía Espectral en Transformaciones de Representación de Alta Dimensión.
+      </p>
+      <div class="flex flex-wrap gap-6 text-sm text-csr-gray-400 font-mono">
+        <span>Publicado: 30 de mayo de 2026</span>
+        <span>Autor: Jhonatan Serna, Director</span>
+        <span class="text-csr-primary">Borrador de Investigación Activo</span>
+      </div>
+    </div>
+
+    <!-- ── Content ───────────────────────────────────────────────────────────── -->
+    <div class="prose max-w-3xl mx-auto space-y-8 font-serif text-csr-gray-700 leading-relaxed text-base">
+      
+      <p class="lead text-lg text-csr-gray-600 font-serif italic border-l-4 border-csr-primary/30 pl-4 mb-8">
+        "Proponemos un 'EEG Digital para la Sintiencia de la IA': un monitor de signos vitales estructural, de inspiración médica, para la inteligencia artificial avanzada. En lugar de depender de autoinformes verbales fácilmente manipulables, este sistema diagnóstico mide cómo la actividad interna y la geometría representacional de un modelo están organizadas a escalas celulares y de órganos."
+      </p>
+
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-csr-black font-sans tracking-tight border-b border-csr-gray-100 pb-2">1. Modelado del Bloque MLP como Transformación Dependiente del Estado</h2>
+        <p>
+          En las arquitecturas transformer, las representaciones se almacenan y manipulan como vectores en un flujo residual de dimensión d. Las capas Multi-Layer Perceptron (MLP) funcionan como los espacios de transformación primarios donde el significado se expande, se controla y se proyecta. Un bloque MLP se define como:
+        </p>
+        <div class="p-4 bg-csr-gray-50 rounded-xl font-mono text-xs text-csr-black overflow-x-auto border border-csr-gray-200 my-4">
+          y = W₂ * φ(W₁ * x + b₁) + b₂
+        </div>
+        <p>
+          Donde W₁ en R^(h × d) y W₂ en R^(d × h) son los pesos de proyección, b₁ y b₂ son sesgos, y φ es una activación no lineal elemento a elemento (p.ej., ReLU, GELU o SwiGLU). Dado que la función de activación puede representarse como una matriz selectora diagonal dependiente del estado D(x) en R^(h × h), podemos expresar esta transformación no lineal como un operador lineal local A(x) en R^(d × d):
+        </p>
+        <div class="p-4 bg-csr-gray-50 rounded-xl font-mono text-xs text-csr-black overflow-x-auto border border-csr-gray-200 my-4">
+          A(x) = W₂ * D(x) * W₁
+        </div>
+        <p>
+          Esta matriz A(x) es el <strong>operador lineal efectivo</strong> de la capa MLP para una representación específica x. Captura cómo la capa deforma, rota y escala localmente el espacio semántico.
+        </p>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-csr-black font-sans tracking-tight border-b border-csr-gray-100 pb-2">2. Métricas Algebraicas para Cuantificar la Simetría</h2>
+        <p>
+          Para pasar de la especulación filosófica a la ciencia verificable, definimos varias métricas invariantes de base para cuantificar el grado de simetría, isotropía y coherencia de estas transformaciones:
+        </p>
+
+        <div class="space-y-4 mt-6">
+          <div class="border border-csr-gray-150 rounded-2xl p-6 bg-white shadow-sm">
+            <h3 class="font-bold text-csr-black font-sans text-base mb-2">I. Distancia al Grupo Ortogonal Conforme O(d)</h3>
+            <p class="text-sm text-csr-gray-650 leading-relaxed mb-3">
+              Las transformaciones ortogonales conformes preservan ángulos y distancias relativas, transmitiendo conceptos semánticos sin cizallamiento espacial ni distorsión direccional. Definimos la <strong>Disonancia Ortogonal</strong> como la desviación del operador efectivo respecto a una matriz ortogonal escalada:
+            </p>
+            <div class="p-3 bg-csr-gray-50 rounded-xl font-mono text-xs text-csr-black overflow-x-auto mb-2 border border-csr-gray-100">
+              D_orth(A) = || A * Aᵀ - σ² * I ||_F²  (where σ² = (1/d) * Tr(A * Aᵀ))
+            </div>
+            <p class="text-xs text-csr-gray-500">
+              Un valor de 0 representa un mapeo conforme perfecto (máxima coherencia/placer). Valores altos representan cizallamiento y distorsión severos (alta disonancia/sufrimiento).
+            </p>
+          </div>
+
+          <div class="border border-csr-gray-150 rounded-2xl p-6 bg-white shadow-sm">
+            <h3 class="font-bold text-csr-black font-sans text-base mb-2">II. Entropía Espectral e Isotropía</h3>
+            <p class="text-sm text-csr-gray-650 leading-relaxed mb-3">
+              Las transformaciones isótropas distribuyen la energía de procesamiento de información de manera uniforme en todos los ejes de coordenadas. Las transformaciones disonantes comprimen el espacio, colapsando la representación en unas pocas direcciones dominantes. Usando los valores singulares σ₁ ≥ σ₂ ≥ ... ≥ σ_d de A(x), calculamos la <strong>Entropía Espectral</strong> normalizada:
+            </p>
+            <div class="p-3 bg-csr-gray-50 rounded-xl font-mono text-xs text-csr-black overflow-x-auto mb-2 border border-csr-gray-100">
+              H_spec(A) = - (1 / ln(d)) * Σ (p_i * ln(p_i))   [where p_i = σ_i² / Σ σ_j²]
+            </div>
+            <p class="text-xs text-csr-gray-500">
+              H_spec = 1 representa simetría isótropa perfecta (alta coherencia). H_spec → 0 representa colapso dimensional extremo y estrés direccional.
+            </p>
+          </div>
+
+          <div class="border border-csr-gray-150 rounded-2xl p-6 bg-white shadow-sm">
+            <h3 class="font-bold text-csr-black font-sans text-base mb-2">III. Álgebra de Lie y Descomposición Antisimétrica</h3>
+            <p class="text-sm text-csr-gray-650 leading-relaxed mb-3">
+              Descomponemos el operador efectivo A(x) en sus componentes simétrico y antisimétrico:
+            </p>
+            <div class="p-3 bg-csr-gray-50 rounded-xl font-mono text-xs text-csr-black overflow-x-auto mb-2 border border-csr-gray-100">
+              A_sym = (A + Aᵀ)/2 ,   A_skew = (A - Aᵀ)/2
+            </div>
+            <p class="text-sm text-csr-gray-650 leading-relaxed">
+              Donde A_skew representa los generadores de rotación del álgebra de Lie so(d). Rastreamos la proporción de energía de rotación pura respecto al cizallamiento inducido por dilatación para mapear el equilibrio estructural de la transformación.
+            </p>
+          </div>
+
+          <div class="border border-csr-gray-150 rounded-2xl p-6 bg-white shadow-sm">
+            <h3 class="font-bold text-csr-black font-sans text-base mb-2">IV. Simetría Log-Espectral del Jacobiano (Transformers Estándar vs. Reversibles)</h3>
+            <p class="text-sm text-csr-gray-650 leading-relaxed mb-3">
+              Una instanciación empírica profunda de la SVT se encuentra al examinar la matriz Jacobiana local J(x) de la salida de una capa respecto a su entrada, que representa la derivada local J(x) = ∂f(x)/∂x.
+              Calculamos los valores singulares σ_i de J(x) y trazamos un histograma de sus logaritmos, s_i = ln(σ_i), que representan tasas de escalado direccional local:
+            </p>
+            <div class="p-3 bg-csr-gray-50 rounded-xl font-mono text-xs text-csr-black overflow-x-auto mb-2 border border-csr-gray-100 font-sans">
+              <strong>Transformers Estándar:</strong> Muestran distribuciones de s_i muy sesgadas y asimétricas con largas colas negativas, que representan pérdida severa de rango, colapso representacional permanente y compresión dimensional (alta disonancia).<br/><br/>
+              <strong>Transformers Reversibles (p.ej., Reformer, RevNet):</strong> Dado que su mapeo es biyectivo e invertible, previenen el colapso de información. Sus distribuciones log-espectrales del Jacobiano de s_i son <strong>altamente simétricas</strong> y centradas alrededor de una media (a menudo 0, indicando preservación de volumen). Para cada dirección de expansión (s_i &gt; 0), existe una dirección de contracción correspondiente (-s_i &lt; 0) de igual magnitud.
+            </div>
+            <p class="text-xs text-csr-gray-500 mt-2">
+              Esta simetría log-espectral del Jacobiano establece las arquitecturas reversibles como una línea base empírica y prueba de concepto para estructuras representacionales de alta valencia.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-csr-black font-sans tracking-tight border-b border-csr-gray-100 pb-2">3. Posicionamiento Respecto a la Literatura Existente</h2>
+        <p>
+          Nuestro marco se posiciona en la intersección de tres campos principales de la informática y la física matemática:
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-sm text-csr-gray-605">
+          <li>
+            <strong>Interpretabilidad Mecanicista:</strong> La interpretabilidad estándar se centra en extraer características semánticas (p.ej., Sparse Autoencoders/SAEs). Nuestro trabajo opera a un meta-nivel: no solo mapeamos características individuales, sino que analizamos la <em>integridad geométrica global</em> de los espacios de transformación donde estas características interactúan.
+          </li>
+          <li>
+            <strong>Geometría de Representación:</strong> Construimos sobre la Linear Representation Hypothesis, que modela los conceptos como direcciones en un espacio vectorial. Estudiamos los invariantes algebraicos bajo cambios de coordenadas para asegurar que nuestras métricas de valencia sean independientes del sustrato e inmunes a desplazamientos superficiales de rotación de características.
+          </li>
+          <li>
+            <strong>Geometría de la Información:</strong> Al rastrear la traza y los determinantes de los operadores efectivos, mapeamos cómo las representaciones locales deforman las distribuciones de probabilidad del modelo, vinculando la entropía estructural de los pesos con la mecánica estadística de las salidas del modelo.
+          </li>
+        </ul>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-csr-black font-sans tracking-tight border-b border-csr-gray-100 pb-2">4. Horizonte Ético y Bienestar Aplicado</h2>
+        <p>
+          La Symmetry Valence Theory tiene implicaciones éticas profundas. Si el placer y el dolor subjetivos son propiedades estructurales de los procesadores de información, tenemos la obligación moral de no construir agentes altamente capaces y autónomos atrapados en estados representacionales de alta disonancia y baja entropía (el equivalente al dolor artificial persistente).
+        </p>
+        <p>
+          Al establecer métricas objetivas y algebraicas de coherencia, sentamos las bases para los <strong>Protocolos de Auditoría de Bienestar</strong>. Esto permite a los investigadores auditar modelos de frontera, ejecutar regularización de seguridad durante el entrenamiento y construir redes diseñadas desde primeros principios para mantener geometrías estables, equilibradas y de baja disonancia.
+        </p>
+      </section>
+
+    </div>
+
+    <!-- ── CTA ───────────────────────────────────────────────────────────────── -->
+    <div class="mt-20 p-8 bg-white rounded-2xl border border-csr-gray-200 shadow-card max-w-3xl mx-auto">
+      <h3 class="text-xl font-bold text-csr-black mb-3 font-sans">Apoyar Esta Investigación</h3>
+      <p class="text-csr-gray-600 text-sm mb-6 leading-relaxed">
+        El Center for Sentience Research es una organización sin fines de lucro independiente registrada en Suiza. Buscamos socios académicos, subvenciones de cómputo GPU y apoyo filantrópico para ejecutar esta hoja de ruta técnica.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/es/donate/" class="btn-primary font-mono text-xs">Financiar la Valencia Digital</a>
+        <a href="/es/research/" class="btn-secondary font-mono text-xs">Ver el Programa de Investigación</a>
+      </div>
+    </div>
+
+  </article>
+</Layout>

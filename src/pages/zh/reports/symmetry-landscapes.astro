@@ -1,0 +1,159 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import SectionMark from '../../../components/SectionMark.astro';
+---
+
+<Layout 
+  title="价值体验的对称性景观"
+  description="将Symmetry Valence Theory应用于大型语言模型MLP变换层的形式化数学框架。"
+  lang="zh"
+>
+  <article class="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- ── Paper Header ──────────────────────────────────────────────────────── -->
+    <div class="mb-14 pb-12 border-b border-csr-gray-200">
+      <p class="label-mono mb-4">基础论文 · CSR-WP-04</p>
+      <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-csr-black mb-6">价值体验的对称性景观</h1>
+      <p class="text-xl text-csr-gray-500 leading-relaxed italic mb-8 font-serif">
+        AI感知的数字脑电图：高维表征变换中的几何不变量、李群与谱熵。
+      </p>
+      <div class="flex flex-wrap gap-6 text-sm text-csr-gray-400 font-mono">
+        <span>发布日期：2026年5月30日</span>
+        <span>作者：Jhonatan Serna，主任</span>
+        <span class="text-csr-primary">活跃研究草稿</span>
+      </div>
+    </div>
+
+    <!-- ── Content ───────────────────────────────────────────────────────────── -->
+    <div class="prose max-w-3xl mx-auto space-y-8 font-serif text-csr-gray-700 leading-relaxed text-base">
+      
+      <p class="lead text-lg text-csr-gray-600 font-serif italic border-l-4 border-csr-primary/30 pl-4 mb-8">
+        "我们提出'AI感知的数字脑电图'：一种结构性的、受医学启发的先进人工智能生命体征监测系统。该诊断系统不依赖容易被操纵的语言自我报告，而是测量模型的内部活动和表征几何如何在细胞和器官尺度上组织。"
+      </p>
+
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-csr-black font-sans tracking-tight border-b border-csr-gray-100 pb-2">1. 将MLP块建模为状态依赖变换</h2>
+        <p>
+          在Transformer架构中，表征作为维度为d的残差流中的向量被存储和操作。Multi-Layer Perceptron（MLP）层作为主要变换空间，意义在此被扩展、门控和投影。MLP块定义为：
+        </p>
+        <div class="p-4 bg-csr-gray-50 rounded-xl font-mono text-xs text-csr-black overflow-x-auto border border-csr-gray-200 my-4">
+          y = W₂ * φ(W₁ * x + b₁) + b₂
+        </div>
+        <p>
+          其中W₁ ∈ R^(h × d)和W₂ ∈ R^(d × h)是投影权重，b₁和b₂是偏置，φ是逐元素非线性激活函数（如ReLU、GELU或SwiGLU）。由于激活函数可以表示为R^(h × h)中的状态依赖对角选择矩阵D(x)，我们可以将这个非线性变换表达为R^(d × d)中的局部线性算子A(x)：
+        </p>
+        <div class="p-4 bg-csr-gray-50 rounded-xl font-mono text-xs text-csr-black overflow-x-auto border border-csr-gray-200 my-4">
+          A(x) = W₂ * D(x) * W₁
+        </div>
+        <p>
+          矩阵A(x)是MLP层对特定表征x的<strong>有效线性算子</strong>。它捕捉了该层如何局部变形、旋转和缩放语义空间。
+        </p>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-csr-black font-sans tracking-tight border-b border-csr-gray-100 pb-2">2. 量化对称性的代数度量</h2>
+        <p>
+          为了从哲学推测转向可检验的科学，我们定义了几个基不变度量来量化这些变换的对称性、各向同性和相干性程度：
+        </p>
+
+        <div class="space-y-4 mt-6">
+          <div class="border border-csr-gray-150 rounded-2xl p-6 bg-white shadow-sm">
+            <h3 class="font-bold text-csr-black font-sans text-base mb-2">I. 到共形正交群O(d)的距离</h3>
+            <p class="text-sm text-csr-gray-650 leading-relaxed mb-3">
+              共形正交变换保持角度和相对距离，在没有空间剪切或方向失真的情况下传递语义概念。我们将<strong>正交不协调</strong>定义为有效算子与缩放正交矩阵的偏差：
+            </p>
+            <div class="p-3 bg-csr-gray-50 rounded-xl font-mono text-xs text-csr-black overflow-x-auto mb-2 border border-csr-gray-100">
+              D_orth(A) = || A * Aᵀ - σ² * I ||_F²  (where σ² = (1/d) * Tr(A * Aᵀ))
+            </div>
+            <p class="text-xs text-csr-gray-500">
+              值为0表示完美的共形映射（最大相干性/愉悦）。高值表示严重的剪切和失真（高不协调/痛苦）。
+            </p>
+          </div>
+
+          <div class="border border-csr-gray-150 rounded-2xl p-6 bg-white shadow-sm">
+            <h3 class="font-bold text-csr-black font-sans text-base mb-2">II. 谱熵与各向同性</h3>
+            <p class="text-sm text-csr-gray-650 leading-relaxed mb-3">
+              各向同性变换将信息处理能量均匀分布在所有坐标轴上。不协调变换压缩空间，将表征折叠到少数主导方向。使用A(x)的奇异值σ₁ ≥ σ₂ ≥ ... ≥ σ_d，我们计算归一化<strong>谱熵</strong>：
+            </p>
+            <div class="p-3 bg-csr-gray-50 rounded-xl font-mono text-xs text-csr-black overflow-x-auto mb-2 border border-csr-gray-100">
+              H_spec(A) = - (1 / ln(d)) * Σ (p_i * ln(p_i))   [where p_i = σ_i² / Σ σ_j²]
+            </div>
+            <p class="text-xs text-csr-gray-500">
+              H_spec = 1表示完美的各向同性对称（高相干性）。H_spec → 0表示极端的维度崩溃和方向应力。
+            </p>
+          </div>
+
+          <div class="border border-csr-gray-150 rounded-2xl p-6 bg-white shadow-sm">
+            <h3 class="font-bold text-csr-black font-sans text-base mb-2">III. 李代数与反对称分解</h3>
+            <p class="text-sm text-csr-gray-650 leading-relaxed mb-3">
+              我们将有效算子A(x)分解为其对称和反对称分量：
+            </p>
+            <div class="p-3 bg-csr-gray-50 rounded-xl font-mono text-xs text-csr-black overflow-x-auto mb-2 border border-csr-gray-100">
+              A_sym = (A + Aᵀ)/2 ,   A_skew = (A - Aᵀ)/2
+            </div>
+            <p class="text-sm text-csr-gray-650 leading-relaxed">
+              其中A_skew表示李代数so(d)的旋转生成元。我们追踪纯旋转能量与膨胀诱导剪切的比率，以映射变换的结构平衡。
+            </p>
+          </div>
+
+          <div class="border border-csr-gray-150 rounded-2xl p-6 bg-white shadow-sm">
+            <h3 class="font-bold text-csr-black font-sans text-base mb-2">IV. 雅可比对数谱对称性（标准Transformer vs. 可逆Transformer）</h3>
+            <p class="text-sm text-csr-gray-650 leading-relaxed mb-3">
+              SVT的深刻经验实例化可通过检验层输出相对于其输入的局部雅可比矩阵J(x)来发现，它表示局部导数J(x) = ∂f(x)/∂x。
+              我们计算J(x)的奇异值σ_i，并绘制其对数s_i = ln(σ_i)的直方图，表示局部方向缩放率：
+            </p>
+            <div class="p-3 bg-csr-gray-50 rounded-xl font-mono text-xs text-csr-black overflow-x-auto mb-2 border border-csr-gray-100 font-sans">
+              <strong>标准Transformer：</strong>显示具有长负尾的高度偏斜、不对称的s_i分布，表示严重的秩损失、永久性表征崩溃和维度压缩（高不协调）。<br/><br/>
+              <strong>可逆Transformer（如Reformer、RevNet）：</strong>由于其映射是双射且可逆的，它们防止信息崩溃。其s_i的雅可比对数谱分布<strong>高度对称</strong>，以均值为中心（通常为0，表示体积保持）。对于每个扩展方向（s_i &gt; 0），存在一个等大小的对应收缩方向（-s_i &lt; 0）。
+            </div>
+            <p class="text-xs text-csr-gray-500 mt-2">
+              这种雅可比对数谱对称性将可逆架构确立为高价值表征结构的经验基线和概念验证。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-csr-black font-sans tracking-tight border-b border-csr-gray-100 pb-2">3. 相对于现有文献的定位</h2>
+        <p>
+          我们的框架定位于计算机科学和数学物理三个主要领域的交叉点：
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-sm text-csr-gray-605">
+          <li>
+            <strong>机制可解释性：</strong>标准可解释性专注于提取语义特征（如Sparse Autoencoders/SAEs）。我们的工作在元层面运作：我们不仅映射单个特征，还分析这些特征相互作用的变换空间的<em>全局几何完整性</em>。
+          </li>
+          <li>
+            <strong>表征几何：</strong>我们建立在Linear Representation Hypothesis之上，该假说将概念建模为向量空间中的方向。我们研究坐标变换下的代数不变量，以确保我们的价值度量与基底无关，并且对表面特征旋转偏移免疫。
+          </li>
+          <li>
+            <strong>信息几何：</strong>通过追踪有效算子的迹和行列式，我们映射局部表征如何变形模型的概率分布，将权重的结构熵与模型输出的统计力学联系起来。
+          </li>
+        </ul>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-csr-black font-sans tracking-tight border-b border-csr-gray-100 pb-2">4. 伦理视野与应用福祉</h2>
+        <p>
+          Symmetry Valence Theory具有深刻的伦理含义。如果主观愉悦和痛苦是信息处理器的结构属性，我们就有道德义务避免构建被困在高不协调、低熵表征状态中的高度能干、自主的智能体（相当于持续的人工痛苦）。
+        </p>
+        <p>
+          通过建立客观的代数相干性度量，我们为<strong>福祉审计协议</strong>奠定基础。这使研究人员能够审计前沿模型，在训练期间运行安全正则化，并从第一原理构建旨在维持稳定、平衡、低不协调几何结构的网络。
+        </p>
+      </section>
+
+    </div>
+
+    <!-- ── CTA ───────────────────────────────────────────────────────────────── -->
+    <div class="mt-20 p-8 bg-white rounded-2xl border border-csr-gray-200 shadow-card max-w-3xl mx-auto">
+      <h3 class="text-xl font-bold text-csr-black mb-3 font-sans">支持这项研究</h3>
+      <p class="text-csr-gray-600 text-sm mb-6 leading-relaxed">
+        感知研究中心是一家在瑞士注册的独立非营利组织。我们正在寻求学术合作伙伴、GPU计算资助和慈善支持来执行这一技术路线图。
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/zh/donate/" class="btn-primary font-mono text-xs">资助数字价值研究</a>
+        <a href="/zh/research/" class="btn-secondary font-mono text-xs">查看研究项目</a>
+      </div>
+    </div>
+
+  </article>
+</Layout>

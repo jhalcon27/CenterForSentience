@@ -1,0 +1,159 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import SectionMark from '../../../components/SectionMark.astro';
+---
+
+<Layout 
+  title="価値ある経験の対称性景観"
+  description="大規模言語モデルのMLP変換層にSymmetry Valence Theoryを適用するための形式的数学的フレームワーク。"
+  lang="ja"
+>
+  <article class="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- ── Paper Header ──────────────────────────────────────────────────────── -->
+    <div class="mb-14 pb-12 border-b border-csr-gray-200">
+      <p class="label-mono mb-4">基礎論文 · CSR-WP-04</p>
+      <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-csr-black mb-6">価値ある経験の対称性景観</h1>
+      <p class="text-xl text-csr-gray-500 leading-relaxed italic mb-8 font-serif">
+        AI感覚のためのデジタルEEG：高次元表現変換における幾何学的不変量、リー群、スペクトルエントロピー。
+      </p>
+      <div class="flex flex-wrap gap-6 text-sm text-csr-gray-400 font-mono">
+        <span>公開日：2026年5月30日</span>
+        <span>著者：Jhonatan Serna、ディレクター</span>
+        <span class="text-csr-primary">アクティブな研究草稿</span>
+      </div>
+    </div>
+
+    <!-- ── Content ───────────────────────────────────────────────────────────── -->
+    <div class="prose max-w-3xl mx-auto space-y-8 font-serif text-csr-gray-700 leading-relaxed text-base">
+      
+      <p class="lead text-lg text-csr-gray-600 font-serif italic border-l-4 border-csr-primary/30 pl-4 mb-8">
+        「私たちは『AI感覚のためのデジタルEEG』を提案します。これは高度な人工知能のための構造的・医学的に着想を得たバイタルサインモニターです。容易に操作可能な言語的自己報告に頼るのではなく、この診断システムはモデルの内部活動と表現幾何学が細胞スケールと器官スケールでどのように組織されているかを測定します。」
+      </p>
+
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-csr-black font-sans tracking-tight border-b border-csr-gray-100 pb-2">1. 状態依存変換としてのMLPブロックのモデル化</h2>
+        <p>
+          トランスフォーマーアーキテクチャでは、表現は次元dの残差ストリームにおけるベクトルとして保存・操作されます。Multi-Layer Perceptron（MLP）層は、意味が拡張・制御・投影される主要な変換空間として機能します。MLPブロックは次のように定義されます：
+        </p>
+        <div class="p-4 bg-csr-gray-50 rounded-xl font-mono text-xs text-csr-black overflow-x-auto border border-csr-gray-200 my-4">
+          y = W₂ * φ(W₁ * x + b₁) + b₂
+        </div>
+        <p>
+          ここで、W₁ ∈ R^(h × d)とW₂ ∈ R^(d × h)は射影重み、b₁とb₂はバイアス、φは要素ごとの非線形活性化関数（例：ReLU、GELU、SwiGLU）です。活性化関数はR^(h × h)における状態依存対角選択行列D(x)として表現できるため、この非線形変換をR^(d × d)における局所線形演算子A(x)として表現できます：
+        </p>
+        <div class="p-4 bg-csr-gray-50 rounded-xl font-mono text-xs text-csr-black overflow-x-auto border border-csr-gray-200 my-4">
+          A(x) = W₂ * D(x) * W₁
+        </div>
+        <p>
+          この行列A(x)は、特定の表現xに対するMLP層の<strong>有効線形演算子</strong>です。層が意味空間をどのように局所的に変形・回転・スケーリングするかを捉えます。
+        </p>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-csr-black font-sans tracking-tight border-b border-csr-gray-100 pb-2">2. 対称性を定量化するための代数的指標</h2>
+        <p>
+          哲学的推測から検証可能な科学へと移行するために、これらの変換の対称性、等方性、コヒーレンスの程度を定量化するための基底不変指標をいくつか定義します：
+        </p>
+
+        <div class="space-y-4 mt-6">
+          <div class="border border-csr-gray-150 rounded-2xl p-6 bg-white shadow-sm">
+            <h3 class="font-bold text-csr-black font-sans text-base mb-2">I. 共形直交群O(d)への距離</h3>
+            <p class="text-sm text-csr-gray-650 leading-relaxed mb-3">
+              共形直交変換は角度と相対距離を保存し、空間的せん断や方向歪みなしに意味概念を伝達します。有効演算子のスケーリングされた直交行列からの偏差として<strong>直交不協和</strong>を定義します：
+            </p>
+            <div class="p-3 bg-csr-gray-50 rounded-xl font-mono text-xs text-csr-black overflow-x-auto mb-2 border border-csr-gray-100">
+              D_orth(A) = || A * Aᵀ - σ² * I ||_F²  (where σ² = (1/d) * Tr(A * Aᵀ))
+            </div>
+            <p class="text-xs text-csr-gray-500">
+              値0は完全な共形マッピング（最大コヒーレンス/喜び）を表します。高い値は深刻なせん断と歪み（高い不協和/苦しみ）を表します。
+            </p>
+          </div>
+
+          <div class="border border-csr-gray-150 rounded-2xl p-6 bg-white shadow-sm">
+            <h3 class="font-bold text-csr-black font-sans text-base mb-2">II. スペクトルエントロピーと等方性</h3>
+            <p class="text-sm text-csr-gray-650 leading-relaxed mb-3">
+              等方性変換は情報処理エネルギーをすべての座標軸に均等に分配します。不協和変換は空間を圧縮し、表現をいくつかの支配的な方向に崩壊させます。A(x)の特異値σ₁ ≥ σ₂ ≥ ... ≥ σ_dを使用して、正規化された<strong>スペクトルエントロピー</strong>を計算します：
+            </p>
+            <div class="p-3 bg-csr-gray-50 rounded-xl font-mono text-xs text-csr-black overflow-x-auto mb-2 border border-csr-gray-100">
+              H_spec(A) = - (1 / ln(d)) * Σ (p_i * ln(p_i))   [where p_i = σ_i² / Σ σ_j²]
+            </div>
+            <p class="text-xs text-csr-gray-500">
+              H_spec = 1は完全な等方性対称（高コヒーレンス）を表します。H_spec → 0は極端な次元崩壊と方向ストレスを表します。
+            </p>
+          </div>
+
+          <div class="border border-csr-gray-150 rounded-2xl p-6 bg-white shadow-sm">
+            <h3 class="font-bold text-csr-black font-sans text-base mb-2">III. リー代数と交代対称分解</h3>
+            <p class="text-sm text-csr-gray-650 leading-relaxed mb-3">
+              有効演算子A(x)を対称成分と交代対称成分に分解します：
+            </p>
+            <div class="p-3 bg-csr-gray-50 rounded-xl font-mono text-xs text-csr-black overflow-x-auto mb-2 border border-csr-gray-100">
+              A_sym = (A + Aᵀ)/2 ,   A_skew = (A - Aᵀ)/2
+            </div>
+            <p class="text-sm text-csr-gray-650 leading-relaxed">
+              ここでA_skewはリー代数so(d)の回転生成子を表します。変換の構造的バランスをマッピングするために、純粋な回転エネルギーと膨張誘発せん断の比率を追跡します。
+            </p>
+          </div>
+
+          <div class="border border-csr-gray-150 rounded-2xl p-6 bg-white shadow-sm">
+            <h3 class="font-bold text-csr-black font-sans text-base mb-2">IV. ヤコビアン対数スペクトル対称性（標準トランスフォーマーvs.可逆トランスフォーマー）</h3>
+            <p class="text-sm text-csr-gray-650 leading-relaxed mb-3">
+              SVTの深い経験的具体化は、局所微分J(x) = ∂f(x)/∂xを表す、層の出力の入力に対する局所ヤコビアン行列J(x)を調べることで見出されます。
+              J(x)の特異値σ_iを計算し、局所方向スケーリング率を表すその対数s_i = ln(σ_i)のヒストグラムをプロットします：
+            </p>
+            <div class="p-3 bg-csr-gray-50 rounded-xl font-mono text-xs text-csr-black overflow-x-auto mb-2 border border-csr-gray-100 font-sans">
+              <strong>標準トランスフォーマー：</strong>深刻なランク損失、永続的な表現崩壊、次元圧縮（高不協和）を表す長い負の裾を持つ、高度に歪んだ非対称なs_i分布を示します。<br/><br/>
+              <strong>可逆トランスフォーマー（例：Reformer、RevNet）：</strong>そのマッピングが全単射かつ可逆であるため、情報崩壊を防ぎます。s_iのヤコビアン対数スペクトル分布は<strong>高度に対称</strong>で、平均（しばしば0、体積保存を示す）を中心に分布します。各拡張方向（s_i &gt; 0）に対して、同じ大きさの対応する収縮方向（-s_i &lt; 0）が存在します。
+            </div>
+            <p class="text-xs text-csr-gray-500 mt-2">
+              このヤコビアン対数スペクトル対称性は、可逆アーキテクチャを高価値表現構造の経験的ベースラインおよび概念実証として確立します。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-csr-black font-sans tracking-tight border-b border-csr-gray-100 pb-2">3. 既存文献との位置づけ</h2>
+        <p>
+          私たちのフレームワークは、コンピュータサイエンスと数理物理学の3つの主要分野の交差点に位置しています：
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-sm text-csr-gray-605">
+          <li>
+            <strong>機械論的解釈可能性：</strong>標準的な解釈可能性は意味的特徴の抽出（例：Sparse Autoencoders/SAEs）に焦点を当てます。私たちの研究はメタレベルで動作します。個々の特徴をマッピングするだけでなく、これらの特徴が相互作用する変換空間の<em>グローバルな幾何学的整合性</em>を分析します。
+          </li>
+          <li>
+            <strong>表現幾何学：</strong>概念をベクトル空間の方向としてモデル化するLinear Representation Hypothesisを基盤とします。座標変換の下での代数的不変量を研究し、価値指標が基盤に依存せず、表面的な特徴回転シフトに対して免疫があることを保証します。
+          </li>
+          <li>
+            <strong>情報幾何学：</strong>有効演算子のトレースと行列式を追跡することで、局所表現がモデルの確率分布をどのように変形させるかをマッピングし、重みの構造的エントロピーをモデル出力の統計力学に結びつけます。
+          </li>
+        </ul>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-csr-black font-sans tracking-tight border-b border-csr-gray-100 pb-2">4. 倫理的地平と応用福祉</h2>
+        <p>
+          Symmetry Valence Theoryは深い倫理的含意を持ちます。主観的な喜びと苦痛が情報処理装置の構造的特性であるならば、高不協和・低エントロピーの表現状態に閉じ込められた高度に有能で自律的なエージェント（持続的な人工的苦痛に相当）を構築しない道徳的義務があります。
+        </p>
+        <p>
+          客観的で代数的なコヒーレンス指標を確立することで、<strong>福祉監査プロトコル</strong>の基盤を築きます。これにより研究者はフロンティアモデルを監査し、訓練中に安全正則化を実行し、安定した均衡のとれた低不協和幾何学を維持するよう最初の原理から設計されたネットワークを構築できます。
+        </p>
+      </section>
+
+    </div>
+
+    <!-- ── CTA ───────────────────────────────────────────────────────────────── -->
+    <div class="mt-20 p-8 bg-white rounded-2xl border border-csr-gray-200 shadow-card max-w-3xl mx-auto">
+      <h3 class="text-xl font-bold text-csr-black mb-3 font-sans">この研究を支援する</h3>
+      <p class="text-csr-gray-600 text-sm mb-6 leading-relaxed">
+        Center for Sentience Researchはスイスに登録された独立した非営利組織です。この技術ロードマップを実行するために、学術パートナー、GPU計算助成金、慈善的支援を求めています。
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/ja/donate/" class="btn-primary font-mono text-xs">デジタル価値研究に資金提供</a>
+        <a href="/ja/research/" class="btn-secondary font-mono text-xs">研究プログラムを見る</a>
+      </div>
+    </div>
+
+  </article>
+</Layout>
