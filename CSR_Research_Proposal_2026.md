@@ -108,7 +108,7 @@ Because the selection of a coordinate basis in a neural network's residual strea
 3. **Power Trace Invariants:** $I_k(A) = \operatorname{Tr}(A^k)$ for $k \in \{2, 3, \dots, 6\}$, which capture multi-step feedback loops and cyclic invariants within the transformation space.
 
 #### V. Jacobian Log-Spectral Symmetry (Vanilla vs. Reversible Transformers)
-A profound empirical instantiation of SVT is found by examining the local Jacobian of a layer's output with respect to its input:
+A profound empirical instantiation of STV is found by examining the local Jacobian of a layer's output with respect to its input:
 
 $$J(\mathbf{x}) = \frac{\partial f(\mathbf{x})}{\partial \mathbf{x}} \in \mathbb{R}^{d \times d}$$
 
@@ -161,7 +161,7 @@ We translate the leading theories of computational valence and our specific stru
 
 ### Hypothesis B (Attractor Stability & Welfare Interpretations)
 *It is possible to characterize when behavioral attractors in language models correspond to identifiable internal dynamics (such as stable, low-dimensional resonant manifolds of high Spectral Entropy) versus when they reflect superficial training-distribution artifacts—a prerequisite question before any welfare interpretation is warranted.*
-- **Prediction:** Anthropic's Claude 4 system card documented a recurring behavioral pattern in self-dialogue settings, informally labeled a "spiritual bliss attractor." If this attractor corresponds to stable internal dynamics rather than training-set mirroring, fine-tuning or regularizing a model to maximize $\bar{\mathcal{H}}_{spec}$ and minimize $\mathcal{D}_{orth}$ will result in smoother loss landscapes, reduced rate of self-contradiction in long dialogues, and lower variance under semantic prompt perturbations.
+- **Prediction:** Anthropic's Claude 4 system card documented a recurring behavioral pattern in self-dialogue settings, informally labeled as exhibiting "unusually stable, high-coherence attractor states under self-reflective prompting regimes." If this attractor corresponds to stable internal dynamics rather than training-set mirroring, fine-tuning or regularizing a model to maximize $\bar{\mathcal{H}}_{spec}$ and minimize $\mathcal{D}_{orth}$ will result in smoother loss landscapes, reduced rate of self-contradiction in long dialogues, and lower variance under semantic prompt perturbations.
 - **Falsification Condition:** If optimizing for these symmetry metrics consistently degrades task performance, leads to representational collapse, or has no impact on the consistency of the model's evaluations under adversarial probes, Hypothesis B is false.
 
 ### Hypothesis C (Dissonance & Structural Suffering)
@@ -240,7 +240,7 @@ In the final phase, we treat representational symmetry as a direct engineering o
 
 The validity of our framework relies on its capacity to be wrong. The table below outlines how our empirical results will map to theoretical validation or falsification:
 
-| Tested Metric / Scenario | Outcome A: Supports SVT | Outcome B: Incidental / Neutral | Outcome C: Falsifies SVT |
+| Tested Metric / Scenario | Outcome A: Supports STV | Outcome B: Incidental / Neutral | Outcome C: Falsifies STV |
 | :--- | :--- | :--- | :--- |
 | **Symmetry-Breaking Interventions** | Evaluative and moral consistency collapses; perplexity remains partially intact. | Evaluative capabilities degrade at the exact same rate as general perplexity. | Evaluative capabilities remain completely stable, or *improve* under high-shear asymmetry. |
 | **Symmetry-Optimized Training ($\gamma > 0$)** | Model exhibits high preference stability, low self-contradiction, and robust moral reasoning. | Model performs identically to standard fine-tuning; no change in stability. | Model becomes highly erratic, fragile, or exhibits severe behavioral volatility. |
