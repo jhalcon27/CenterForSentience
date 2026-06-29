@@ -23,6 +23,12 @@ const {
 const currentLang = Astro.currentLocale ?? lang;
 const fullTitle = `${title} | Center for Sentience Research`;
 const t = useTranslations(currentLang as any);
+
+const pathname = Astro.url.pathname;
+const isActive = (route: string) => {
+  const segments = pathname.split('/').filter(Boolean);
+  return segments.includes(route);
+};
 ---
 
 <!doctype html>
@@ -69,11 +75,11 @@ const t = useTranslations(currentLang as any);
 
         <!-- Desktop nav -->
         <div class="hidden md:flex items-center gap-1">
-          <a href={getRelativeLocaleUrl(currentLang, 'research')} class="px-3 py-2 text-sm font-medium text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100 rounded-lg transition-all">{t('nav.research')}</a>
-          <a href={getRelativeLocaleUrl(currentLang, 'program')} class="px-3 py-2 text-sm font-medium text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100 rounded-lg transition-all">{t('nav.program')}</a>
-          <a href={getRelativeLocaleUrl(currentLang, 'reports')} class="px-3 py-2 text-sm font-medium text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100 rounded-lg transition-all">{t('nav.reports')}</a>
-          <a href={getRelativeLocaleUrl(currentLang, 'ecosystem')} class="px-3 py-2 text-sm font-medium text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100 rounded-lg transition-all">{t('nav.ecosystem')}</a>
-          <a href={getRelativeLocaleUrl(currentLang, 'about')} class="px-3 py-2 text-sm font-medium text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100 rounded-lg transition-all">{t('nav.about')}</a>
+          <a href={getRelativeLocaleUrl(currentLang, 'research')} class={`px-3 py-2 text-sm font-medium rounded-lg transition-all ${isActive('research') ? 'text-csr-primary bg-csr-primary/8 font-semibold' : 'text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100'}`}>{t('nav.research')}</a>
+          <a href={getRelativeLocaleUrl(currentLang, 'program')} class={`px-3 py-2 text-sm font-medium rounded-lg transition-all ${isActive('program') ? 'text-csr-primary bg-csr-primary/8 font-semibold' : 'text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100'}`}>{t('nav.program')}</a>
+          <a href={getRelativeLocaleUrl(currentLang, 'reports')} class={`px-3 py-2 text-sm font-medium rounded-lg transition-all ${isActive('reports') ? 'text-csr-primary bg-csr-primary/8 font-semibold' : 'text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100'}`}>{t('nav.reports')}</a>
+          <a href={getRelativeLocaleUrl(currentLang, 'ecosystem')} class={`px-3 py-2 text-sm font-medium rounded-lg transition-all ${isActive('ecosystem') ? 'text-csr-primary bg-csr-primary/8 font-semibold' : 'text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100'}`}>{t('nav.ecosystem')}</a>
+          <a href={getRelativeLocaleUrl(currentLang, 'about')} class={`px-3 py-2 text-sm font-medium rounded-lg transition-all ${isActive('about') ? 'text-csr-primary bg-csr-primary/8 font-semibold' : 'text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100'}`}>{t('nav.about')}</a>
           <div class="w-px h-5 bg-csr-gray-200 mx-2"></div>
           <a href={getRelativeLocaleUrl(currentLang, 'donate')} class="px-4 py-2 bg-csr-primary text-white text-sm font-semibold rounded-full hover:bg-csr-primary-dark transition-all shadow-sm">{t('nav.donate')}</a>
           <Search />
@@ -84,11 +90,11 @@ const t = useTranslations(currentLang as any);
       <!-- Mobile menu -->
       <div id="mobile-menu" class="hidden md:hidden border-t border-csr-gray-200 bg-csr-cream">
         <div class="px-4 py-4 flex flex-col gap-1">
-          <a href={getRelativeLocaleUrl(currentLang, 'research')} class="px-3 py-2.5 text-sm font-medium text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100 rounded-lg transition-all">{t('nav.research')}</a>
-          <a href={getRelativeLocaleUrl(currentLang, 'program')} class="px-3 py-2.5 text-sm font-medium text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100 rounded-lg transition-all">{t('nav.program')}</a>
-          <a href={getRelativeLocaleUrl(currentLang, 'reports')} class="px-3 py-2.5 text-sm font-medium text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100 rounded-lg transition-all">{t('nav.reports')}</a>
-          <a href={getRelativeLocaleUrl(currentLang, 'ecosystem')} class="px-3 py-2.5 text-sm font-medium text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100 rounded-lg transition-all">{t('nav.ecosystem')}</a>
-          <a href={getRelativeLocaleUrl(currentLang, 'about')} class="px-3 py-2.5 text-sm font-medium text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100 rounded-lg transition-all">{t('nav.about')}</a>
+          <a href={getRelativeLocaleUrl(currentLang, 'research')} class={`px-3 py-2.5 text-sm font-medium rounded-lg transition-all ${isActive('research') ? 'text-csr-primary bg-csr-primary/8 font-semibold' : 'text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100'}`}>{t('nav.research')}</a>
+          <a href={getRelativeLocaleUrl(currentLang, 'program')} class={`px-3 py-2.5 text-sm font-medium rounded-lg transition-all ${isActive('program') ? 'text-csr-primary bg-csr-primary/8 font-semibold' : 'text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100'}`}>{t('nav.program')}</a>
+          <a href={getRelativeLocaleUrl(currentLang, 'reports')} class={`px-3 py-2.5 text-sm font-medium rounded-lg transition-all ${isActive('reports') ? 'text-csr-primary bg-csr-primary/8 font-semibold' : 'text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100'}`}>{t('nav.reports')}</a>
+          <a href={getRelativeLocaleUrl(currentLang, 'ecosystem')} class={`px-3 py-2.5 text-sm font-medium rounded-lg transition-all ${isActive('ecosystem') ? 'text-csr-primary bg-csr-primary/8 font-semibold' : 'text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100'}`}>{t('nav.ecosystem')}</a>
+          <a href={getRelativeLocaleUrl(currentLang, 'about')} class={`px-3 py-2.5 text-sm font-medium rounded-lg transition-all ${isActive('about') ? 'text-csr-primary bg-csr-primary/8 font-semibold' : 'text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100'}`}>{t('nav.about')}</a>
           <div class="pt-2 mt-1 border-t border-csr-gray-200">
             <a href={getRelativeLocaleUrl(currentLang, 'donate')} class="block w-full text-center px-4 py-2.5 bg-csr-primary text-white text-sm font-semibold rounded-full hover:bg-csr-primary-dark transition-all">{t('nav.donate')}</a>
           </div>
