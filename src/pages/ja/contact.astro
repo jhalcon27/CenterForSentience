@@ -1,0 +1,30 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ContactContent from '../../components/ContactContent.astro';
+
+const t = {
+  label: 'お問い合わせ',
+  headingStart: 'お気軽に',
+  headingAccent: 'ご連絡ください',
+  intro: '研究協力、フィランソロピー・パートナーシップ、戦略的対話を歓迎します。下記のフォームからご連絡ください。',
+  name: 'お名前',
+  email: 'メールアドレス',
+  inquiryType: 'お問い合わせ種別',
+  optResearch: '研究協力',
+  optPartnership: 'フィランソロピー・パートナーシップ',
+  optOther: '一般のお問い合わせ',
+  message: 'メッセージ',
+  send: '送信',
+  sending: '送信中…',
+  success: '送信しました。追ってご連絡いたします。',
+  error: 'エラーが発生しました。再度お試しいただくか、直接メールでご連絡ください。',
+  orEmail: 'または直接メールで：',
+};
+---
+
+<Layout
+  title="お問い合わせ"
+  description="意識研究センターへのお問い合わせ。"
+>
+  <ContactContent t={t} />
+</Layout>

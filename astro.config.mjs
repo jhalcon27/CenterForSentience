@@ -1,6 +1,7 @@
 /** @type {import('astro').Config} */
 import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
+import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
   site: 'https://centerforsentience.org',
@@ -15,5 +16,5 @@ export default defineConfig({
       prefixDefaultLocale: false
     }
   },
-  integrations: [tailwind()]
+  integrations: [tailwind(), sitemap()]
 });

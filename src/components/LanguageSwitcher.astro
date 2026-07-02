@@ -7,7 +7,7 @@ interface Props {
 const { lang = 'en' } = Astro.props;
 
 // Routes that exist in every locale
-const localizedRoutes = ['', 'research', 'program', 'reports', 'ecosystem', 'about', 'donate', 'reports/first-principles', 'reports/bio-electric-fields', 'reports/assembly-theory', 'reports/symmetry-landscapes'];
+const localizedRoutes = ['', 'research', 'program', 'reports', 'ecosystem', 'about', 'donate', 'contact', 'reports/first-principles', 'reports/bio-electric-fields', 'reports/assembly-theory', 'reports/symmetry-landscapes'];
 
 // Compute path suffix by stripping the current locale prefix and trailing slash
 let rawPath = Astro.url.pathname;
@@ -62,46 +62,35 @@ const hrefs: Record<string, string> = {
 </details>
 
 <script is:inline>
-  // Close other open switchers when one opens, and close on outside click
-  function initLangSwitchers() {
-    const switchers = document.querySelectorAll('[data-lang-switcher]');
+  // This component is rendered twice per page (desktop + mobile nav);
+  // guard so document-level listeners are only registered once. Uses event
+  // delegation, so it also works if switchers render after this script runs.
+  if (!window.__csrLangSwitcherInit) {
+    window.__csrLangSwitcherInit = true;
 
-    switchers.forEach(function(switcher) {
-      // Remove old listener by cloning (avoids duplicate listeners on re-init)
-      const clone = switcher.cloneNode(true);
-      switcher.parentNode.replaceChild(clone, switcher);
-    });
-
-    document.querySelectorAll('[data-lang-switcher]').forEach(function(switcher) {
-      switcher.addEventListener('toggle', function(e) {
-        if (e.newState === 'open' || switcher.open) {
-          // Close all other switchers
-          document.querySelectorAll('[data-lang-switcher]').forEach(function(other) {
-            if (other !== switcher && other.open) other.removeAttribute('open');
-          });
-        }
+    // Close other open switchers when one opens
+    document.addEventListener('toggle', function(e) {
+      const switcher = e.target.closest && e.target.closest('[data-lang-switcher]');
+      if (!switcher || !switcher.open) return;
+      document.querySelectorAll('[data-lang-switcher]').forEach(function(other) {
+        if (other !== switcher && other.open) other.removeAttribute('open');
       });
+    }, true);
 
-      // Store explicit language choice before navigating
-      switcher.querySelectorAll('[data-lang]').forEach(function(link) {
-        link.addEventListener('click', function() {
-          try { localStorage.setItem('csr-lang-explicit', '1'); } catch(e) {}
-        });
-      });
-    });
-
-    // Close on outside click
     document.addEventListener('click', function(e) {
-      if (!e.target.closest('[data-lang-switcher]')) {
+      // Store explicit language choice before navigating
+      if (e.target.closest && e.target.closest('[data-lang-switcher] [data-lang]')) {
+        try { localStorage.setItem('csr-lang-explicit', '1'); } catch(err) {}
+        return;
+      }
+      // Close on outside click
+      if (!(e.target.closest && e.target.closest('[data-lang-switcher]'))) {
         document.querySelectorAll('[data-lang-switcher]').forEach(function(s) {
           if (s.open) s.removeAttribute('open');
         });
       }
     });
   }
-
-  initLangSwitchers();
-  document.addEventListener('astro:after-swap', initLangSwitchers);
 </script>
 
 <style>

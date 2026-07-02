@@ -1,0 +1,30 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ContactContent from '../../components/ContactContent.astro';
+
+const t = {
+  label: '联系我们',
+  headingStart: '让我们',
+  headingAccent: '建立联系',
+  intro: '我们欢迎研究合作、慈善伙伴关系与战略对话。请通过下方表单与我们联系。',
+  name: '姓名',
+  email: '电子邮箱',
+  inquiryType: '咨询类型',
+  optResearch: '研究合作',
+  optPartnership: '慈善伙伴关系',
+  optOther: '一般咨询',
+  message: '留言内容',
+  send: '发送消息',
+  sending: '发送中…',
+  success: '消息已发送，我们会尽快回复。',
+  error: '发送失败。请重试或直接发送电子邮件。',
+  orEmail: '或直接发送邮件至：',
+};
+---
+
+<Layout
+  title="联系我们"
+  description="联系感知研究中心。"
+>
+  <ContactContent t={t} />
+</Layout>

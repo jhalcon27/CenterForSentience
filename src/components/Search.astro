@@ -1,4 +1,20 @@
 ---
+interface Props {
+  lang?: string;
+}
+const { lang = 'en' } = Astro.props;
+
+const prefix = lang === 'en' ? '' : `/${lang}`;
+
+const ui: Record<string, { placeholder: string; noResults: string }> = {
+  en: { placeholder: 'Search research, reports, and focus areas...', noResults: 'No results found for' },
+  de: { placeholder: 'Forschung, Berichte und Schwerpunkte durchsuchen...', noResults: 'Keine Ergebnisse für' },
+  es: { placeholder: 'Buscar investigación, informes y áreas de enfoque...', noResults: 'No se encontraron resultados para' },
+  fr: { placeholder: 'Rechercher recherches, rapports et axes de travail...', noResults: 'Aucun résultat pour' },
+  zh: { placeholder: '搜索研究、报告和重点领域...', noResults: '未找到相关结果：' },
+  ja: { placeholder: '研究、レポート、重点分野を検索...', noResults: '該当する結果が見つかりません：' },
+};
+const t = ui[lang] ?? ui.en;
 ---
 <div class="search-container relative ml-4" data-csr-search>
   <button
@@ -15,10 +31,10 @@
       <div class="flex items-center justify-between mb-8 border-b-2 border-csr-primary pb-4">
         <input
           type="text"
-          placeholder="Search research, reports, and focus areas..."
+          placeholder={t.placeholder}
           class="search-input w-full bg-transparent border-none text-2xl md:text-4xl font-bold focus:ring-0 placeholder:text-csr-gray-200 text-csr-black"
         />
-        <button class="close-search p-2 text-csr-gray-600 hover:text-csr-black">
+        <button class="close-search p-2 text-csr-gray-600 hover:text-csr-black" aria-label="Close search">
           <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
@@ -31,83 +47,110 @@
   </div>
 </div>
 
-<script is:inline>
-  function initSearch() {
-    const containers = document.querySelectorAll('[data-csr-search]');
-    
-    containers.forEach(function(container) {
-      const btn = container.querySelector('.search-btn');
-      const overlay = container.querySelector('.search-overlay');
-      const closeBtn = container.querySelector('.close-search');
-      const input = container.querySelector('.search-input');
+<script is:inline define:vars={{ prefix, noResultsText: t.noResults }}>
+  // This component is rendered twice per page (desktop + mobile nav);
+  // guard so setup only runs once, and wait for DOMContentLoaded so both
+  // containers exist before wiring them up.
+  if (!window.__csrSearchInit) {
+    window.__csrSearchInit = true;
 
-      if (btn) btn.addEventListener('click', function() {
-        if (overlay) overlay.classList.remove('hidden');
-        if (input) input.focus();
-        document.body.style.overflow = 'hidden';
-      });
+    // Search index covering all site pages (paths are locale-prefixed at runtime)
+    const pages = [
+      { title: 'First Principles of Sentience Research', type: 'White Paper', path: '/reports/first-principles/' },
+      { title: 'Bio-Electric Fields as Sentience Substrates', type: 'White Paper', path: '/reports/bio-electric-fields/' },
+      { title: 'Assembly Theory as a Metric for Sentience', type: 'White Paper', path: '/reports/assembly-theory/' },
+      { title: 'Symmetry Landscapes of Valenced Experience', type: 'White Paper', path: '/reports/symmetry-landscapes/' },
+      { title: 'Research Reports', type: 'Page', path: '/reports/' },
+      { title: 'Research Agenda', type: 'Page', path: '/research/' },
+      { title: 'Biological Intelligence', type: 'Research Track', path: '/research/#biological' },
+      { title: 'Digital Minds & AI Safety', type: 'Research Track', path: '/research/#digital' },
+      { title: 'Physics of Qualia', type: 'Research Track', path: '/research/#qualia' },
+      { title: 'About the Center for Sentience Research', type: 'Page', path: '/about/' },
+      { title: 'Support / Donate', type: 'Page', path: '/donate/' },
+      { title: 'Donations & Fiscal Sponsorship', type: 'Policy', path: '/donate/' },
+      { title: 'Contact', type: 'Page', path: '/contact/' },
+      { title: 'Substrate Neutrality', type: 'Concept', path: '/research/#biological' },
+      { title: 'Neural Entropy', type: 'Concept', path: '/reports/first-principles/' },
+      { title: 'Active Inference', type: 'Concept', path: '/reports/first-principles/' },
+      { title: 'Phenomenology Engineering', type: 'Concept', path: '/reports/first-principles/' },
+    ];
 
-      const close = function() {
-        if (overlay) overlay.classList.add('hidden');
+    const init = function() {
+      const containers = document.querySelectorAll('[data-csr-search]');
+
+      const closeAll = function() {
+        containers.forEach(function(container) {
+          const overlay = container.querySelector('.search-overlay');
+          if (overlay) overlay.classList.add('hidden');
+        });
         document.body.style.overflow = '';
       };
 
-      if (closeBtn) closeBtn.addEventListener('click', close);
-      if (overlay) overlay.addEventListener('click', function(e) {
-        if (e.target === overlay) close();
-      });
-
       document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') close();
+        if (e.key === 'Escape') closeAll();
       });
 
-      // Search index covering all site pages
-      const pages = [
-        { title: 'First Principles of Sentience Research', type: 'White Paper', url: '/reports/first-principles' },
-        { title: 'Bio-Electric Fields as Sentience Substrates', type: 'White Paper', url: '/reports/bio-electric-fields' },
-        { title: 'Assembly Theory as a Metric for Sentience', type: 'White Paper', url: '/reports/assembly-theory' },
-        { title: 'Symmetry Landscapes of Valenced Experience', type: 'White Paper', url: '/reports/symmetry-landscapes' },
-        { title: 'Research Reports', type: 'Page', url: '/reports/' },
-        { title: 'Research Agenda', type: 'Page', url: '/research' },
-        { title: 'Biological Intelligence', type: 'Research Track', url: '/research#biological' },
-        { title: 'Digital Minds & AI Safety', type: 'Research Track', url: '/research#digital' },
-        { title: 'Physics of Qualia', type: 'Research Track', url: '/research#qualia' },
-        { title: 'About the Center for Sentience Research', type: 'Page', url: '/about' },
-        { title: 'Support / Donate', type: 'Page', url: '/donate' },
-        { title: 'Tax-Deductible Contributions', type: 'Policy', url: '/donate' },
-        { title: 'Contact', type: 'Page', url: '/contact' },
-        { title: 'Substrate Neutrality', type: 'Concept', url: '/research#biological' },
-        { title: 'Neural Entropy', type: 'Concept', url: '/reports/first-principles' },
-        { title: 'Active Inference', type: 'Concept', url: '/reports/first-principles' },
-        { title: 'Phenomenology Engineering', type: 'Concept', url: '/reports/first-principles' },
-      ];
+      containers.forEach(function(container) {
+        const btn = container.querySelector('.search-btn');
+        const overlay = container.querySelector('.search-overlay');
+        const closeBtn = container.querySelector('.close-search');
+        const input = container.querySelector('.search-input');
 
-      if (input) input.addEventListener('input', function(e) {
-        const query = e.target.value.toLowerCase().trim();
-        const resultsContainer = container.querySelector('.search-results');
-        if (!resultsContainer) return;
-
-        if (query.length < 2) {
-          resultsContainer.innerHTML = '';
-          return;
-        }
-
-        const matches = pages.filter(function(p) {
-          return p.title.toLowerCase().includes(query) || p.type.toLowerCase().includes(query);
+        if (btn) btn.addEventListener('click', function() {
+          if (overlay) overlay.classList.remove('hidden');
+          if (input) input.focus();
+          document.body.style.overflow = 'hidden';
         });
-        
-        resultsContainer.innerHTML = matches.length > 0 
-          ? matches.map(function(m) { return `
-              <a href="${m.url}" class="block p-4 rounded-xl hover:bg-csr-gray-100 border border-transparent hover:border-csr-gray-200 transition-all">
-                <p class="text-xs font-mono uppercase tracking-widest text-csr-primary mb-1">${m.type}</p>
-                <h4 class="text-xl font-bold text-csr-black">${m.title}</h4>
-              </a>
-            `; }).join('')
-          : `<p class="text-csr-gray-600 italic">No results found for "<strong>${query}</strong>"</p>`;
-      });
-    });
-  }
 
-  initSearch();
-  document.addEventListener('astro:after-swap', initSearch);
+        if (closeBtn) closeBtn.addEventListener('click', closeAll);
+        if (overlay) overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) closeAll();
+        });
+
+        if (input) input.addEventListener('input', function(e) {
+          const query = e.target.value.toLowerCase().trim();
+          const resultsContainer = container.querySelector('.search-results');
+          if (!resultsContainer) return;
+
+          resultsContainer.textContent = '';
+          if (query.length < 2) return;
+
+          const matches = pages.filter(function(p) {
+            return p.title.toLowerCase().includes(query) || p.type.toLowerCase().includes(query);
+          });
+
+          if (matches.length > 0) {
+            matches.forEach(function(m) {
+              const link = document.createElement('a');
+              link.href = prefix + m.path;
+              link.className = 'block p-4 rounded-xl hover:bg-csr-gray-100 border border-transparent hover:border-csr-gray-200 transition-all';
+
+              const type = document.createElement('p');
+              type.className = 'text-xs font-mono uppercase tracking-widest text-csr-primary mb-1';
+              type.textContent = m.type;
+
+              const title = document.createElement('h4');
+              title.className = 'text-xl font-bold text-csr-black';
+              title.textContent = m.title;
+
+              link.appendChild(type);
+              link.appendChild(title);
+              resultsContainer.appendChild(link);
+            });
+          } else {
+            const empty = document.createElement('p');
+            empty.className = 'text-csr-gray-600 italic';
+            empty.textContent = noResultsText + ' "' + e.target.value.trim() + '"';
+            resultsContainer.appendChild(empty);
+          }
+        });
+      });
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  }
 </script>

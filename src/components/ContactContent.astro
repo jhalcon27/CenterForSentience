@@ -1,0 +1,124 @@
+---
+export interface ContactStrings {
+  label: string;
+  headingStart: string;
+  headingAccent: string;
+  intro: string;
+  name: string;
+  email: string;
+  inquiryType: string;
+  optResearch: string;
+  optPartnership: string;
+  optOther: string;
+  message: string;
+  send: string;
+  sending: string;
+  success: string;
+  error: string;
+  orEmail: string;
+}
+
+interface Props {
+  t: ContactStrings;
+}
+const { t } = Astro.props;
+---
+
+<!-- ── Header ─────────────────────────────────────────────────────────────── -->
+<section class="pt-20 pb-12 border-b border-csr-gray-200">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="label-mono mb-4">{t.label}</p>
+    <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6">
+      {t.headingStart} <span class="text-gradient">{t.headingAccent}</span>
+    </h1>
+    <p class="text-lg text-csr-gray-500 leading-relaxed max-w-2xl">
+      {t.intro}
+    </p>
+  </div>
+</section>
+
+<!-- ── Form ──────────────────────────────────────────────────────────────── -->
+<section class="py-16">
+  <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-white border border-csr-gray-100 rounded-2xl shadow-card p-8 md:p-10">
+      <form
+        id="contact-form"
+        action="https://formspree.io/f/xnjoarel"
+        method="POST"
+        class="space-y-6"
+      >
+        <div>
+          <label for="contact-name" class="block label-mono text-[11px] mb-2">{t.name}</label>
+          <input id="contact-name" type="text" name="name" required class="w-full px-4 py-3 rounded-xl border border-csr-gray-200 bg-csr-cream focus:border-csr-primary focus:ring-2 focus:ring-csr-primary/10 outline-none transition-all text-csr-black text-sm" />
+        </div>
+        <div>
+          <label for="contact-email" class="block label-mono text-[11px] mb-2">{t.email}</label>
+          <input id="contact-email" type="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-csr-gray-200 bg-csr-cream focus:border-csr-primary focus:ring-2 focus:ring-csr-primary/10 outline-none transition-all text-csr-black text-sm" />
+        </div>
+        <div>
+          <label for="contact-subject" class="block label-mono text-[11px] mb-2">{t.inquiryType}</label>
+          <select id="contact-subject" name="subject" class="w-full px-4 py-3 rounded-xl border border-csr-gray-200 bg-csr-cream focus:border-csr-primary focus:ring-2 focus:ring-csr-primary/10 outline-none transition-all text-csr-black text-sm">
+            <option value="research">{t.optResearch}</option>
+            <option value="partnership">{t.optPartnership}</option>
+            <option value="other">{t.optOther}</option>
+          </select>
+        </div>
+        <div>
+          <label for="contact-message" class="block label-mono text-[11px] mb-2">{t.message}</label>
+          <textarea id="contact-message" name="message" required rows="5" class="w-full px-4 py-3 rounded-xl border border-csr-gray-200 bg-csr-cream focus:border-csr-primary focus:ring-2 focus:ring-csr-primary/10 outline-none transition-all text-csr-black text-sm resize-none"></textarea>
+        </div>
+        <button type="submit" class="w-full py-3.5 bg-csr-primary text-white rounded-full font-semibold text-sm hover:bg-csr-primary-dark transition-all shadow-purple disabled:opacity-60 disabled:cursor-not-allowed">{t.send}</button>
+        <p id="form-status" role="status" aria-live="polite" class="hidden text-sm text-center"></p>
+      </form>
+    </div>
+
+    <p class="text-center text-xs text-csr-gray-400 font-mono mt-6">
+      {t.orEmail} <a href="mailto:jhonatan.serna@proton.me" class="text-csr-primary hover:underline">jhonatan.serna@proton.me</a>
+    </p>
+  </div>
+</section>
+
+<script is:inline define:vars={{ sendingText: t.sending, successText: t.success, errorText: t.error, sendText: t.send }}>
+  const form = document.getElementById('contact-form');
+  if (form) {
+    const button = form.querySelector('button[type="submit"]');
+    const status = document.getElementById('form-status');
+
+    const showStatus = function(text, ok) {
+      if (!status) return;
+      status.textContent = text;
+      status.classList.remove('hidden', 'text-red-600', 'text-green-700');
+      status.classList.add(ok ? 'text-green-700' : 'text-red-600');
+    };
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      if (button) {
+        button.disabled = true;
+        button.textContent = sendingText;
+      }
+      if (status) status.classList.add('hidden');
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+          showStatus(successText, true);
+          form.reset();
+        } else {
+          showStatus(errorText, false);
+        }
+      } catch (err) {
+        showStatus(errorText, false);
+      } finally {
+        if (button) {
+          button.disabled = false;
+          button.textContent = sendText;
+        }
+      }
+    });
+  }
+</script>

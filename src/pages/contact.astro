@@ -1,80 +1,30 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ContactContent from '../components/ContactContent.astro';
+
+const t = {
+  label: 'Contact',
+  headingStart: "Let's",
+  headingAccent: 'connect',
+  intro: 'We are open to research collaborations, philanthropic partnerships, and strategic dialogue. Reach out via the form below.',
+  name: 'Name',
+  email: 'Email',
+  inquiryType: 'Inquiry Type',
+  optResearch: 'Research Collaboration',
+  optPartnership: 'Philanthropic Partnership',
+  optOther: 'General Inquiry',
+  message: 'Message',
+  send: 'Send Message',
+  sending: 'Sending…',
+  success: "Message sent — we'll get back to you soon.",
+  error: 'Something went wrong. Please try again or email us directly.',
+  orEmail: 'Or email directly:',
+};
 ---
 
-<Layout 
-  title="Contact" 
+<Layout
+  title="Contact"
   description="Connect with the Center for Sentience Research."
 >
-
-  <!-- ── Header ─────────────────────────────────────────────────────────────── -->
-  <section class="pt-20 pb-12 border-b border-csr-gray-200">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="label-mono mb-4">Contact</p>
-      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6">
-        Let's <span class="text-gradient">connect</span>
-      </h1>
-      <p class="text-lg text-csr-gray-500 leading-relaxed max-w-2xl">
-        We are open to research collaborations, philanthropic partnerships, and strategic dialogue. Reach out via the form below.
-      </p>
-    </div>
-  </section>
-
-  <!-- ── Form ──────────────────────────────────────────────────────────────── -->
-  <section class="py-16">
-    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-white border border-csr-gray-100 rounded-2xl shadow-card p-8 md:p-10">
-        <form
-          id="contact-form"
-          action="https://formspree.io/f/xnjoarel"
-          method="POST"
-          class="space-y-6"
-        >
-          <div>
-            <label class="block label-mono text-[11px] mb-2">Name</label>
-            <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl border border-csr-gray-200 bg-csr-cream focus:border-csr-primary focus:ring-2 focus:ring-csr-primary/10 outline-none transition-all text-csr-black text-sm" />
-          </div>
-          <div>
-            <label class="block label-mono text-[11px] mb-2">Email</label>
-            <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-csr-gray-200 bg-csr-cream focus:border-csr-primary focus:ring-2 focus:ring-csr-primary/10 outline-none transition-all text-csr-black text-sm" />
-          </div>
-          <div>
-            <label class="block label-mono text-[11px] mb-2">Inquiry Type</label>
-            <select name="subject" class="w-full px-4 py-3 rounded-xl border border-csr-gray-200 bg-csr-cream focus:border-csr-primary focus:ring-2 focus:ring-csr-primary/10 outline-none transition-all text-csr-black text-sm">
-              <option value="research">Research Collaboration</option>
-              <option value="partnership">Philanthropic Partnership</option>
-              <option value="other">General Inquiry</option>
-            </select>
-          </div>
-          <div>
-            <label class="block label-mono text-[11px] mb-2">Message</label>
-            <textarea name="message" required rows="5" class="w-full px-4 py-3 rounded-xl border border-csr-gray-200 bg-csr-cream focus:border-csr-primary focus:ring-2 focus:ring-csr-primary/10 outline-none transition-all text-csr-black text-sm resize-none"></textarea>
-          </div>
-          <button type="submit" class="w-full py-3.5 bg-csr-primary text-white rounded-full font-semibold text-sm hover:bg-csr-primary-dark transition-all shadow-purple">Send Message</button>
-        </form>
-      </div>
-
-      <p class="text-center text-xs text-csr-gray-400 font-mono mt-6">
-        Or email directly: <a href="mailto:jhonatan.serna@proton.me" class="text-csr-primary hover:underline">jhonatan.serna@proton.me</a>
-      </p>
-    </div>
-  </section>
-
-  <script is:inline>
-    const form = document.getElementById('contact-form');
-    if (form) {
-      form.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const data = new FormData(form);
-        const response = await fetch(form.action, {
-          method: 'POST',
-          body: data,
-          headers: { 'Accept': 'application/json' }
-        });
-        if (response.ok) alert('Message sent!');
-        else alert('Something went wrong.');
-      });
-    }
-  </script>
-
+  <ContactContent t={t} />
 </Layout>

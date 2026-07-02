@@ -1,0 +1,30 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ContactContent from '../../components/ContactContent.astro';
+
+const t = {
+  label: 'Contact',
+  headingStart: 'Entrons en',
+  headingAccent: 'contact',
+  intro: 'Nous sommes ouverts aux collaborations de recherche, aux partenariats philanthropiques et au dialogue stratégique. Contactez-nous via le formulaire ci-dessous.',
+  name: 'Nom',
+  email: 'E-mail',
+  inquiryType: 'Type de demande',
+  optResearch: 'Collaboration de recherche',
+  optPartnership: 'Partenariat philanthropique',
+  optOther: 'Demande générale',
+  message: 'Message',
+  send: 'Envoyer le message',
+  sending: 'Envoi en cours…',
+  success: 'Message envoyé — nous vous répondrons bientôt.',
+  error: "Une erreur s'est produite. Veuillez réessayer ou nous écrire directement.",
+  orEmail: 'Ou par e-mail :',
+};
+---
+
+<Layout
+  title="Contact"
+  description="Contactez le Center for Sentience Research."
+>
+  <ContactContent t={t} />
+</Layout>
