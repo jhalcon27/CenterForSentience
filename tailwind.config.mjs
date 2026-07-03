@@ -18,6 +18,8 @@ export default {
         'csr-gray-400': '#94a3b8',
         'csr-gray-500': '#64748b',
         'csr-gray-600': '#475569',
+        'csr-gray-650': '#3f4d61',
+        'csr-gray-700': '#334155',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],

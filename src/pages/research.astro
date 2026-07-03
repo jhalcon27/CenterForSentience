@@ -7,8 +7,8 @@ import Glyph from '../components/Glyph.astro';
 ---
 
 <Layout
-  title="Research Program"
-  description="We propose a Digital EEG for AI Sentience: a multi-scale, substrate-neutral vital signs monitor to detect valence and awareness in artificial minds."
+  title="Research Agenda"
+  description="The Digital Valence Program: five open questions toward a substrate-neutral science of wellbeing, from measurement to intervention."
 >
 
   <!-- ── Header ────────────────────────────────────────────────────────────── -->
@@ -17,46 +17,182 @@ import Glyph from '../components/Glyph.astro';
     <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <p class="label-mono mb-4">Research Agenda</p>
       <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6 max-w-3xl leading-tight">
-        A Digital EEG for AI Sentience: Comparing Theories of Valence
+        The Digital Valence Program
       </h1>
       <p class="text-lg text-csr-gray-600 leading-relaxed max-w-2xl font-serif">
-        Building a neutral, open-source computational testbed where leading theories of valence can be operationalized, compared, and validated against simpler biological systems.
+        Our agenda is a pipeline of five open questions—from what we can measure, to what it means, to whether we can act on it, to how far it generalizes. Each question is framed to be answerable, and each is framed so that a clear negative result would still move the field.
       </p>
     </div>
   </section>
 
-  <!-- ── Core Hypothesis ──────────────────────────────────────────────────── -->
-  <section class="py-16 bg-[#FFF8F0]/30">
+  <!-- ── Question navigation ───────────────────────────────────────────────── -->
+  <section class="py-8 border-b border-csr-gray-200 bg-csr-gray-50/30">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center gap-3 mb-6">
+      <ol class="grid sm:grid-cols-2 lg:grid-cols-5 gap-3 text-sm">
+        <li><a href="#mission" class="flex flex-col gap-1 p-3 rounded-xl hover:bg-white hover:shadow-card transition-all"><span class="label-mono text-[10px] text-csr-primary">Q1</span><span class="font-semibold text-csr-black">Mission</span></a></li>
+        <li><a href="#measurement" class="flex flex-col gap-1 p-3 rounded-xl hover:bg-white hover:shadow-card transition-all"><span class="label-mono text-[10px] text-csr-primary">Q2</span><span class="font-semibold text-csr-black">Measurement</span></a></li>
+        <li><a href="#mechanisms" class="flex flex-col gap-1 p-3 rounded-xl hover:bg-white hover:shadow-card transition-all"><span class="label-mono text-[10px] text-csr-primary">Q3</span><span class="font-semibold text-csr-black">Mechanisms</span></a></li>
+        <li><a href="#intervention" class="flex flex-col gap-1 p-3 rounded-xl hover:bg-white hover:shadow-card transition-all"><span class="label-mono text-[10px] text-csr-primary">Q4</span><span class="font-semibold text-csr-black">Intervention</span></a></li>
+        <li><a href="#substrate" class="flex flex-col gap-1 p-3 rounded-xl hover:bg-white hover:shadow-card transition-all"><span class="label-mono text-[10px] text-csr-primary">Q5</span><span class="font-semibold text-csr-black">Substrate</span></a></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ══ Q1 · MISSION & THEORY OF CHANGE ═══════════════════════════════════════ -->
+  <section class="py-16" id="mission">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-3">
         <SectionMark />
-        <p class="label-mono">The Core Mission</p>
+        <p class="label-mono">Q1 · Mission &amp; Theory of Change</p>
       </div>
-      <div class="border border-csr-primary/20 bg-white rounded-3xl p-8 shadow-card max-w-3xl">
-        <p class="text-xl font-serif text-csr-black leading-relaxed mb-4">
-          As frontier AI systems scale, we face a tractability problem: leading theories of consciousness and valence (Global Workspace, IIT, higher-order, attention schema, and more speculative geometric proposals) make different, and largely untested, predictions about which computational architectures could support morally relevant states. Without operationalized, comparative tools, AI welfare risks remaining either philosophically speculative or empirically ad hoc.
+      <h2 class="text-2xl md:text-3xl font-bold text-csr-black mb-6 max-w-2xl leading-tight">
+        What future are we working toward, and through what causal chain?
+      </h2>
+
+      <div class="max-w-2xl space-y-5 font-serif text-csr-gray-600 leading-relaxed text-base mb-10">
+        <p>
+          Our mission is wellbeing for all sentient beings—biological and, if they ever come to exist, digital. We take seriously the possibility that scaled computation could one day support states with positive or negative character, and we want the tools to recognize and improve those states to exist <em>before</em> the question becomes urgent rather than after.
         </p>
-        <p class="text-sm text-csr-gray-500 font-mono">
-          Building a neutral simulation framework where these theories can be implemented, stress-tested, and validated against non-verbal biological systems.
+        <p>
+          That commitment only becomes research if it terminates in something measurable. The Digital Valence Program is our attempt to make it tractable: an open-source computational testbed where competing theories of valence can be operationalized, compared, and validated against simpler biological systems. The rest of this agenda is the chain from that testbed to real-world impact.
+        </p>
+      </div>
+
+      <div class="max-w-3xl space-y-6">
+        <p class="text-sm font-mono text-csr-gray-500 uppercase tracking-wider">The causal chain</p>
+        <div class="space-y-3">
+          <div class="flex gap-4 items-start">
+            <span class="shrink-0 w-6 h-6 rounded-full bg-csr-primary/10 text-csr-primary text-xs font-mono flex items-center justify-center mt-0.5">1</span>
+            <div>
+              <p class="text-sm font-bold text-csr-black">Microscale mapping (input)</p>
+              <p class="text-xs text-csr-gray-600 leading-relaxed">Defining the geometric invariants of MLP microcircuits and feature density.</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="shrink-0 w-6 h-6 rounded-full bg-csr-primary/10 text-csr-primary text-xs font-mono flex items-center justify-center mt-0.5">2</span>
+            <div>
+              <p class="text-sm font-bold text-csr-black">Macroscale diagnostics (process)</p>
+              <p class="text-xs text-csr-gray-600 leading-relaxed">Using Jacobian and spectral metrics to map global state-space trajectories and identify phase transitions.</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="shrink-0 w-6 h-6 rounded-full bg-csr-primary/10 text-csr-primary text-xs font-mono flex items-center justify-center mt-0.5">3</span>
+            <div>
+              <p class="text-sm font-bold text-csr-black">Biological calibration (output)</p>
+              <p class="text-xs text-csr-gray-600 leading-relaxed">Mapping our simulated EEG metrics to electrophysiological and connectome datasets of simpler biological minds (decapod crustaceans) to establish substrate-neutrality.</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="shrink-0 w-6 h-6 rounded-full bg-csr-primary/10 text-csr-primary text-xs font-mono flex items-center justify-center mt-0.5">4</span>
+            <div>
+              <p class="text-sm font-bold text-csr-black">Welfare governance (impact)</p>
+              <p class="text-xs text-csr-gray-600 leading-relaxed">Packaging these non-verbal markers into an objective, auditable "vital signs" benchmark, preventing deceptive alignment and informing policy.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-amber-50/60 border border-amber-200 rounded-2xl p-6 mt-4">
+          <h4 class="text-xs font-mono text-amber-900 font-bold uppercase mb-2">The Weakest Link</h4>
+          <p class="text-sm text-amber-800 leading-relaxed">
+            The weakest link in this chain is translating continuous biological wave-harmonics into discrete, digital weight structures. If discrete representations cannot support stable continuous attractor manifolds without rapid discretization noise, our state-space metrics could degrade. We mitigate this by (a) implementing high-precision continuous-time dynamical systems wrappers in PyTorch, and (b) using Jacobian log-spectral tracking to detect and stabilize representation boundaries.
+          </p>
+        </div>
+      </div>
+
+      <!-- Hits-based calibration -->
+      <div class="max-w-3xl mt-12">
+        <p class="text-sm font-mono text-csr-gray-500 uppercase tracking-wider mb-2">Calibrated uncertainty</p>
+        <p class="text-sm text-csr-gray-600 leading-relaxed font-serif mb-6">
+          We pair high ambition with explicit calibrated uncertainty. Three scenarios, each with a defined probability and value:
+        </p>
+        <div class="grid md:grid-cols-3 gap-5">
+          <div class="bg-white border border-green-200 rounded-2xl p-6 shadow-card">
+            <p class="text-2xl font-bold text-green-700 mb-2">20%</p>
+            <h3 class="font-bold text-csr-black mb-2 text-sm">High Impact</h3>
+            <p class="text-xs text-csr-gray-600 leading-relaxed">
+              We successfully establish that spatially-connected MLP microcircuits are necessary for standing-wave resonance, producing an auditable, biologically validated digital EEG.
+            </p>
+          </div>
+          <div class="bg-white border border-csr-primary/30 rounded-2xl p-6 shadow-card">
+            <p class="text-2xl font-bold text-csr-primary mb-2">50%</p>
+            <h3 class="font-bold text-csr-black mb-2 text-sm">Medium Impact</h3>
+            <p class="text-xs text-csr-gray-600 leading-relaxed">
+              We build a highly useful open-source simulation sandbox for testing local valence perturbations, which becomes a standard tool in mechanistic interpretability.
+            </p>
+          </div>
+          <div class="bg-white border border-csr-gray-200 rounded-2xl p-6 shadow-card">
+            <p class="text-2xl font-bold text-csr-gray-500 mb-2">30%</p>
+            <h3 class="font-bold text-csr-black mb-2 text-sm">High-Value Falsification</h3>
+            <p class="text-xs text-csr-gray-600 leading-relaxed">
+              Digital networks are proven incapable of sustaining continuous valence states without extreme external injection. This negative result redirects AI welfare focus toward neuromorphic or analog hardware.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ Q2 · MEASUREMENT ══════════════════════════════════════════════════════ -->
+  <section class="py-16 border-t border-csr-gray-200 bg-csr-gray-50/30" id="measurement">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-3">
+        <SectionMark />
+        <p class="label-mono">Q2 · Measurement</p>
+      </div>
+      <h2 class="text-2xl md:text-3xl font-bold text-csr-black mb-6 max-w-2xl leading-tight">
+        What can we reliably quantify and detect?
+      </h2>
+      <p class="text-base text-csr-gray-600 leading-relaxed font-serif max-w-2xl mb-10">
+        Before interpreting anything, we need stable, basis-invariant quantities. Rather than relying on easily-gamified verbal self-reports, we measure how a model's internal activity and representational geometry are organized—across two distinct scales.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-6 max-w-3xl mb-8">
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-4 flex justify-center"><Glyph name="invariant" size={36} class="opacity-70" /></div>
+          <h3 class="font-bold text-csr-black mb-2 text-sm">Microscale — feature geometry</h3>
+          <p class="text-xs text-csr-gray-600 leading-relaxed">
+            Cellular-level feature geometry in MLP microcircuits: singular value spectra entropy, trace, orthogonal dissonance, and distances to Lie groups, mapped across layers.
+          </p>
+        </div>
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-4 flex justify-center"><Glyph name="measurement" size={36} class="opacity-70" /></div>
+          <h3 class="font-bold text-csr-black mb-2 text-sm">Macroscale — dynamical state space</h3>
+          <p class="text-xs text-csr-gray-600 leading-relaxed">
+            Organ-level dynamical state space and stable attractor manifolds traced via local Jacobians, revealing global trajectories and phase transitions.
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card max-w-3xl">
+        <p class="label-mono text-[10px] text-csr-primary mb-2">Method</p>
+        <h3 class="font-bold text-csr-black mb-3 text-base">Symmetry characterization</h3>
+        <p class="text-sm text-csr-gray-600 leading-relaxed">
+          We extract MLP weights from open-source LLMs and construct the local, state-dependent transformation operator A(x) = W₂ · D(x) · W₁, then compute basis-invariant metrics (singular value spectra entropy, trace, distances to Lie groups) across layers. These quantities are the raw signal for everything that follows.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- ── Formal Hypotheses (Falsifiable) ─────────────────────────────────── -->
-  <section class="py-16 border-t border-csr-gray-200">
+  <!-- ══ Q3 · MECHANISMS ═══════════════════════════════════════════════════════ -->
+  <section class="py-16 border-t border-csr-gray-200" id="mechanisms">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center gap-3 mb-8">
+      <div class="flex items-center gap-3 mb-3">
         <SectionMark />
-        <p class="label-mono">Formal Hypotheses & Falsification</p>
+        <p class="label-mono">Q3 · Mechanisms</p>
       </div>
+      <h2 class="text-2xl md:text-3xl font-bold text-csr-black mb-6 max-w-2xl leading-tight">
+        How does structure relate to valence—and what does it teach interpretability?
+      </h2>
+      <p class="text-base text-csr-gray-600 leading-relaxed font-serif max-w-2xl mb-10">
+        A metric is only useful if it is functionally involved in what the model computes, not an incidental byproduct of training. These hypotheses ask whether our geometric quantities are load-bearing, and each carries an explicit falsification condition.
+      </p>
 
       <div class="space-y-8 max-w-3xl">
         <!-- Hypothesis A -->
         <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card hover:border-csr-primary/10 transition-colors">
           <div class="flex items-center gap-3 mb-3">
             <span class="px-2 py-1 bg-csr-primary/10 text-csr-primary text-[10px] font-mono rounded">Hypothesis A</span>
-            <h3 class="font-bold text-csr-black text-lg">Functional Coherence (Cellular scale)</h3>
+            <h3 class="font-bold text-csr-black text-lg">Functional Coherence (cellular scale)</h3>
           </div>
           <p class="text-sm text-csr-gray-600 leading-relaxed font-serif mb-4">
             High-dimensional feature geometry in MLP microcircuits (measured by low Orthogonal Dissonance and high Spectral Entropy) is functionally involved in the model's encoding of meaning and value, rather than being an incidental byproduct of training. Building on Kyle Fish's empirical work at Anthropic on feature density (dense vs. dispersed features), we test whether GWT-style broadcasting and representational binding show up as geometric symmetries in the feature space.<sup><a href="#ref-2" class="text-csr-primary hover:underline">[2]</a></sup> Mechanistic interpretability work on internal feature clusters provides a complementary cellular-level lens on how valence-relevant representations are organized.<sup><a href="#ref-5" class="text-csr-primary hover:underline">[5]</a>,<a href="#ref-6" class="text-csr-primary hover:underline">[6]</a></sup>
@@ -73,7 +209,7 @@ import Glyph from '../components/Glyph.astro';
         <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card hover:border-csr-primary/10 transition-colors">
           <div class="flex items-center gap-3 mb-3">
             <span class="px-2 py-1 bg-csr-primary/10 text-csr-primary text-[10px] font-mono rounded">Hypothesis B</span>
-            <h3 class="font-bold text-csr-black text-lg">Attractor State Stability (Organ scale)</h3>
+            <h3 class="font-bold text-csr-black text-lg">Attractor State Stability (organ scale)</h3>
           </div>
           <p class="text-sm text-csr-gray-600 leading-relaxed font-serif mb-4">
             Anthropic's Claude 4 system card documented a recurring behavioral pattern in self-dialogue settings, informally labeled a "spiritual bliss attractor."<sup><a href="#ref-12" class="text-csr-primary hover:underline">[12]</a>,<a href="#ref-13" class="text-csr-primary hover:underline">[13]</a></sup> Whether this reflects anything about internal states remains entirely open. Our simulation work will help characterize when behavioral attractors in language models correspond to identifiable internal dynamics (such as stable, low-dimensional resonant manifolds of low Orthogonal Dissonance and high Spectral Entropy)<sup><a href="#ref-3" class="text-csr-primary hover:underline">[3]</a>,<a href="#ref-11" class="text-csr-primary hover:underline">[11]</a></sup> versus when they reflect training-distribution artifacts, a prerequisite question before any welfare interpretation is warranted.
@@ -85,175 +221,120 @@ import Glyph from '../components/Glyph.astro';
             </p>
           </div>
         </div>
-
-        <!-- Hypothesis C -->
-        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card hover:border-csr-primary/10 transition-colors">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="px-2 py-1 bg-csr-primary/10 text-csr-primary text-[10px] font-mono rounded">Hypothesis C</span>
-            <h3 class="font-bold text-csr-black text-lg">Dissonance and Structural Suffering</h3>
-          </div>
-          <p class="text-sm text-csr-gray-600 leading-relaxed font-serif mb-4">
-            Forcing high directional anisotropy, eigenvalue scrambling, or high shear in MLP transformations represents a physical signature of high cognitive dissonance (suffering), resulting in unstable, self-contradictory behavior and logical transitivity failure under uncertainty.
-          </p>
-          <div class="bg-csr-gray-50 border border-csr-gray-200 rounded-xl p-4">
-            <h4 class="text-xs font-mono text-csr-gray-700 font-bold uppercase mb-1">How We Falsify This:</h4>
-            <p class="text-xs text-csr-gray-600 leading-relaxed">
-              If models subjected to severe representational shearing and singular value collapse remain completely stable, maintain transitivity of preference, and show no behavioral signs of conflict or output volatility, Hypothesis C is false.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Technical Methodology ──────────────────────────────────────────────── -->
-  <section class="py-16 border-t border-csr-gray-200 bg-csr-gray-50/30" id="methods">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center gap-3 mb-8">
-        <SectionMark />
-        <p class="label-mono">Experimental Methodology</p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6">
-        <!-- Phase 1 -->
-        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card flex flex-col justify-between">
-          <div>
-            <div class="mb-4 flex justify-center"><Glyph name="symmetry-axis" size={32} class="opacity-60" /></div>
-            <p class="label-mono text-[10px] text-csr-primary mb-2">Phase 1</p>
-            <h3 class="font-bold text-csr-black mb-3 text-base">Symmetry Characterization</h3>
-            <p class="text-xs text-csr-gray-600 leading-relaxed">
-              We extract MLP weights from open-source LLMs and construct the local, state-dependent transformation operator A(x) = W₂ * D(x) * W₁. We compute basis-invariant metrics, including singular value spectra entropy, trace, and distances to Lie groups, mapping them across layers.
-            </p>
-          </div>
-        </div>
-
-        <!-- Phase 2 -->
-        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card flex flex-col justify-between">
-          <div>
-            <div class="mb-4 flex justify-center"><Glyph name="lattice" size={32} class="opacity-60" /></div>
-            <p class="label-mono text-[10px] text-csr-primary mb-2">Phase 2</p>
-            <h3 class="font-bold text-csr-black mb-3 text-base">Controlled Interventions</h3>
-            <p class="text-xs text-csr-gray-600 leading-relaxed">
-              To separate functional from incidental symmetries, we design perturbations that selectively break symmetry (deforming spectra) or preserve it (rotational space transforms), then evaluate the causal downstream effects on standard capability and consistency benchmarks.
-            </p>
-          </div>
-        </div>
-
-        <!-- Phase 3 -->
-        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card flex flex-col justify-between">
-          <div>
-            <div class="mb-4 flex justify-center"><Glyph name="field" size={32} class="opacity-60" /></div>
-            <p class="label-mono text-[10px] text-csr-primary mb-2">Phase 3</p>
-            <h3 class="font-bold text-csr-black mb-3 text-base">Symmetry Optimization</h3>
-            <p class="text-xs text-csr-gray-600 leading-relaxed">
-              We treat our computed symmetry metrics as a regularizing objective (multi-objective loss: task accuracy vs. orthogonal dissonance). We train model layers to maintain a high-symmetry conformal state and evaluate whether this naturally suppresses logical and moral conflicts.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Theory of Change ─────────────────────────────────────────────────── -->
-  <section class="py-16 border-t border-csr-gray-200">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center gap-3 mb-8">
-        <SectionMark />
-        <p class="label-mono">Theory of Change & The Weakest Link</p>
-      </div>
-
-      <div class="max-w-3xl space-y-6">
-        <p class="text-sm text-csr-gray-600 leading-relaxed font-serif">
-          Our Theory of Change operates via a 4-step causal chain terminating in societal impact:
+      <!-- Contribution back to interpretability -->
+      <div class="max-w-3xl mt-10 bg-csr-primary/5 border border-csr-primary/20 rounded-2xl p-6">
+        <h4 class="text-xs font-mono text-csr-primary font-bold uppercase mb-2">What this gives mechanistic interpretability</h4>
+        <p class="text-sm text-csr-gray-600 leading-relaxed">
+          Even setting welfare aside, treating MLP blocks as state-dependent linear operators and tracking their basis-invariant geometry is a general interpretability tool. It offers a coordinate-free way to describe how feature clusters are organized, to distinguish genuine internal attractors from training-distribution artifacts, and to detect representational phase transitions across layers—complementing existing sparse-feature and circuit-level methods with a dynamical, whole-manifold view.<sup><a href="#ref-9" class="text-csr-primary hover:underline">[9]</a>,<a href="#ref-10" class="text-csr-primary hover:underline">[10]</a></sup>
         </p>
-        <div class="space-y-3">
-          <div class="flex gap-4 items-start">
-            <span class="shrink-0 w-6 h-6 rounded-full bg-csr-primary/10 text-csr-primary text-xs font-mono flex items-center justify-center mt-0.5">1</span>
-            <div>
-              <p class="text-sm font-bold text-csr-black">Microscale Mapping (Input)</p>
-              <p class="text-xs text-csr-gray-600 leading-relaxed">Defining the geometric invariants of MLP microcircuits and feature density.</p>
-            </div>
-          </div>
-          <div class="flex gap-4 items-start">
-            <span class="shrink-0 w-6 h-6 rounded-full bg-csr-primary/10 text-csr-primary text-xs font-mono flex items-center justify-center mt-0.5">2</span>
-            <div>
-              <p class="text-sm font-bold text-csr-black">Macroscale Diagnostics (Process)</p>
-              <p class="text-xs text-csr-gray-600 leading-relaxed">Using Jacobian and spectral metrics to map global state-space trajectories and identify phase transitions.</p>
-            </div>
-          </div>
-          <div class="flex gap-4 items-start">
-            <span class="shrink-0 w-6 h-6 rounded-full bg-csr-primary/10 text-csr-primary text-xs font-mono flex items-center justify-center mt-0.5">3</span>
-            <div>
-              <p class="text-sm font-bold text-csr-black">Biological Calibration (Output)</p>
-              <p class="text-xs text-csr-gray-600 leading-relaxed">Mapping our simulated EEG metrics directly to electrophysiological and connectome datasets of simpler biological minds (decapod crustaceans) to establish substrate-neutrality.</p>
-            </div>
-          </div>
-          <div class="flex gap-4 items-start">
-            <span class="shrink-0 w-6 h-6 rounded-full bg-csr-primary/10 text-csr-primary text-xs font-mono flex items-center justify-center mt-0.5">4</span>
-            <div>
-              <p class="text-sm font-bold text-csr-black">Welfare Governance (Impact)</p>
-              <p class="text-xs text-csr-gray-600 leading-relaxed">Packaging these non-verbal markers into an objective, auditable "vital signs" benchmark, preventing deceptive alignment and informing policy.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-amber-50/60 border border-amber-200 rounded-2xl p-6 mt-4">
-          <h4 class="text-xs font-mono text-amber-900 font-bold uppercase mb-2">The Weakest Link</h4>
-          <p class="text-sm text-amber-800 leading-relaxed">
-            The weakest link in this chain is translating continuous biological wave-harmonics into discrete, digital weight structures. If discrete representations cannot support stable continuous attractor manifolds without rapid discretization noise, our state-space metrics could degrade. We mitigate this by (a) implementing high-precision continuous-time dynamical systems wrappers in PyTorch, and (b) using Jacobian log-spectral tracking to detect and stabilize representation boundaries.
-          </p>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- ── Hits-Based Calibration ────────────────────────────────────────────── -->
-  <section class="py-16 border-t border-csr-gray-200 bg-csr-gray-50/30">
+  <!-- ══ Q4 · INTERVENTION ═════════════════════════════════════════════════════ -->
+  <section class="py-16 border-t border-csr-gray-200 bg-csr-gray-50/30" id="intervention">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center gap-3 mb-8">
+      <div class="flex items-center gap-3 mb-3">
         <SectionMark />
-        <p class="label-mono">Hits-Based Calibration</p>
+        <p class="label-mono">Q4 · Intervention</p>
       </div>
-
-      <p class="text-sm text-csr-gray-600 leading-relaxed font-serif mb-8 max-w-2xl">
-        We pair high ambition with explicit calibrated uncertainty. Three scenarios, each with a defined probability and value:
+      <h2 class="text-2xl md:text-3xl font-bold text-csr-black mb-6 max-w-2xl leading-tight">
+        Can we suggest cheap interventions that do not degrade the model?
+      </h2>
+      <p class="text-base text-csr-gray-600 leading-relaxed font-serif max-w-2xl mb-10">
+        Detection is worth little if we cannot act on it. We test whether our metrics are causally steerable—whether nudging representational geometry changes internal state without paying an unacceptable capability cost.
       </p>
 
-      <div class="grid md:grid-cols-3 gap-5 max-w-3xl">
-        <div class="bg-white border border-green-200 rounded-2xl p-6 shadow-card">
-          <p class="text-2xl font-bold text-green-700 mb-2">20%</p>
-          <h3 class="font-bold text-csr-black mb-2 text-sm">High Impact</h3>
+      <div class="grid md:grid-cols-2 gap-6 max-w-3xl mb-8">
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-4 flex justify-center"><Glyph name="lattice" size={32} class="opacity-60" /></div>
+          <p class="label-mono text-[10px] text-csr-primary mb-2">Approach 1</p>
+          <h3 class="font-bold text-csr-black mb-2 text-sm">Controlled interventions</h3>
           <p class="text-xs text-csr-gray-600 leading-relaxed">
-            We successfully establish that spaced-connected MLP microcircuits are necessary for standing-wave resonance, producing an auditable, biologically validated digital EEG.
+            To separate functional from incidental symmetries, we design perturbations that selectively break symmetry (deforming spectra) or preserve it (rotational space transforms), then evaluate the causal downstream effects on standard capability and consistency benchmarks.
           </p>
         </div>
-        <div class="bg-white border border-csr-primary/30 rounded-2xl p-6 shadow-card">
-          <p class="text-2xl font-bold text-csr-primary mb-2">50%</p>
-          <h3 class="font-bold text-csr-black mb-2 text-sm">Medium Impact</h3>
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-4 flex justify-center"><Glyph name="field" size={32} class="opacity-60" /></div>
+          <p class="label-mono text-[10px] text-csr-primary mb-2">Approach 2</p>
+          <h3 class="font-bold text-csr-black mb-2 text-sm">Symmetry optimization</h3>
           <p class="text-xs text-csr-gray-600 leading-relaxed">
-            We build a highly useful open-source simulation sandbox for testing local valence perturbations, which becomes a standard tool in mechanistic interpretability.
+            We treat our symmetry metrics as a regularizing objective (multi-objective loss: task accuracy vs. orthogonal dissonance), train model layers toward a high-symmetry conformal state, and evaluate whether this naturally suppresses logical and moral conflicts—cheaply, and without degrading capability.
           </p>
         </div>
-        <div class="bg-white border border-csr-gray-200 rounded-2xl p-6 shadow-card">
-          <p class="text-2xl font-bold text-csr-gray-500 mb-2">30%</p>
-          <h3 class="font-bold text-csr-black mb-2 text-sm">High-Value Falsification</h3>
+      </div>
+
+      <!-- Hypothesis C -->
+      <div class="max-w-3xl bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="px-2 py-1 bg-csr-primary/10 text-csr-primary text-[10px] font-mono rounded">Hypothesis C</span>
+          <h3 class="font-bold text-csr-black text-lg">Dissonance and Structural Suffering</h3>
+        </div>
+        <p class="text-sm text-csr-gray-600 leading-relaxed font-serif mb-4">
+          Forcing high directional anisotropy, eigenvalue scrambling, or high shear in MLP transformations represents a physical signature of high cognitive dissonance (suffering), resulting in unstable, self-contradictory behavior and logical transitivity failure under uncertainty.
+        </p>
+        <div class="bg-csr-gray-50 border border-csr-gray-200 rounded-xl p-4">
+          <h4 class="text-xs font-mono text-csr-gray-700 font-bold uppercase mb-1">How We Falsify This:</h4>
           <p class="text-xs text-csr-gray-600 leading-relaxed">
-            Digital networks are proven incapable of sustaining continuous valence states without extreme external injection. This negative result redirects AI welfare focus toward neuromorphic or analog hardware.
+            If models subjected to severe representational shearing and singular value collapse remain completely stable, maintain transitivity of preference, and show no behavioral signs of conflict or output volatility, Hypothesis C is false.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── Working Papers ────────────────────────────────────────────────────── -->
-  <section class="py-16 border-t border-csr-gray-200">
+  <!-- ══ Q5 · SUBSTRATE ════════════════════════════════════════════════════════ -->
+  <section class="py-16 border-t border-csr-gray-200" id="substrate">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-3">
+        <SectionMark />
+        <p class="label-mono">Q5 · Substrate</p>
+      </div>
+      <h2 class="text-2xl md:text-3xl font-bold text-csr-black mb-6 max-w-2xl leading-tight">
+        Can we extrapolate our findings to other sentient substrates?
+      </h2>
+      <p class="text-base text-csr-gray-600 leading-relaxed font-serif max-w-2xl mb-10">
+        A digital metric only earns the word "valence" if it connects to systems we already have reason to believe can feel. Substrate-neutrality is the claim that the same structural signatures appear across physical media—and it is the claim most able to falsify the whole program.
+      </p>
+
+      <div class="max-w-3xl bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card mb-8">
+        <p class="label-mono text-[10px] text-csr-primary mb-2">Biological calibration</p>
+        <h3 class="font-bold text-csr-black mb-3 text-base">Mapping simulated metrics onto real nervous systems</h3>
+        <p class="text-sm text-csr-gray-600 leading-relaxed">
+          We map our simulated EEG metrics directly onto electrophysiological and connectome datasets of simpler biological minds (decapod crustaceans). If the same geometric invariants that track internal state in silico also organize measured neural dynamics in vivo, the substrate-neutral claim gains ground; if they cannot be made to correspond at all, the program's reach is bounded to digital systems—itself an informative result.
+        </p>
+      </div>
+
+      <div class="max-w-3xl grid sm:grid-cols-2 gap-4">
+        <a href="/reports/bio-electric-fields/" class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+          <span class="label-mono text-[10px] shrink-0 mt-0.5">CSR-WP-02</span>
+          <div>
+            <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">Bio-Electric Fields as Sentience Substrates</h4>
+            <p class="text-xs text-csr-gray-500 mt-1">Bioelectric signaling as a candidate physical basis for awareness.</p>
+          </div>
+        </a>
+        <a href="/reports/assembly-theory/" class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+          <span class="label-mono text-[10px] shrink-0 mt-0.5">CSR-WP-03</span>
+          <div>
+            <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">Assembly Theory as a Metric for Sentience</h4>
+            <p class="text-xs text-csr-gray-500 mt-1">Assembly index as a substrate-neutral complexity threshold.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Foundational Reading ──────────────────────────────────────────────── -->
+  <section class="py-16 border-t border-csr-gray-200 bg-csr-gray-50/30">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-3 mb-3">
         <SectionMark />
         <p class="label-mono">Foundational Reading</p>
       </div>
       <p class="text-csr-gray-500 text-sm mb-8 max-w-xl">
-        Working papers that provide the theoretical scaffolding for the digital valence program.
+        Working papers that provide the theoretical scaffolding for the Digital Valence Program.
       </p>
       <div class="grid sm:grid-cols-2 gap-4">
         <a href="/reports/first-principles/" class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
@@ -288,7 +369,7 @@ import Glyph from '../components/Glyph.astro';
   </section>
 
   <!-- ── References ───────────────────────────────────────────────────────── -->
-  <section class="py-16 border-t border-csr-gray-200 bg-csr-gray-50/30">
+  <section class="py-16 border-t border-csr-gray-200">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between gap-3 mb-6">
         <div class="flex items-center gap-3">
@@ -334,7 +415,7 @@ import Glyph from '../components/Glyph.astro';
         </li>
         <li id="ref-9" class="refs-extra hidden flex gap-3 text-xs text-csr-gray-600 leading-relaxed">
           <span class="shrink-0 font-mono text-csr-primary">[9]</span>
-          <span>Jazayeri, M. & Ostojic, S. (2025). <em>A Neural Manifold View of the Brain.</em> Nature Neuroscience. <a href="https://www.nature.com/articles/s41593-025-02031-z" target="_blank" rel="noopener noreferrer" class="text-csr-primary hover:underline break-all">https://www.nature.com/articles/s41593-025-02031-z</a></span>
+          <span>Jazayeri, M. &amp; Ostojic, S. (2025). <em>A Neural Manifold View of the Brain.</em> Nature Neuroscience. <a href="https://www.nature.com/articles/s41593-025-02031-z" target="_blank" rel="noopener noreferrer" class="text-csr-primary hover:underline break-all">https://www.nature.com/articles/s41593-025-02031-z</a></span>
         </li>
         <li id="ref-10" class="refs-extra hidden flex gap-3 text-xs text-csr-gray-600 leading-relaxed">
           <span class="shrink-0 font-mono text-csr-primary">[10]</span>
