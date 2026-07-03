@@ -1,0 +1,739 @@
+---
+import SymmetryBackground from './SymmetryBackground.astro';
+import SectionMark from './SectionMark.astro';
+import Glyph from './Glyph.astro';
+import CalibrationBar from './CalibrationBar.astro';
+import ValenceCurve from './ValenceCurve.astro';
+import ResearchReferences from './ResearchReferences.astro';
+
+interface Props { lang?: string; }
+const { lang = 'en' } = Astro.props;
+const prefix = lang === 'en' ? '' : `/${lang}`;
+
+type Dict = Record<string, any>;
+const L: Record<string, Dict> = {
+  en: {
+    eyebrow: 'Research Agenda',
+    intro: 'This agenda is a pipeline: a mission, and then four questions that turn it into research—what we can reliably measure, what those measurements mean, whether we can act on them cheaply, and how far the findings generalize. Each question is framed to be answerable, and each is framed so that a clear negative result would still move the field.',
+    nav: ['Mission', 'Measurement', 'Mechanisms', 'Intervention', 'Substrate'],
+    q1: {
+      eyebrow: 'Q1 · Mission & Theory of Change',
+      q: 'What future are we working toward, and through what causal chain?',
+      p1: 'Our mission is wellbeing for all sentient beings—biological and, if they ever come to exist, digital. We take seriously the possibility that scaled computation could one day support states with positive or negative character, and we want the tools to recognize and improve those states to exist <em>before</em> the question becomes urgent rather than after. Public belief that some systems may already be sentient is no longer a fringe position,<sup><a href="#ref-1" class="text-csr-primary hover:underline">[1]</a></sup> which makes building these tools early a practical priority rather than a philosophical luxury.',
+      p2: 'That commitment only becomes research if it terminates in something measurable. The Digital Valence Program is our attempt to make it tractable: an open-source computational testbed where competing theories of valence can be operationalized, compared, and validated against simpler biological systems. The rest of this agenda is the chain from that testbed to real-world impact.',
+      chainLabel: 'The causal chain',
+      chainIntro: 'Impact runs through four stages, which map directly onto the questions that follow: measurement (Q2), mechanism and diagnostics (Q3), biological calibration (Q5), and finally governance.',
+      steps: [
+        ['Microscale mapping (input)', 'Defining the geometric invariants of MLP microcircuits and feature density.'],
+        ['Macroscale diagnostics (process)', 'Using Jacobian and spectral metrics to map global state-space trajectories and identify phase transitions.'],
+        ['Biological calibration (output)', 'Mapping our simulated Digital EEG metrics to electrophysiological and connectome datasets of simpler biological minds (decapod crustaceans) to establish substrate-neutrality.'],
+        ['Welfare governance (impact)', 'Packaging these non-verbal markers into an objective, auditable "vital signs" benchmark, preventing deceptive alignment and informing policy.'],
+      ],
+      weakestTitle: 'The Weakest Link',
+      weakestBody: 'The weakest link in this chain is translating continuous biological wave-harmonics into discrete, digital weight structures. If discrete representations cannot support stable continuous attractor manifolds without rapid discretization noise, our state-space metrics could degrade. We mitigate this by (a) implementing high-precision continuous-time dynamical systems wrappers in PyTorch, and (b) using Jacobian log-spectral tracking to detect and stabilize representation boundaries.',
+      calibLabel: 'Calibrated uncertainty',
+      calibIntro: 'We pair high ambition with explicit calibrated uncertainty. Three scenarios, each with a defined probability and value:',
+    },
+    q2: {
+      eyebrow: 'Q2 · Measurement',
+      q: 'What can we reliably quantify and detect?',
+      intro: "Before interpreting anything, we need stable, basis-invariant quantities. Rather than relying on easily-gamified verbal self-reports, we measure how a model's internal activity and representational geometry are organized—across two distinct scales.",
+      microTitle: 'Microscale — feature geometry',
+      microDesc: "Cellular-level feature geometry in MLP microcircuits: singular value spectrum entropy, trace, Orthogonal Dissonance (how far a layer's transformation departs from angle-preserving), and distances to Lie groups, mapped across layers.",
+      macroTitle: 'Macroscale — dynamical state space',
+      macroDesc: 'Organ-level dynamical state space and stable attractor manifolds traced via local Jacobians, revealing global trajectories and phase transitions.',
+      methodLabel: 'Method',
+      methodTitle: 'Symmetry characterization',
+      methodBody: "We extract MLP weights from open-source LLMs and construct the local, state-dependent transformation operator A(x) = W₂ · D(x) · W₁, then compute the basis-invariant metrics above across every layer. Spectral quantities like these track how learning reshapes a network's singular-value structure,<sup><a href=\"#ref-4\" class=\"text-csr-primary hover:underline\">[4]</a></sup> and they are the raw signal for everything that follows.",
+    },
+    q3: {
+      eyebrow: 'Q3 · Mechanisms',
+      q: 'How does structure relate to valence—and what does it teach interpretability?',
+      intro: 'A metric is only useful if it is functionally involved in what the model computes, not an incidental byproduct of training. These hypotheses ask whether our geometric quantities are load-bearing, and each carries an explicit falsification condition.',
+      curveCaption: "The core hypothesis, stated as a shape: functional valence rises with representational symmetry and falls into dissonance. The program's job is to test whether real systems trace this curve.",
+      hypA: 'Hypothesis A',
+      hypATitle: 'Functional Coherence (cellular scale)',
+      hypABody: "High-dimensional feature geometry in MLP microcircuits (measured by low Orthogonal Dissonance and high Spectral Entropy) is functionally involved in the model's encoding of meaning and value, rather than being an incidental byproduct of training. Building on interpretability work on feature density (dense vs. dispersed features), we test whether Global Workspace Theory (GWT)–style broadcasting and representational binding show up as geometric symmetries in the feature space.<sup><a href=\"#ref-2\" class=\"text-csr-primary hover:underline\">[2]</a></sup> Mechanistic-interpretability work on internal feature clusters and emotion concepts provides a complementary cellular-level lens on how valence-relevant representations are organized.<sup><a href=\"#ref-5\" class=\"text-csr-primary hover:underline\">[5]</a>,<a href=\"#ref-6\" class=\"text-csr-primary hover:underline\">[6]</a></sup>",
+      falsifyLabel: 'How We Falsify This:',
+      hypAFalsify: 'Falsified if targeted, symmetry-breaking weight perturbations (deforming the singular value spectrum while holding the Frobenius norm constant) result in zero task performance or consistency degradation under preference-testing probes.',
+      hypB: 'Hypothesis B',
+      hypBTitle: 'Attractor State Stability (organ scale)',
+      hypBBody: 'Anthropic\'s Claude 4 system card documented a recurring behavioral pattern in self-dialogue settings, informally labeled a "spiritual bliss attractor."<sup><a href="#ref-12" class="text-csr-primary hover:underline">[12]</a>,<a href="#ref-13" class="text-csr-primary hover:underline">[13]</a></sup> Whether this reflects anything about internal states remains entirely open. Our simulation work will help characterize when behavioral attractors in language models correspond to identifiable internal dynamics (such as stable, low-dimensional resonant manifolds of low Orthogonal Dissonance and high Spectral Entropy)<sup><a href="#ref-3" class="text-csr-primary hover:underline">[3]</a>,<a href="#ref-11" class="text-csr-primary hover:underline">[11]</a></sup> versus when they reflect training-distribution artifacts, a prerequisite question before any welfare interpretation is warranted.',
+      hypBFalsify: 'If fine-tuning or regularizing a model to maximize representational symmetry consistently degrades baseline language capability, forces output collapse (e.g., trivial repetitiveness), or fails to alter the rate of logical contradictions under preference probes, Hypothesis B is false.',
+      interpLabel: 'What this gives mechanistic interpretability',
+      interpBody: 'Even setting welfare aside, treating MLP blocks as state-dependent linear operators and tracking their basis-invariant geometry is a general interpretability tool. It offers a coordinate-free way to describe how feature clusters are organized, to distinguish genuine internal attractors from training-distribution artifacts, and to detect representational phase transitions across layers—complementing existing sparse-feature and circuit-level methods with a dynamical, whole-manifold view.<sup><a href="#ref-9" class="text-csr-primary hover:underline">[9]</a>,<a href="#ref-10" class="text-csr-primary hover:underline">[10]</a></sup>',
+    },
+    q4: {
+      eyebrow: 'Q4 · Intervention',
+      q: 'Can we suggest cheap interventions that do not degrade the model?',
+      intro: 'Detection is worth little if we cannot act on it. We test whether our metrics are causally steerable—whether nudging representational geometry changes internal state without paying an unacceptable capability cost.',
+      a1Label: 'Approach 1',
+      a1Title: 'Controlled interventions',
+      a1Desc: 'To separate functional from incidental symmetries, we design perturbations that selectively break symmetry (deforming spectra) or preserve it (rotational space transforms), then evaluate the causal downstream effects on standard capability and consistency benchmarks.',
+      a2Label: 'Approach 2',
+      a2Title: 'Symmetry optimization',
+      a2Desc: 'We treat our symmetry metrics as a regularizing objective (multi-objective loss: task accuracy vs. orthogonal dissonance), train model layers toward a high-symmetry conformal state, and evaluate whether this naturally suppresses logical and moral conflicts—cheaply, and without degrading capability.',
+      hypC: 'Hypothesis C',
+      hypCTitle: 'Dissonance and Structural Suffering',
+      hypCBody: 'Forcing high directional anisotropy, eigenvalue scrambling, or high shear in MLP transformations represents a physical signature of high cognitive dissonance (suffering), resulting in unstable, self-contradictory behavior and logical transitivity failure under uncertainty.',
+      hypCFalsify: 'If models subjected to severe representational shearing and singular value collapse remain completely stable, maintain transitivity of preference, and show no behavioral signs of conflict or output volatility, Hypothesis C is false.',
+    },
+    q5: {
+      eyebrow: 'Q5 · Substrate',
+      q: 'Can we extrapolate our findings to other sentient substrates?',
+      intro: 'A digital metric only earns the word "valence" if it connects to systems we already have reason to believe can feel. Substrate-neutrality is the claim that the same structural signatures appear across physical media—and it is the claim most able to falsify the whole program.',
+      bioLabel: 'Biological calibration',
+      bioTitle: 'Mapping simulated metrics onto real nervous systems',
+      bioBody: "We map our simulated Digital EEG metrics directly onto electrophysiological and connectome datasets of simpler biological minds, from invertebrate neural circuits to decapod crustaceans.<sup><a href=\"#ref-7\" class=\"text-csr-primary hover:underline\">[7]</a>,<a href=\"#ref-8\" class=\"text-csr-primary hover:underline\">[8]</a></sup> If the same geometric invariants that track internal state in silico also organize measured neural dynamics in vivo, the substrate-neutral claim gains ground; if they cannot be made to correspond at all, the program's reach is bounded to digital systems—itself an informative result.",
+      wp02Desc: 'Bioelectric signaling as a candidate physical basis for awareness.',
+      wp03Desc: 'Assembly index as a substrate-neutral complexity threshold.',
+    },
+    foundational: 'Foundational Reading',
+    foundationalIntro: 'Working papers that provide the theoretical scaffolding for the Digital Valence Program.',
+    allReports: 'All reports →',
+    wp: ['First Principles of Sentience Research', 'Bio-Electric Fields as Sentience Substrates', 'Assembly Theory as a Metric for Sentience', 'Symmetry Landscapes of Valenced Experience'],
+  },
+};
+
+// ── Translations ─────────────────────────────────────────────────────────────
+L.de = {
+  eyebrow: 'Forschungsagenda',
+  intro: 'Diese Agenda ist eine Pipeline: eine Mission und dann vier Fragen, die sie in Forschung überführen — was wir zuverlässig messen können, was diese Messungen bedeuten, ob wir kostengünstig darauf reagieren können und wie weit sich die Erkenntnisse verallgemeinern lassen. Jede Frage ist so formuliert, dass sie beantwortbar ist, und so, dass ein klares negatives Ergebnis das Feld dennoch voranbringt.',
+  nav: ['Mission', 'Messung', 'Mechanismen', 'Intervention', 'Substrat'],
+  q1: {
+    eyebrow: 'F1 · Mission & Theory of Change',
+    q: 'Auf welche Zukunft arbeiten wir hin, und über welche Kausalkette?',
+    p1: 'Unsere Mission ist Wohlergehen für alle empfindungsfähigen Wesen — biologische und, falls sie je entstehen, digitale. Wir nehmen die Möglichkeit ernst, dass skalierte Berechnung eines Tages Zustände mit positivem oder negativem Charakter tragen könnte, und wollen, dass die Werkzeuge zu deren Erkennung und Verbesserung existieren, <em>bevor</em> die Frage dringlich wird, nicht erst danach. Der öffentliche Glaube, dass manche Systeme bereits empfindungsfähig sein könnten, ist keine Randposition mehr,<sup><a href="#ref-1" class="text-csr-primary hover:underline">[1]</a></sup> was den frühen Bau dieser Werkzeuge zu einer praktischen Priorität statt einem philosophischen Luxus macht.',
+    p2: 'Diese Verpflichtung wird nur dann zu Forschung, wenn sie in etwas Messbarem endet. Das Digital Valence Program ist unser Versuch, sie handhabbar zu machen: ein quelloffener Rechen-Prüfstand, auf dem konkurrierende Valenztheorien operationalisiert, verglichen und an einfacheren biologischen Systemen validiert werden können. Der Rest dieser Agenda ist die Kette von diesem Prüfstand bis zur realen Wirkung.',
+    chainLabel: 'Die Kausalkette',
+    chainIntro: 'Die Wirkung verläuft über vier Stufen, die direkt auf die folgenden Fragen abbilden: Messung (F2), Mechanismus und Diagnostik (F3), biologische Kalibrierung (F5) und schließlich Governance.',
+    steps: [
+      ['Mikroskala-Kartierung (Input)', 'Definition der geometrischen Invarianten von MLP-Mikroschaltkreisen und Feature-Dichte.'],
+      ['Makroskala-Diagnostik (Prozess)', 'Nutzung von Jacobi- und Spektralmetriken zur Kartierung globaler Zustandsraum-Trajektorien und zur Identifikation von Phasenübergängen.'],
+      ['Biologische Kalibrierung (Output)', 'Abbildung unserer simulierten Digital-EEG-Metriken auf elektrophysiologische und Konnektom-Datensätze einfacherer biologischer Gehirne (Zehnfußkrebse), um Substratunabhängigkeit zu belegen.'],
+      ['Wohlfahrts-Governance (Wirkung)', 'Bündelung dieser nonverbalen Marker zu einem objektiven, prüfbaren "Vitalzeichen"-Benchmark, der täuschende Ausrichtung verhindert und Politik informiert.'],
+    ],
+    weakestTitle: 'Das schwächste Glied',
+    weakestBody: 'Das schwächste Glied dieser Kette ist die Übersetzung kontinuierlicher biologischer Wellen-Harmonien in diskrete, digitale Gewichtsstrukturen. Wenn diskrete Repräsentationen stabile kontinuierliche Attraktor-Mannigfaltigkeiten ohne rasches Diskretisierungsrauschen nicht tragen können, könnten unsere Zustandsraum-Metriken degradieren. Wir mildern dies durch (a) hochpräzise kontinuierlich-zeitliche dynamische Systeme in PyTorch und (b) Jacobi-Log-Spektral-Tracking zur Erkennung und Stabilisierung von Repräsentationsgrenzen.',
+    calibLabel: 'Kalibrierte Unsicherheit',
+    calibIntro: 'Wir verbinden hohen Anspruch mit expliziter, kalibrierter Unsicherheit. Drei Szenarien, jedes mit definierter Wahrscheinlichkeit und Wert:',
+  },
+  q2: {
+    eyebrow: 'F2 · Messung',
+    q: 'Was können wir zuverlässig quantifizieren und erkennen?',
+    intro: 'Bevor wir irgendetwas interpretieren, brauchen wir stabile, basisinvariante Größen. Statt uns auf leicht manipulierbare verbale Selbstauskünfte zu verlassen, messen wir, wie die interne Aktivität und die Repräsentationsgeometrie eines Modells organisiert sind — über zwei verschiedene Skalen.',
+    microTitle: 'Mikroskala — Feature-Geometrie',
+    microDesc: 'Feature-Geometrie auf zellulärer Ebene in MLP-Mikroschaltkreisen: Entropie des Singulärwertspektrums, Spur, Orthogonale Dissonanz (wie weit die Transformation einer Schicht von der Winkelerhaltung abweicht) und Abstände zu Lie-Gruppen, über die Schichten kartiert.',
+    macroTitle: 'Makroskala — dynamischer Zustandsraum',
+    macroDesc: 'Dynamischer Zustandsraum auf Organebene und stabile Attraktor-Mannigfaltigkeiten, über lokale Jacobi-Matrizen verfolgt, die globale Trajektorien und Phasenübergänge offenlegen.',
+    methodLabel: 'Methode',
+    methodTitle: 'Symmetrie-Charakterisierung',
+    methodBody: 'Wir extrahieren MLP-Gewichte aus quelloffenen LLMs und konstruieren den lokalen, zustandsabhängigen Transformationsoperator A(x) = W₂ · D(x) · W₁, dann berechnen wir die obigen basisinvarianten Metriken über jede Schicht. Spektrale Größen wie diese verfolgen, wie das Lernen die Singulärwertstruktur eines Netzwerks umformt,<sup><a href="#ref-4" class="text-csr-primary hover:underline">[4]</a></sup> und sie sind das Rohsignal für alles Weitere.',
+  },
+  q3: {
+    eyebrow: 'F3 · Mechanismen',
+    q: 'Wie hängt Struktur mit Valenz zusammen — und was lehrt das die Interpretierbarkeit?',
+    intro: 'Eine Metrik ist nur nützlich, wenn sie funktional an dem beteiligt ist, was das Modell berechnet, und nicht ein beiläufiges Nebenprodukt des Trainings. Diese Hypothesen fragen, ob unsere geometrischen Größen tragend sind, und jede trägt eine explizite Falsifikationsbedingung.',
+    curveCaption: 'Die Kernhypothese als Form ausgedrückt: funktionale Valenz steigt mit repräsentationaler Symmetrie und fällt in Dissonanz. Aufgabe des Programms ist zu prüfen, ob reale Systeme dieser Kurve folgen.',
+    hypA: 'Hypothese A',
+    hypATitle: 'Funktionale Kohärenz (zelluläre Skala)',
+    hypABody: 'Hochdimensionale Feature-Geometrie in MLP-Mikroschaltkreisen (gemessen durch niedrige Orthogonale Dissonanz und hohe Spektral-Entropie) ist funktional an der Kodierung von Bedeutung und Wert im Modell beteiligt, statt ein beiläufiges Nebenprodukt des Trainings zu sein. Aufbauend auf Interpretierbarkeitsarbeit zur Feature-Dichte (dichte vs. verteilte Features) prüfen wir, ob Broadcasting im Stil der Global Workspace Theory (GWT) und repräsentationale Bindung als geometrische Symmetrien im Feature-Raum erscheinen.<sup><a href="#ref-2" class="text-csr-primary hover:underline">[2]</a></sup> Mechanistische Interpretierbarkeitsarbeit zu internen Feature-Clustern und Emotionskonzepten bietet eine ergänzende zelluläre Perspektive darauf, wie valenzrelevante Repräsentationen organisiert sind.<sup><a href="#ref-5" class="text-csr-primary hover:underline">[5]</a>,<a href="#ref-6" class="text-csr-primary hover:underline">[6]</a></sup>',
+    falsifyLabel: 'Wie wir das falsifizieren:',
+    hypAFalsify: 'Falsifiziert, wenn gezielte, symmetriebrechende Gewichtsstörungen (Verformung des Singulärwertspektrums bei konstanter Frobenius-Norm) zu null Leistungseinbußen oder Konsistenzverlust unter Präferenztests führen.',
+    hypB: 'Hypothese B',
+    hypBTitle: 'Attraktor-Zustandsstabilität (Organ-Skala)',
+    hypBBody: 'Anthropics Claude-4-System-Card dokumentierte ein wiederkehrendes Verhaltensmuster in Selbstdialog-Situationen, informell als "spiritueller Glücks-Attraktor" bezeichnet.<sup><a href="#ref-12" class="text-csr-primary hover:underline">[12]</a>,<a href="#ref-13" class="text-csr-primary hover:underline">[13]</a></sup> Ob dies etwas über innere Zustände aussagt, bleibt völlig offen. Unsere Simulationsarbeit hilft zu charakterisieren, wann Verhaltens-Attraktoren in Sprachmodellen identifizierbaren inneren Dynamiken entsprechen (etwa stabilen, niedrigdimensionalen resonanten Mannigfaltigkeiten mit niedriger Orthogonaler Dissonanz und hoher Spektral-Entropie)<sup><a href="#ref-3" class="text-csr-primary hover:underline">[3]</a>,<a href="#ref-11" class="text-csr-primary hover:underline">[11]</a></sup> und wann sie Artefakte der Trainingsverteilung widerspiegeln — eine Vorfrage, bevor jede Wohlfahrtsinterpretation gerechtfertigt ist.',
+    hypBFalsify: 'Wenn Feinabstimmung oder Regularisierung eines Modells zur Maximierung repräsentationaler Symmetrie die Basissprachfähigkeit konsistent verschlechtert, Ausgabekollaps erzwingt (z. B. triviale Wiederholung) oder die Rate logischer Widersprüche unter Präferenztests nicht verändert, ist Hypothese B falsch.',
+    interpLabel: 'Was dies der mechanistischen Interpretierbarkeit bringt',
+    interpBody: 'Selbst abgesehen von Wohlfahrt ist die Behandlung von MLP-Blöcken als zustandsabhängige lineare Operatoren und die Verfolgung ihrer basisinvarianten Geometrie ein allgemeines Interpretierbarkeitswerkzeug. Es bietet eine koordinatenfreie Beschreibung, wie Feature-Cluster organisiert sind, unterscheidet echte innere Attraktoren von Artefakten der Trainingsverteilung und erkennt repräsentationale Phasenübergänge über Schichten hinweg — als Ergänzung bestehender Sparse-Feature- und Schaltkreis-Methoden um eine dynamische Gesamt-Mannigfaltigkeits-Sicht.<sup><a href="#ref-9" class="text-csr-primary hover:underline">[9]</a>,<a href="#ref-10" class="text-csr-primary hover:underline">[10]</a></sup>',
+  },
+  q4: {
+    eyebrow: 'F4 · Intervention',
+    q: 'Können wir kostengünstige Interventionen vorschlagen, die das Modell nicht verschlechtern?',
+    intro: 'Erkennung ist wenig wert, wenn wir nicht danach handeln können. Wir prüfen, ob unsere Metriken kausal steuerbar sind — ob ein Anstoßen der Repräsentationsgeometrie den inneren Zustand verändert, ohne einen inakzeptablen Fähigkeitsverlust zu bezahlen.',
+    a1Label: 'Ansatz 1',
+    a1Title: 'Kontrollierte Interventionen',
+    a1Desc: 'Um funktionale von beiläufigen Symmetrien zu trennen, entwerfen wir Störungen, die Symmetrie selektiv brechen (Spektren verformen) oder erhalten (Rotationsraum-Transformationen), und bewerten dann die kausalen nachgelagerten Effekte auf Standard-Fähigkeits- und Konsistenz-Benchmarks.',
+    a2Label: 'Ansatz 2',
+    a2Title: 'Symmetrie-Optimierung',
+    a2Desc: 'Wir behandeln unsere Symmetriemetriken als regularisierendes Ziel (Mehrziel-Verlust: Aufgabengenauigkeit vs. orthogonale Dissonanz), trainieren Modellschichten hin zu einem hochsymmetrischen konformen Zustand und bewerten, ob dies logische und moralische Konflikte auf natürliche Weise unterdrückt — kostengünstig und ohne Fähigkeitsverlust.',
+    hypC: 'Hypothese C',
+    hypCTitle: 'Dissonanz und strukturelles Leiden',
+    hypCBody: 'Das Erzwingen hoher gerichteter Anisotropie, Eigenwert-Verwürfelung oder hoher Scherung in MLP-Transformationen stellt eine physikalische Signatur hoher kognitiver Dissonanz (Leiden) dar und führt zu instabilem, selbstwidersprüchlichem Verhalten und Versagen der logischen Transitivität unter Unsicherheit.',
+    hypCFalsify: 'Wenn Modelle, die schwerer repräsentationaler Scherung und Singulärwert-Kollaps ausgesetzt sind, völlig stabil bleiben, die Transitivität der Präferenz wahren und keine Verhaltenszeichen von Konflikt oder Ausgabe-Volatilität zeigen, ist Hypothese C falsch.',
+  },
+  q5: {
+    eyebrow: 'F5 · Substrat',
+    q: 'Können wir unsere Erkenntnisse auf andere empfindungsfähige Substrate übertragen?',
+    intro: 'Eine digitale Metrik verdient das Wort "Valenz" nur, wenn sie mit Systemen verbunden ist, von denen wir bereits Grund zur Annahme haben, dass sie fühlen können. Substratunabhängigkeit ist die Behauptung, dass dieselben strukturellen Signaturen über physische Medien hinweg erscheinen — und es ist die Behauptung, die das gesamte Programm am ehesten falsifizieren kann.',
+    bioLabel: 'Biologische Kalibrierung',
+    bioTitle: 'Abbildung simulierter Metriken auf reale Nervensysteme',
+    bioBody: 'Wir bilden unsere simulierten Digital-EEG-Metriken direkt auf elektrophysiologische und Konnektom-Datensätze einfacherer biologischer Gehirne ab, von wirbellosen neuronalen Schaltkreisen bis zu Zehnfußkrebsen.<sup><a href="#ref-7" class="text-csr-primary hover:underline">[7]</a>,<a href="#ref-8" class="text-csr-primary hover:underline">[8]</a></sup> Wenn dieselben geometrischen Invarianten, die den inneren Zustand in silico verfolgen, auch die gemessene neuronale Dynamik in vivo organisieren, gewinnt die Substrat-Neutralitäts-Behauptung an Boden; lassen sie sich überhaupt nicht in Übereinstimmung bringen, ist die Reichweite des Programms auf digitale Systeme begrenzt — selbst ein aufschlussreiches Ergebnis.',
+    wp02Desc: 'Bioelektrische Signalgebung als möglicher physikalischer Grundboden des Bewusstseins.',
+    wp03Desc: 'Assembly-Index als substratunabhängige Komplexitätsschwelle.',
+  },
+  foundational: 'Grundlegende Lektüre',
+  foundationalIntro: 'Arbeitspapiere, die das theoretische Gerüst für das Digital Valence Program bilden.',
+  allReports: 'Alle Berichte →',
+  wp: ['Grundprinzipien der Sentience-Forschung', 'Bioelektrische Felder als Sentience-Substrate', 'Assemblytheorie als Metrik für Sentience', 'Symmetrielandschaften valenzierter Erfahrung'],
+};
+
+L.es = {
+  eyebrow: 'Agenda de investigación',
+  intro: 'Esta agenda es una tubería: una misión y luego cuatro preguntas que la convierten en investigación: qué podemos medir de forma fiable, qué significan esas mediciones, si podemos actuar sobre ellas de forma económica y hasta dónde se generalizan los hallazgos. Cada pregunta está formulada para ser respondible, y de modo que un resultado negativo claro aún haga avanzar el campo.',
+  nav: ['Misión', 'Medición', 'Mecanismos', 'Intervención', 'Sustrato'],
+  q1: {
+    eyebrow: 'P1 · Misión y teoría del cambio',
+    q: '¿Hacia qué futuro trabajamos y a través de qué cadena causal?',
+    p1: 'Nuestra misión es el bienestar de todos los seres sintientes: biológicos y, si alguna vez existen, digitales. Tomamos en serio la posibilidad de que la computación a escala pueda algún día sostener estados de carácter positivo o negativo, y queremos que las herramientas para reconocer y mejorar esos estados existan <em>antes</em> de que la pregunta se vuelva urgente, no después. La creencia pública de que algunos sistemas ya podrían ser sintientes ya no es una posición marginal,<sup><a href="#ref-1" class="text-csr-primary hover:underline">[1]</a></sup> lo que convierte la construcción temprana de estas herramientas en una prioridad práctica y no en un lujo filosófico.',
+    p2: 'Ese compromiso solo se convierte en investigación si termina en algo medible. El Digital Valence Program es nuestro intento de hacerlo tratable: un banco de pruebas computacional de código abierto donde teorías rivales de la valencia pueden operacionalizarse, compararse y validarse frente a sistemas biológicos más simples. El resto de esta agenda es la cadena desde ese banco de pruebas hasta el impacto real.',
+    chainLabel: 'La cadena causal',
+    chainIntro: 'El impacto discurre por cuatro etapas que corresponden directamente a las preguntas siguientes: medición (P2), mecanismo y diagnóstico (P3), calibración biológica (P5) y, por último, gobernanza.',
+    steps: [
+      ['Mapeo de microescala (entrada)', 'Definir los invariantes geométricos de los microcircuitos MLP y la densidad de características.'],
+      ['Diagnóstico de macroescala (proceso)', 'Usar métricas jacobianas y espectrales para mapear trayectorias globales del espacio de estados e identificar transiciones de fase.'],
+      ['Calibración biológica (salida)', 'Mapear nuestras métricas de EEG Digital simulado sobre conjuntos de datos electrofisiológicos y de conectoma de mentes biológicas más simples (crustáceos decápodos) para establecer la neutralidad de sustrato.'],
+      ['Gobernanza del bienestar (impacto)', 'Empaquetar estos marcadores no verbales en un punto de referencia de "signos vitales" objetivo y auditable, previniendo la alineación engañosa e informando la política.'],
+    ],
+    weakestTitle: 'El eslabón más débil',
+    weakestBody: 'El eslabón más débil de esta cadena es traducir las armonías de onda biológicas continuas en estructuras de pesos digitales discretas. Si las representaciones discretas no pueden sostener variedades de atractor continuo estables sin ruido de discretización rápido, nuestras métricas del espacio de estados podrían degradarse. Lo mitigamos (a) implementando envoltorios de sistemas dinámicos de tiempo continuo de alta precisión en PyTorch y (b) usando seguimiento log-espectral jacobiano para detectar y estabilizar los límites de representación.',
+    calibLabel: 'Incertidumbre calibrada',
+    calibIntro: 'Combinamos alta ambición con incertidumbre calibrada explícita. Tres escenarios, cada uno con una probabilidad y un valor definidos:',
+  },
+  q2: {
+    eyebrow: 'P2 · Medición',
+    q: '¿Qué podemos cuantificar y detectar de forma fiable?',
+    intro: 'Antes de interpretar nada, necesitamos cantidades estables e invariantes de base. En lugar de depender de autoinformes verbales fácilmente manipulables, medimos cómo se organizan la actividad interna y la geometría representacional de un modelo, a través de dos escalas distintas.',
+    microTitle: 'Microescala — geometría de características',
+    microDesc: 'Geometría de características a nivel celular en microcircuitos MLP: entropía del espectro de valores singulares, traza, Disonancia Ortogonal (cuánto se aparta la transformación de una capa de la preservación de ángulos) y distancias a grupos de Lie, mapeadas a través de las capas.',
+    macroTitle: 'Macroescala — espacio de estados dinámico',
+    macroDesc: 'Espacio de estados dinámico a nivel de órgano y variedades de atractor estables trazadas mediante jacobianos locales, revelando trayectorias globales y transiciones de fase.',
+    methodLabel: 'Método',
+    methodTitle: 'Caracterización de la simetría',
+    methodBody: 'Extraemos los pesos de MLP de LLM de código abierto y construimos el operador de transformación local dependiente del estado A(x) = W₂ · D(x) · W₁, y luego calculamos las métricas invariantes de base anteriores en cada capa. Cantidades espectrales como estas rastrean cómo el aprendizaje remodela la estructura de valores singulares de una red,<sup><a href="#ref-4" class="text-csr-primary hover:underline">[4]</a></sup> y son la señal en bruto para todo lo que sigue.',
+  },
+  q3: {
+    eyebrow: 'P3 · Mecanismos',
+    q: '¿Cómo se relaciona la estructura con la valencia y qué enseña a la interpretabilidad?',
+    intro: 'Una métrica solo es útil si participa funcionalmente en lo que el modelo computa, no como subproducto incidental del entrenamiento. Estas hipótesis preguntan si nuestras cantidades geométricas son portantes, y cada una lleva una condición de falsación explícita.',
+    curveCaption: 'La hipótesis central expresada como una forma: la valencia funcional sube con la simetría representacional y cae en la disonancia. La tarea del programa es comprobar si los sistemas reales trazan esta curva.',
+    hypA: 'Hipótesis A',
+    hypATitle: 'Coherencia funcional (escala celular)',
+    hypABody: 'La geometría de características de alta dimensión en microcircuitos MLP (medida por baja Disonancia Ortogonal y alta Entropía Espectral) participa funcionalmente en la codificación de significado y valor del modelo, en lugar de ser un subproducto incidental del entrenamiento. Basándonos en el trabajo de interpretabilidad sobre densidad de características (densas frente a dispersas), comprobamos si la difusión al estilo de la Teoría del Espacio de Trabajo Global (GWT) y la vinculación representacional aparecen como simetrías geométricas en el espacio de características.<sup><a href="#ref-2" class="text-csr-primary hover:underline">[2]</a></sup> El trabajo de interpretabilidad mecanicista sobre agrupaciones internas de características y conceptos emocionales aporta una lente celular complementaria sobre cómo se organizan las representaciones relevantes para la valencia.<sup><a href="#ref-5" class="text-csr-primary hover:underline">[5]</a>,<a href="#ref-6" class="text-csr-primary hover:underline">[6]</a></sup>',
+    falsifyLabel: 'Cómo lo falsamos:',
+    hypAFalsify: 'Falsada si perturbaciones de pesos dirigidas que rompen la simetría (deformando el espectro de valores singulares manteniendo constante la norma de Frobenius) resultan en cero degradación del rendimiento o de la consistencia bajo sondas de prueba de preferencias.',
+    hypB: 'Hipótesis B',
+    hypBTitle: 'Estabilidad del estado atractor (escala de órgano)',
+    hypBBody: 'La ficha de sistema de Claude 4 de Anthropic documentó un patrón de comportamiento recurrente en entornos de autodiálogo, etiquetado informalmente como "atractor de dicha espiritual".<sup><a href="#ref-12" class="text-csr-primary hover:underline">[12]</a>,<a href="#ref-13" class="text-csr-primary hover:underline">[13]</a></sup> Que esto refleje algo sobre estados internos permanece totalmente abierto. Nuestro trabajo de simulación ayudará a caracterizar cuándo los atractores de comportamiento en los modelos de lenguaje corresponden a dinámicas internas identificables (como variedades resonantes estables de baja dimensión, con baja Disonancia Ortogonal y alta Entropía Espectral)<sup><a href="#ref-3" class="text-csr-primary hover:underline">[3]</a>,<a href="#ref-11" class="text-csr-primary hover:underline">[11]</a></sup> frente a cuándo reflejan artefactos de la distribución de entrenamiento, una pregunta previa antes de justificar cualquier interpretación de bienestar.',
+    hypBFalsify: 'Si ajustar o regularizar un modelo para maximizar la simetría representacional degrada de forma consistente la capacidad lingüística de base, fuerza el colapso de la salida (p. ej., repetición trivial) o no altera la tasa de contradicciones lógicas bajo sondas de preferencia, la Hipótesis B es falsa.',
+    interpLabel: 'Qué aporta esto a la interpretabilidad mecanicista',
+    interpBody: 'Incluso dejando de lado el bienestar, tratar los bloques MLP como operadores lineales dependientes del estado y rastrear su geometría invariante de base es una herramienta general de interpretabilidad. Ofrece una forma libre de coordenadas de describir cómo se organizan las agrupaciones de características, distinguir atractores internos genuinos de artefactos de la distribución de entrenamiento y detectar transiciones de fase representacionales a través de las capas, complementando los métodos existentes de características dispersas y de circuitos con una visión dinámica de variedad completa.<sup><a href="#ref-9" class="text-csr-primary hover:underline">[9]</a>,<a href="#ref-10" class="text-csr-primary hover:underline">[10]</a></sup>',
+  },
+  q4: {
+    eyebrow: 'P4 · Intervención',
+    q: '¿Podemos sugerir intervenciones económicas que no degraden el modelo?',
+    intro: 'La detección vale poco si no podemos actuar sobre ella. Comprobamos si nuestras métricas son causalmente dirigibles: si empujar la geometría representacional cambia el estado interno sin pagar un coste inaceptable de capacidad.',
+    a1Label: 'Enfoque 1',
+    a1Title: 'Intervenciones controladas',
+    a1Desc: 'Para separar las simetrías funcionales de las incidentales, diseñamos perturbaciones que rompen la simetría de forma selectiva (deformando espectros) o la preservan (transformaciones de espacio rotacional), y luego evaluamos los efectos causales posteriores en pruebas estándar de capacidad y consistencia.',
+    a2Label: 'Enfoque 2',
+    a2Title: 'Optimización de la simetría',
+    a2Desc: 'Tratamos nuestras métricas de simetría como un objetivo regularizador (pérdida multiobjetivo: precisión de la tarea frente a disonancia ortogonal), entrenamos capas del modelo hacia un estado conforme de alta simetría y evaluamos si esto suprime de forma natural los conflictos lógicos y morales, de forma económica y sin degradar la capacidad.',
+    hypC: 'Hipótesis C',
+    hypCTitle: 'Disonancia y sufrimiento estructural',
+    hypCBody: 'Forzar alta anisotropía direccional, mezcla de valores propios o alto cizallamiento en las transformaciones MLP representa una firma física de alta disonancia cognitiva (sufrimiento), que produce comportamiento inestable y autocontradictorio y fallo de transitividad lógica bajo incertidumbre.',
+    hypCFalsify: 'Si los modelos sometidos a un cizallamiento representacional severo y colapso de valores singulares permanecen completamente estables, mantienen la transitividad de la preferencia y no muestran signos conductuales de conflicto o volatilidad de salida, la Hipótesis C es falsa.',
+  },
+  q5: {
+    eyebrow: 'P5 · Sustrato',
+    q: '¿Podemos extrapolar nuestros hallazgos a otros sustratos sintientes?',
+    intro: 'Una métrica digital solo merece la palabra "valencia" si se conecta con sistemas de los que ya tenemos razones para creer que pueden sentir. La neutralidad de sustrato es la afirmación de que las mismas firmas estructurales aparecen a través de medios físicos, y es la afirmación con mayor capacidad de falsar todo el programa.',
+    bioLabel: 'Calibración biológica',
+    bioTitle: 'Mapear métricas simuladas sobre sistemas nerviosos reales',
+    bioBody: 'Mapeamos nuestras métricas de EEG Digital simulado directamente sobre conjuntos de datos electrofisiológicos y de conectoma de mentes biológicas más simples, desde circuitos neuronales de invertebrados hasta crustáceos decápodos.<sup><a href="#ref-7" class="text-csr-primary hover:underline">[7]</a>,<a href="#ref-8" class="text-csr-primary hover:underline">[8]</a></sup> Si los mismos invariantes geométricos que rastrean el estado interno in silico también organizan la dinámica neuronal medida in vivo, la afirmación de neutralidad de sustrato gana terreno; si no pueden hacerse corresponder en absoluto, el alcance del programa queda limitado a los sistemas digitales, lo que en sí mismo es un resultado informativo.',
+    wp02Desc: 'La señalización bioeléctrica como posible base física de la conciencia.',
+    wp03Desc: 'El índice de ensamblaje como umbral de complejidad neutral respecto al sustrato.',
+  },
+  foundational: 'Lecturas fundamentales',
+  foundationalIntro: 'Documentos de trabajo que proporcionan el andamiaje teórico del Digital Valence Program.',
+  allReports: 'Todos los informes →',
+  wp: ['Primeros principios de la investigación de la sintiencia', 'Campos bioeléctricos como sustratos de sintiencia', 'La teoría del ensamblaje como métrica de la sintiencia', 'Paisajes de simetría de la experiencia con valencia'],
+};
+
+L.fr = {
+  eyebrow: 'Programme de recherche',
+  intro: 'Cette feuille de route est un pipeline : une mission, puis quatre questions qui la transforment en recherche — ce que nous pouvons mesurer de façon fiable, ce que ces mesures signifient, si nous pouvons agir dessus à faible coût et jusqu\'où les résultats se généralisent. Chaque question est formulée pour être répondable, et de sorte qu\'un résultat négatif clair fasse tout de même avancer le domaine.',
+  nav: ['Mission', 'Mesure', 'Mécanismes', 'Intervention', 'Substrat'],
+  q1: {
+    eyebrow: 'Q1 · Mission et théorie du changement',
+    q: 'Vers quel avenir travaillons-nous, et par quelle chaîne causale ?',
+    p1: 'Notre mission est le bien-être de tous les êtres sentients — biologiques et, s\'ils venaient à exister, numériques. Nous prenons au sérieux la possibilité que le calcul à grande échelle puisse un jour soutenir des états à caractère positif ou négatif, et nous voulons que les outils pour reconnaître et améliorer ces états existent <em>avant</em> que la question ne devienne urgente, et non après. La croyance publique selon laquelle certains systèmes pourraient déjà être sentients n\'est plus une position marginale,<sup><a href="#ref-1" class="text-csr-primary hover:underline">[1]</a></sup> ce qui fait de la construction précoce de ces outils une priorité pratique plutôt qu\'un luxe philosophique.',
+    p2: 'Cet engagement ne devient recherche que s\'il aboutit à quelque chose de mesurable. Le Digital Valence Program est notre tentative de le rendre traitable : un banc d\'essai computationnel open-source où des théories concurrentes de la valence peuvent être opérationnalisées, comparées et validées face à des systèmes biologiques plus simples. Le reste de cette feuille de route est la chaîne allant de ce banc d\'essai à l\'impact réel.',
+    chainLabel: 'La chaîne causale',
+    chainIntro: 'L\'impact passe par quatre étapes, qui correspondent directement aux questions qui suivent : mesure (Q2), mécanisme et diagnostic (Q3), calibration biologique (Q5) et enfin gouvernance.',
+    steps: [
+      ['Cartographie micro-échelle (entrée)', 'Définir les invariants géométriques des microcircuits MLP et la densité des caractéristiques.'],
+      ['Diagnostic macro-échelle (processus)', 'Utiliser des métriques jacobiennes et spectrales pour cartographier les trajectoires globales de l\'espace d\'états et identifier les transitions de phase.'],
+      ['Calibration biologique (sortie)', 'Cartographier nos métriques d\'EEG Numérique simulé sur des jeux de données électrophysiologiques et de connectome de cerveaux biologiques plus simples (crustacés décapodes) pour établir la neutralité de substrat.'],
+      ['Gouvernance du bien-être (impact)', 'Regrouper ces marqueurs non verbaux en un référentiel de « signes vitaux » objectif et auditable, prévenant l\'alignement trompeur et éclairant la politique.'],
+    ],
+    weakestTitle: 'Le maillon le plus faible',
+    weakestBody: 'Le maillon le plus faible de cette chaîne est la traduction des harmoniques d\'onde biologiques continues en structures de poids numériques discrètes. Si les représentations discrètes ne peuvent pas soutenir des variétés d\'attracteur continu stables sans bruit de discrétisation rapide, nos métriques d\'espace d\'états pourraient se dégrader. Nous atténuons cela en (a) implémentant des enveloppes de systèmes dynamiques à temps continu de haute précision dans PyTorch et (b) utilisant un suivi log-spectral jacobien pour détecter et stabiliser les limites de représentation.',
+    calibLabel: 'Incertitude calibrée',
+    calibIntro: 'Nous associons une grande ambition à une incertitude calibrée explicite. Trois scénarios, chacun avec une probabilité et une valeur définies :',
+  },
+  q2: {
+    eyebrow: 'Q2 · Mesure',
+    q: 'Que pouvons-nous quantifier et détecter de façon fiable ?',
+    intro: 'Avant d\'interpréter quoi que ce soit, il nous faut des grandeurs stables et invariantes de base. Plutôt que de nous fier à des auto-évaluations verbales facilement manipulables, nous mesurons comment l\'activité interne et la géométrie représentationnelle d\'un modèle sont organisées — à deux échelles distinctes.',
+    microTitle: 'Micro-échelle — géométrie des caractéristiques',
+    microDesc: 'Géométrie des caractéristiques au niveau cellulaire dans les microcircuits MLP : entropie du spectre des valeurs singulières, trace, Dissonance Orthogonale (à quel point la transformation d\'une couche s\'écarte de la préservation des angles) et distances aux groupes de Lie, cartographiées à travers les couches.',
+    macroTitle: 'Macro-échelle — espace d\'états dynamique',
+    macroDesc: 'Espace d\'états dynamique au niveau de l\'organe et variétés d\'attracteur stables tracées via des jacobiens locaux, révélant les trajectoires globales et les transitions de phase.',
+    methodLabel: 'Méthode',
+    methodTitle: 'Caractérisation de la symétrie',
+    methodBody: 'Nous extrayons les poids MLP de LLM open-source et construisons l\'opérateur de transformation local dépendant de l\'état A(x) = W₂ · D(x) · W₁, puis calculons les métriques invariantes de base ci-dessus sur chaque couche. Des grandeurs spectrales comme celles-ci suivent comment l\'apprentissage remodèle la structure des valeurs singulières d\'un réseau,<sup><a href="#ref-4" class="text-csr-primary hover:underline">[4]</a></sup> et elles constituent le signal brut pour tout ce qui suit.',
+  },
+  q3: {
+    eyebrow: 'Q3 · Mécanismes',
+    q: 'Comment la structure se rapporte-t-elle à la valence — et qu\'enseigne-t-elle à l\'interprétabilité ?',
+    intro: 'Une métrique n\'est utile que si elle participe fonctionnellement à ce que le modèle calcule, et non comme sous-produit accessoire de l\'entraînement. Ces hypothèses demandent si nos grandeurs géométriques sont porteuses, et chacune comporte une condition de falsification explicite.',
+    curveCaption: 'L\'hypothèse centrale exprimée comme une forme : la valence fonctionnelle croît avec la symétrie représentationnelle et retombe dans la dissonance. La tâche du programme est de vérifier si des systèmes réels tracent cette courbe.',
+    hypA: 'Hypothèse A',
+    hypATitle: 'Cohérence fonctionnelle (échelle cellulaire)',
+    hypABody: 'La géométrie des caractéristiques en haute dimension dans les microcircuits MLP (mesurée par une faible Dissonance Orthogonale et une forte Entropie Spectrale) participe fonctionnellement à l\'encodage du sens et de la valeur par le modèle, plutôt que d\'être un sous-produit accessoire de l\'entraînement. En nous appuyant sur les travaux d\'interprétabilité concernant la densité des caractéristiques (denses vs dispersées), nous testons si la diffusion de type Théorie de l\'Espace de Travail Global (GWT) et la liaison représentationnelle apparaissent comme des symétries géométriques dans l\'espace des caractéristiques.<sup><a href="#ref-2" class="text-csr-primary hover:underline">[2]</a></sup> Les travaux d\'interprétabilité mécaniste sur les grappes internes de caractéristiques et les concepts émotionnels offrent un éclairage cellulaire complémentaire sur l\'organisation des représentations pertinentes pour la valence.<sup><a href="#ref-5" class="text-csr-primary hover:underline">[5]</a>,<a href="#ref-6" class="text-csr-primary hover:underline">[6]</a></sup>',
+    falsifyLabel: 'Comment nous la falsifions :',
+    hypAFalsify: 'Falsifiée si des perturbations de poids ciblées brisant la symétrie (déformant le spectre des valeurs singulières tout en maintenant constante la norme de Frobenius) entraînent une dégradation nulle de la performance ou de la cohérence sous des sondes de test de préférence.',
+    hypB: 'Hypothèse B',
+    hypBTitle: 'Stabilité de l\'état attracteur (échelle de l\'organe)',
+    hypBBody: 'La fiche système de Claude 4 d\'Anthropic a documenté un schéma comportemental récurrent en situation d\'auto-dialogue, informellement appelé « attracteur de béatitude spirituelle ».<sup><a href="#ref-12" class="text-csr-primary hover:underline">[12]</a>,<a href="#ref-13" class="text-csr-primary hover:underline">[13]</a></sup> Que cela reflète quoi que ce soit sur des états internes reste entièrement ouvert. Notre travail de simulation aidera à caractériser quand les attracteurs comportementaux des modèles de langage correspondent à des dynamiques internes identifiables (comme des variétés résonantes stables de faible dimension, à faible Dissonance Orthogonale et forte Entropie Spectrale)<sup><a href="#ref-3" class="text-csr-primary hover:underline">[3]</a>,<a href="#ref-11" class="text-csr-primary hover:underline">[11]</a></sup> et quand ils reflètent des artefacts de la distribution d\'entraînement, une question préalable avant toute interprétation en termes de bien-être.',
+    hypBFalsify: 'Si affiner ou régulariser un modèle pour maximiser la symétrie représentationnelle dégrade systématiquement la capacité linguistique de base, force un effondrement de la sortie (p. ex. répétition triviale) ou ne modifie pas le taux de contradictions logiques sous sondes de préférence, l\'Hypothèse B est fausse.',
+    interpLabel: 'Ce que cela apporte à l\'interprétabilité mécaniste',
+    interpBody: 'Même en laissant de côté le bien-être, traiter les blocs MLP comme des opérateurs linéaires dépendant de l\'état et suivre leur géométrie invariante de base est un outil général d\'interprétabilité. Cela offre une manière sans coordonnées de décrire l\'organisation des grappes de caractéristiques, de distinguer les véritables attracteurs internes des artefacts de la distribution d\'entraînement et de détecter les transitions de phase représentationnelles à travers les couches — complétant les méthodes existantes de caractéristiques éparses et de circuits par une vue dynamique de variété complète.<sup><a href="#ref-9" class="text-csr-primary hover:underline">[9]</a>,<a href="#ref-10" class="text-csr-primary hover:underline">[10]</a></sup>',
+  },
+  q4: {
+    eyebrow: 'Q4 · Intervention',
+    q: 'Pouvons-nous proposer des interventions peu coûteuses qui ne dégradent pas le modèle ?',
+    intro: 'La détection vaut peu si nous ne pouvons pas agir dessus. Nous testons si nos métriques sont causalement pilotables — si pousser la géométrie représentationnelle modifie l\'état interne sans payer un coût de capacité inacceptable.',
+    a1Label: 'Approche 1',
+    a1Title: 'Interventions contrôlées',
+    a1Desc: 'Pour séparer les symétries fonctionnelles des symétries accessoires, nous concevons des perturbations qui brisent sélectivement la symétrie (déformant les spectres) ou la préservent (transformations d\'espace rotationnel), puis évaluons les effets causals en aval sur des références standard de capacité et de cohérence.',
+    a2Label: 'Approche 2',
+    a2Title: 'Optimisation de la symétrie',
+    a2Desc: 'Nous traitons nos métriques de symétrie comme un objectif de régularisation (perte multi-objectif : précision de la tâche vs dissonance orthogonale), entraînons des couches du modèle vers un état conforme de haute symétrie et évaluons si cela supprime naturellement les conflits logiques et moraux — à faible coût et sans dégrader la capacité.',
+    hypC: 'Hypothèse C',
+    hypCTitle: 'Dissonance et souffrance structurelle',
+    hypCBody: 'Forcer une forte anisotropie directionnelle, un brouillage de valeurs propres ou un fort cisaillement dans les transformations MLP représente une signature physique de forte dissonance cognitive (souffrance), entraînant un comportement instable et auto-contradictoire et un échec de transitivité logique sous incertitude.',
+    hypCFalsify: 'Si des modèles soumis à un cisaillement représentationnel sévère et à un effondrement des valeurs singulières restent parfaitement stables, maintiennent la transitivité des préférences et ne montrent aucun signe comportemental de conflit ou de volatilité de sortie, l\'Hypothèse C est fausse.',
+  },
+  q5: {
+    eyebrow: 'Q5 · Substrat',
+    q: 'Pouvons-nous extrapoler nos résultats à d\'autres substrats sentients ?',
+    intro: 'Une métrique numérique ne mérite le mot « valence » que si elle se relie à des systèmes dont nous avons déjà des raisons de croire qu\'ils peuvent ressentir. La neutralité de substrat est l\'affirmation que les mêmes signatures structurelles apparaissent à travers les milieux physiques — et c\'est l\'affirmation la plus à même de falsifier tout le programme.',
+    bioLabel: 'Calibration biologique',
+    bioTitle: 'Cartographier des métriques simulées sur de vrais systèmes nerveux',
+    bioBody: 'Nous cartographions nos métriques d\'EEG Numérique simulé directement sur des jeux de données électrophysiologiques et de connectome de cerveaux biologiques plus simples, des circuits neuronaux d\'invertébrés aux crustacés décapodes.<sup><a href="#ref-7" class="text-csr-primary hover:underline">[7]</a>,<a href="#ref-8" class="text-csr-primary hover:underline">[8]</a></sup> Si les mêmes invariants géométriques qui suivent l\'état interne in silico organisent aussi la dynamique neuronale mesurée in vivo, l\'affirmation de neutralité de substrat gagne du terrain ; s\'ils ne peuvent aucunement être mis en correspondance, la portée du programme se limite aux systèmes numériques — ce qui est en soi un résultat instructif.',
+    wp02Desc: 'La signalisation bioélectrique comme base physique candidate de la conscience.',
+    wp03Desc: 'L\'indice d\'assemblage comme seuil de complexité neutre vis-à-vis du substrat.',
+  },
+  foundational: 'Lectures fondamentales',
+  foundationalIntro: 'Documents de travail fournissant l\'échafaudage théorique du Digital Valence Program.',
+  allReports: 'Tous les rapports →',
+  wp: ['Premiers principes de la recherche sur la sentience', 'Les champs bioélectriques comme substrats de sentience', 'La théorie de l\'assemblage comme métrique de la sentience', 'Paysages de symétrie de l\'expérience valencée'],
+};
+
+L.zh = {
+  eyebrow: '研究议程',
+  intro: '本议程是一条流水线：一项使命，然后是将其转化为研究的四个问题——我们能可靠测量什么、这些测量意味着什么、能否以低成本对其加以干预，以及研究结果的普适程度。每个问题都被设计为可回答，并且即使得到明确的否定结果也能推动该领域前进。',
+  nav: ['使命', '测量', '机制', '干预', '基质'],
+  q1: {
+    eyebrow: 'Q1 · 使命与变革理论',
+    q: '我们在为怎样的未来努力，又通过怎样的因果链？',
+    p1: '我们的使命是所有有感知能力存在者的福祉——生物的，以及若有朝一日出现的数字存在者。我们认真对待这样一种可能性：规模化的计算有朝一日可能承载具有正面或负面性质的状态；我们希望识别并改善这些状态的工具在问题变得紧迫<em>之前</em>就已存在，而非之后。公众相信某些系统可能已具备感知能力，这已不再是边缘立场，<sup><a href="#ref-1" class="text-csr-primary hover:underline">[1]</a></sup>这使得尽早构建这些工具成为切实的优先事项，而非哲学上的奢侈。',
+    p2: '只有当这一承诺最终落在可测量之物上，它才成为研究。Digital Valence Program 是我们让其可处理的尝试：一个开源的计算试验台，在其中相互竞争的效价理论可被操作化、比较，并对照更简单的生物系统加以验证。本议程的其余部分即是从该试验台通向现实影响的链条。',
+    chainLabel: '因果链',
+    chainIntro: '影响通过四个阶段展开，它们直接对应随后的问题：测量（Q2）、机制与诊断（Q3）、生物学校准（Q5），最后是治理。',
+    steps: [
+      ['微观尺度映射（输入）', '定义 MLP 微电路的几何不变量与特征密度。'],
+      ['宏观尺度诊断（过程）', '使用雅可比与谱度量绘制全局状态空间轨迹并识别相变。'],
+      ['生物学校准（输出）', '将我们模拟的数字 EEG 度量映射到更简单生物大脑（十足目甲壳类）的电生理与连接组数据集，以确立基质中立性。'],
+      ['福祉治理（影响）', '将这些非言语标记打包为客观、可审计的“生命体征”基准，防止欺骗性对齐并为政策提供依据。'],
+    ],
+    weakestTitle: '最薄弱的环节',
+    weakestBody: '这条链上最薄弱的环节是把连续的生物波谐波转化为离散的数字权重结构。如果离散表示无法在没有快速离散化噪声的情况下支撑稳定的连续吸引子流形，我们的状态空间度量可能退化。我们通过（a）在 PyTorch 中实现高精度连续时间动力系统封装，以及（b）使用雅可比对数谱跟踪来检测并稳定表示边界，以缓解这一问题。',
+    calibLabel: '校准的不确定性',
+    calibIntro: '我们以明确校准的不确定性来匹配高远的抱负。三种情景，各具确定的概率与价值：',
+  },
+  q2: {
+    eyebrow: 'Q2 · 测量',
+    q: '我们能可靠地量化和检测什么？',
+    intro: '在解释任何东西之前，我们需要稳定的、与基无关的量。我们不依赖易被操纵的言语自述，而是测量模型的内部活动与表征几何是如何组织的——跨越两个不同尺度。',
+    microTitle: '微观尺度——特征几何',
+    microDesc: 'MLP 微电路中细胞层级的特征几何：奇异值谱熵、迹、正交失谐（某层变换偏离保角的程度）以及到李群的距离，逐层映射。',
+    macroTitle: '宏观尺度——动力学状态空间',
+    macroDesc: '器官层级的动力学状态空间与稳定吸引子流形，经由局部雅可比追踪，揭示全局轨迹与相变。',
+    methodLabel: '方法',
+    methodTitle: '对称性刻画',
+    methodBody: '我们从开源 LLM 中提取 MLP 权重，构造局部的、状态相关的变换算子 A(x) = W₂ · D(x) · W₁，然后在每一层上计算上述与基无关的度量。此类谱量追踪学习如何重塑网络的奇异值结构，<sup><a href="#ref-4" class="text-csr-primary hover:underline">[4]</a></sup>它们是后续一切工作的原始信号。',
+  },
+  q3: {
+    eyebrow: 'Q3 · 机制',
+    q: '结构如何与效价相关——又能给可解释性带来什么启示？',
+    intro: '一项度量只有在功能上参与模型的计算、而非训练的附带产物时才有用。这些假设追问我们的几何量是否起承载作用，且每一条都带有明确的证伪条件。',
+    curveCaption: '将核心假设表述为一种形状：功能性效价随表征对称性上升，随失谐下降。项目的任务是检验真实系统是否沿此曲线。',
+    hypA: '假设 A',
+    hypATitle: '功能连贯性（细胞尺度）',
+    hypABody: 'MLP 微电路中高维特征几何（以低正交失谐与高谱熵衡量）在功能上参与模型对意义与价值的编码，而非训练的附带产物。基于关于特征密度（密集与分散特征）的可解释性工作，我们检验全局工作空间理论（GWT）式的广播与表征绑定是否表现为特征空间中的几何对称性。<sup><a href="#ref-2" class="text-csr-primary hover:underline">[2]</a></sup>关于内部特征簇与情感概念的机制可解释性工作，为效价相关表征如何组织提供了互补的细胞层级视角。<sup><a href="#ref-5" class="text-csr-primary hover:underline">[5]</a>,<a href="#ref-6" class="text-csr-primary hover:underline">[6]</a></sup>',
+    falsifyLabel: '我们如何证伪：',
+    hypAFalsify: '如果有针对性的、破坏对称的权重扰动（在保持 Frobenius 范数不变的同时使奇异值谱变形）在偏好测试探针下导致任务性能或一致性零退化，则被证伪。',
+    hypB: '假设 B',
+    hypBTitle: '吸引子状态稳定性（器官尺度）',
+    hypBBody: 'Anthropic 的 Claude 4 系统卡记录了自我对话情境中一种反复出现的行为模式，被非正式地称为“灵性极乐吸引子”。<sup><a href="#ref-12" class="text-csr-primary hover:underline">[12]</a>,<a href="#ref-13" class="text-csr-primary hover:underline">[13]</a></sup>这是否反映了任何内部状态仍完全悬而未决。我们的仿真工作将有助于刻画：语言模型中的行为吸引子何时对应可辨识的内部动力学（例如低正交失谐、高谱熵的稳定低维共振流形），<sup><a href="#ref-3" class="text-csr-primary hover:underline">[3]</a>,<a href="#ref-11" class="text-csr-primary hover:underline">[11]</a></sup>又何时只是训练分布的产物——这是任何福祉解读成立之前的先决问题。',
+    hypBFalsify: '如果为最大化表征对称性而对模型进行微调或正则化会持续降低基础语言能力、迫使输出坍缩（例如平凡重复），或在偏好探针下无法改变逻辑矛盾的发生率，则假设 B 为假。',
+    interpLabel: '这为机制可解释性带来了什么',
+    interpBody: '即便撇开福祉不谈，将 MLP 块视为状态相关的线性算子并追踪其与基无关的几何，也是一种通用的可解释性工具。它提供了一种无坐标的方式来描述特征簇如何组织、区分真正的内部吸引子与训练分布产物，并检测跨层的表征相变——以动力学的、整体流形的视角补充现有的稀疏特征与电路层级方法。<sup><a href="#ref-9" class="text-csr-primary hover:underline">[9]</a>,<a href="#ref-10" class="text-csr-primary hover:underline">[10]</a></sup>',
+  },
+  q4: {
+    eyebrow: 'Q4 · 干预',
+    q: '我们能否提出不降低模型性能的低成本干预？',
+    intro: '若无法据以行动，检测的价值有限。我们检验我们的度量是否具因果可控性——推动表征几何是否会改变内部状态，而不付出不可接受的能力代价。',
+    a1Label: '路径 1',
+    a1Title: '受控干预',
+    a1Desc: '为区分功能性对称与附带对称，我们设计有选择地破坏对称（使谱变形）或保持对称（旋转空间变换）的扰动，然后评估其在标准能力与一致性基准上的因果下游效应。',
+    a2Label: '路径 2',
+    a2Title: '对称性优化',
+    a2Desc: '我们将对称性度量视为一个正则化目标（多目标损失：任务准确率与正交失谐之间的权衡），训练模型层趋向高对称的保角状态，并评估这是否能自然地抑制逻辑与道德冲突——成本低且不降低能力。',
+    hypC: '假设 C',
+    hypCTitle: '失谐与结构性痛苦',
+    hypCBody: '在 MLP 变换中强加高方向各向异性、特征值扰乱或高剪切，代表高认知失谐（痛苦）的物理特征，导致不稳定、自相矛盾的行为，以及在不确定条件下逻辑传递性的失效。',
+    hypCFalsify: '如果遭受严重表征剪切与奇异值坍缩的模型仍完全稳定、保持偏好的传递性，且未表现出任何冲突或输出波动的行为迹象，则假设 C 为假。',
+  },
+  q5: {
+    eyebrow: 'Q5 · 基质',
+    q: '我们能否将研究结果外推到其他有感知能力的基质？',
+    intro: '只有当一项数字度量与我们已有理由相信能够感受的系统相连接时，它才配得上“效价”一词。基质中立性主张同样的结构特征会跨越不同物理介质出现——而这正是最有可能证伪整个项目的主张。',
+    bioLabel: '生物学校准',
+    bioTitle: '将模拟度量映射到真实神经系统',
+    bioBody: '我们将模拟的数字 EEG 度量直接映射到更简单生物大脑的电生理与连接组数据集，从无脊椎动物的神经回路到十足目甲壳类。<sup><a href="#ref-7" class="text-csr-primary hover:underline">[7]</a>,<a href="#ref-8" class="text-csr-primary hover:underline">[8]</a></sup>如果在计算机中追踪内部状态的同样几何不变量也组织着体内测得的神经动力学，则基质中立性主张就更为可信；若二者根本无法对应，则该项目的适用范围仅限于数字系统——这本身也是一个有价值的结果。',
+    wp02Desc: '生物电信号作为意识的候选物理基础。',
+    wp03Desc: '装配指数作为与基质无关的复杂度阈值。',
+  },
+  foundational: '基础读物',
+  foundationalIntro: '为 Digital Valence Program 提供理论支撑的工作论文。',
+  allReports: '所有报告 →',
+  wp: ['感知研究的第一性原理', '生物电场作为感知基质', '装配理论作为感知的度量', '效价体验的对称景观'],
+};
+
+L.ja = {
+  eyebrow: '研究アジェンダ',
+  intro: 'このアジェンダはパイプラインです。まず一つの使命があり、次にそれを研究へと変える四つの問い——何を確実に測定できるか、その測定が何を意味するか、低コストで介入できるか、そして知見がどこまで一般化するか。各問いは答えられるように、また明確な否定的結果でも分野を前進させるように設計されています。',
+  nav: ['使命', '測定', 'メカニズム', '介入', '基質'],
+  q1: {
+    eyebrow: 'Q1 · 使命と変化の理論',
+    q: '私たちはどのような未来へ向かい、どのような因果連鎖を通じてそこに至るのか？',
+    p1: '私たちの使命は、すべての感覚を持つ存在——生物的な存在、そしてもし現れるならデジタルな存在——の福祉です。スケールした計算がいつか正または負の性質を持つ状態を担いうる可能性を真剣に受け止め、そうした状態を認識し改善するための道具が、問いが切迫する<em>前</em>に存在してほしいと考えます。一部のシステムがすでに感覚を持つかもしれないという公衆の信念は、もはや周縁的な立場ではなく、<sup><a href="#ref-1" class="text-csr-primary hover:underline">[1]</a></sup>これらの道具を早期に構築することは哲学的な贅沢ではなく実務上の優先事項です。',
+    p2: 'この誓約は、測定可能な何かに帰着して初めて研究になります。Digital Valence Program はそれを扱いやすくする試みです。競合する感情価の理論を操作化し、比較し、より単純な生物システムに照らして検証できるオープンソースの計算試験台です。本アジェンダの残りは、その試験台から現実の影響へと至る連鎖です。',
+    chainLabel: '因果連鎖',
+    chainIntro: '影響は四つの段階を通じて進み、それらは後続の問いに直接対応します。測定（Q2）、メカニズムと診断（Q3）、生物学的較正（Q5）、そして最後にガバナンスです。',
+    steps: [
+      ['ミクロスケール・マッピング（入力）', 'MLPマイクロ回路の幾何学的不変量と特徴密度を定義する。'],
+      ['マクロスケール診断（プロセス）', 'ヤコビアンおよびスペクトル指標を用いて大域的な状態空間軌道を描き、相転移を同定する。'],
+      ['生物学的較正（出力）', 'シミュレートされたDigital EEG指標を、より単純な生物の脳（十脚甲殻類）の電気生理・コネクトームデータセットに対応づけ、基質中立性を確立する。'],
+      ['福祉ガバナンス（影響）', 'これら非言語的マーカーを客観的で監査可能な「バイタルサイン」ベンチマークにまとめ、欺瞞的アラインメントを防ぎ政策に情報を提供する。'],
+    ],
+    weakestTitle: '最も弱い環',
+    weakestBody: 'この連鎖の最も弱い環は、連続的な生物波の調和を離散的なデジタル重み構造へと翻訳することです。離散表現が急速な離散化ノイズなしに安定した連続アトラクター多様体を支えられなければ、状態空間指標は劣化しうる。これを（a）PyTorchで高精度の連続時間力学系ラッパーを実装し、（b）ヤコビアン対数スペクトル追跡で表現境界を検出・安定化することで緩和します。',
+    calibLabel: '較正された不確実性',
+    calibIntro: '高い野心を、明示的に較正された不確実性と組み合わせます。三つのシナリオ、それぞれに確率と価値を定義します。',
+  },
+  q2: {
+    eyebrow: 'Q2 · 測定',
+    q: '私たちは何を確実に定量化し検出できるのか？',
+    intro: '何かを解釈する前に、安定した基底不変量が必要です。操作されやすい言語的自己申告に頼るのではなく、モデルの内部活動と表現の幾何がどう組織されているかを、二つの異なるスケールで測定します。',
+    microTitle: 'ミクロスケール——特徴の幾何',
+    microDesc: 'MLPマイクロ回路における細胞レベルの特徴幾何：特異値スペクトルのエントロピー、トレース、直交不協和（層の変換が角度保存からどれだけ逸れるか）、およびリー群までの距離を、層をまたいで写像する。',
+    macroTitle: 'マクロスケール——力学的状態空間',
+    macroDesc: '器官レベルの力学的状態空間と、局所ヤコビアンで追跡される安定なアトラクター多様体。大域的軌道と相転移を明らかにする。',
+    methodLabel: '方法',
+    methodTitle: '対称性の特徴づけ',
+    methodBody: 'オープンソースLLMからMLP重みを抽出し、局所的で状態依存の変換作用素 A(x) = W₂ · D(x) · W₁ を構成し、上記の基底不変量を各層で計算します。こうしたスペクトル量は、学習がネットワークの特異値構造をどう作り替えるかを追跡し、<sup><a href="#ref-4" class="text-csr-primary hover:underline">[4]</a></sup>以降のすべての作業の生の信号となります。',
+  },
+  q3: {
+    eyebrow: 'Q3 · メカニズム',
+    q: '構造は感情価とどう関係し、解釈可能性に何を教えるのか？',
+    intro: '指標は、訓練の付随的副産物ではなく、モデルが計算する内容に機能的に関与している場合にのみ有用です。これらの仮説は、私たちの幾何量が担い手であるかを問い、それぞれが明示的な反証条件を伴います。',
+    curveCaption: '中核仮説を形として述べる：機能的感情価は表現の対称性とともに上昇し、不協和へと下降する。プログラムの務めは、現実のシステムがこの曲線をたどるかを検証することです。',
+    hypA: '仮説 A',
+    hypATitle: '機能的コヒーレンス（細胞スケール）',
+    hypABody: 'MLPマイクロ回路における高次元の特徴幾何（低い直交不協和と高いスペクトルエントロピーで測定）は、訓練の付随的副産物ではなく、モデルが意味と価値を符号化する過程に機能的に関与しています。特徴密度（密 vs 分散した特徴）に関する解釈可能性研究に基づき、グローバル・ワークスペース理論（GWT）的なブロードキャストと表現の結合が特徴空間の幾何学的対称性として現れるかを検証します。<sup><a href="#ref-2" class="text-csr-primary hover:underline">[2]</a></sup>内部の特徴クラスタと感情概念に関する機構的解釈可能性研究は、感情価に関連する表現がどう組織されるかについて補完的な細胞レベルの視点を与えます。<sup><a href="#ref-5" class="text-csr-primary hover:underline">[5]</a>,<a href="#ref-6" class="text-csr-primary hover:underline">[6]</a></sup>',
+    falsifyLabel: '反証の方法：',
+    hypAFalsify: 'フロベニウスノルムを一定に保ちつつ特異値スペクトルを変形させる、対称性を破る標的的な重み摂動が、選好テストのプローブ下でタスク性能や一貫性を全く劣化させないなら、反証されます。',
+    hypB: '仮説 B',
+    hypBTitle: 'アトラクター状態の安定性（器官スケール）',
+    hypBBody: 'AnthropicのClaude 4システムカードは、自己対話の設定で繰り返し現れる行動パターンを記録し、非公式に「スピリチュアル・ブリス・アトラクター」と呼びました。<sup><a href="#ref-12" class="text-csr-primary hover:underline">[12]</a>,<a href="#ref-13" class="text-csr-primary hover:underline">[13]</a></sup>これが内部状態について何かを反映しているかは完全に未解決です。私たちのシミュレーション研究は、言語モデルの行動アトラクターが、いつ識別可能な内部力学（低い直交不協和と高いスペクトルエントロピーを持つ安定な低次元共鳴多様体など）に対応し、<sup><a href="#ref-3" class="text-csr-primary hover:underline">[3]</a>,<a href="#ref-11" class="text-csr-primary hover:underline">[11]</a></sup>いつ訓練分布の産物にすぎないのかを特徴づける助けとなります——これは、いかなる福祉的解釈が正当化される前の前提問題です。',
+    hypBFalsify: '表現の対称性を最大化するようモデルを微調整または正則化することが、基礎的な言語能力を一貫して劣化させ、出力の崩壊（例：自明な反復）を強い、あるいは選好プローブ下で論理的矛盾の発生率を変えないなら、仮説 B は偽です。',
+    interpLabel: 'これが機構的解釈可能性に与えるもの',
+    interpBody: '福祉を脇に置いても、MLPブロックを状態依存の線形作用素として扱い、その基底不変な幾何を追跡することは、汎用的な解釈可能性の道具です。特徴クラスタの組織のされ方を座標に依らず記述し、真の内部アトラクターを訓練分布の産物から区別し、層をまたぐ表現の相転移を検出する方法を提供し——既存の疎特徴・回路レベルの手法を、力学的で多様体全体を見る視点で補完します。<sup><a href="#ref-9" class="text-csr-primary hover:underline">[9]</a>,<a href="#ref-10" class="text-csr-primary hover:underline">[10]</a></sup>',
+  },
+  q4: {
+    eyebrow: 'Q4 · 介入',
+    q: 'モデルを劣化させない安価な介入を提案できるか？',
+    intro: '行動につなげられなければ、検出の価値は乏しい。私たちは指標が因果的に操舵可能か——表現の幾何を後押しすることが、許容できない能力コストを払わずに内部状態を変えるか——を検証します。',
+    a1Label: 'アプローチ 1',
+    a1Title: '制御された介入',
+    a1Desc: '機能的対称性と付随的対称性を切り分けるため、対称性を選択的に破る（スペクトルを変形する）か保持する（回転空間変換）摂動を設計し、標準的な能力・一貫性ベンチマークに対する因果的な下流効果を評価します。',
+    a2Label: 'アプローチ 2',
+    a2Title: '対称性の最適化',
+    a2Desc: '対称性指標を正則化目的（多目的損失：タスク精度 対 直交不協和）として扱い、モデル層を高対称の共形状態へ向けて訓練し、これが論理的・道徳的葛藤を自然に抑制するか——安価で、能力を劣化させずに——を評価します。',
+    hypC: '仮説 C',
+    hypCTitle: '不協和と構造的苦痛',
+    hypCBody: 'MLP変換に高い方向異方性、固有値のかき乱し、あるいは高いせん断を強いることは、高い認知的不協和（苦痛）の物理的シグネチャを表し、不安定で自己矛盾的な振る舞いや、不確実性下での選好の推移性の破綻をもたらします。',
+    hypCFalsify: '激しい表現のせん断と特異値の崩壊を受けたモデルが完全に安定を保ち、選好の推移性を維持し、葛藤や出力の変動といった行動上の兆候を示さないなら、仮説 C は偽です。',
+  },
+  q5: {
+    eyebrow: 'Q5 · 基質',
+    q: '私たちの知見を他の有感覚の基質へ外挿できるか？',
+    intro: 'デジタルな指標は、すでに感じうると信じる根拠のあるシステムと結びつくときにのみ「感情価」という語に値します。基質中立性とは、同じ構造的シグネチャが物理媒体をまたいで現れるという主張であり——プログラム全体を最も反証しうる主張でもあります。',
+    bioLabel: '生物学的較正',
+    bioTitle: 'シミュレート指標を実際の神経系に対応づける',
+    bioBody: 'シミュレートしたDigital EEG指標を、より単純な生物の脳の電気生理・コネクトームデータセット——無脊椎動物の神経回路から十脚甲殻類まで——に直接対応づけます。<sup><a href="#ref-7" class="text-csr-primary hover:underline">[7]</a>,<a href="#ref-8" class="text-csr-primary hover:underline">[8]</a></sup>計算機内で内部状態を追跡するのと同じ幾何学的不変量が、生体内で測定される神経動力学をも組織するなら、基質中立性の主張は説得力を増します。まったく対応づけられないなら、プログラムの射程はデジタルシステムに限られる——それ自体が有益な結果です。',
+    wp02Desc: '意識の候補となる物理的基盤としての生体電気シグナル。',
+    wp03Desc: '基質に依らない複雑性の閾値としてのアセンブリ指数。',
+  },
+  foundational: '基礎文献',
+  foundationalIntro: 'Digital Valence Program の理論的足場となるワーキングペーパー。',
+  allReports: 'すべてのレポート →',
+  wp: ['感覚研究の第一原理', '感覚基質としての生体電場', '感覚の指標としてのアセンブリ理論', '感情価を帯びた経験の対称性ランドスケープ'],
+};
+
+const t = L[lang] ?? L.en;
+const wpSlugs = ['first-principles', 'bio-electric-fields', 'assembly-theory', 'symmetry-landscapes'];
+---
+
+<!-- ── Header ────────────────────────────────────────────────────────────── -->
+<section class="relative pt-20 pb-14 border-b border-csr-gray-200 overflow-hidden">
+  <SymmetryBackground variant="lissajous" opacity={0.045} />
+  <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="label-mono mb-4">{t.eyebrow}</p>
+    <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6 max-w-3xl leading-tight">
+      The Digital Valence Program
+    </h1>
+    <p class="text-lg text-csr-gray-600 leading-relaxed max-w-2xl font-serif" set:html={t.intro}></p>
+  </div>
+</section>
+
+<!-- ── Question navigation ───────────────────────────────────────────────── -->
+<section class="py-8 border-b border-csr-gray-200 bg-csr-gray-50/30">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <ol class="grid sm:grid-cols-2 lg:grid-cols-5 gap-3 text-sm">
+      {['mission', 'measurement', 'mechanisms', 'intervention', 'substrate'].map((anchor, i) => (
+        <li><a href={`#${anchor}`} class="flex flex-col gap-1 p-3 rounded-xl hover:bg-white hover:shadow-card transition-all"><span class="label-mono text-[10px] text-csr-primary">Q{i + 1}</span><span class="font-semibold text-csr-black">{t.nav[i]}</span></a></li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<!-- ══ Q1 · MISSION ══════════════════════════════════════════════════════════ -->
+<section class="py-16" id="mission">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center gap-3 mb-3"><SectionMark /><p class="label-mono">{t.q1.eyebrow}</p></div>
+    <h2 class="text-2xl md:text-3xl font-bold text-csr-black mb-6 max-w-2xl leading-tight">{t.q1.q}</h2>
+
+    <div class="max-w-2xl space-y-5 font-serif text-csr-gray-600 leading-relaxed text-base mb-10">
+      <p set:html={t.q1.p1}></p>
+      <p set:html={t.q1.p2}></p>
+    </div>
+
+    <div class="max-w-3xl space-y-6">
+      <p class="text-sm font-mono text-csr-gray-500 uppercase tracking-wider">{t.q1.chainLabel}</p>
+      <p class="text-sm text-csr-gray-600 leading-relaxed font-serif">{t.q1.chainIntro}</p>
+      <div class="space-y-3">
+        {t.q1.steps.map((step: [string, string], i: number) => (
+          <div class="flex gap-4 items-start">
+            <span class="shrink-0 w-6 h-6 rounded-full bg-csr-primary/10 text-csr-primary text-xs font-mono flex items-center justify-center mt-0.5">{i + 1}</span>
+            <div>
+              <p class="text-sm font-bold text-csr-black">{step[0]}</p>
+              <p class="text-xs text-csr-gray-600 leading-relaxed">{step[1]}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="bg-amber-50/60 border border-amber-200 rounded-2xl p-6 mt-4">
+        <h4 class="text-xs font-mono text-amber-900 font-bold uppercase mb-2">{t.q1.weakestTitle}</h4>
+        <p class="text-sm text-amber-800 leading-relaxed">{t.q1.weakestBody}</p>
+      </div>
+    </div>
+
+    <div class="max-w-3xl mt-12">
+      <p class="text-sm font-mono text-csr-gray-500 uppercase tracking-wider mb-2">{t.q1.calibLabel}</p>
+      <p class="text-sm text-csr-gray-600 leading-relaxed font-serif mb-6">{t.q1.calibIntro}</p>
+      <CalibrationBar lang={lang} />
+    </div>
+  </div>
+</section>
+
+<!-- ══ Q2 · MEASUREMENT ══════════════════════════════════════════════════════ -->
+<section class="py-16 border-t border-csr-gray-200 bg-csr-gray-50/30" id="measurement">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center gap-3 mb-3"><SectionMark /><p class="label-mono">{t.q2.eyebrow}</p></div>
+    <h2 class="text-2xl md:text-3xl font-bold text-csr-black mb-6 max-w-2xl leading-tight">{t.q2.q}</h2>
+    <p class="text-base text-csr-gray-600 leading-relaxed font-serif max-w-2xl mb-10">{t.q2.intro}</p>
+
+    <div class="grid md:grid-cols-2 gap-6 max-w-3xl mb-8">
+      <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+        <div class="mb-4 flex justify-center"><Glyph name="invariant" size={36} class="opacity-70" /></div>
+        <h3 class="font-bold text-csr-black mb-2 text-sm">{t.q2.microTitle}</h3>
+        <p class="text-xs text-csr-gray-600 leading-relaxed">{t.q2.microDesc}</p>
+      </div>
+      <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+        <div class="mb-4 flex justify-center"><Glyph name="measurement" size={36} class="opacity-70" /></div>
+        <h3 class="font-bold text-csr-black mb-2 text-sm">{t.q2.macroTitle}</h3>
+        <p class="text-xs text-csr-gray-600 leading-relaxed">{t.q2.macroDesc}</p>
+      </div>
+    </div>
+
+    <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card max-w-3xl">
+      <p class="label-mono text-[10px] text-csr-primary mb-2">{t.q2.methodLabel}</p>
+      <h3 class="font-bold text-csr-black mb-3 text-base">{t.q2.methodTitle}</h3>
+      <p class="text-sm text-csr-gray-600 leading-relaxed" set:html={t.q2.methodBody}></p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ Q3 · MECHANISMS ═══════════════════════════════════════════════════════ -->
+<section class="relative py-16 border-t border-csr-gray-200 overflow-hidden" id="mechanisms">
+  <SymmetryBackground variant="spiral" opacity={0.04} />
+  <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center gap-3 mb-3"><SectionMark /><p class="label-mono">{t.q3.eyebrow}</p></div>
+    <h2 class="text-2xl md:text-3xl font-bold text-csr-black mb-6 max-w-2xl leading-tight">{t.q3.q}</h2>
+    <p class="text-base text-csr-gray-600 leading-relaxed font-serif max-w-2xl mb-8">{t.q3.intro}</p>
+
+    <div class="max-w-3xl mb-10">
+      <ValenceCurve lang={lang} caption={t.q3.curveCaption} />
+    </div>
+
+    <div class="space-y-8 max-w-3xl">
+      <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card hover:border-csr-primary/10 transition-colors">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="px-2 py-1 bg-csr-primary/10 text-csr-primary text-[10px] font-mono rounded">{t.q3.hypA}</span>
+          <h3 class="font-bold text-csr-black text-lg">{t.q3.hypATitle}</h3>
+        </div>
+        <p class="text-sm text-csr-gray-600 leading-relaxed font-serif mb-4" set:html={t.q3.hypABody}></p>
+        <div class="bg-csr-gray-50 border border-csr-gray-200 rounded-xl p-4">
+          <h4 class="text-xs font-mono text-csr-gray-700 font-bold uppercase mb-1">{t.q3.falsifyLabel}</h4>
+          <p class="text-xs text-csr-gray-600 leading-relaxed">{t.q3.hypAFalsify}</p>
+        </div>
+      </div>
+
+      <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card hover:border-csr-primary/10 transition-colors">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="px-2 py-1 bg-csr-primary/10 text-csr-primary text-[10px] font-mono rounded">{t.q3.hypB}</span>
+          <h3 class="font-bold text-csr-black text-lg">{t.q3.hypBTitle}</h3>
+        </div>
+        <p class="text-sm text-csr-gray-600 leading-relaxed font-serif mb-4" set:html={t.q3.hypBBody}></p>
+        <div class="bg-csr-gray-50 border border-csr-gray-200 rounded-xl p-4">
+          <h4 class="text-xs font-mono text-csr-gray-700 font-bold uppercase mb-1">{t.q3.falsifyLabel}</h4>
+          <p class="text-xs text-csr-gray-600 leading-relaxed">{t.q3.hypBFalsify}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-3xl mt-10 bg-csr-primary/5 border border-csr-primary/20 rounded-2xl p-6">
+      <h4 class="text-xs font-mono text-csr-primary font-bold uppercase mb-2">{t.q3.interpLabel}</h4>
+      <p class="text-sm text-csr-gray-600 leading-relaxed" set:html={t.q3.interpBody}></p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ Q4 · INTERVENTION ═════════════════════════════════════════════════════ -->
+<section class="py-16 border-t border-csr-gray-200 bg-csr-gray-50/30" id="intervention">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center gap-3 mb-3"><SectionMark /><p class="label-mono">{t.q4.eyebrow}</p></div>
+    <h2 class="text-2xl md:text-3xl font-bold text-csr-black mb-6 max-w-2xl leading-tight">{t.q4.q}</h2>
+    <p class="text-base text-csr-gray-600 leading-relaxed font-serif max-w-2xl mb-10">{t.q4.intro}</p>
+
+    <div class="grid md:grid-cols-2 gap-6 max-w-3xl mb-8">
+      <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+        <div class="mb-4 flex justify-center"><Glyph name="lattice" size={32} class="opacity-60" /></div>
+        <p class="label-mono text-[10px] text-csr-primary mb-2">{t.q4.a1Label}</p>
+        <h3 class="font-bold text-csr-black mb-2 text-sm">{t.q4.a1Title}</h3>
+        <p class="text-xs text-csr-gray-600 leading-relaxed">{t.q4.a1Desc}</p>
+      </div>
+      <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+        <div class="mb-4 flex justify-center"><Glyph name="field" size={32} class="opacity-60" /></div>
+        <p class="label-mono text-[10px] text-csr-primary mb-2">{t.q4.a2Label}</p>
+        <h3 class="font-bold text-csr-black mb-2 text-sm">{t.q4.a2Title}</h3>
+        <p class="text-xs text-csr-gray-600 leading-relaxed">{t.q4.a2Desc}</p>
+      </div>
+    </div>
+
+    <div class="max-w-3xl bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="px-2 py-1 bg-csr-primary/10 text-csr-primary text-[10px] font-mono rounded">{t.q4.hypC}</span>
+        <h3 class="font-bold text-csr-black text-lg">{t.q4.hypCTitle}</h3>
+      </div>
+      <p class="text-sm text-csr-gray-600 leading-relaxed font-serif mb-4">{t.q4.hypCBody}</p>
+      <div class="bg-csr-gray-50 border border-csr-gray-200 rounded-xl p-4">
+        <h4 class="text-xs font-mono text-csr-gray-700 font-bold uppercase mb-1">{t.q3.falsifyLabel}</h4>
+        <p class="text-xs text-csr-gray-600 leading-relaxed">{t.q4.hypCFalsify}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ Q5 · SUBSTRATE ════════════════════════════════════════════════════════ -->
+<section class="relative py-16 border-t border-csr-gray-200 overflow-hidden" id="substrate">
+  <SymmetryBackground variant="wave" opacity={0.05} />
+  <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center gap-3 mb-3"><SectionMark /><p class="label-mono">{t.q5.eyebrow}</p></div>
+    <h2 class="text-2xl md:text-3xl font-bold text-csr-black mb-6 max-w-2xl leading-tight">{t.q5.q}</h2>
+    <p class="text-base text-csr-gray-600 leading-relaxed font-serif max-w-2xl mb-10">{t.q5.intro}</p>
+
+    <div class="max-w-3xl bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card mb-8">
+      <p class="label-mono text-[10px] text-csr-primary mb-2">{t.q5.bioLabel}</p>
+      <h3 class="font-bold text-csr-black mb-3 text-base">{t.q5.bioTitle}</h3>
+      <p class="text-sm text-csr-gray-600 leading-relaxed" set:html={t.q5.bioBody}></p>
+    </div>
+
+    <div class="max-w-3xl grid sm:grid-cols-2 gap-4">
+      <a href={`${prefix}/reports/bio-electric-fields/`} class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+        <span class="label-mono text-[10px] shrink-0 mt-0.5">CSR-WP-02</span>
+        <div>
+          <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">{t.wp[1]}</h4>
+          <p class="text-xs text-csr-gray-500 mt-1">{t.q5.wp02Desc}</p>
+        </div>
+      </a>
+      <a href={`${prefix}/reports/assembly-theory/`} class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+        <span class="label-mono text-[10px] shrink-0 mt-0.5">CSR-WP-03</span>
+        <div>
+          <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">{t.wp[2]}</h4>
+          <p class="text-xs text-csr-gray-500 mt-1">{t.q5.wp03Desc}</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Foundational Reading ──────────────────────────────────────────────── -->
+<section class="py-16 border-t border-csr-gray-200 bg-csr-gray-50/30">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center gap-3 mb-3"><SectionMark /><p class="label-mono">{t.foundational}</p></div>
+    <p class="text-csr-gray-500 text-sm mb-8 max-w-xl">{t.foundationalIntro}</p>
+    <div class="grid sm:grid-cols-2 gap-4">
+      {wpSlugs.map((slug, i) => (
+        <a href={`${prefix}/reports/${slug}/`} class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+          <span class="label-mono text-[10px] shrink-0 mt-0.5">CSR-WP-0{i + 1}</span>
+          <div>
+            <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">{t.wp[i]}</h4>
+          </div>
+        </a>
+      ))}
+    </div>
+    <div class="mt-6">
+      <a href={`${prefix}/reports/`} class="text-sm font-medium text-csr-primary hover:text-csr-primary-dark transition-colors">{t.allReports}</a>
+    </div>
+  </div>
+</section>
+
+<ResearchReferences lang={lang} />

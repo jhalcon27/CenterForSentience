@@ -3,6 +3,8 @@ import Layout from '../../layouts/Layout.astro';
 import ProgramStatus from '../../components/ProgramStatus.astro';
 import SectionMark from '../../components/SectionMark.astro';
 import Glyph from '../../components/Glyph.astro';
+import SymmetryBackground from '../../components/SymmetryBackground.astro';
+import BudgetChart from '../../components/BudgetChart.astro';
 ---
 
 <Layout
@@ -11,8 +13,9 @@ import Glyph from '../../components/Glyph.astro';
 >
 
   <!-- ── Header ────────────────────────────────────────────────────────────── -->
-  <section class="pt-20 pb-12 border-b border-csr-gray-200">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section class="relative pt-20 pb-12 border-b border-csr-gray-200 overflow-hidden">
+    <SymmetryBackground variant="rings" opacity={0.05} />
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <p class="label-mono mb-4">Financiar el Programa</p>
       <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6 max-w-2xl leading-tight">
         Las herramientas de medición deben existir antes de que la pregunta se vuelva urgente.
@@ -45,6 +48,9 @@ import Glyph from '../../components/Glyph.astro';
       <div class="flex items-center gap-3 mb-8">
         <SectionMark />
         <p class="label-mono">Desglose del Presupuesto</p>
+      </div>
+      <div class="mb-8">
+        <BudgetChart lang="es" />
       </div>
       <div class="grid md:grid-cols-3 gap-5">
         <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">

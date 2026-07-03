@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import SectionMark from '../../components/SectionMark.astro';
 import Glyph from '../../components/Glyph.astro';
+import SymmetryBackground from '../../components/SymmetryBackground.astro';
 
 const lineage = [
   {
@@ -46,8 +47,9 @@ const ecosystem = [
 >
 
   <!-- ── Header ────────────────────────────────────────────────────────────── -->
-  <section class="pt-20 pb-12 border-b border-csr-gray-200">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section class="relative pt-20 pb-12 border-b border-csr-gray-200 overflow-hidden">
+    <SymmetryBackground variant="lattice" opacity={0.04} />
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <p class="label-mono mb-4">Ökosystem</p>
       <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6 max-w-2xl leading-tight">
         Das Forschungsnetzwerk

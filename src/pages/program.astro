@@ -4,6 +4,8 @@ import SymmetryBackground from '../components/SymmetryBackground.astro';
 import ProgramStatus from '../components/ProgramStatus.astro';
 import SectionMark from '../components/SectionMark.astro';
 import Glyph from '../components/Glyph.astro';
+import BudgetChart from '../components/BudgetChart.astro';
+import PhaseTimeline from '../components/PhaseTimeline.astro';
 ---
 
 <Layout
@@ -27,8 +29,9 @@ import Glyph from '../components/Glyph.astro';
 
   <!-- ── Program Status ────────────────────────────────────────────────────── -->
   <section class="py-16">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
       <ProgramStatus />
+      <PhaseTimeline />
     </div>
   </section>
 
@@ -108,11 +111,16 @@ import Glyph from '../components/Glyph.astro';
   </section>
 
   <!-- ── What Funding Unlocks ───────────────────────────────────────────────── -->
-  <section class="py-16 border-t border-csr-gray-200">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section class="relative py-16 border-t border-csr-gray-200 overflow-hidden">
+    <SymmetryBackground variant="lattice" opacity={0.04} />
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-3 mb-8">
         <SectionMark />
         <p class="label-mono">What Funding Unlocks</p>
+      </div>
+
+      <div class="mb-8">
+        <BudgetChart />
       </div>
 
       <div class="grid md:grid-cols-3 gap-5 mb-10">

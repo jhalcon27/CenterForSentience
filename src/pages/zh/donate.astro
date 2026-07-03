@@ -3,6 +3,8 @@ import Layout from '../../layouts/Layout.astro';
 import ProgramStatus from '../../components/ProgramStatus.astro';
 import SectionMark from '../../components/SectionMark.astro';
 import Glyph from '../../components/Glyph.astro';
+import SymmetryBackground from '../../components/SymmetryBackground.astro';
+import BudgetChart from '../../components/BudgetChart.astro';
 ---
 
 <Layout
@@ -10,8 +12,9 @@ import Glyph from '../../components/Glyph.astro';
   description="支持感知研究中心2026年计划：一个用于测量数字心智中功能性效价的正式数学框架。"
 >
 
-  <section class="pt-20 pb-12 border-b border-csr-gray-200">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section class="relative pt-20 pb-12 border-b border-csr-gray-200 overflow-hidden">
+    <SymmetryBackground variant="rings" opacity={0.05} />
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <p class="label-mono mb-4">资助计划</p>
       <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6 max-w-2xl leading-tight">
         测量工具必须在问题变得紧迫之前存在。
@@ -42,6 +45,9 @@ import Glyph from '../../components/Glyph.astro';
       <div class="flex items-center gap-3 mb-8">
         <SectionMark />
         <p class="label-mono">预算分解</p>
+      </div>
+      <div class="mb-8">
+        <BudgetChart lang="zh" />
       </div>
       <div class="grid md:grid-cols-3 gap-5">
         <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">

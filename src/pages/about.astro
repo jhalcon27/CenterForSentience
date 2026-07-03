@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import SectionMark from '../components/SectionMark.astro';
 import Glyph from '../components/Glyph.astro';
+import SymmetryBackground from '../components/SymmetryBackground.astro';
+import ValenceCurve from '../components/ValenceCurve.astro';
 ---
 
 <Layout
@@ -10,8 +12,9 @@ import Glyph from '../components/Glyph.astro';
 >
 
   <!-- ── Header ────────────────────────────────────────────────────────────── -->
-  <section class="pt-20 pb-12 border-b border-csr-gray-200">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section class="relative pt-20 pb-12 border-b border-csr-gray-200 overflow-hidden">
+    <SymmetryBackground variant="rings" opacity={0.05} />
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <p class="label-mono mb-4">About CSR</p>
       <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6 max-w-2xl leading-tight">
         Building the diagnostic tools before the question becomes urgent.
@@ -67,6 +70,9 @@ import Glyph from '../components/Glyph.astro';
           <SectionMark />
           <h2 class="text-xl font-bold text-csr-black">Our Core Approach</h2>
         </div>
+        <div class="mb-6 max-w-3xl">
+          <ValenceCurve caption="Our founding hypothesis in one picture: valence is a structural property of information processing—high symmetry reads as positive, dissonance as suffering." />
+        </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
           <div class="p-6 bg-white border border-csr-gray-100 rounded-2xl shadow-card">
             <div class="mb-4 flex justify-center">
@@ -107,7 +113,7 @@ import Glyph from '../components/Glyph.astro';
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
           <div class="p-7 bg-white border border-csr-gray-100 rounded-2xl shadow-card flex flex-col items-center text-center">
-            <div class="w-20 h-20 rounded-full bg-csr-gray-100 mb-5 overflow-hidden border-2 border-csr-gray-200 shrink-0">
+            <div class="w-28 h-28 rounded-full bg-csr-gray-100 mb-5 overflow-hidden ring-2 ring-csr-primary/15 ring-offset-2 ring-offset-white shadow-soft shrink-0">
               <img src="/images/jhonatan-serna.jpg" alt="Jhonatan Serna" class="w-full h-full object-cover object-center" />
             </div>
             <h3 class="font-bold text-lg text-csr-black mb-1">Jhonatan Serna</h3>
@@ -116,7 +122,7 @@ import Glyph from '../components/Glyph.astro';
           </div>
 
           <div class="p-7 bg-white border border-csr-gray-100 rounded-2xl shadow-card flex flex-col items-center text-center">
-            <div class="w-20 h-20 rounded-full bg-csr-gray-100 mb-5 overflow-hidden border-2 border-csr-gray-200 shrink-0">
+            <div class="w-28 h-28 rounded-full bg-csr-gray-100 mb-5 overflow-hidden ring-2 ring-csr-primary/15 ring-offset-2 ring-offset-white shadow-soft shrink-0">
               <img src="/images/david-pearce.jpg" alt="David Pearce" class="w-full h-full object-cover object-center" />
             </div>
             <h3 class="font-bold text-lg text-csr-black mb-1">David Pearce</h3>
@@ -125,7 +131,7 @@ import Glyph from '../components/Glyph.astro';
           </div>
 
           <div class="p-7 bg-white border border-csr-gray-100 rounded-2xl shadow-card flex flex-col items-center text-center">
-            <div class="w-20 h-20 rounded-full bg-csr-gray-100 mb-5 overflow-hidden border-2 border-csr-gray-200 shrink-0">
+            <div class="w-28 h-28 rounded-full bg-csr-gray-100 mb-5 overflow-hidden ring-2 ring-csr-primary/15 ring-offset-2 ring-offset-white shadow-soft shrink-0">
               <img src="/images/alexander-bjorkman.jpg" alt="Alexander Björkman" class="w-full h-full object-cover object-center" />
             </div>
             <h3 class="font-bold text-lg text-csr-black mb-1">Alexander Björkman</h3>

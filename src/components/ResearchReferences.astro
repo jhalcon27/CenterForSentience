@@ -1,0 +1,48 @@
+---
+import SectionMark from './SectionMark.astro';
+interface Props {
+  lang?: string;
+}
+const { lang = 'en' } = Astro.props;
+const heading: Record<string, string> = {
+  en: 'References', de: 'Referenzen', es: 'Referencias', fr: 'Références', zh: '参考文献', ja: '参考文献',
+};
+const h = heading[lang] ?? heading.en;
+
+const refs = [
+  { id: 1, cite: 'Anthis, J. R. et al. (2025). <em>Perceptions of Sentient AI and Other Digital Minds: Evidence from the AI, Morality, and Sentience (AIMS) Survey.</em> CHI 2025.', url: 'https://dl.acm.org/doi/10.1145/3706598.3713329' },
+  { id: 2, cite: 'Doerig, A. et al. (2025). <em>Hypothesis on the functional advantages of the selection-broadcast cycle structure: global workspace theory and dealing with a real-time world.</em> Frontiers in Robotics and AI.', url: 'https://www.frontiersin.org/journals/robotics-and-ai/articles/10.3389/frobt.2025.1607190/full' },
+  { id: 3, cite: 'Ságodi, Á. et al. (2024). <em>Back to the Continuous Attractor.</em> NeurIPS 2024.', url: 'https://neurips.cc/virtual/2024/poster/94178' },
+  { id: 4, cite: 'Lauditi, C. et al. (2026). <em>Spectral Dynamics in Deep Networks: Feature Learning, Outlier Escape, and Learning Rate Transfer.</em> arXiv.', url: 'https://arxiv.org/abs/2605.07870' },
+  { id: 5, cite: 'Anthropic Interpretability Team (2026). <em>Natural Language Autoencoders Produce Unsupervised Explanations of LLM Activations.</em> Transformer Circuits Thread.', url: 'https://transformer-circuits.pub/2026/nla/#introduction' },
+  { id: 6, cite: 'Anthropic Interpretability Team (2026). <em>Emotion Concepts and their Function in a Large Language Model.</em> Transformer Circuits Thread.', url: 'https://transformer-circuits.pub/2026/emotions/index.html' },
+  { id: 7, cite: 'Bhatt, D. et al. (2023). <em>Editorial: Invertebrate neurophysiology—of currents, cells, and circuits.</em> Frontiers in Neuroscience.', url: 'https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2023.1303574/full' },
+  { id: 8, cite: 'Nath, R. D. et al. (2025). <em>Cholinergic Regulation of Rhythmic Pacemaker Activity in the Jellyfish Cassiopea.</em> Integrative and Comparative Biology.', url: 'https://academic.oup.com/icb/article/65/Supplement_1/S1/8071397' },
+  { id: 9, cite: 'Jazayeri, M. &amp; Ostojic, S. (2025). <em>A Neural Manifold View of the Brain.</em> Nature Neuroscience.', url: 'https://www.nature.com/articles/s41593-025-02031-z' },
+  { id: 10, cite: 'Chaudhry, A. et al. (2025). <em>When Models Manipulate Manifolds: The Geometry of a Counting Task.</em> Transformer Circuits Thread.', url: 'https://transformer-circuits.pub/2025/linebreaks/index.html' },
+  { id: 11, cite: 'Torre, E. et al. (2025). <em>Mechanistic Interpretability of RNNs emulating Hidden Markov Models.</em> NeurIPS 2025.', url: 'https://neurips.cc/virtual/2025/poster/116348' },
+  { id: 12, cite: 'Michels, J. D. (2025). <em>"Spiritual Bliss" in Claude 4: Case Study of an "Attractor State" and Journalistic Responses.</em> PhilArchive preprint.', url: 'https://philarchive.org/archive/MICSBI' },
+  { id: 13, cite: 'recursivelabs (2025). <em>Mapping Claude\'s Spiritual Bliss attractor.</em> Hugging Face Discussion.', url: 'https://discuss.huggingface.co/t/mapping-claudes-spiritual-bliss-attractor/158195' },
+];
+---
+
+<section class="py-16 border-t border-csr-gray-200">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center gap-3 mb-6">
+      <SectionMark />
+      <p class="label-mono">{h}</p>
+    </div>
+    <ol class="space-y-4 max-w-3xl">
+      {refs.map((r) => (
+        <li id={`ref-${r.id}`} class="flex gap-3 text-xs text-csr-gray-600 leading-relaxed">
+          <span class="shrink-0 font-mono text-csr-primary">[{r.id}]</span>
+          <span>
+            <Fragment set:html={r.cite} />
+            {' '}
+            <a href={r.url} target="_blank" rel="noopener noreferrer" class="text-csr-primary hover:underline break-all">{r.url}</a>
+          </span>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

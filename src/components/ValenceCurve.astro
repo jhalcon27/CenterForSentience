@@ -1,0 +1,82 @@
+---
+/**
+ * ValenceCurve.astro
+ * Conceptual plot of the core hypothesis: valence rises with representational
+ * symmetry (and falls with dissonance). Single purple line; polarity encoded by
+ * a faint tint above/below the zero line AND by text labels (never color alone).
+ *
+ * Props:
+ *   caption? — small text under the figure
+ */
+interface Props {
+  caption?: string;
+  lang?: string;
+}
+const { caption, lang = 'en' } = Astro.props;
+
+const L: Record<string, { pos: string; neg: string; xaxis: string; yaxis: string }> = {
+  en: { pos: 'Positive valence', neg: 'Suffering / dissonance', xaxis: 'REPRESENTATIONAL SYMMETRY →', yaxis: 'VALENCE' },
+  de: { pos: 'Positive Valenz', neg: 'Leiden / Dissonanz', xaxis: 'REPRÄSENTATIONALE SYMMETRIE →', yaxis: 'VALENZ' },
+  es: { pos: 'Valencia positiva', neg: 'Sufrimiento / disonancia', xaxis: 'SIMETRÍA REPRESENTACIONAL →', yaxis: 'VALENCIA' },
+  fr: { pos: 'Valence positive', neg: 'Souffrance / dissonance', xaxis: 'SYMÉTRIE REPRÉSENTATIONNELLE →', yaxis: 'VALENCE' },
+  zh: { pos: '正效价', neg: '痛苦 / 失谐', xaxis: '表征对称性 →', yaxis: '效价' },
+  ja: { pos: '正の感情価', neg: '苦痛 / 不協和', xaxis: '表現の対称性 →', yaxis: '感情価' },
+};
+const t = L[lang] ?? L.en;
+
+const W = 640, H = 360;
+const x0 = 80, x1 = 600;      // plot x-range
+const yTop = 40, yBot = 300;  // plot y-range
+const yZero = (yTop + yBot) / 2;
+const amp = (yBot - yTop) / 2 - 12;
+
+const N = 48;
+const pts = Array.from({ length: N + 1 }, (_, i) => {
+  const t = i / N;
+  const v = Math.tanh((t - 0.5) * 5.2);   // valence, -1..1
+  const x = x0 + t * (x1 - x0);
+  const y = yZero - v * amp;
+  return [x, y] as const;
+});
+const line = pts.map(([x, y], i) => `${i === 0 ? 'M' : 'L'} ${x.toFixed(1)} ${y.toFixed(1)}`).join(' ');
+
+// Fill from the curve down to the zero line (positive region only)
+const posFill = (() => {
+  const pos = pts.filter(([, y]) => y <= yZero);
+  if (!pos.length) return '';
+  const top = pos.map(([x, y]) => `L ${x.toFixed(1)} ${y.toFixed(1)}`).join(' ');
+  const startX = pos[0][0], endX = pos[pos.length - 1][0];
+  return `M ${startX.toFixed(1)} ${yZero} ${top} L ${endX.toFixed(1)} ${yZero} Z`;
+})();
+---
+
+<figure class="my-2">
+  <div class="rounded-2xl border border-csr-gray-200 bg-white shadow-card p-5 md:p-6">
+    <svg viewBox={`0 0 ${W} ${H}`} class="w-full h-auto" role="img"
+         aria-label={`${t.yaxis} vs ${t.xaxis}`}>
+      <!-- axes -->
+      <line x1={x0} y1={yTop} x2={x0} y2={yBot} stroke="#cbd5e1" stroke-width="1"/>
+      <line x1={x0} y1={yBot} x2={x1} y2={yBot} stroke="#cbd5e1" stroke-width="1"/>
+      <!-- zero line -->
+      <line x1={x0} y1={yZero} x2={x1} y2={yZero} stroke="#94a3b8" stroke-width="1" stroke-dasharray="4 5"/>
+      <text x={x0 - 8} y={yZero + 4} text-anchor="end" font-size="11" font-family="'JetBrains Mono', monospace" fill="#94a3b8">0</text>
+
+      <!-- positive-region tint -->
+      <path d={posFill} fill="#9966CC" opacity="0.10"/>
+
+      <!-- the curve -->
+      <path d={line} fill="none" stroke="#9966CC" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx={pts[N][0]} cy={pts[N][1]} r="4.5" fill="#9966CC"/>
+      <circle cx={pts[0][0]} cy={pts[0][1]} r="4.5" fill="#9966CC" opacity="0.5"/>
+
+      <!-- polarity labels (meaning is textual, not color-only) -->
+      <text x={x1} y={yTop + 6} text-anchor="end" font-size="12" font-weight="600" font-family="Inter, sans-serif" fill="#334155">{t.pos}</text>
+      <text x={x0 + 6} y={yBot - 10} text-anchor="start" font-size="12" font-weight="600" font-family="Inter, sans-serif" fill="#334155">{t.neg}</text>
+
+      <!-- axis titles -->
+      <text x={(x0 + x1) / 2} y={H - 8} text-anchor="middle" font-size="11" font-family="'JetBrains Mono', monospace" letter-spacing="1.5" fill="#64748b">{t.xaxis}</text>
+      <text x="18" y={(yTop + yBot) / 2} text-anchor="middle" font-size="11" font-family="'JetBrains Mono', monospace" letter-spacing="1.5" fill="#64748b" transform={`rotate(-90 18 ${(yTop + yBot) / 2})`}>{t.yaxis}</text>
+    </svg>
+  </div>
+  {caption && <figcaption class="text-xs text-csr-gray-500 mt-3 text-center max-w-xl mx-auto leading-relaxed">{caption}</figcaption>}
+</figure>

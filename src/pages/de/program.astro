@@ -4,6 +4,8 @@ import SymmetryBackground from '../../components/SymmetryBackground.astro';
 import ProgramStatus from '../../components/ProgramStatus.astro';
 import SectionMark from '../../components/SectionMark.astro';
 import Glyph from '../../components/Glyph.astro';
+import BudgetChart from '../../components/BudgetChart.astro';
+import PhaseTimeline from '../../components/PhaseTimeline.astro';
 ---
 
 <Layout
@@ -25,8 +27,9 @@ import Glyph from '../../components/Glyph.astro';
   </section>
 
   <section class="py-16">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
       <ProgramStatus />
+      <PhaseTimeline lang="de" />
     </div>
   </section>
 
@@ -108,6 +111,10 @@ import Glyph from '../../components/Glyph.astro';
       <div class="flex items-center gap-3 mb-8">
         <SectionMark />
         <p class="label-mono">Was Finanzierung ermöglicht</p>
+      </div>
+
+      <div class="mb-8">
+        <BudgetChart lang="de" />
       </div>
 
       <div class="grid md:grid-cols-3 gap-5 mb-10">

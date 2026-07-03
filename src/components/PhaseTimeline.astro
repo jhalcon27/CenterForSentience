@@ -1,0 +1,55 @@
+---
+/**
+ * PhaseTimeline.astro
+ * Horizontal three-phase progress track for the 2026 program. Status is shown
+ * by node fill + a text label (not color alone), with a progress line up to the
+ * current phase. Matches the phase scheme used in ProgramStatus.
+ */
+interface Props {
+  lang?: string;
+}
+const { lang = 'en' } = Astro.props;
+
+const L: Record<string, { roadmap: string; target: string; rows: [string, string][] }> = {
+  en: { roadmap: 'Program roadmap', target: 'Target: end of 2026', rows: [['Literature synthesis', 'Ongoing'], ['Formal workspace definition', 'In progress'], ['Empirical validation', 'Pending']] },
+  de: { roadmap: 'Programm-Fahrplan', target: 'Ziel: Ende 2026', rows: [['Literatursynthese', 'Laufend'], ['Formale Workspace-Definition', 'In Arbeit'], ['Empirische Validierung', 'Ausstehend']] },
+  es: { roadmap: 'Hoja de ruta del programa', target: 'Objetivo: fines de 2026', rows: [['Síntesis de literatura', 'En curso'], ['Definición formal del espacio', 'En progreso'], ['Validación empírica', 'Pendiente']] },
+  fr: { roadmap: 'Feuille de route du programme', target: 'Objectif : fin 2026', rows: [['Synthèse de la littérature', 'En cours'], ['Définition formelle de l\'espace', 'En progression'], ['Validation empirique', 'En attente']] },
+  zh: { roadmap: '项目路线图', target: '目标：2026 年底', rows: [['文献综述', '进行中'], ['形式化工作空间定义', '进行中'], ['实证验证', '待启动']] },
+  ja: { roadmap: 'プログラム・ロードマップ', target: '目標：2026年末', rows: [['文献の統合', '進行中'], ['形式的ワークスペース定義', '作業中'], ['実証的検証', '保留中']] },
+};
+const t = L[lang] ?? L.en;
+const states = ['done', 'active', 'pending'];
+const phases = t.rows.map(([title, status], i) => ({ n: `0${i + 1}`, title, status, state: states[i] }));
+---
+
+<div class="rounded-2xl border border-csr-gray-200 bg-white shadow-card p-6 md:p-8">
+  <div class="flex items-baseline justify-between mb-8">
+    <p class="text-xs font-mono uppercase tracking-[0.2em] text-csr-gray-500">{t.roadmap}</p>
+    <p class="text-[11px] font-mono text-csr-gray-400">{t.target}</p>
+  </div>
+
+  <div class="relative">
+    <!-- base track -->
+    <div class="absolute left-0 right-0 top-2 h-0.5 bg-csr-gray-200"></div>
+    <!-- progress fill: through phase 1, halfway into phase 2 -->
+    <div class="absolute left-0 top-2 h-0.5 bg-csr-primary" style="width:50%"></div>
+
+    <ol class="relative grid grid-cols-3 gap-4">
+      {phases.map((p) => (
+        <li class="flex flex-col items-start">
+          {p.state === 'active' ? (
+            <span class="w-4 h-4 rounded-full bg-csr-primary ring-4 ring-csr-primary/20 shrink-0 -ml-0.5"></span>
+          ) : p.state === 'done' ? (
+            <span class="w-4 h-4 rounded-full bg-csr-primary shrink-0 -ml-0.5"></span>
+          ) : (
+            <span class="w-4 h-4 rounded-full bg-csr-cream border-2 border-csr-gray-300 shrink-0 -ml-0.5"></span>
+          )}
+          <span class="label-mono text-[10px] mt-4">{p.n}</span>
+          <span class={`text-sm font-bold mt-1 leading-snug ${p.state === 'pending' ? 'text-csr-gray-400' : 'text-csr-black'}`}>{p.title}</span>
+          <span class={`text-[11px] font-mono mt-1 ${p.state === 'pending' ? 'text-csr-gray-400' : 'text-csr-primary'}`}>{p.status}</span>
+        </li>
+      ))}
+    </ol>
+  </div>
+</div>

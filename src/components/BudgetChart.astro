@@ -1,0 +1,52 @@
+---
+/**
+ * BudgetChart.astro
+ * Horizontal magnitude bars for the three funding tiers. Single-hue (purple)
+ * magnitude encoding; the preferred tier is emphasized by weight, not a new hue.
+ * Values are direct-labeled, so length is never the sole channel.
+ */
+interface Props {
+  lang?: string;
+}
+const { lang = 'en' } = Astro.props;
+
+const L: Record<string, { title: string; unit: string; preferred: string; tiers: [string, string][] }> = {
+  en: { title: 'Funding tiers', unit: 'USD, annual', preferred: 'Preferred', tiers: [['Lean Tier', 'Core Research'], ['Full Program', 'Mainline request'], ['Frontier Deployment', 'Stretch']] },
+  de: { title: 'Förderstufen', unit: 'USD, jährlich', preferred: 'Bevorzugt', tiers: [['Basis-Stufe', 'Kernforschung'], ['Vollprogramm', 'Hauptantrag'], ['Frontier-Einsatz', 'Erweiterung']] },
+  es: { title: 'Niveles de financiación', unit: 'USD, anual', preferred: 'Preferido', tiers: [['Nivel básico', 'Investigación central'], ['Programa completo', 'Solicitud principal'], ['Despliegue de frontera', 'Ampliación']] },
+  fr: { title: 'Niveaux de financement', unit: 'USD, annuel', preferred: 'Privilégié', tiers: [['Niveau essentiel', 'Recherche de base'], ['Programme complet', 'Demande principale'], ['Déploiement de pointe', 'Extension']] },
+  zh: { title: '资助层级', unit: '美元 / 年', preferred: '首选', tiers: [['精简层级', '核心研究'], ['完整项目', '主线申请'], ['前沿部署', '扩展']] },
+  ja: { title: '資金ティア', unit: 'USD・年間', preferred: '推奨', tiers: [['基本ティア', 'コア研究'], ['フルプログラム', '本命申請'], ['フロンティア展開', 'ストレッチ']] },
+};
+const t = L[lang] ?? L.en;
+const values = [110, 180, 260];
+const tiers = t.tiers.map(([name, sub], i) => ({ name, sub, value: values[i], preferred: i === 1 }));
+const max = 260;
+---
+
+<div class="rounded-2xl border border-csr-gray-200 bg-white shadow-card p-6 md:p-7">
+  <div class="flex items-baseline justify-between mb-5">
+    <p class="text-xs font-mono uppercase tracking-[0.2em] text-csr-gray-500">{t.title}</p>
+    <p class="text-[11px] font-mono text-csr-gray-400">{t.unit}</p>
+  </div>
+  <div class="space-y-5">
+    {tiers.map((tier) => (
+      <div class="group" title={`${tier.name}: $${tier.value}k`}>
+        <div class="flex items-baseline justify-between mb-1.5">
+          <span class={`text-sm ${tier.preferred ? 'font-bold text-csr-black' : 'font-medium text-csr-gray-700'}`}>
+            {tier.name}
+            {tier.preferred && <span class="ml-2 align-middle text-[9px] font-mono uppercase tracking-wider text-csr-primary bg-csr-primary/10 rounded px-1.5 py-0.5">{t.preferred}</span>}
+            <span class="ml-2 text-xs text-csr-gray-400 font-normal">{tier.sub}</span>
+          </span>
+          <span class={`text-sm font-mono tabular-nums ${tier.preferred ? 'text-csr-primary font-bold' : 'text-csr-gray-500'}`}>${tier.value}k</span>
+        </div>
+        <div class="h-3 rounded-full bg-csr-gray-100 overflow-hidden">
+          <div
+            class={`h-full rounded-full transition-all ${tier.preferred ? 'bg-csr-primary' : 'bg-csr-primary/45'}`}
+            style={`width:${(tier.value / max) * 100}%`}
+          ></div>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>

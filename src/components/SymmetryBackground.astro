@@ -1,21 +1,61 @@
 ---
+/**
+ * SymmetryBackground.astro
+ * Semi-transparent geometric field art for section backgrounds.
+ * Pure inline SVG in the CSR purple (#9966CC). Decorative only (aria-hidden).
+ *
+ * Props:
+ *   variant  — which figure to draw
+ *   opacity  — 0..1 overall opacity (kept low; these sit behind content)
+ *   position — Tailwind classes controlling where the figure sits
+ *   class    — extra classes on the wrapper
+ */
 interface Props {
-  variant?: 'lissajous' | 'matrix';
+  variant?: 'lissajous' | 'matrix' | 'rings' | 'spiral' | 'wave' | 'lattice';
   opacity?: number;
+  position?: string;
+  class?: string;
 }
-const { variant = 'lissajous', opacity = 0.05 } = Astro.props;
+const {
+  variant = 'lissajous',
+  opacity = 0.05,
+  position,
+  class: cls = '',
+} = Astro.props;
+
+// Per-variant default placement (can be overridden via `position`)
+const defaultPos: Record<string, string> = {
+  lissajous: 'absolute -top-1/4 -right-1/4 w-[80vw] max-w-[900px] h-auto',
+  matrix: 'absolute inset-0 w-full h-full',
+  rings: 'absolute top-1/2 -right-40 -translate-y-1/2 w-[720px] h-[720px]',
+  spiral: 'absolute -bottom-40 -left-40 w-[640px] h-[640px]',
+  wave: 'absolute inset-x-0 bottom-0 w-full h-[380px]',
+  lattice: 'absolute inset-0 w-full h-full',
+};
+const svgPos = position ?? defaultPos[variant];
+
+// Precompute geometry for variants that need it
+const ringSides = [3, 4, 5, 6, 8];
+const spiralPoints = Array.from({ length: 320 }, (_, i) => {
+  const t = i / 320;
+  const angle = t * Math.PI * 7;
+  const r = 300 * (1 - t);
+  return `${(320 + Math.cos(angle) * r).toFixed(1)},${(320 + Math.sin(angle) * r).toFixed(1)}`;
+}).join(' ');
+const wavePath = (phase: number, amp: number) => {
+  let d = `M 0 ${190}`;
+  for (let x = 0; x <= 1200; x += 12) {
+    const y = 190 + Math.sin((x / 1200) * Math.PI * 6 + phase) * amp;
+    d += ` L ${x} ${y.toFixed(1)}`;
+  }
+  return d;
+};
 ---
 
 {variant === 'lissajous' && (
-  <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-    <svg
-      class="absolute -top-1/4 -right-1/4 w-[80vw] max-w-[900px] h-auto"
-      viewBox="0 0 800 800"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      style={`opacity: ${opacity}`}
-    >
-      <ellipse cx="400" cy="400" rx="360" ry="200" stroke="#9966CC" stroke-width="1.5" transform="rotate(0 400 400)"/>
+  <div class={`pointer-events-none absolute inset-0 overflow-hidden ${cls}`} aria-hidden="true">
+    <svg class={svgPos} viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg" style={`opacity:${opacity}`}>
+      <ellipse cx="400" cy="400" rx="360" ry="200" stroke="#9966CC" stroke-width="1.5"/>
       <ellipse cx="400" cy="400" rx="280" ry="160" stroke="#9966CC" stroke-width="1.5" transform="rotate(30 400 400)"/>
       <ellipse cx="400" cy="400" rx="200" ry="120" stroke="#9966CC" stroke-width="1.5" transform="rotate(60 400 400)"/>
       <ellipse cx="400" cy="400" rx="130" ry="80" stroke="#9966CC" stroke-width="1.5" transform="rotate(90 400 400)"/>
@@ -29,32 +69,78 @@ const { variant = 'lissajous', opacity = 0.05 } = Astro.props;
   </div>
 )}
 
+{variant === 'rings' && (
+  <div class={`pointer-events-none absolute inset-0 overflow-hidden ${cls}`} aria-hidden="true">
+    <svg class={svgPos} viewBox="0 0 640 640" fill="none" xmlns="http://www.w3.org/2000/svg" style={`opacity:${opacity}`}>
+      {ringSides.map((sides, i) => {
+        const r = 300 - i * 52;
+        const rot = i * 12;
+        const pts = Array.from({ length: sides }, (_, k) => {
+          const a = (k / sides) * Math.PI * 2 - Math.PI / 2;
+          return `${(320 + Math.cos(a) * r).toFixed(1)},${(320 + Math.sin(a) * r).toFixed(1)}`;
+        }).join(' ');
+        return <polygon points={pts} stroke="#9966CC" stroke-width="1.4" fill="none" transform={`rotate(${rot} 320 320)`}/>;
+      })}
+      <circle cx="320" cy="320" r="300" stroke="#9966CC" stroke-width="0.75" stroke-dasharray="3 7"/>
+      <circle cx="320" cy="320" r="5" fill="#9966CC"/>
+    </svg>
+  </div>
+)}
+
+{variant === 'spiral' && (
+  <div class={`pointer-events-none absolute inset-0 overflow-hidden ${cls}`} aria-hidden="true">
+    <svg class={svgPos} viewBox="0 0 640 640" fill="none" xmlns="http://www.w3.org/2000/svg" style={`opacity:${opacity}`}>
+      <polyline points={spiralPoints} stroke="#9966CC" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="20" y1="320" x2="620" y2="320" stroke="#9966CC" stroke-width="0.6" stroke-dasharray="3 7"/>
+      <line x1="320" y1="20" x2="320" y2="620" stroke="#9966CC" stroke-width="0.6" stroke-dasharray="3 7"/>
+      <circle cx="320" cy="320" r="4" fill="#9966CC"/>
+    </svg>
+  </div>
+)}
+
+{variant === 'wave' && (
+  <div class={`pointer-events-none absolute inset-0 overflow-hidden ${cls}`} aria-hidden="true">
+    <svg class={svgPos} viewBox="0 0 1200 380" fill="none" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style={`opacity:${opacity}`}>
+      <path d={wavePath(0, 70)} stroke="#9966CC" stroke-width="1.5" fill="none"/>
+      <path d={wavePath(1.05, 52)} stroke="#9966CC" stroke-width="1.2" fill="none"/>
+      <path d={wavePath(2.1, 34)} stroke="#9966CC" stroke-width="1" fill="none"/>
+      <path d={wavePath(3.15, 20)} stroke="#9966CC" stroke-width="0.8" fill="none"/>
+    </svg>
+  </div>
+)}
+
+{variant === 'lattice' && (
+  <div class={`pointer-events-none absolute inset-0 overflow-hidden ${cls}`} aria-hidden="true">
+    <svg class={svgPos} viewBox="0 0 600 400" fill="none" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style={`opacity:${opacity}`}>
+      {Array.from({ length: 11 }, (_, r) =>
+        Array.from({ length: 16 }, (_, c) => {
+          const x = 20 + c * 38;
+          const y = 20 + r * 38;
+          return <circle cx={x} cy={y} r="1.4" fill="#9966CC"/>;
+        })
+      )}
+      {Array.from({ length: 11 }, (_, r) =>
+        Array.from({ length: 15 }, (_, c) => {
+          const x = 20 + c * 38;
+          const y = 20 + r * 38;
+          return <line x1={x} y1={y} x2={x + 38} y2={y} stroke="#9966CC" stroke-width="0.5" opacity="0.5"/>;
+        })
+      )}
+    </svg>
+  </div>
+)}
+
 {variant === 'matrix' && (
-  <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-    <svg
-      class="absolute inset-0 w-full h-full"
-      viewBox="0 0 600 200"
-      preserveAspectRatio="xMidYMid slice"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      style={`opacity: ${opacity}`}
-    >
-      <!-- Row 0 -->
-      <circle cx="15" cy="12" r="1.5" fill="#9966CC"/><circle cx="45" cy="12" r="1.5" fill="#9966CC"/><circle cx="75" cy="12" r="1.5" fill="#9966CC"/><circle cx="105" cy="12" r="1.5" fill="#9966CC"/><circle cx="135" cy="12" r="1.5" fill="#9966CC"/><circle cx="165" cy="12" r="1.5" fill="#9966CC"/><circle cx="195" cy="12" r="1.5" fill="#9966CC"/><circle cx="225" cy="12" r="1.5" fill="#9966CC"/><circle cx="255" cy="12" r="1.5" fill="#9966CC"/><circle cx="285" cy="12" r="1.5" fill="#9966CC"/><circle cx="315" cy="12" r="1.5" fill="#9966CC"/><circle cx="345" cy="12" r="1.5" fill="#9966CC"/><circle cx="375" cy="12" r="1.5" fill="#9966CC"/><circle cx="405" cy="12" r="1.5" fill="#9966CC"/><circle cx="435" cy="12" r="1.5" fill="#9966CC"/><circle cx="465" cy="12" r="1.5" fill="#9966CC"/><circle cx="495" cy="12" r="1.5" fill="#9966CC"/><circle cx="525" cy="12" r="1.5" fill="#9966CC"/><circle cx="555" cy="12" r="1.5" fill="#9966CC"/><circle cx="585" cy="12" r="1.5" fill="#9966CC"/>
-      <!-- Row 1 -->
-      <circle cx="15" cy="37" r="1.5" fill="#9966CC"/><circle cx="45" cy="37" r="1.5" fill="#9966CC"/><circle cx="75" cy="37" r="1.5" fill="#9966CC"/><circle cx="105" cy="37" r="1.5" fill="#9966CC"/><circle cx="135" cy="37" r="1.5" fill="#9966CC"/><circle cx="165" cy="37" r="1.5" fill="#9966CC"/><circle cx="195" cy="37" r="1.5" fill="#9966CC"/><circle cx="225" cy="37" r="1.5" fill="#9966CC"/><circle cx="255" cy="37" r="1.5" fill="#9966CC"/><circle cx="285" cy="37" r="1.5" fill="#9966CC"/><circle cx="315" cy="37" r="1.5" fill="#9966CC"/><circle cx="345" cy="37" r="1.5" fill="#9966CC"/><circle cx="375" cy="37" r="1.5" fill="#9966CC"/><circle cx="405" cy="37" r="1.5" fill="#9966CC"/><circle cx="435" cy="37" r="1.5" fill="#9966CC"/><circle cx="465" cy="37" r="1.5" fill="#9966CC"/><circle cx="495" cy="37" r="1.5" fill="#9966CC"/><circle cx="525" cy="37" r="1.5" fill="#9966CC"/><circle cx="555" cy="37" r="1.5" fill="#9966CC"/><circle cx="585" cy="37" r="1.5" fill="#9966CC"/>
-      <!-- Row 2 -->
-      <circle cx="15" cy="62" r="1.5" fill="#9966CC"/><circle cx="45" cy="62" r="1.5" fill="#9966CC"/><circle cx="75" cy="62" r="1.5" fill="#9966CC"/><circle cx="105" cy="62" r="1.5" fill="#9966CC"/><circle cx="135" cy="62" r="1.5" fill="#9966CC"/><circle cx="165" cy="62" r="1.5" fill="#9966CC"/><circle cx="195" cy="62" r="1.5" fill="#9966CC"/><circle cx="225" cy="62" r="1.5" fill="#9966CC"/><circle cx="255" cy="62" r="1.5" fill="#9966CC"/><circle cx="285" cy="62" r="1.5" fill="#9966CC"/><circle cx="315" cy="62" r="1.5" fill="#9966CC"/><circle cx="345" cy="62" r="1.5" fill="#9966CC"/><circle cx="375" cy="62" r="1.5" fill="#9966CC"/><circle cx="405" cy="62" r="1.5" fill="#9966CC"/><circle cx="435" cy="62" r="1.5" fill="#9966CC"/><circle cx="465" cy="62" r="1.5" fill="#9966CC"/><circle cx="495" cy="62" r="1.5" fill="#9966CC"/><circle cx="525" cy="62" r="1.5" fill="#9966CC"/><circle cx="555" cy="62" r="1.5" fill="#9966CC"/><circle cx="585" cy="62" r="1.5" fill="#9966CC"/>
-      <!-- Row 3 — highlighted nodes -->
-      <circle cx="15" cy="87" r="3" fill="#9966CC"/><circle cx="45" cy="87" r="1.5" fill="#9966CC"/><circle cx="75" cy="87" r="1.5" fill="#9966CC"/><circle cx="105" cy="87" r="3" fill="#9966CC"/><circle cx="135" cy="87" r="1.5" fill="#9966CC"/><circle cx="165" cy="87" r="1.5" fill="#9966CC"/><circle cx="195" cy="87" r="3" fill="#9966CC"/><circle cx="225" cy="87" r="1.5" fill="#9966CC"/><circle cx="255" cy="87" r="1.5" fill="#9966CC"/><circle cx="285" cy="87" r="3" fill="#9966CC"/><circle cx="315" cy="87" r="1.5" fill="#9966CC"/><circle cx="345" cy="87" r="1.5" fill="#9966CC"/><circle cx="375" cy="87" r="3" fill="#9966CC"/><circle cx="405" cy="87" r="1.5" fill="#9966CC"/><circle cx="435" cy="87" r="1.5" fill="#9966CC"/><circle cx="465" cy="87" r="3" fill="#9966CC"/><circle cx="495" cy="87" r="1.5" fill="#9966CC"/><circle cx="525" cy="87" r="1.5" fill="#9966CC"/><circle cx="555" cy="87" r="3" fill="#9966CC"/><circle cx="585" cy="87" r="1.5" fill="#9966CC"/>
-      <!-- Row 4 -->
-      <circle cx="15" cy="112" r="1.5" fill="#9966CC"/><circle cx="45" cy="112" r="1.5" fill="#9966CC"/><circle cx="75" cy="112" r="1.5" fill="#9966CC"/><circle cx="105" cy="112" r="1.5" fill="#9966CC"/><circle cx="135" cy="112" r="1.5" fill="#9966CC"/><circle cx="165" cy="112" r="3" fill="#9966CC"/><circle cx="195" cy="112" r="1.5" fill="#9966CC"/><circle cx="225" cy="112" r="1.5" fill="#9966CC"/><circle cx="255" cy="112" r="1.5" fill="#9966CC"/><circle cx="285" cy="112" r="1.5" fill="#9966CC"/><circle cx="315" cy="112" r="3" fill="#9966CC"/><circle cx="345" cy="112" r="1.5" fill="#9966CC"/><circle cx="375" cy="112" r="1.5" fill="#9966CC"/><circle cx="405" cy="112" r="1.5" fill="#9966CC"/><circle cx="435" cy="112" r="1.5" fill="#9966CC"/><circle cx="465" cy="112" r="3" fill="#9966CC"/><circle cx="495" cy="112" r="1.5" fill="#9966CC"/><circle cx="525" cy="112" r="1.5" fill="#9966CC"/><circle cx="555" cy="112" r="1.5" fill="#9966CC"/><circle cx="585" cy="112" r="1.5" fill="#9966CC"/>
-      <!-- Row 5 -->
-      <circle cx="15" cy="137" r="1.5" fill="#9966CC"/><circle cx="45" cy="137" r="1.5" fill="#9966CC"/><circle cx="75" cy="137" r="1.5" fill="#9966CC"/><circle cx="105" cy="137" r="1.5" fill="#9966CC"/><circle cx="135" cy="137" r="1.5" fill="#9966CC"/><circle cx="165" cy="137" r="1.5" fill="#9966CC"/><circle cx="195" cy="137" r="1.5" fill="#9966CC"/><circle cx="225" cy="137" r="1.5" fill="#9966CC"/><circle cx="255" cy="137" r="1.5" fill="#9966CC"/><circle cx="285" cy="137" r="1.5" fill="#9966CC"/><circle cx="315" cy="137" r="1.5" fill="#9966CC"/><circle cx="345" cy="137" r="1.5" fill="#9966CC"/><circle cx="375" cy="137" r="1.5" fill="#9966CC"/><circle cx="405" cy="137" r="1.5" fill="#9966CC"/><circle cx="435" cy="137" r="1.5" fill="#9966CC"/><circle cx="465" cy="137" r="1.5" fill="#9966CC"/><circle cx="495" cy="137" r="1.5" fill="#9966CC"/><circle cx="525" cy="137" r="1.5" fill="#9966CC"/><circle cx="555" cy="137" r="1.5" fill="#9966CC"/><circle cx="585" cy="137" r="1.5" fill="#9966CC"/>
-      <!-- Row 6 -->
-      <circle cx="15" cy="162" r="1.5" fill="#9966CC"/><circle cx="45" cy="162" r="1.5" fill="#9966CC"/><circle cx="75" cy="162" r="1.5" fill="#9966CC"/><circle cx="105" cy="162" r="1.5" fill="#9966CC"/><circle cx="135" cy="162" r="1.5" fill="#9966CC"/><circle cx="165" cy="162" r="1.5" fill="#9966CC"/><circle cx="195" cy="162" r="1.5" fill="#9966CC"/><circle cx="225" cy="162" r="1.5" fill="#9966CC"/><circle cx="255" cy="162" r="1.5" fill="#9966CC"/><circle cx="285" cy="162" r="1.5" fill="#9966CC"/><circle cx="315" cy="162" r="1.5" fill="#9966CC"/><circle cx="345" cy="162" r="1.5" fill="#9966CC"/><circle cx="375" cy="162" r="1.5" fill="#9966CC"/><circle cx="405" cy="162" r="1.5" fill="#9966CC"/><circle cx="435" cy="162" r="1.5" fill="#9966CC"/><circle cx="465" cy="162" r="1.5" fill="#9966CC"/><circle cx="495" cy="162" r="1.5" fill="#9966CC"/><circle cx="525" cy="162" r="1.5" fill="#9966CC"/><circle cx="555" cy="162" r="1.5" fill="#9966CC"/><circle cx="585" cy="162" r="1.5" fill="#9966CC"/>
-      <!-- Row 7 -->
-      <circle cx="15" cy="187" r="1.5" fill="#9966CC"/><circle cx="45" cy="187" r="1.5" fill="#9966CC"/><circle cx="75" cy="187" r="1.5" fill="#9966CC"/><circle cx="105" cy="187" r="1.5" fill="#9966CC"/><circle cx="135" cy="187" r="1.5" fill="#9966CC"/><circle cx="165" cy="187" r="1.5" fill="#9966CC"/><circle cx="195" cy="187" r="1.5" fill="#9966CC"/><circle cx="225" cy="187" r="1.5" fill="#9966CC"/><circle cx="255" cy="187" r="1.5" fill="#9966CC"/><circle cx="285" cy="187" r="1.5" fill="#9966CC"/><circle cx="315" cy="187" r="1.5" fill="#9966CC"/><circle cx="345" cy="187" r="1.5" fill="#9966CC"/><circle cx="375" cy="187" r="1.5" fill="#9966CC"/><circle cx="405" cy="187" r="1.5" fill="#9966CC"/><circle cx="435" cy="187" r="1.5" fill="#9966CC"/><circle cx="465" cy="187" r="1.5" fill="#9966CC"/><circle cx="495" cy="187" r="1.5" fill="#9966CC"/><circle cx="525" cy="187" r="1.5" fill="#9966CC"/><circle cx="555" cy="187" r="1.5" fill="#9966CC"/><circle cx="585" cy="187" r="1.5" fill="#9966CC"/>
+  <div class={`pointer-events-none absolute inset-0 overflow-hidden ${cls}`} aria-hidden="true">
+    <svg class={svgPos} viewBox="0 0 600 200" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg" style={`opacity:${opacity}`}>
+      {Array.from({ length: 8 }, (_, r) =>
+        Array.from({ length: 20 }, (_, c) => {
+          const x = 15 + c * 30;
+          const y = 12 + r * 25;
+          const big = (r === 3 && c % 3 === 0) || (r === 4 && (c + 1) % 5 === 0);
+          return <circle cx={x} cy={y} r={big ? 3 : 1.5} fill="#9966CC"/>;
+        })
+      )}
     </svg>
   </div>
 )}

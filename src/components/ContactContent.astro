@@ -18,6 +18,8 @@ export interface ContactStrings {
   orEmail: string;
 }
 
+import SymmetryBackground from './SymmetryBackground.astro';
+
 interface Props {
   t: ContactStrings;
 }
@@ -25,8 +27,9 @@ const { t } = Astro.props;
 ---
 
 <!-- ── Header ─────────────────────────────────────────────────────────────── -->
-<section class="pt-20 pb-12 border-b border-csr-gray-200">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+<section class="relative pt-20 pb-12 border-b border-csr-gray-200 overflow-hidden">
+  <SymmetryBackground variant="rings" opacity={0.05} />
+  <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <p class="label-mono mb-4">{t.label}</p>
     <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6">
       {t.headingStart} <span class="text-gradient">{t.headingAccent}</span>

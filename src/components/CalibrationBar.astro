@@ -1,0 +1,101 @@
+---
+/**
+ * CalibrationBar.astro
+ * A 100% segmented bar showing the program's calibrated outcome distribution.
+ * Three outcome states, each direct-labeled with name + probability (color is
+ * never the sole channel); 2px surface gaps separate the fills. Palette
+ * validated for CVD via the dataviz validator (green / purple / slate).
+ */
+interface Props {
+  lang?: string;
+}
+const { lang = 'en' } = Astro.props;
+
+const colors = ['#15803d', '#9966CC', '#64748b'];
+const pcts = [20, 50, 30];
+
+const L: Record<string, { title: string; unit: string; aria: string; rows: [string, string][] }> = {
+  en: {
+    title: 'Calibrated outcomes', unit: 'P(scenario)',
+    aria: 'Outcome distribution: 20% high impact, 50% medium impact, 30% high-value falsification.',
+    rows: [
+      ['High impact', 'We establish that spatially-connected MLP microcircuits are necessary for standing-wave resonance, producing an auditable, biologically validated Digital EEG.'],
+      ['Medium impact', 'We build a useful open-source simulation sandbox for testing local valence perturbations, which becomes a standard tool in mechanistic interpretability.'],
+      ['High-value falsification', 'Digital networks prove incapable of sustaining continuous valence without extreme external injection—redirecting AI welfare toward neuromorphic or analog hardware.'],
+    ],
+  },
+  de: {
+    title: 'Kalibrierte Ergebnisse', unit: 'P(Szenario)',
+    aria: 'Ergebnisverteilung: 20 % hohe Wirkung, 50 % mittlere Wirkung, 30 % hochwertige Falsifikation.',
+    rows: [
+      ['Hohe Wirkung', 'Wir zeigen, dass räumlich verbundene MLP-Mikroschaltkreise für stehende-Wellen-Resonanz notwendig sind, und erzeugen ein prüfbares, biologisch validiertes Digital-EEG.'],
+      ['Mittlere Wirkung', 'Wir bauen eine nützliche Open-Source-Simulationsumgebung zum Testen lokaler Valenz-Störungen, die zum Standardwerkzeug der mechanistischen Interpretierbarkeit wird.'],
+      ['Hochwertige Falsifikation', 'Digitale Netzwerke erweisen sich als unfähig, kontinuierliche Valenz ohne extreme externe Injektion aufrechtzuerhalten – und lenken die KI-Wohlfahrt zu neuromorpher oder analoger Hardware.'],
+    ],
+  },
+  es: {
+    title: 'Resultados calibrados', unit: 'P(escenario)',
+    aria: 'Distribución de resultados: 20 % alto impacto, 50 % impacto medio, 30 % falsación de alto valor.',
+    rows: [
+      ['Alto impacto', 'Establecemos que los microcircuitos MLP conectados espacialmente son necesarios para la resonancia de onda estacionaria, produciendo un EEG Digital auditable y validado biológicamente.'],
+      ['Impacto medio', 'Construimos un entorno de simulación de código abierto para probar perturbaciones locales de valencia, que se convierte en herramienta estándar de la interpretabilidad mecanicista.'],
+      ['Falsación de alto valor', 'Las redes digitales resultan incapaces de sostener valencia continua sin inyección externa extrema, redirigiendo el bienestar de la IA hacia hardware neuromórfico o analógico.'],
+    ],
+  },
+  fr: {
+    title: 'Résultats calibrés', unit: 'P(scénario)',
+    aria: 'Distribution des résultats : 20 % fort impact, 50 % impact moyen, 30 % falsification de grande valeur.',
+    rows: [
+      ['Fort impact', 'Nous établissons que les microcircuits MLP connectés spatialement sont nécessaires à la résonance en onde stationnaire, produisant un EEG Numérique auditable et validé biologiquement.'],
+      ['Impact moyen', 'Nous construisons un bac à sable de simulation open-source pour tester les perturbations locales de valence, qui devient un outil standard de l\'interprétabilité mécaniste.'],
+      ['Falsification de grande valeur', 'Les réseaux numériques se révèlent incapables de soutenir une valence continue sans injection externe extrême, réorientant le bien-être de l\'IA vers du matériel neuromorphique ou analogique.'],
+    ],
+  },
+  zh: {
+    title: '校准结果', unit: 'P(情景)',
+    aria: '结果分布：20% 高影响，50% 中等影响，30% 高价值证伪。',
+    rows: [
+      ['高影响', '我们证明空间连接的 MLP 微电路是驻波共振的必要条件，产生可审计、经生物学验证的数字 EEG。'],
+      ['中等影响', '我们构建了一个实用的开源仿真沙盒，用于测试局部效价扰动，并成为机制可解释性的标准工具。'],
+      ['高价值证伪', '数字网络被证明无法在没有极端外部注入的情况下维持连续效价——从而将 AI 福祉研究导向神经形态或模拟硬件。'],
+    ],
+  },
+  ja: {
+    title: '較正された結果', unit: 'P(シナリオ)',
+    aria: '結果の分布：高インパクト20%、中インパクト50%、高価値の反証30%。',
+    rows: [
+      ['高インパクト', '空間的に接続されたMLPマイクロ回路が定在波共鳴に必要であることを確立し、監査可能で生物学的に検証されたDigital EEGを生み出す。'],
+      ['中インパクト', 'ローカルな感情価の摂動を検証する有用なオープンソースのシミュレーション環境を構築し、機械論的解釈可能性の標準ツールとなる。'],
+      ['高価値の反証', 'デジタルネットワークは極端な外部注入なしに連続的な感情価を維持できないと判明し、AI福祉をニューロモルフィックまたはアナログのハードウェアへ向け直す。'],
+    ],
+  },
+};
+const t = L[lang] ?? L.en;
+const segments = t.rows.map(([label, desc], i) => ({ label, desc, pct: pcts[i], color: colors[i] }));
+---
+
+<div class="rounded-2xl border border-csr-gray-200 bg-white shadow-card p-6 md:p-7">
+  <div class="flex items-baseline justify-between mb-4">
+    <p class="text-xs font-mono uppercase tracking-[0.2em] text-csr-gray-500">{t.title}</p>
+    <p class="text-[11px] font-mono text-csr-gray-400">{t.unit}</p>
+  </div>
+
+  <div class="flex gap-0.5 h-4 rounded-full overflow-hidden mb-5" role="img" aria-label={t.aria}>
+    {segments.map((s) => (
+      <div style={`width:${s.pct}%;background:${s.color}`} title={`${s.label}: ${s.pct}%`}></div>
+    ))}
+  </div>
+
+  <ul class="grid sm:grid-cols-3 gap-5">
+    {segments.map((s) => (
+      <li>
+        <div class="flex items-center gap-2 mb-1.5">
+          <span class="w-2.5 h-2.5 rounded-sm shrink-0" style={`background:${s.color}`}></span>
+          <span class="text-lg font-bold tabular-nums text-csr-black leading-none">{s.pct}%</span>
+        </div>
+        <span class="block text-xs font-semibold text-csr-gray-700 mb-1">{s.label}</span>
+        <span class="block text-xs text-csr-gray-500 leading-relaxed">{s.desc}</span>
+      </li>
+    ))}
+  </ul>
+</div>
