@@ -1,77 +1,11 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
-
-const reports = [
-  {
-    slug: 'first-principles',
-    title: 'Erste Prinzipien der Empfindungsforschung',
-    code: 'CSR-WP-01',
-    excerpt: 'Der grundlegende Rahmen zur Modellierung von Bewusstsein als physikalisches Phänomen über biologische und digitale Substrate hinweg.',
-    date: '2026-04-17',
-    tags: ['Grundlegend', 'Physik'],
-  },
-  {
-    slug: 'bio-electric-fields',
-    title: 'Bioelektrische Felder als Empfindungssubstrate',
-    code: 'CSR-WP-02',
-    excerpt: 'Erforschung morphologischer Intelligenz und zellulärer Entscheidungsfindung als Belege für substrat-neutrale Wahrnehmung.',
-    date: '2026-04-17',
-    tags: ['Biologie', 'Intelligenz'],
-  },
-  {
-    slug: 'assembly-theory',
-    title: 'Montagetheorie als Maß für Empfindungsfähigkeit',
-    code: 'CSR-WP-03',
-    excerpt: 'Quantifizierung von Empfindungsfähigkeit durch den Montageindex physikalischer Informationsstrukturen.',
-    date: '2026-04-17',
-    tags: ['Physik', 'Information'],
-  },
-  {
-    slug: 'symmetry-landscapes',
-    title: 'Symmetrielandschaften der valenten Erfahrung',
-    code: 'CSR-WP-04',
-    excerpt: 'Kartierung der neuronalen Energielandschaften der Erfahrung und der Geometrie der Valenz.',
-    date: '2026-04-17',
-    tags: ['Neurowissenschaft', 'Qualia'],
-  },
-];
+import ReportsIndex from '../../../components/ReportsIndex.astro';
 ---
 
-<Layout title="Forschungsberichte" description="Arbeitspapiere und Forschungsberichte des Center for Sentience Research.">
-  <section class="py-20 border-b border-csr-gray-100">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-csr-primary font-mono text-xs uppercase tracking-widest mb-4">Arbeitspapiere</p>
-      <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">
-        Forschungs<span class="text-gradient">berichte</span>
-      </h1>
-      <p class="text-lg text-csr-gray-600 leading-relaxed">
-        Unsere Arbeitspapiere repräsentieren laufende Forschung zu den physikalischen Grundlagen der Empfindungsfähigkeit. Alle Papiere sind in Bearbeitung und können überarbeitet werden.
-      </p>
-    </div>
-  </section>
-
-  <section class="py-12">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="space-y-6">
-        {reports.map(report => (
-          <a href={`/de/reports/${report.slug}`} class="block p-8 border border-csr-gray-100 rounded-2xl hover:border-csr-primary/30 transition-all bg-[#FFF8F0]">
-            <div class="flex items-start justify-between gap-4">
-              <div class="flex-1">
-                <p class="text-csr-primary font-mono text-xs uppercase tracking-widest mb-2">{report.code} · {report.date}</p>
-                <h2 class="text-xl font-bold mb-3">{report.title}</h2>
-                <p class="text-csr-gray-600 text-sm leading-relaxed">{report.excerpt}</p>
-                <div class="flex gap-2 mt-4">
-                  {report.tags.map(tag => (
-                    <span class="text-xs font-mono px-2 py-1 bg-csr-primary/10 text-csr-primary rounded">{tag}</span>
-                  ))}
-                  <span class="text-xs font-mono px-2 py-1 bg-gray-100 text-gray-500 rounded">In Bearbeitung</span>
-                </div>
-              </div>
-              <span class="text-csr-primary text-sm font-bold shrink-0">Lesen &rarr;</span>
-            </div>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
+<Layout
+  title="Forschungsberichte"
+  description="Arbeitspapiere des Center for Sentience Research, die die theoretischen Grundlagen für das Digital Valence Program bilden."
+>
+  <ReportsIndex lang="de" />
 </Layout>

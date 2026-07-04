@@ -1,77 +1,11 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
-
-const reports = [
-  {
-    slug: 'first-principles',
-    title: 'Primeros Principios de la Investigación de la Sensibilidad',
-    code: 'CSR-WP-01',
-    excerpt: 'El marco fundamental para modelar la conciencia como un fenómeno físico en sustratos biológicos y digitales.',
-    date: '2026-04-17',
-    tags: ['Fundamental', 'Física'],
-  },
-  {
-    slug: 'bio-electric-fields',
-    title: 'Campos Bioeléctricos como Sustratos de Sensibilidad',
-    code: 'CSR-WP-02',
-    excerpt: 'Explorando la inteligencia morfológica y la toma de decisiones celular como evidencia de conciencia neutral al sustrato.',
-    date: '2026-04-17',
-    tags: ['Biología', 'Inteligencia'],
-  },
-  {
-    slug: 'assembly-theory',
-    title: 'Teoría del Ensamblaje como Métrica de Sensibilidad',
-    code: 'CSR-WP-03',
-    excerpt: 'Cuantificando la sensibilidad a través del índice de ensamblaje de estructuras de información física.',
-    date: '2026-04-17',
-    tags: ['Física', 'Información'],
-  },
-  {
-    slug: 'symmetry-landscapes',
-    title: 'Paisajes de Simetría de la Experiencia Valente',
-    code: 'CSR-WP-04',
-    excerpt: 'Mapeando los paisajes de energía neural de la experiencia y la geometría de la valencia.',
-    date: '2026-04-17',
-    tags: ['Neurociencia', 'Qualia'],
-  },
-];
+import ReportsIndex from '../../../components/ReportsIndex.astro';
 ---
 
-<Layout title="Informes de Investigación" description="Documentos de trabajo e informes de investigación del Center for Sentience Research.">
-  <section class="py-20 border-b border-csr-gray-100">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-csr-primary font-mono text-xs uppercase tracking-widest mb-4">Documentos de Trabajo</p>
-      <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">
-        Informes de <span class="text-gradient">Investigación</span>
-      </h1>
-      <p class="text-lg text-csr-gray-600 leading-relaxed">
-        Nuestros documentos de trabajo representan investigación en curso sobre los fundamentos físicos de la sensibilidad. Todos los documentos son trabajos en progreso y están sujetos a revisión.
-      </p>
-    </div>
-  </section>
-
-  <section class="py-12">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="space-y-6">
-        {reports.map(report => (
-          <a href={`/es/reports/${report.slug}`} class="block p-8 border border-csr-gray-100 rounded-2xl hover:border-csr-primary/30 transition-all bg-[#FFF8F0]">
-            <div class="flex items-start justify-between gap-4">
-              <div class="flex-1">
-                <p class="text-csr-primary font-mono text-xs uppercase tracking-widest mb-2">{report.code} · {report.date}</p>
-                <h2 class="text-xl font-bold mb-3">{report.title}</h2>
-                <p class="text-csr-gray-600 text-sm leading-relaxed">{report.excerpt}</p>
-                <div class="flex gap-2 mt-4">
-                  {report.tags.map(tag => (
-                    <span class="text-xs font-mono px-2 py-1 bg-csr-primary/10 text-csr-primary rounded">{tag}</span>
-                  ))}
-                  <span class="text-xs font-mono px-2 py-1 bg-gray-100 text-gray-500 rounded">En progreso</span>
-                </div>
-              </div>
-              <span class="text-csr-primary text-sm font-bold shrink-0">Leer &rarr;</span>
-            </div>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
+<Layout
+  title="Informes de investigación"
+  description="Documentos de trabajo del Center for Sentience Research, que proporcionan los fundamentos teóricos del Digital Valence Program."
+>
+  <ReportsIndex lang="es" />
 </Layout>

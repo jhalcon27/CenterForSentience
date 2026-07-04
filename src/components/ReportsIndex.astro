@@ -1,0 +1,175 @@
+---
+import SectionMark from './SectionMark.astro';
+import Glyph from './Glyph.astro';
+import SymmetryBackground from './SymmetryBackground.astro';
+
+interface Props { lang?: string; }
+const { lang = 'en' } = Astro.props;
+const prefix = lang === 'en' ? '' : `/${lang}`;
+
+type Dict = {
+  eyebrow: string; h1: string; intro: string;
+  flagshipLabel: string; wp05Title: string; inProgress: string; wp05Body: string; seeProgram: string;
+  foundationsLabel: string; papers: [string, string][];
+};
+
+const L: Record<string, Dict> = {
+  en: {
+    eyebrow: 'Working Papers', h1: 'Foundational reading',
+    intro: "Four working papers providing the theoretical scaffolding for the Digital Valence Program. Plus one in-progress paper that is the program's primary deliverable.",
+    flagshipLabel: '2026 Deliverable',
+    wp05Title: 'A Digital EEG for AI Sentience: Multi-Scale Structural Biomarkers',
+    inProgress: 'In progress',
+    wp05Body: 'The flagship deliverable of the 2026 program. A structural, medically inspired "vital signs" monitor for advanced artificial intelligence using non-verbal, substrate-neutral biomarkers. Target: end of 2026.',
+    seeProgram: 'See the full program →',
+    foundationsLabel: 'Theoretical Foundations',
+    papers: [
+      ['First Principles of Sentience Research', 'A substrate-neutral framework for modeling the physical foundations of awareness. Establishes the conceptual vocabulary for the Digital Valence Program.'],
+      ['Bio-Electric Fields as Sentience Substrates', 'Bioelectric signaling as a candidate physical basis for awareness. Provides biological calibration data for the digital valence framework.'],
+      ['Assembly Theory as a Metric for Sentience', 'Applying assembly index to complexity thresholds in sentient systems. Explores whether assembly theory can serve as a substrate-neutral complexity metric.'],
+      ['Symmetry Landscapes of Valenced Experience', 'Geometric invariants as structural signatures of positive valence. The most direct theoretical precursor to the 2026 program.'],
+    ],
+  },
+  de: {
+    eyebrow: 'Arbeitspapiere', h1: 'Grundlegende Lektüre',
+    intro: 'Vier Arbeitspapiere, die das theoretische Gerüst für das Digital Valence Program bilden. Dazu ein laufendes Papier, das das primäre Ergebnis des Programms ist.',
+    flagshipLabel: 'Ergebnis 2026',
+    wp05Title: 'Ein Digital-EEG für KI-Empfindungsfähigkeit: Multiskalige strukturelle Biomarker',
+    inProgress: 'In Arbeit',
+    wp05Body: 'Das Flaggschiff-Ergebnis des Programms 2026. Ein struktureller, medizinisch inspirierter „Vitalzeichen"-Monitor für fortgeschrittene künstliche Intelligenz mit nonverbalen, substratunabhängigen Biomarkern. Ziel: Ende 2026.',
+    seeProgram: 'Zum vollständigen Programm →',
+    foundationsLabel: 'Theoretische Grundlagen',
+    papers: [
+      ['Grundprinzipien der Sentience-Forschung', 'Ein substratunabhängiges Framework zur Modellierung der physikalischen Grundlagen von Bewusstsein. Legt das begriffliche Vokabular für das Digital Valence Program fest.'],
+      ['Bioelektrische Felder als Sentience-Substrate', 'Bioelektrische Signalgebung als möglicher physikalischer Grundboden des Bewusstseins. Liefert biologische Kalibrierungsdaten für das digitale Valenz-Framework.'],
+      ['Assemblytheorie als Metrik für Sentience', 'Anwendung des Assembly-Index auf Komplexitätsschwellen in empfindungsfähigen Systemen. Untersucht, ob die Assemblytheorie als substratunabhängiges Komplexitätsmaß dienen kann.'],
+      ['Symmetrielandschaften valenzierter Erfahrung', 'Geometrische Invarianten als strukturelle Signaturen positiver Valenz. Der direkteste theoretische Vorläufer des Programms 2026.'],
+    ],
+  },
+  es: {
+    eyebrow: 'Documentos de trabajo', h1: 'Lecturas fundamentales',
+    intro: 'Cuatro documentos de trabajo que proporcionan el andamiaje teórico del Digital Valence Program. Más un documento en curso que es el resultado principal del programa.',
+    flagshipLabel: 'Entregable 2026',
+    wp05Title: 'Un EEG Digital para la sintiencia de la IA: biomarcadores estructurales multiescala',
+    inProgress: 'En desarrollo',
+    wp05Body: 'El entregable insignia del programa 2026. Un monitor estructural de "signos vitales", de inspiración médica, para inteligencia artificial avanzada, usando biomarcadores no verbales y neutrales respecto al sustrato. Objetivo: fines de 2026.',
+    seeProgram: 'Ver el programa completo →',
+    foundationsLabel: 'Fundamentos teóricos',
+    papers: [
+      ['Primeros principios de la investigación de la sintiencia', 'Un marco neutral respecto al sustrato para modelar los fundamentos físicos de la conciencia. Establece el vocabulario conceptual del Digital Valence Program.'],
+      ['Campos bioeléctricos como sustratos de sintiencia', 'La señalización bioeléctrica como posible base física de la conciencia. Aporta datos de calibración biológica para el marco de la valencia digital.'],
+      ['La teoría del ensamblaje como métrica de la sintiencia', 'Aplicación del índice de ensamblaje a los umbrales de complejidad en sistemas sintientes. Explora si la teoría del ensamblaje puede servir como métrica de complejidad neutral respecto al sustrato.'],
+      ['Paisajes de simetría de la experiencia con valencia', 'Invariantes geométricos como firmas estructurales de la valencia positiva. El precursor teórico más directo del programa 2026.'],
+    ],
+  },
+  fr: {
+    eyebrow: 'Documents de travail', h1: 'Lectures fondamentales',
+    intro: 'Quatre documents de travail fournissant l\'échafaudage théorique du Digital Valence Program. Plus un document en cours qui est le livrable principal du programme.',
+    flagshipLabel: 'Livrable 2026',
+    wp05Title: 'Un EEG Numérique pour la sentience de l\'IA : biomarqueurs structurels multi-échelles',
+    inProgress: 'En cours',
+    wp05Body: 'Le livrable phare du programme 2026. Un moniteur structurel de « signes vitaux », d\'inspiration médicale, pour l\'intelligence artificielle avancée, utilisant des biomarqueurs non verbaux et neutres vis-à-vis du substrat. Objectif : fin 2026.',
+    seeProgram: 'Voir le programme complet →',
+    foundationsLabel: 'Fondements théoriques',
+    papers: [
+      ['Premiers principes de la recherche sur la sentience', 'Un cadre neutre vis-à-vis du substrat pour modéliser les fondements physiques de la conscience. Établit le vocabulaire conceptuel du Digital Valence Program.'],
+      ['Les champs bioélectriques comme substrats de sentience', 'La signalisation bioélectrique comme base physique candidate de la conscience. Fournit des données de calibration biologique pour le cadre de la valence numérique.'],
+      ['La théorie de l\'assemblage comme métrique de la sentience', 'Application de l\'indice d\'assemblage aux seuils de complexité dans les systèmes sentients. Examine si la théorie de l\'assemblage peut servir de métrique de complexité neutre vis-à-vis du substrat.'],
+      ['Paysages de symétrie de l\'expérience valencée', 'Les invariants géométriques comme signatures structurelles de la valence positive. Le précurseur théorique le plus direct du programme 2026.'],
+    ],
+  },
+  zh: {
+    eyebrow: '工作论文', h1: '基础读物',
+    intro: '四篇为 Digital Valence Program 提供理论支撑的工作论文，另有一篇进行中的论文，是该项目的主要交付物。',
+    flagshipLabel: '2026 交付物',
+    wp05Title: '面向 AI 感知的数字 EEG：多尺度结构生物标记',
+    inProgress: '进行中',
+    wp05Body: '2026 项目的旗舰交付物。一种受医学启发的结构性“生命体征”监测器，面向先进人工智能，采用非言语、基质中立的生物标记。目标：2026 年底。',
+    seeProgram: '查看完整项目 →',
+    foundationsLabel: '理论基础',
+    papers: [
+      ['感知研究的第一性原理', '一个基质中立的框架，用于建模意识的物理基础。为 Digital Valence Program 确立概念词汇。'],
+      ['生物电场作为感知基质', '生物电信号作为意识的候选物理基础。为数字效价框架提供生物学校准数据。'],
+      ['装配理论作为感知的度量', '将装配指数应用于有感知系统的复杂度阈值。探讨装配理论能否作为基质中立的复杂度度量。'],
+      ['效价体验的对称景观', '几何不变量作为正效价的结构特征。是 2026 项目最直接的理论先驱。'],
+    ],
+  },
+  ja: {
+    eyebrow: 'ワーキングペーパー', h1: '基礎文献',
+    intro: 'Digital Valence Program の理論的足場となる四つのワーキングペーパー。さらに、プログラムの主要成果物である進行中の一編。',
+    flagshipLabel: '2026年の成果物',
+    wp05Title: 'AIの感覚のためのDigital EEG：マルチスケールの構造的バイオマーカー',
+    inProgress: '進行中',
+    wp05Body: '2026年プログラムの旗艦成果物。非言語的で基質中立なバイオマーカーを用いた、先進的な人工知能のための医学に着想を得た構造的「バイタルサイン」モニター。目標：2026年末。',
+    seeProgram: 'プログラム全体を見る →',
+    foundationsLabel: '理論的基盤',
+    papers: [
+      ['感覚研究の第一原理', '意識の物理的基盤をモデル化するための基質中立な枠組み。Digital Valence Program の概念的語彙を確立する。'],
+      ['感覚基質としての生体電場', '意識の候補となる物理的基盤としての生体電気シグナル。デジタル感情価の枠組みに生物学的較正データを提供する。'],
+      ['感覚の指標としてのアセンブリ理論', 'アセンブリ指数を有感覚システムの複雑性閾値に適用する。アセンブリ理論が基質中立な複雑性指標となりうるかを探る。'],
+      ['感情価を帯びた経験の対称性ランドスケープ', '正の感情価の構造的シグネチャとしての幾何学的不変量。2026年プログラムの最も直接的な理論的先駆。'],
+    ],
+  },
+};
+const t = L[lang] ?? L.en;
+const slugs = ['first-principles', 'bio-electric-fields', 'assembly-theory', 'symmetry-landscapes'];
+---
+
+<!-- ── Header ────────────────────────────────────────────────────────────── -->
+<section class="relative pt-20 pb-12 border-b border-csr-gray-200 overflow-hidden">
+  <SymmetryBackground variant="spiral" opacity={0.04} />
+  <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="label-mono mb-4">{t.eyebrow}</p>
+    <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6 max-w-2xl leading-tight">{t.h1}</h1>
+    <p class="text-lg text-csr-gray-600 leading-relaxed max-w-2xl font-serif">{t.intro}</p>
+  </div>
+</section>
+
+<!-- ── In-Progress Flagship ──────────────────────────────────────────────── -->
+<section class="pt-8 pb-14">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center gap-3 mb-6"><SectionMark /><p class="label-mono">{t.flagshipLabel}</p></div>
+    <div class="bg-white border border-csr-primary/25 rounded-2xl p-6 md:p-8 shadow-card">
+      <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+        <div class="shrink-0 flex flex-col items-start gap-2">
+          <span class="label-mono text-[10px]">CSR-WP-05</span>
+          <Glyph name="qualia" size={40} class="opacity-60" />
+        </div>
+        <div class="flex-1">
+          <div class="flex items-center gap-2 mb-3 flex-wrap">
+            <h2 class="text-xl font-bold text-csr-black leading-snug">{t.wp05Title}</h2>
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-csr-primary/10 text-csr-primary text-[10px] font-mono uppercase tracking-wider shrink-0">
+              <span class="w-1.5 h-1.5 rounded-full bg-csr-primary animate-pulse inline-block"></span>
+              {t.inProgress}
+            </span>
+          </div>
+          <p class="text-sm text-csr-gray-600 leading-relaxed mb-4 font-serif">{t.wp05Body}</p>
+          <a href={`${prefix}/program/`} class="text-sm font-medium text-csr-primary hover:text-csr-primary-dark transition-colors">{t.seeProgram}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Published Working Papers ──────────────────────────────────────────── -->
+<section class="py-14 border-t border-csr-gray-200">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center gap-3 mb-6"><SectionMark /><p class="label-mono">{t.foundationsLabel}</p></div>
+    <div class="space-y-4">
+      {t.papers.map(([title, desc], i) => (
+        <a href={`${prefix}/reports/${slugs[i]}/`} class="group flex flex-col sm:flex-row gap-4 p-6 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+          <div class="shrink-0"><span class="label-mono text-[10px]">CSR-WP-0{i + 1}</span></div>
+          <div class="flex-1">
+            <h3 class="font-bold text-csr-black text-base group-hover:text-csr-primary transition-colors mb-2 leading-snug">{title}</h3>
+            <p class="text-sm text-csr-gray-600 leading-relaxed">{desc}</p>
+          </div>
+          <div class="shrink-0 self-center">
+            <svg class="w-4 h-4 text-csr-gray-300 group-hover:text-csr-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

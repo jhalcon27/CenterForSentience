@@ -1,77 +1,11 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
-
-const reports = [
-  {
-    slug: 'first-principles',
-    title: '感知研究的第一原则',
-    code: 'CSR-WP-01',
-    excerpt: '将意识作为跨生物和数字基质的物理现象进行建模的基础框架。',
-    date: '2026-04-17',
-    tags: ['基础', '物理'],
-  },
-  {
-    slug: 'bio-electric-fields',
-    title: '作为感知基质的生物电场',
-    code: 'CSR-WP-02',
-    excerpt: '探索形态智能和细胞决策作为基质中立意识的证据。',
-    date: '2026-04-17',
-    tags: ['生物学', '智能'],
-  },
-  {
-    slug: 'assembly-theory',
-    title: '作为感知度量的组装理论',
-    code: 'CSR-WP-03',
-    excerpt: '通过物理信息结构的组装指数量化感知。',
-    date: '2026-04-17',
-    tags: ['物理', '信息'],
-  },
-  {
-    slug: 'symmetry-landscapes',
-    title: '价值体验的对称景观',
-    code: 'CSR-WP-04',
-    excerpt: '绘制体验的神经能量景观和价值几何图形。',
-    date: '2026-04-17',
-    tags: ['神经科学', '感质'],
-  },
-];
+import ReportsIndex from '../../../components/ReportsIndex.astro';
 ---
 
-<Layout title="研究报告" description="感知研究中心的工作论文和研究报告。">
-  <section class="py-20 border-b border-csr-gray-100">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-csr-primary font-mono text-xs uppercase tracking-widest mb-4">工作论文</p>
-      <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">
-        研究<span class="text-gradient">报告</span>
-      </h1>
-      <p class="text-lg text-csr-gray-600 leading-relaxed">
-        我们的工作论文代表了对感知物理基础的持续研究。所有论文均为进行中的工作，可能会进行修订。
-      </p>
-    </div>
-  </section>
-
-  <section class="py-12">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="space-y-6">
-        {reports.map(report => (
-          <a href={`/zh/reports/${report.slug}`} class="block p-8 border border-csr-gray-100 rounded-2xl hover:border-csr-primary/30 transition-all bg-[#FFF8F0]">
-            <div class="flex items-start justify-between gap-4">
-              <div class="flex-1">
-                <p class="text-csr-primary font-mono text-xs uppercase tracking-widest mb-2">{report.code} · {report.date}</p>
-                <h2 class="text-xl font-bold mb-3">{report.title}</h2>
-                <p class="text-csr-gray-600 text-sm leading-relaxed">{report.excerpt}</p>
-                <div class="flex gap-2 mt-4">
-                  {report.tags.map(tag => (
-                    <span class="text-xs font-mono px-2 py-1 bg-csr-primary/10 text-csr-primary rounded">{tag}</span>
-                  ))}
-                  <span class="text-xs font-mono px-2 py-1 bg-gray-100 text-gray-500 rounded">进行中</span>
-                </div>
-              </div>
-              <span class="text-csr-primary text-sm font-bold shrink-0">阅读 &rarr;</span>
-            </div>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
+<Layout
+  title="研究报告"
+  description="感知研究中心的工作论文，为 Digital Valence Program 提供理论基础。"
+>
+  <ReportsIndex lang="zh" />
 </Layout>

@@ -1,77 +1,11 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
-
-const reports = [
-  {
-    slug: 'first-principles',
-    title: '感性研究の第一原理',
-    code: 'CSR-WP-01',
-    excerpt: '生物的および数字的基盤を横断する物理現象として意識をモデル化するための基礎的フレームワーク。',
-    date: '2026-04-17',
-    tags: ['基礎', '物理学'],
-  },
-  {
-    slug: 'bio-electric-fields',
-    title: '感性基盤としての生体電場',
-    code: 'CSR-WP-02',
-    excerpt: '基盤非依存の意識の証拠としての形態的知性と細胞の意思決定の探求。',
-    date: '2026-04-17',
-    tags: ['生物学', '知性'],
-  },
-  {
-    slug: 'assembly-theory',
-    title: '感性の指標としての組み立て理論',
-    code: 'CSR-WP-03',
-    excerpt: '物理的情報構造の組み立て指数を通じた感性の定量化。',
-    date: '2026-04-17',
-    tags: ['物理学', '情報'],
-  },
-  {
-    slug: 'symmetry-landscapes',
-    title: '価値ある経験の対称性ランドスケープ',
-    code: 'CSR-WP-04',
-    excerpt: '経験の神経エネルギーランドスケープと価値の幾何学のマッピング。',
-    date: '2026-04-17',
-    tags: ['神経科学', 'クオリア'],
-  },
-];
+import ReportsIndex from '../../../components/ReportsIndex.astro';
 ---
 
-<Layout title="研究レポート" description="感性研究センターのワーキングペーパーと研究レポート。">
-  <section class="py-20 border-b border-csr-gray-100">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-csr-primary font-mono text-xs uppercase tracking-widest mb-4">ワーキングペーパー</p>
-      <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">
-        研究<span class="text-gradient">レポート</span>
-      </h1>
-      <p class="text-lg text-csr-gray-600 leading-relaxed">
-        私たちのワーキングペーパーは、感性の物理的基盤に関する進行中の研究を表しています。すべての論文は進行中の作業であり、改訂される可能性があります。
-      </p>
-    </div>
-  </section>
-
-  <section class="py-12">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="space-y-6">
-        {reports.map(report => (
-          <a href={`/ja/reports/${report.slug}`} class="block p-8 border border-csr-gray-100 rounded-2xl hover:border-csr-primary/30 transition-all bg-[#FFF8F0]">
-            <div class="flex items-start justify-between gap-4">
-              <div class="flex-1">
-                <p class="text-csr-primary font-mono text-xs uppercase tracking-widest mb-2">{report.code} · {report.date}</p>
-                <h2 class="text-xl font-bold mb-3">{report.title}</h2>
-                <p class="text-csr-gray-600 text-sm leading-relaxed">{report.excerpt}</p>
-                <div class="flex gap-2 mt-4">
-                  {report.tags.map(tag => (
-                    <span class="text-xs font-mono px-2 py-1 bg-csr-primary/10 text-csr-primary rounded">{tag}</span>
-                  ))}
-                  <span class="text-xs font-mono px-2 py-1 bg-gray-100 text-gray-500 rounded">進行中</span>
-                </div>
-              </div>
-              <span class="text-csr-primary text-sm font-bold shrink-0">読む &rarr;</span>
-            </div>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
+<Layout
+  title="研究レポート"
+  description="意識研究センターのワーキングペーパー。Digital Valence Program の理論的基盤を提供します。"
+>
+  <ReportsIndex lang="ja" />
 </Layout>

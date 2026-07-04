@@ -1,77 +1,11 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
-
-const reports = [
-  {
-    slug: 'first-principles',
-    title: 'Premiers Principes de la Recherche sur la Sentience',
-    code: 'CSR-WP-01',
-    excerpt: 'Le cadre fondamental pour modéliser la conscience comme un phénomène physique à travers les substrats biologiques et numériques.',
-    date: '2026-04-17',
-    tags: ['Fondamental', 'Physique'],
-  },
-  {
-    slug: 'bio-electric-fields',
-    title: 'Champs Bioélectriques comme Substrats de Sentience',
-    code: 'CSR-WP-02',
-    excerpt: "Exploration de l'intelligence morphologique et de la prise de décision cellulaire comme preuves d'une conscience neutre vis-à-vis du substrat.",
-    date: '2026-04-17',
-    tags: ['Biologie', 'Intelligence'],
-  },
-  {
-    slug: 'assembly-theory',
-    title: "Théorie de l'Assemblage comme Métrique de Sentience",
-    code: 'CSR-WP-03',
-    excerpt: "Quantification de la sentience à travers l'indice d'assemblage des structures d'information physique.",
-    date: '2026-04-17',
-    tags: ['Physique', 'Information'],
-  },
-  {
-    slug: 'symmetry-landscapes',
-    title: "Paysages de Symétrie de l'Expérience Valente",
-    code: 'CSR-WP-04',
-    excerpt: "Cartographie des paysages d'énergie neurale de l'expérience et de la géométrie de la valence.",
-    date: '2026-04-17',
-    tags: ['Neuroscience', 'Qualia'],
-  },
-];
+import ReportsIndex from '../../../components/ReportsIndex.astro';
 ---
 
-<Layout title="Rapports de Recherche" description="Documents de travail et rapports de recherche du Center for Sentience Research.">
-  <section class="py-20 border-b border-csr-gray-100">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-csr-primary font-mono text-xs uppercase tracking-widest mb-4">Documents de Travail</p>
-      <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">
-        Rapports de <span class="text-gradient">Recherche</span>
-      </h1>
-      <p class="text-lg text-csr-gray-600 leading-relaxed">
-        Nos documents de travail représentent des recherches en cours sur les fondements physiques de la sentience. Tous les documents sont des travaux en cours et sujets à révision.
-      </p>
-    </div>
-  </section>
-
-  <section class="py-12">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="space-y-6">
-        {reports.map(report => (
-          <a href={`/fr/reports/${report.slug}`} class="block p-8 border border-csr-gray-100 rounded-2xl hover:border-csr-primary/30 transition-all bg-[#FFF8F0]">
-            <div class="flex items-start justify-between gap-4">
-              <div class="flex-1">
-                <p class="text-csr-primary font-mono text-xs uppercase tracking-widest mb-2">{report.code} · {report.date}</p>
-                <h2 class="text-xl font-bold mb-3">{report.title}</h2>
-                <p class="text-csr-gray-600 text-sm leading-relaxed">{report.excerpt}</p>
-                <div class="flex gap-2 mt-4">
-                  {report.tags.map(tag => (
-                    <span class="text-xs font-mono px-2 py-1 bg-csr-primary/10 text-csr-primary rounded">{tag}</span>
-                  ))}
-                  <span class="text-xs font-mono px-2 py-1 bg-gray-100 text-gray-500 rounded">En cours</span>
-                </div>
-              </div>
-              <span class="text-csr-primary text-sm font-bold shrink-0">Lire &rarr;</span>
-            </div>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
+<Layout
+  title="Rapports de recherche"
+  description="Documents de travail du Center for Sentience Research, fournissant les fondements théoriques du Digital Valence Program."
+>
+  <ReportsIndex lang="fr" />
 </Layout>
