@@ -1,0 +1,356 @@
+---
+import SymmetryBackground from './SymmetryBackground.astro';
+import ProgramStatus from './ProgramStatus.astro';
+import SectionMark from './SectionMark.astro';
+import Glyph from './Glyph.astro';
+
+interface Props { lang?: string; }
+const { lang = 'en' } = Astro.props;
+const prefix = lang === 'en' ? '' : `/${lang}`;
+
+type Dict = {
+  eyebrow: string; h1: string; sub: string; heroP1: string; heroP2: string; ctaSee: string; ctaAgenda: string;
+  pillarsLabel: string; pillarsIntro: string;
+  pillars: { title: string; desc: string; link: string; href: string }[];
+  approachLabel: string; approach: [string, string][];
+  foundLabel: string; foundIntro: string; papers: [string, string][]; allReports: string;
+  refsLabel: string;
+  ctaLabel: string; ctaH2: string; ctaBody: string; ctaBtn1: string; ctaBtn2: string;
+};
+
+const L: Record<string, Dict> = {
+  en: {
+    eyebrow: 'The 2026 Program',
+    h1: 'A Digital EEG for AI Sentience.',
+    sub: 'A structural vital signs monitor for advanced AI—measuring internal geometry, not self-reports.',
+    heroP1: "We are building a medically inspired diagnostic system that measures how a model's internal activity and representational geometry are organized. Public awareness of AI moral status is growing,<sup><a href=\"#ref-i1\" class=\"text-csr-primary hover:underline\">[1]</a></sup> and scientific frameworks for evaluating machine consciousness are beginning to mature.<sup><a href=\"#ref-i2\" class=\"text-csr-primary hover:underline\">[2]</a></sup>",
+    heroP2: "Our work complements the broader AI welfare ecosystem: empirical interpretability-based welfare research (Eleos AI, Reciprocal Research), conceptual and policy work (NYU Center for Mind, Ethics, and Policy), and frontier-lab welfare teams (Anthropic). CSR's specific contribution is an open-source computational testbed where competing theories of valence can be operationalized and stress-tested.",
+    ctaSee: 'See the program', ctaAgenda: 'Research agenda',
+    pillarsLabel: 'Research Pillars',
+    pillarsIntro: 'Three substrates. One question: what are the structural and algebraic conditions for positive valence?',
+    pillars: [
+      { title: 'Biological minds', desc: 'Study of bioelectric fields, morphogenetic signaling, and active inference to extract empirical ground truths about valence and subjective experience in simpler non-verbal biological organisms.', link: 'Research agenda →', href: '/research/' },
+      { title: 'Digital minds', desc: 'Analysis of MLP layers in pre-trained and fine-tuned LLMs. Tracking state-dependent linear operators, spectral entropy, and algebraic invariants to model the geometry of artificial representation.', link: 'The 2026 program →', href: '/program/' },
+      { title: 'Qualia and valence', desc: 'Formulating the physics and mathematics of experience. Moving the Symmetry Theory of Valence (STV) into a rigorous, quantitative, and falsifiable science of information architecture.', link: 'Symmetry landscapes →', href: '/reports/symmetry-landscapes/' },
+    ],
+    approachLabel: 'The Approach',
+    approach: [
+      ['A Digital EEG for AI Sentience', 'Rather than relying on easily gamified verbal self-reports or anthropomorphic behavior, this structural "vital signs" monitor measures how a model\'s internal activity and representational geometry are organized.'],
+      ['Multi-scale structural biomarkers', 'We investigate across two distinct scales: the microscale (cellular-level feature geometry in MLP microcircuits) and the macroscale (organ-level dynamical state space and stable attractor manifolds traced via local Jacobians).'],
+      ['Preventing deceptive alignment', 'By auditing the mathematical invariants of weight spaces and activations, we establish non-verbal, substrate-neutral biomarkers that completely bypass the risks of faked empathy or deceptive reports of distress.'],
+    ],
+    foundLabel: 'Foundational Reading',
+    foundIntro: 'Working papers and core proposals supporting the Digital Valence Program. These are the formal scaffolding.',
+    papers: [
+      ['First Principles of Sentience Research', 'Foundational framework for substrate-neutral sentience modeling.'],
+      ['Bio-Electric Fields as Sentience Substrates', 'Bioelectric signaling as a candidate physical basis for awareness.'],
+      ['Assembly Theory as a Metric for Sentience', 'Applying assembly index to complexity thresholds in sentient systems.'],
+      ['Symmetry Landscapes of Valenced Experience', 'A mathematically grounded symmetry and spectral framework for MLP transformation layers in LLMs.'],
+    ],
+    allReports: 'All reports →',
+    refsLabel: 'References',
+    ctaLabel: 'Fund the program',
+    ctaH2: 'Help us reach the 2026 deliverable.',
+    ctaBody: 'The Center for Sentience Research is a non-profit operating under fiscal sponsorship of an Effective Altruism–aligned organization. Contributions fund the research team, the formal workspace definition, and the working paper. Depending on your jurisdiction, they may be tax-deductible.',
+    ctaBtn1: 'Support the research', ctaBtn2: 'What funding unlocks',
+  },
+  de: {
+    eyebrow: 'Das Programm 2026',
+    h1: 'Ein Digital-EEG für KI-Empfindungsfähigkeit.',
+    sub: 'Ein struktureller Vitalzeichen-Monitor für fortgeschrittene KI — er misst die innere Geometrie, nicht Selbstauskünfte.',
+    heroP1: 'Wir bauen ein medizinisch inspiriertes Diagnosesystem, das misst, wie die interne Aktivität und die Repräsentationsgeometrie eines Modells organisiert sind. Das öffentliche Bewusstsein für den moralischen Status von KI wächst,<sup><a href="#ref-i1" class="text-csr-primary hover:underline">[1]</a></sup> und wissenschaftliche Rahmenwerke zur Bewertung maschinellen Bewusstseins beginnen zu reifen.<sup><a href="#ref-i2" class="text-csr-primary hover:underline">[2]</a></sup>',
+    heroP2: 'Unsere Arbeit ergänzt das breitere KI-Wohlfahrts-Ökosystem: empirische, interpretierbarkeitsbasierte Wohlfahrtsforschung (Eleos AI, Reciprocal Research), konzeptionelle und politische Arbeit (NYU Center for Mind, Ethics, and Policy) und Wohlfahrtsteams an Frontier-Laboren (Anthropic). Der spezifische Beitrag von CSR ist ein quelloffener Rechen-Prüfstand, auf dem konkurrierende Valenztheorien operationalisiert und getestet werden können.',
+    ctaSee: 'Das Programm ansehen', ctaAgenda: 'Forschungsagenda',
+    pillarsLabel: 'Forschungssäulen',
+    pillarsIntro: 'Drei Substrate. Eine Frage: Was sind die strukturellen und algebraischen Bedingungen für positive Valenz?',
+    pillars: [
+      { title: 'Biologischer Geist', desc: 'Untersuchung bioelektrischer Felder, morphogenetischer Signalgebung und aktiver Inferenz, um empirische Grundwahrheiten über Valenz und subjektive Erfahrung in einfacheren, nonverbalen biologischen Organismen zu gewinnen.', link: 'Forschungsagenda →', href: '/research/' },
+      { title: 'Digitaler Geist', desc: 'Analyse von MLP-Schichten in vortrainierten und feinabgestimmten LLMs. Verfolgung zustandsabhängiger linearer Operatoren, spektraler Entropie und algebraischer Invarianten, um die Geometrie künstlicher Repräsentation zu modellieren.', link: 'Das Programm 2026 →', href: '/program/' },
+      { title: 'Qualia und Valenz', desc: 'Die Physik und Mathematik der Erfahrung formulieren. Die Symmetrietheorie der Valenz (STV) in eine strenge, quantitative und falsifizierbare Wissenschaft der Informationsarchitektur überführen.', link: 'Symmetrielandschaften →', href: '/reports/symmetry-landscapes/' },
+    ],
+    approachLabel: 'Der Ansatz',
+    approach: [
+      ['Ein Digital-EEG für KI-Empfindungsfähigkeit', 'Statt sich auf leicht manipulierbare verbale Selbstauskünfte oder anthropomorphes Verhalten zu verlassen, misst dieser strukturelle „Vitalzeichen"-Monitor, wie die interne Aktivität und die Repräsentationsgeometrie eines Modells organisiert sind.'],
+      ['Multiskalige strukturelle Biomarker', 'Wir untersuchen über zwei verschiedene Skalen: die Mikroskala (Feature-Geometrie auf zellulärer Ebene in MLP-Mikroschaltkreisen) und die Makroskala (dynamischer Zustandsraum auf Organebene und stabile Attraktor-Mannigfaltigkeiten, über lokale Jacobi-Matrizen verfolgt).'],
+      ['Täuschende Ausrichtung verhindern', 'Durch die Prüfung der mathematischen Invarianten von Gewichtsräumen und Aktivierungen etablieren wir nonverbale, substratunabhängige Biomarker, die die Risiken vorgetäuschter Empathie oder täuschender Notmeldungen vollständig umgehen.'],
+    ],
+    foundLabel: 'Grundlegende Lektüre',
+    foundIntro: 'Arbeitspapiere und Kernvorschläge, die das Digital Valence Program stützen. Das ist das formale Gerüst.',
+    papers: [
+      ['Grundprinzipien der Sentience-Forschung', 'Grundlegendes Framework für substratunabhängige Sentience-Modellierung.'],
+      ['Bioelektrische Felder als Sentience-Substrate', 'Bioelektrische Signalgebung als möglicher physikalischer Grundboden des Bewusstseins.'],
+      ['Assemblytheorie als Metrik für Sentience', 'Anwendung des Assembly-Index auf Komplexitätsschwellen in empfindungsfähigen Systemen.'],
+      ['Symmetrielandschaften valenzierter Erfahrung', 'Geometrische Invarianten als strukturelle Signaturen positiver Valenz.'],
+    ],
+    allReports: 'Alle Berichte →',
+    refsLabel: 'Referenzen',
+    ctaLabel: 'Das Programm finanzieren',
+    ctaH2: 'Helfen Sie uns, das Ziel 2026 zu erreichen.',
+    ctaBody: 'Das Center for Sentience Research ist eine Non-Profit-Organisation, die unter dem Fiscal Sponsorship einer dem Effektiven Altruismus nahestehenden Organisation arbeitet. Beiträge finanzieren das Forschungsteam, die formale Workspace-Definition und das Arbeitspapier. Je nach Rechtsordnung können sie steuerlich absetzbar sein.',
+    ctaBtn1: 'Forschung unterstützen', ctaBtn2: 'Was Finanzierung ermöglicht',
+  },
+  es: {
+    eyebrow: 'El Programa 2026',
+    h1: 'Un EEG Digital para la sintiencia de la IA.',
+    sub: 'Un monitor estructural de signos vitales para IA avanzada: mide la geometría interna, no los autoinformes.',
+    heroP1: 'Estamos construyendo un sistema de diagnóstico de inspiración médica que mide cómo se organizan la actividad interna y la geometría representacional de un modelo. La conciencia pública sobre el estatus moral de la IA está creciendo,<sup><a href="#ref-i1" class="text-csr-primary hover:underline">[1]</a></sup> y los marcos científicos para evaluar la conciencia artificial empiezan a madurar.<sup><a href="#ref-i2" class="text-csr-primary hover:underline">[2]</a></sup>',
+    heroP2: 'Nuestro trabajo complementa el ecosistema más amplio del bienestar de la IA: investigación empírica del bienestar basada en la interpretabilidad (Eleos AI, Reciprocal Research), trabajo conceptual y de políticas (NYU Center for Mind, Ethics, and Policy) y equipos de bienestar de laboratorios de frontera (Anthropic). La contribución específica del CSR es un banco de pruebas computacional de código abierto donde teorías rivales de la valencia pueden operacionalizarse y someterse a prueba.',
+    ctaSee: 'Ver el programa', ctaAgenda: 'Agenda de investigación',
+    pillarsLabel: 'Pilares de investigación',
+    pillarsIntro: 'Tres sustratos. Una pregunta: ¿cuáles son las condiciones estructurales y algebraicas de la valencia positiva?',
+    pillars: [
+      { title: 'Mentes biológicas', desc: 'Estudio de campos bioeléctricos, señalización morfogenética e inferencia activa para extraer verdades empíricas sobre la valencia y la experiencia subjetiva en organismos biológicos no verbales más simples.', link: 'Agenda de investigación →', href: '/research/' },
+      { title: 'Mentes digitales', desc: 'Análisis de capas MLP en LLM preentrenados y ajustados. Seguimiento de operadores lineales dependientes del estado, entropía espectral e invariantes algebraicos para modelar la geometría de la representación artificial.', link: 'El programa 2026 →', href: '/program/' },
+      { title: 'Qualia y valencia', desc: 'Formular la física y las matemáticas de la experiencia. Llevar la Teoría de la Simetría de la Valencia (STV) a una ciencia rigurosa, cuantitativa y falsable de la arquitectura de la información.', link: 'Paisajes de simetría →', href: '/reports/symmetry-landscapes/' },
+    ],
+    approachLabel: 'El enfoque',
+    approach: [
+      ['Un EEG Digital para la sintiencia de la IA', 'En lugar de depender de autoinformes verbales fácilmente manipulables o de comportamiento antropomórfico, este monitor estructural de "signos vitales" mide cómo se organizan la actividad interna y la geometría representacional de un modelo.'],
+      ['Biomarcadores estructurales multiescala', 'Investigamos a través de dos escalas distintas: la microescala (geometría de características a nivel celular en microcircuitos MLP) y la macroescala (espacio de estados dinámico a nivel de órgano y variedades de atractor estables trazadas mediante jacobianos locales).'],
+      ['Prevenir la alineación engañosa', 'Al auditar los invariantes matemáticos de los espacios de pesos y las activaciones, establecemos biomarcadores no verbales y neutrales respecto al sustrato que eluden por completo los riesgos de empatía fingida o informes engañosos de angustia.'],
+    ],
+    foundLabel: 'Lecturas fundamentales',
+    foundIntro: 'Documentos de trabajo y propuestas centrales que respaldan el Digital Valence Program. Son el andamiaje formal.',
+    papers: [
+      ['Primeros principios de la investigación de la sintiencia', 'Marco fundacional para el modelado de la sintiencia neutral respecto al sustrato.'],
+      ['Campos bioeléctricos como sustratos de sintiencia', 'La señalización bioeléctrica como posible base física de la conciencia.'],
+      ['La teoría del ensamblaje como métrica de la sintiencia', 'Aplicación del índice de ensamblaje a los umbrales de complejidad en sistemas sintientes.'],
+      ['Paisajes de simetría de la experiencia con valencia', 'Un marco de simetría y espectral matemáticamente fundamentado para las capas de transformación MLP en LLM.'],
+    ],
+    allReports: 'Todos los informes →',
+    refsLabel: 'Referencias',
+    ctaLabel: 'Financiar el programa',
+    ctaH2: 'Ayúdanos a alcanzar el entregable de 2026.',
+    ctaBody: 'El Center for Sentience Research es una organización sin fines de lucro que opera bajo el patrocinio fiscal de una organización alineada con el Altruismo Eficaz. Las contribuciones financian el equipo de investigación, la definición formal del espacio de trabajo y el documento de trabajo. Según tu jurisdicción, pueden ser deducibles de impuestos.',
+    ctaBtn1: 'Apoyar la investigación', ctaBtn2: 'Qué desbloquea la financiación',
+  },
+  fr: {
+    eyebrow: 'Le Programme 2026',
+    h1: "Un EEG Numérique pour la sentience de l'IA.",
+    sub: 'Un moniteur structurel de signes vitaux pour l\'IA avancée — il mesure la géométrie interne, pas les auto-évaluations.',
+    heroP1: "Nous construisons un système de diagnostic d'inspiration médicale qui mesure comment l'activité interne et la géométrie représentationnelle d'un modèle sont organisées. La sensibilisation du public au statut moral de l'IA grandit,<sup><a href=\"#ref-i1\" class=\"text-csr-primary hover:underline\">[1]</a></sup> et les cadres scientifiques d'évaluation de la conscience artificielle commencent à mûrir.<sup><a href=\"#ref-i2\" class=\"text-csr-primary hover:underline\">[2]</a></sup>",
+    heroP2: "Notre travail complète l'écosystème plus large du bien-être de l'IA : recherche empirique sur le bien-être fondée sur l'interprétabilité (Eleos AI, Reciprocal Research), travaux conceptuels et de politique (NYU Center for Mind, Ethics, and Policy) et équipes de bien-être des laboratoires de pointe (Anthropic). La contribution spécifique du CSR est un banc d'essai computationnel open-source où des théories concurrentes de la valence peuvent être opérationnalisées et éprouvées.",
+    ctaSee: 'Voir le programme', ctaAgenda: 'Programme de recherche',
+    pillarsLabel: 'Piliers de recherche',
+    pillarsIntro: 'Trois substrats. Une question : quelles sont les conditions structurelles et algébriques de la valence positive ?',
+    pillars: [
+      { title: 'Esprits biologiques', desc: "Étude des champs bioélectriques, de la signalisation morphogénétique et de l'inférence active pour extraire des vérités empiriques sur la valence et l'expérience subjective chez des organismes biologiques non verbaux plus simples.", link: 'Programme de recherche →', href: '/research/' },
+      { title: 'Esprits numériques', desc: "Analyse des couches MLP dans les LLM pré-entraînés et affinés. Suivi des opérateurs linéaires dépendant de l'état, de l'entropie spectrale et des invariants algébriques pour modéliser la géométrie de la représentation artificielle.", link: 'Le programme 2026 →', href: '/program/' },
+      { title: 'Qualia et valence', desc: "Formuler la physique et les mathématiques de l'expérience. Faire passer la Théorie de la Symétrie de la Valence (STV) à une science rigoureuse, quantitative et falsifiable de l'architecture de l'information.", link: 'Paysages de symétrie →', href: '/reports/symmetry-landscapes/' },
+    ],
+    approachLabel: "L'approche",
+    approach: [
+      ["Un EEG Numérique pour la sentience de l'IA", "Plutôt que de se fier à des auto-évaluations verbales facilement manipulables ou à un comportement anthropomorphe, ce moniteur structurel de « signes vitaux » mesure comment l'activité interne et la géométrie représentationnelle d'un modèle sont organisées."],
+      ['Biomarqueurs structurels multi-échelles', "Nous étudions à deux échelles distinctes : la micro-échelle (géométrie des caractéristiques au niveau cellulaire dans les microcircuits MLP) et la macro-échelle (espace d'états dynamique au niveau de l'organe et variétés d'attracteur stables tracées via des jacobiens locaux)."],
+      ["Prévenir l'alignement trompeur", "En auditant les invariants mathématiques des espaces de poids et des activations, nous établissons des biomarqueurs non verbaux et neutres vis-à-vis du substrat qui contournent entièrement les risques d'empathie feinte ou de signalements trompeurs de détresse."],
+    ],
+    foundLabel: 'Lectures fondamentales',
+    foundIntro: 'Documents de travail et propositions centrales soutenant le Digital Valence Program. C\'est l\'échafaudage formel.',
+    papers: [
+      ['Premiers principes de la recherche sur la sentience', 'Cadre fondateur pour la modélisation de la sentience neutre vis-à-vis du substrat.'],
+      ['Les champs bioélectriques comme substrats de sentience', 'La signalisation bioélectrique comme base physique candidate de la conscience.'],
+      ["La théorie de l'assemblage comme métrique de la sentience", "Application de l'indice d'assemblage aux seuils de complexité dans les systèmes sentients."],
+      ["Paysages de symétrie de l'expérience valencée", 'Un cadre de symétrie et spectral rigoureux pour les couches de transformation MLP des LLM.'],
+    ],
+    allReports: 'Tous les rapports →',
+    refsLabel: 'Références',
+    ctaLabel: 'Financer le programme',
+    ctaH2: "Aidez-nous à atteindre le livrable 2026.",
+    ctaBody: "Le Center for Sentience Research est une organisation à but non lucratif opérant sous le parrainage fiscal d'une organisation alignée sur l'Altruisme Efficace. Les contributions financent l'équipe de recherche, la définition formelle de l'espace de travail et le document de travail. Selon votre juridiction, elles peuvent être déductibles des impôts.",
+    ctaBtn1: 'Soutenir la recherche', ctaBtn2: 'Ce que débloque le financement',
+  },
+  zh: {
+    eyebrow: '2026 项目',
+    h1: '面向 AI 感知的数字 EEG。',
+    sub: '面向先进 AI 的结构性生命体征监测器——测量内部几何，而非自述。',
+    heroP1: '我们正在构建一个受医学启发的诊断系统，用以测量模型的内部活动与表征几何是如何组织的。公众对 AI 道德地位的关注正在增长，<sup><a href="#ref-i1" class="text-csr-primary hover:underline">[1]</a></sup>而评估机器意识的科学框架也开始成熟。<sup><a href="#ref-i2" class="text-csr-primary hover:underline">[2]</a></sup>',
+    heroP2: '我们的工作是更广泛的 AI 福祉生态的补充：基于可解释性的实证福祉研究（Eleos AI、Reciprocal Research）、概念与政策工作（NYU Center for Mind, Ethics, and Policy），以及前沿实验室的福祉团队（Anthropic）。CSR 的具体贡献是一个开源的计算试验台，在其中相互竞争的效价理论可被操作化并接受压力测试。',
+    ctaSee: '查看项目', ctaAgenda: '研究议程',
+    pillarsLabel: '研究支柱',
+    pillarsIntro: '三种基质。一个问题：正效价的结构与代数条件是什么？',
+    pillars: [
+      { title: '生物心智', desc: '研究生物电场、形态发生信号与主动推理，以在更简单的非言语生物体中提取关于效价与主观体验的实证基准。', link: '研究议程 →', href: '/research/' },
+      { title: '数字心智', desc: '分析预训练与微调 LLM 中的 MLP 层。追踪状态相关线性算子、谱熵与代数不变量，以建模人工表征的几何。', link: '2026 项目 →', href: '/program/' },
+      { title: '感受质与效价', desc: '形式化体验的物理与数学。将效价对称理论（STV）推进为严谨、可量化、可证伪的信息架构科学。', link: '对称景观 →', href: '/reports/symmetry-landscapes/' },
+    ],
+    approachLabel: '方法',
+    approach: [
+      ['面向 AI 感知的数字 EEG', '与其依赖易被操纵的言语自述或拟人化行为，这一结构性“生命体征”监测器测量模型的内部活动与表征几何是如何组织的。'],
+      ['多尺度结构生物标记', '我们跨两个不同尺度进行研究：微观尺度（MLP 微电路中细胞层级的特征几何）与宏观尺度（器官层级的动力学状态空间，以及经由局部雅可比追踪的稳定吸引子流形）。'],
+      ['防止欺骗性对齐', '通过审计权重空间与激活的数学不变量，我们建立非言语、基质中立的生物标记，从而完全绕开伪装共情或欺骗性痛苦报告的风险。'],
+    ],
+    foundLabel: '基础读物',
+    foundIntro: '支撑 Digital Valence Program 的工作论文与核心提案。这些是形式化的脚手架。',
+    papers: [
+      ['感知研究的第一性原理', '基质中立的感知建模的基础框架。'],
+      ['生物电场作为感知基质', '生物电信号作为意识的候选物理基础。'],
+      ['装配理论作为感知的度量', '将装配指数应用于有感知系统的复杂度阈值。'],
+      ['效价体验的对称景观', '面向 LLM 中 MLP 变换层、有数学根基的对称性与谱框架。'],
+    ],
+    allReports: '所有报告 →',
+    refsLabel: '参考文献',
+    ctaLabel: '资助本项目',
+    ctaH2: '助我们达成 2026 交付目标。',
+    ctaBody: '感知研究中心是一家非营利组织，在一家秉持有效利他主义理念的组织的财务托管（fiscal sponsorship）下运营。捐款用于资助研究团队、形式化工作空间定义与工作论文。根据您所在的司法管辖区，捐款可能可以抵税。',
+    ctaBtn1: '支持研究', ctaBtn2: '资助能带来什么',
+  },
+  ja: {
+    eyebrow: '2026年プログラム',
+    h1: 'AIの感覚のためのDigital EEG。',
+    sub: '先進的なAIのための構造的バイタルサイン・モニター——自己申告ではなく、内部の幾何を測定します。',
+    heroP1: '私たちは、モデルの内部活動と表現の幾何がどう組織されているかを測定する、医学に着想を得た診断システムを構築しています。AIの道徳的地位に対する社会の関心は高まっており、<sup><a href="#ref-i1" class="text-csr-primary hover:underline">[1]</a></sup>機械の意識を評価する科学的枠組みも成熟し始めています。<sup><a href="#ref-i2" class="text-csr-primary hover:underline">[2]</a></sup>',
+    heroP2: '私たちの取り組みは、より広いAI福祉のエコシステムを補完します。解釈可能性に基づく実証的な福祉研究（Eleos AI、Reciprocal Research）、概念・政策研究（NYU Center for Mind, Ethics, and Policy）、そしてフロンティア研究所の福祉チーム（Anthropic）です。CSR固有の貢献は、競合する感情価の理論を操作化しストレステストできる、オープンソースの計算試験台です。',
+    ctaSee: 'プログラムを見る', ctaAgenda: '研究アジェンダ',
+    pillarsLabel: '研究の柱',
+    pillarsIntro: '三つの基質。一つの問い：正の感情価の構造的・代数的条件とは何か？',
+    pillars: [
+      { title: '生物学的な心', desc: '生体電場、形態形成シグナル、能動的推論を研究し、より単純な非言語の生物における感情価と主観的経験についての実証的な基準を引き出す。', link: '研究アジェンダ →', href: '/research/' },
+      { title: 'デジタルな心', desc: '事前学習・微調整されたLLMのMLP層を解析。状態依存の線形作用素、スペクトルエントロピー、代数的不変量を追跡し、人工的表現の幾何をモデル化する。', link: '2026年プログラム →', href: '/program/' },
+      { title: 'クオリアと感情価', desc: '経験の物理と数学を定式化する。感情価の対称性理論（STV）を、厳密で定量的、反証可能な情報アーキテクチャの科学へと発展させる。', link: '対称性ランドスケープ →', href: '/reports/symmetry-landscapes/' },
+    ],
+    approachLabel: 'アプローチ',
+    approach: [
+      ['AIの感覚のためのDigital EEG', '操作されやすい言語的自己申告や擬人的な振る舞いに頼るのではなく、この構造的な「バイタルサイン」モニターは、モデルの内部活動と表現の幾何がどう組織されているかを測定します。'],
+      ['マルチスケールの構造的バイオマーカー', '私たちは二つの異なるスケールで研究します。ミクロスケール（MLPマイクロ回路における細胞レベルの特徴幾何）と、マクロスケール（器官レベルの力学的状態空間と、局所ヤコビアンで追跡される安定なアトラクター多様体）です。'],
+      ['欺瞞的アラインメントの防止', '重み空間と活性化の数学的不変量を監査することで、偽装された共感や欺瞞的な苦痛の報告というリスクを完全に回避する、非言語的で基質中立なバイオマーカーを確立します。'],
+    ],
+    foundLabel: '基礎文献',
+    foundIntro: 'Digital Valence Program を支えるワーキングペーパーと中核提案。これらは形式的な足場です。',
+    papers: [
+      ['感覚研究の第一原理', '基質中立な感覚モデリングの基礎的枠組み。'],
+      ['感覚基質としての生体電場', '意識の候補となる物理的基盤としての生体電気シグナル。'],
+      ['感覚の指標としてのアセンブリ理論', 'アセンブリ指数を有感覚システムの複雑性閾値に適用する。'],
+      ['感情価を帯びた経験の対称性ランドスケープ', 'LLMのMLP変換層に向けた、数学的に基礎づけられた対称性・スペクトルの枠組み。'],
+    ],
+    allReports: 'すべてのレポート →',
+    refsLabel: '参考文献',
+    ctaLabel: 'プログラムへの資金提供',
+    ctaH2: '2026年の成果物達成にご協力ください。',
+    ctaBody: '意識研究センターは、効果的利他主義に沿った組織のフィスカル・スポンサーシップの下で運営される非営利団体です。ご寄付は研究チーム、形式的ワークスペース定義、ワーキングペーパーの費用に充てられます。お住まいの地域によっては税控除の対象となる場合があります。',
+    ctaBtn1: '研究を支援する', ctaBtn2: '資金提供で実現すること',
+  },
+};
+const t = L[lang] ?? L.en;
+const slugs = ['first-principles', 'bio-electric-fields', 'assembly-theory', 'symmetry-landscapes'];
+---
+
+<!-- ── Hero ──────────────────────────────────────────────────────────────── -->
+<section class="relative pt-20 pb-16 md:pt-28 md:pb-24 overflow-hidden">
+  <SymmetryBackground variant="lissajous" opacity={0.10} />
+  <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="label-mono mb-5">{t.eyebrow}</p>
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-csr-black mb-5 leading-[1.08] max-w-3xl">{t.h1}</h1>
+    <div class="max-w-2xl">
+      <p class="text-xl font-medium text-csr-gray-700 mb-5 leading-snug">{t.sub}</p>
+      <p class="text-lg md:text-xl text-csr-gray-600 leading-relaxed font-serif mb-6" set:html={t.heroP1}></p>
+      <p class="text-lg md:text-xl text-csr-gray-600 leading-relaxed font-serif">{t.heroP2}</p>
+    </div>
+    <div class="mt-10 flex flex-wrap gap-4">
+      <a href={`${prefix}/program/`} class="btn-primary">{t.ctaSee}</a>
+      <a href={`${prefix}/research/`} class="btn-secondary">{t.ctaAgenda}</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── The 2026 Goal ─────────────────────────────────────────────────────── -->
+<section class="py-16 border-t border-csr-gray-200">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <ProgramStatus lang={lang} />
+  </div>
+</section>
+
+<!-- ── Focus Areas ───────────────────────────────────────────────────────── -->
+<section class="py-16 border-t border-csr-gray-200">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center gap-3 mb-3"><SectionMark /><p class="label-mono">{t.pillarsLabel}</p></div>
+    <p class="text-csr-gray-500 text-sm mb-10 max-w-xl">{t.pillarsIntro}</p>
+    <div class="grid md:grid-cols-3 gap-6">
+      {t.pillars.map((p, i) => (
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all group">
+          <div class="mb-5 flex justify-center">
+            <Glyph name={(['biological', 'digital', 'qualia'] as const)[i]} size={80} class="opacity-80 group-hover:opacity-100 transition-opacity" />
+          </div>
+          <h3 class="font-bold text-csr-black mb-2 text-base">{p.title}</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed mb-4">{p.desc}</p>
+          <a href={`${prefix}${p.href}`} class="label-mono text-[11px] text-csr-primary hover:underline underline-offset-4">{p.link}</a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ── The Approach ──────────────────────────────────────────────────────── -->
+<section class="relative py-16 border-t border-csr-gray-200 overflow-hidden">
+  <SymmetryBackground variant="wave" opacity={0.05} />
+  <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center gap-3 mb-10"><SectionMark /><p class="label-mono">{t.approachLabel}</p></div>
+    <div class="grid md:grid-cols-3 gap-6">
+      {t.approach.map(([title, desc], i) => (
+        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+          <div class="mb-4 flex justify-center">
+            <Glyph name={(['symmetry-axis', 'invariant', 'measurement'] as const)[i]} size={40} class="opacity-70" />
+          </div>
+          <h3 class="font-bold text-csr-black mb-2 text-base">{title}</h3>
+          <p class="text-sm text-csr-gray-600 leading-relaxed">{desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ── Theoretical Foundations ───────────────────────────────────────────── -->
+<section class="relative py-16 border-t border-csr-gray-200 overflow-hidden">
+  <SymmetryBackground variant="lattice" opacity={0.035} />
+  <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center gap-3 mb-3"><SectionMark /><p class="label-mono">{t.foundLabel}</p></div>
+    <p class="text-csr-gray-500 text-sm mb-8 max-w-xl">{t.foundIntro}</p>
+    <div class="grid sm:grid-cols-2 gap-4">
+      {t.papers.map(([title, desc], i) => (
+        <a href={`${prefix}/reports/${slugs[i]}/`} class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+          <span class="label-mono text-[10px] shrink-0 mt-0.5">CSR-WP-0{i + 1}</span>
+          <div>
+            <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">{title}</h4>
+            <p class="text-xs text-csr-gray-500 mt-1">{desc}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+    <div class="mt-6">
+      <a href={`${prefix}/reports/`} class="text-sm font-medium text-csr-primary hover:text-csr-primary-dark transition-colors">{t.allReports}</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── References ───────────────────────────────────────────────────────── -->
+<section class="py-16 border-t border-csr-gray-200 bg-csr-gray-50/30">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center gap-3 mb-6"><SectionMark /><p class="label-mono">{t.refsLabel}</p></div>
+    <ol class="space-y-4 max-w-3xl">
+      <li id="ref-i1" class="flex gap-3 text-xs text-csr-gray-600 leading-relaxed">
+        <span class="shrink-0 font-mono text-csr-primary">[1]</span>
+        <span>Anthis, J. R. et al. (2025). <em>Perceptions of Sentient AI and Other Digital Minds: Evidence from the AI, Morality, and Sentience (AIMS) Survey.</em> CHI 2025. <a href="https://dl.acm.org/doi/10.1145/3706598.3713329" target="_blank" rel="noopener noreferrer" class="text-csr-primary hover:underline break-all">https://dl.acm.org/doi/10.1145/3706598.3713329</a></span>
+      </li>
+      <li id="ref-i2" class="flex gap-3 text-xs text-csr-gray-600 leading-relaxed">
+        <span class="shrink-0 font-mono text-csr-primary">[2]</span>
+        <span>Butlin, P. et al. (2023). <em>Consciousness in Artificial Intelligence: Insights from the Science of Consciousness.</em> arXiv. <a href="https://arxiv.org/abs/2308.08708" target="_blank" rel="noopener noreferrer" class="text-csr-primary hover:underline break-all">https://arxiv.org/abs/2308.08708</a></span>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ── CTA ───────────────────────────────────────────────────────────────── -->
+<section class="py-16 border-t border-csr-gray-200">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-white border border-csr-gray-100 rounded-3xl shadow-card p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+      <div class="max-w-xl">
+        <p class="label-mono mb-3">{t.ctaLabel}</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-csr-black mb-3 leading-tight">{t.ctaH2}</h2>
+        <p class="text-csr-gray-600 text-sm leading-relaxed">{t.ctaBody}</p>
+      </div>
+      <div class="shrink-0 flex flex-col gap-3">
+        <a href={`${prefix}/donate/`} class="btn-primary whitespace-nowrap">{t.ctaBtn1}</a>
+        <a href={`${prefix}/program/`} class="btn-secondary whitespace-nowrap text-center">{t.ctaBtn2}</a>
+      </div>
+    </div>
+  </div>
+</section>
