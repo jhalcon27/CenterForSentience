@@ -132,7 +132,7 @@ const slugs = ['first-principles', 'bio-electric-fields', 'assembly-theory', 'sy
     <div class="bg-white border border-csr-primary/25 rounded-2xl p-6 md:p-8 shadow-card">
       <div class="flex flex-col sm:flex-row sm:items-start gap-4">
         <div class="shrink-0 flex flex-col items-start gap-2">
-          <span class="label-mono text-[10px]">CSR-WP-05</span>
+          <span class="label-mono text-[10px]">Working Paper 05</span>
           <Glyph name="qualia" size={64} />
         </div>
         <div class="flex-1">
@@ -158,7 +158,7 @@ const slugs = ['first-principles', 'bio-electric-fields', 'assembly-theory', 'sy
     <div class="space-y-4">
       {t.papers.map(([title, desc], i) => (
         <a href={`${prefix}/reports/${slugs[i]}/`} class="group flex flex-col sm:flex-row gap-4 p-6 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
-          <div class="shrink-0"><span class="label-mono text-[10px]">CSR-WP-0{i + 1}</span></div>
+          <div class="shrink-0"><span class="label-mono text-[10px]">Working Paper 0{i + 1}</span></div>
           <div class="flex-1">
             <h3 class="font-bold text-csr-black text-base group-hover:text-csr-primary transition-colors mb-2 leading-snug">{title}</h3>
             <p class="text-sm text-csr-gray-600 leading-relaxed">{desc}</p>

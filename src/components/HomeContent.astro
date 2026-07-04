@@ -307,7 +307,7 @@ const slugs = ['first-principles', 'bio-electric-fields', 'assembly-theory', 'sy
     <div class="grid sm:grid-cols-2 gap-4">
       {t.papers.map(([title, desc], i) => (
         <a href={`${prefix}/reports/${slugs[i]}/`} class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
-          <span class="label-mono text-[10px] shrink-0 mt-0.5">CSR-WP-0{i + 1}</span>
+          <span class="label-mono text-[10px] shrink-0 mt-0.5">Working Paper 0{i + 1}</span>
           <div>
             <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">{title}</h4>
             <p class="text-xs text-csr-gray-500 mt-1">{desc}</p>
