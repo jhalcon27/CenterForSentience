@@ -24,11 +24,11 @@ const L: Record<string, { pos: string; neg: string; xaxis: string; yaxis: string
 };
 const t = L[lang] ?? L.en;
 
-const W = 640, H = 360;
+const W = 640, H = 250;
 const x0 = 80, x1 = 600;      // plot x-range
-const yTop = 40, yBot = 300;  // plot y-range
+const yTop = 30, yBot = 196;  // plot y-range
 const yZero = (yTop + yBot) / 2;
-const amp = (yBot - yTop) / 2 - 12;
+const amp = (yBot - yTop) / 2 - 10;
 
 const N = 48;
 const pts = Array.from({ length: N + 1 }, (_, i) => {

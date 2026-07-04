@@ -280,7 +280,7 @@ const glyphNames = ['qualia', 'digital', 'measurement'] as const;
 
 <!-- ── Header ────────────────────────────────────────────────────────────── -->
 <section class="relative pt-20 pb-12 border-b border-csr-gray-200 overflow-hidden">
-  <SymmetryBackground variant="rings" opacity={0.05} />
+  <SymmetryBackground variant="rings" opacity={0.09} />
   <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <p class="label-mono mb-4">{t.eyebrow}</p>
     <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6 max-w-2xl leading-tight">{t.h1}</h1>
@@ -317,7 +317,7 @@ const glyphNames = ['qualia', 'digital', 'measurement'] as const;
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
         {t.cards.map(([title, desc], i) => (
           <div class="p-6 bg-white border border-csr-gray-100 rounded-2xl shadow-card">
-            <div class="mb-4 flex justify-center"><Glyph name={glyphNames[i]} size={48} /></div>
+            <div class="mb-5 flex justify-center"><Glyph name={glyphNames[i]} size={56} /></div>
             <h3 class="font-bold text-csr-black mb-2 text-sm">{title}</h3>
             <p class="text-xs text-csr-gray-650 leading-relaxed">{desc}</p>
           </div>
