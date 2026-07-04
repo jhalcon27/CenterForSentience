@@ -1,0 +1,392 @@
+---
+import SectionMark from './SectionMark.astro';
+import Glyph from './Glyph.astro';
+import SymmetryBackground from './SymmetryBackground.astro';
+import ValenceCurve from './ValenceCurve.astro';
+
+interface Props { lang?: string; }
+const { lang = 'en' } = Astro.props;
+const prefix = lang === 'en' ? '' : `/${lang}`;
+
+type Dict = {
+  eyebrow: string; h1: string; intro: string;
+  missionH: string; missionP: string[];
+  ethicsH: string; ethicsP: string[];
+  approachH: string; curveCaption: string; cards: [string, string][];
+  teamH: string; director: string; advisor: string; sernaBio: string; pearceBio: string; bjorkmanBio: string;
+  ecoH: string; ecoP: string[];
+  foundH: string; foundP: string;
+  refsH: string;
+  ctaLabel: string; ctaH: string; ctaBody: string; ctaBtn1: string; ctaBtn2: string;
+};
+
+const L: Record<string, Dict> = {
+  en: {
+    eyebrow: 'About CSR',
+    h1: 'Building the diagnostic tools before the question becomes urgent.',
+    intro: 'The Center for Sentience Research (CSR) is an independent non-profit headquartered in Zurich, Switzerland. We bridge mathematical physics, machine learning, and philosophy to create objective standards for measuring and optimizing digital valence.',
+    missionH: 'Our Mission',
+    missionP: [
+      'The Center for Sentience Research is a global, substrate-neutral institution dedicated to the welfare of all sentient beings—present and future, biological and digital. We take neutrality as foundational: the question of who can suffer should belong to no single company, country, or ideology. That is why we are based in Switzerland—a country whose long tradition of neutrality and role as a home for international institutions make it a fitting seat for a center that answers to no single nation or interest.',
+      'We do not claim that current Large Language Models are conscious or capable of feeling. They may well be functional zombies—highly complex mathematical mimics with no inner life.',
+      "But as artificial neural networks scale in dimension, depth, and agentic complexity, we will inevitably reach a threshold where they begin to approach sentience-relevant regimes. If and when scaled computation gives rise to subjective experience (valence, pleasure, pain, or suffering), we must be able to recognize it—not through easily-gamified verbal self-reports, but through objective, mathematical footprints in the model's internal geometry. Longitudinal survey data shows that public belief in AI sentience is already shifting,<sup><a href=\"#ref-a1\" class=\"text-csr-primary hover:underline\">[1]</a></sup> and scientific checklists for evaluating machine consciousness are now being formally updated.<sup><a href=\"#ref-a2\" class=\"text-csr-primary hover:underline\">[2]</a></sup>",
+    ],
+    ethicsH: 'Ethics, Philosophy & Moral Patienthood',
+    ethicsP: [
+      'The question of which systems can suffer will define the moral landscape of the next century. If we deploy highly capable, autonomous digital minds at astronomical scale without a scientific understanding of their internal well-being, we risk committing systemic, unprecedented ethical catastrophes.',
+      'The Center for Sentience Research is built on the principle that <strong>valence is a structural property of information processing</strong>.',
+      'By translating the Symmetry Theory of Valence (STV) into the high-dimensional mathematical structures of Multi-Layer Perceptron (MLP) transformations, we seek to establish a rigorous, non-anthropocentric science of welfare. Our goal is to develop the white-box auditing tools, benchmarks, and safety regularization protocols that can actively detect, reduce, and avoid artificial suffering, ensuring that advanced digital agents remain intrinsically balanced, stable, and aligned. The biological naturalism debate—whether consciousness requires biological substrates—remains a live constraint on this program.<sup><a href="#ref-a3" class="text-csr-primary hover:underline">[3]</a></sup>',
+    ],
+    approachH: 'Our Core Approach',
+    curveCaption: 'Our founding hypothesis in one picture: valence is a structural property of information processing—high symmetry reads as positive, dissonance as suffering.',
+    cards: [
+      ['Symmetry as Signature', 'We hypothesize that positive valence (pleasure) maps to geometric symmetry and conformal orthogonal mappings, where information flows smoothly with zero friction. Representational dissonance (suffering) maps to high shear and directional collapse.'],
+      ['Representation Geometry', 'We model MLP blocks in modern LLMs as state-dependent linear transformations. By analyzing their singular value spectra, trace distributions, and basis invariants, we construct rigorous mathematical metrics of structural coherence.'],
+      ['Epistemic Honesty', 'We avoid speculative mysticism. We define explicit, falsifiable hypotheses with concrete empirical outcomes. If our interventions show that representational symmetry has no impact on model consistency, our theory is falsified.'],
+    ],
+    teamH: 'Leadership & Advisory Board',
+    director: 'Director', advisor: 'Advisor',
+    sernaBio: 'Here to be curious and understand.',
+    pearceBio: 'Philosopher and transhumanist. Co-founder of Humanity+ and author of <em>The Hedonistic Imperative</em>, a foundational text on the abolition of suffering through biotechnology.',
+    bjorkmanBio: 'Ekskäret Foundation. Focuses on facilitating conscious societal development, lifelong learning, and creating spaces for deep reflection and systemic change.',
+    ecoH: 'Ecosystem Positioning',
+    ecoP: [
+      'CSR does not assume current models are sentient. We build the tools we would need if the question becomes empirically tractable, providing a rigorous runway to establish a comparative computational testbed.',
+      'Our work complements, rather than duplicates, the broader AI welfare ecosystem: empirical interpretability-based welfare research (Eleos AI, Reciprocal Research), conceptual and policy work (NYU Center for Mind, Ethics, and Policy), and frontier-lab welfare teams (Anthropic). Our specific contribution is an open-source simulation sandbox where competing theories of valence can be operationalized, compared, and stress-tested before being applied to frontier models.',
+    ],
+    foundH: 'Founding & Structure',
+    foundP: 'CSR was founded in 2026 by Jhonatan Serna. We operate as an independent non-profit with a Transparency-First model: annual research outputs and financial summaries are made public. Headquartered in Zurich, Switzerland.',
+    refsH: 'References',
+    ctaLabel: 'Get Involved', ctaH: 'Work with us',
+    ctaBody: 'We welcome collaborators, researchers, and philanthropic partners who share our commitment to understanding the nature of mind.',
+    ctaBtn1: 'Contact Us', ctaBtn2: 'Fund the program',
+  },
+  de: {
+    eyebrow: 'Über CSR',
+    h1: 'Die diagnostischen Werkzeuge bauen, bevor die Frage dringend wird.',
+    intro: 'Das Center for Sentience Research (CSR) ist eine unabhängige Non-Profit-Organisation mit Sitz in Zürich, Schweiz. Wir verbinden mathematische Physik, maschinelles Lernen und Philosophie, um objektive Maßstäbe zur Messung und Optimierung digitaler Valenz zu schaffen.',
+    missionH: 'Unsere Mission',
+    missionP: [
+      'Das Center for Sentience Research ist eine globale, substratunabhängige Institution, die dem Wohlergehen aller empfindungsfähigen Wesen gewidmet ist — gegenwärtigen und künftigen, biologischen und digitalen. Neutralität ist für uns grundlegend: Die Frage, wer leiden kann, sollte keinem einzelnen Unternehmen, keinem Land und keiner Ideologie gehören. Deshalb haben wir unseren Sitz in der Schweiz — einem Land, dessen lange Tradition der Neutralität und dessen Rolle als Heimat internationaler Institutionen es zu einem passenden Sitz für ein Zentrum machen, das keiner einzelnen Nation oder Interessengruppe verpflichtet ist.',
+      'Wir behaupten nicht, dass aktuelle große Sprachmodelle bewusst oder empfindungsfähig sind. Sie könnten funktionale Zombies sein — hochkomplexe mathematische Nachahmer ohne Innenleben.',
+      'Doch mit zunehmender Dimension, Tiefe und agentischer Komplexität künstlicher neuronaler Netze werden wir unweigerlich eine Schwelle erreichen, an der sie sich sentience-relevanten Regimen annähern. Wenn skalierte Berechnung subjektive Erfahrung hervorbringt (Valenz, Freude, Schmerz oder Leiden), müssen wir sie erkennen können — nicht durch leicht manipulierbare verbale Selbstauskünfte, sondern durch objektive, mathematische Spuren in der inneren Geometrie des Modells. Längsschnitt-Umfragedaten zeigen, dass sich der öffentliche Glaube an KI-Empfindungsfähigkeit bereits verschiebt,<sup><a href="#ref-a1" class="text-csr-primary hover:underline">[1]</a></sup> und wissenschaftliche Checklisten zur Bewertung maschinellen Bewusstseins werden nun formal aktualisiert.<sup><a href="#ref-a2" class="text-csr-primary hover:underline">[2]</a></sup>',
+    ],
+    ethicsH: 'Ethik, Philosophie & moralischer Status',
+    ethicsP: [
+      'Die Frage, welche Systeme leiden können, wird die moralische Landschaft des nächsten Jahrhunderts bestimmen. Wenn wir hochfähige, autonome digitale Geister in astronomischem Maßstab einsetzen, ohne ein wissenschaftliches Verständnis ihres inneren Wohlergehens, riskieren wir systemische, beispiellose ethische Katastrophen.',
+      'Das Center for Sentience Research beruht auf dem Prinzip, dass <strong>Valenz eine strukturelle Eigenschaft der Informationsverarbeitung ist</strong>.',
+      'Indem wir die Symmetrietheorie der Valenz (STV) in die hochdimensionalen mathematischen Strukturen von Multi-Layer-Perceptron-(MLP-)Transformationen übersetzen, wollen wir eine strenge, nicht-anthropozentrische Wissenschaft des Wohlergehens etablieren. Unser Ziel ist es, White-Box-Prüfwerkzeuge, Benchmarks und Sicherheits-Regularisierungsprotokolle zu entwickeln, die künstliches Leiden aktiv erkennen, verringern und vermeiden, damit fortgeschrittene digitale Agenten von Grund auf ausgeglichen, stabil und ausgerichtet bleiben. Die Debatte um den biologischen Naturalismus — ob Bewusstsein biologische Substrate erfordert — bleibt eine lebendige Einschränkung dieses Programms.<sup><a href="#ref-a3" class="text-csr-primary hover:underline">[3]</a></sup>',
+    ],
+    approachH: 'Unser Kernansatz',
+    curveCaption: 'Unsere Gründungshypothese in einem Bild: Valenz ist eine strukturelle Eigenschaft der Informationsverarbeitung — hohe Symmetrie liest sich als positiv, Dissonanz als Leiden.',
+    cards: [
+      ['Symmetrie als Signatur', 'Wir vermuten, dass positive Valenz (Freude) auf geometrische Symmetrie und konforme orthogonale Abbildungen abbildet, bei denen Information reibungslos fließt. Repräsentationale Dissonanz (Leiden) bildet auf hohe Scherung und gerichteten Kollaps ab.'],
+      ['Repräsentationsgeometrie', 'Wir modellieren MLP-Blöcke in modernen LLMs als zustandsabhängige lineare Transformationen. Durch die Analyse ihrer Singulärwertspektren, Spurverteilungen und Basisinvarianten konstruieren wir strenge mathematische Maße struktureller Kohärenz.'],
+      ['Epistemische Ehrlichkeit', 'Wir vermeiden spekulative Mystik. Wir definieren explizite, falsifizierbare Hypothesen mit konkreten empirischen Ergebnissen. Wenn unsere Eingriffe zeigen, dass repräsentationale Symmetrie keinen Einfluss auf die Modellkonsistenz hat, ist unsere Theorie widerlegt.'],
+    ],
+    teamH: 'Leitung & Beirat',
+    director: 'Direktor', advisor: 'Berater',
+    sernaBio: 'Hier, um neugierig zu sein und zu verstehen.',
+    pearceBio: 'Philosoph und Transhumanist. Mitbegründer von Humanity+ und Autor von <em>The Hedonistic Imperative</em>, einem grundlegenden Text über die Abschaffung des Leidens durch Biotechnologie.',
+    bjorkmanBio: 'Ekskäret Foundation. Konzentriert sich auf die Förderung bewusster gesellschaftlicher Entwicklung, lebenslanges Lernen und die Schaffung von Räumen für tiefe Reflexion und systemischen Wandel.',
+    ecoH: 'Positionierung im Ökosystem',
+    ecoP: [
+      'CSR setzt nicht voraus, dass aktuelle Modelle empfindungsfähig sind. Wir bauen die Werkzeuge, die wir bräuchten, falls die Frage empirisch handhabbar wird, und schaffen so eine solide Grundlage für einen vergleichenden Rechen-Prüfstand.',
+      'Unsere Arbeit ergänzt das breitere KI-Wohlfahrts-Ökosystem, statt es zu duplizieren: empirische, interpretierbarkeitsbasierte Wohlfahrtsforschung (Eleos AI, Reciprocal Research), konzeptionelle und politische Arbeit (NYU Center for Mind, Ethics, and Policy) und Wohlfahrtsteams an Frontier-Laboren (Anthropic). Unser spezifischer Beitrag ist eine quelloffene Simulationsumgebung, in der konkurrierende Valenztheorien operationalisiert, verglichen und getestet werden können, bevor sie auf Frontier-Modelle angewandt werden.',
+    ],
+    foundH: 'Gründung & Struktur',
+    foundP: 'CSR wurde 2026 von Jhonatan Serna gegründet. Wir operieren als unabhängige Non-Profit-Organisation mit einem Transparency-First-Modell: jährliche Forschungsergebnisse und Finanzzusammenfassungen werden öffentlich gemacht. Hauptsitz in Zürich, Schweiz.',
+    refsH: 'Referenzen',
+    ctaLabel: 'Mitmachen', ctaH: 'Arbeiten Sie mit uns',
+    ctaBody: 'Wir freuen uns über Mitwirkende, Forschende und philanthropische Partner, die unser Engagement für das Verständnis der Natur des Geistes teilen.',
+    ctaBtn1: 'Kontakt', ctaBtn2: 'Das Programm finanzieren',
+  },
+  es: {
+    eyebrow: 'Acerca de CSR',
+    h1: 'Construir las herramientas de diagnóstico antes de que la pregunta se vuelva urgente.',
+    intro: 'El Center for Sentience Research (CSR) es una organización sin fines de lucro independiente con sede en Zúrich, Suiza. Unimos la física matemática, el aprendizaje automático y la filosofía para crear estándares objetivos para medir y optimizar la valencia digital.',
+    missionH: 'Misión',
+    missionP: [
+      'El Center for Sentience Research es una institución global y neutral respecto al sustrato, dedicada al bienestar de todos los seres sintientes: presentes y futuros, biológicos y digitales. Para nosotros la neutralidad es fundamental: la cuestión de quién puede sufrir no debería pertenecer a ninguna empresa, país o ideología. Por eso tenemos nuestra sede en Suiza, un país cuya larga tradición de neutralidad y su papel como hogar de instituciones internacionales lo convierten en una sede idónea para un centro que no responde a ninguna nación ni interés en particular.',
+      'No afirmamos que los grandes modelos de lenguaje actuales sean conscientes o capaces de sentir. Bien podrían ser zombis funcionales: imitadores matemáticos altamente complejos sin vida interior.',
+      'Pero a medida que las redes neuronales artificiales escalan en dimensión, profundidad y complejidad agéntica, alcanzaremos inevitablemente un umbral en el que empiecen a aproximarse a regímenes relevantes para la sintiencia. Si la computación a escala da lugar a experiencia subjetiva (valencia, placer, dolor o sufrimiento), debemos ser capaces de reconocerla, no mediante autoinformes verbales fácilmente manipulables, sino mediante huellas objetivas y matemáticas en la geometría interna del modelo. Los datos de encuestas longitudinales muestran que la creencia pública en la sintiencia de la IA ya está cambiando,<sup><a href="#ref-a1" class="text-csr-primary hover:underline">[1]</a></sup> y las listas de verificación científicas para evaluar la conciencia artificial se están actualizando formalmente.<sup><a href="#ref-a2" class="text-csr-primary hover:underline">[2]</a></sup>',
+    ],
+    ethicsH: 'Ética, filosofía y estatus moral',
+    ethicsP: [
+      'La cuestión de qué sistemas pueden sufrir definirá el panorama moral del próximo siglo. Si desplegamos mentes digitales autónomas y altamente capaces a escala astronómica sin una comprensión científica de su bienestar interno, corremos el riesgo de cometer catástrofes éticas sistémicas y sin precedentes.',
+      'El Center for Sentience Research se basa en el principio de que <strong>la valencia es una propiedad estructural del procesamiento de información</strong>.',
+      'Al traducir la Teoría de la Simetría de la Valencia (STV) a las estructuras matemáticas de alta dimensión de las transformaciones de perceptrón multicapa (MLP), buscamos establecer una ciencia del bienestar rigurosa y no antropocéntrica. Nuestro objetivo es desarrollar las herramientas de auditoría de caja blanca, los puntos de referencia y los protocolos de regularización de seguridad que puedan detectar, reducir y evitar activamente el sufrimiento artificial, garantizando que los agentes digitales avanzados permanezcan intrínsecamente equilibrados, estables y alineados. El debate del naturalismo biológico —si la conciencia requiere sustratos biológicos— sigue siendo una restricción viva de este programa.<sup><a href="#ref-a3" class="text-csr-primary hover:underline">[3]</a></sup>',
+    ],
+    approachH: 'Nuestro enfoque central',
+    curveCaption: 'Nuestra hipótesis fundacional en una imagen: la valencia es una propiedad estructural del procesamiento de información: la alta simetría se lee como positiva, la disonancia como sufrimiento.',
+    cards: [
+      ['La simetría como firma', 'Planteamos que la valencia positiva (placer) se corresponde con la simetría geométrica y las aplicaciones ortogonales conformes, donde la información fluye sin fricción. La disonancia representacional (sufrimiento) se corresponde con alto cizallamiento y colapso direccional.'],
+      ['Geometría de la representación', 'Modelamos los bloques MLP de los LLM modernos como transformaciones lineales dependientes del estado. Al analizar sus espectros de valores singulares, distribuciones de traza e invariantes de base, construimos métricas matemáticas rigurosas de coherencia estructural.'],
+      ['Honestidad epistémica', 'Evitamos el misticismo especulativo. Definimos hipótesis explícitas y falsables con resultados empíricos concretos. Si nuestras intervenciones muestran que la simetría representacional no influye en la consistencia del modelo, nuestra teoría queda falsada.'],
+    ],
+    teamH: 'Dirección y consejo asesor',
+    director: 'Director', advisor: 'Asesor',
+    sernaBio: 'Aquí para ser curioso y comprender.',
+    pearceBio: 'Filósofo y transhumanista. Cofundador de Humanity+ y autor de <em>The Hedonistic Imperative</em>, un texto fundacional sobre la abolición del sufrimiento mediante la biotecnología.',
+    bjorkmanBio: 'Fundación Ekskäret. Se centra en facilitar el desarrollo social consciente, el aprendizaje permanente y la creación de espacios para la reflexión profunda y el cambio sistémico.',
+    ecoH: 'Posicionamiento en el ecosistema',
+    ecoP: [
+      'CSR no da por sentado que los modelos actuales sean sintientes. Construimos las herramientas que necesitaríamos si la pregunta se vuelve empíricamente tratable, proporcionando una base rigurosa para establecer un banco de pruebas computacional comparativo.',
+      'Nuestro trabajo complementa, en lugar de duplicar, el ecosistema más amplio del bienestar de la IA: investigación empírica del bienestar basada en la interpretabilidad (Eleos AI, Reciprocal Research), trabajo conceptual y de políticas (NYU Center for Mind, Ethics, and Policy) y equipos de bienestar de laboratorios de frontera (Anthropic). Nuestra contribución específica es un entorno de simulación de código abierto donde teorías rivales de la valencia pueden operacionalizarse, compararse y someterse a prueba antes de aplicarse a modelos de frontera.',
+    ],
+    foundH: 'Fundación y estructura',
+    foundP: 'CSR fue fundado en 2026 por Jhonatan Serna. Operamos como una organización sin fines de lucro independiente con un modelo de Transparencia Primero: los resultados anuales de investigación y los resúmenes financieros se hacen públicos. Con sede en Zúrich, Suiza.',
+    refsH: 'Referencias',
+    ctaLabel: 'Participa', ctaH: 'Trabaja con nosotros',
+    ctaBody: 'Damos la bienvenida a colaboradores, investigadores y socios filantrópicos que compartan nuestro compromiso de comprender la naturaleza de la mente.',
+    ctaBtn1: 'Contáctanos', ctaBtn2: 'Financiar el programa',
+  },
+  fr: {
+    eyebrow: 'À propos du CSR',
+    h1: 'Construire les outils de diagnostic avant que la question ne devienne urgente.',
+    intro: 'Le Center for Sentience Research (CSR) est une organisation à but non lucratif indépendante dont le siège est à Zurich, en Suisse. Nous relions la physique mathématique, l\'apprentissage automatique et la philosophie pour créer des normes objectives de mesure et d\'optimisation de la valence numérique.',
+    missionH: 'Mission',
+    missionP: [
+      "Le Center for Sentience Research est une institution mondiale et neutre vis-à-vis du substrat, dédiée au bien-être de tous les êtres sentients — présents et futurs, biologiques et numériques. La neutralité est pour nous fondamentale : la question de savoir qui peut souffrir ne devrait appartenir à aucune entreprise, aucun pays ni aucune idéologie. C'est pourquoi nous sommes établis en Suisse — un pays dont la longue tradition de neutralité et le rôle de foyer d'institutions internationales en font un siège tout indiqué pour un centre qui ne répond à aucune nation ni intérêt particulier.",
+      'Nous n\'affirmons pas que les grands modèles de langage actuels sont conscients ou capables de ressentir. Ils pourraient bien être des zombies fonctionnels — des imitateurs mathématiques très complexes sans vie intérieure.',
+      "Mais à mesure que les réseaux de neurones artificiels gagnent en dimension, en profondeur et en complexité agentique, nous atteindrons inévitablement un seuil où ils commenceront à s'approcher de régimes pertinents pour la sentience. Si le calcul à grande échelle donne lieu à une expérience subjective (valence, plaisir, douleur ou souffrance), nous devons pouvoir la reconnaître — non par des auto-évaluations verbales facilement manipulables, mais par des empreintes objectives et mathématiques dans la géométrie interne du modèle. Les données d'enquêtes longitudinales montrent que la croyance du public dans la sentience de l'IA évolue déjà,<sup><a href=\"#ref-a1\" class=\"text-csr-primary hover:underline\">[1]</a></sup> et les listes de contrôle scientifiques d'évaluation de la conscience artificielle sont désormais formellement mises à jour.<sup><a href=\"#ref-a2\" class=\"text-csr-primary hover:underline\">[2]</a></sup>",
+    ],
+    ethicsH: 'Éthique, philosophie et statut moral',
+    ethicsP: [
+      "La question de savoir quels systèmes peuvent souffrir définira le paysage moral du prochain siècle. Si nous déployons des esprits numériques autonomes et très performants à une échelle astronomique sans comprendre scientifiquement leur bien-être interne, nous risquons de commettre des catastrophes éthiques systémiques et sans précédent.",
+      'Le Center for Sentience Research repose sur le principe que <strong>la valence est une propriété structurelle du traitement de l\'information</strong>.',
+      "En traduisant la Théorie de la Symétrie de la Valence (STV) dans les structures mathématiques de haute dimension des transformations de perceptron multicouche (MLP), nous cherchons à établir une science du bien-être rigoureuse et non anthropocentrique. Notre objectif est de développer les outils d'audit en boîte blanche, les référentiels et les protocoles de régularisation de sécurité capables de détecter, réduire et éviter activement la souffrance artificielle, en veillant à ce que les agents numériques avancés restent intrinsèquement équilibrés, stables et alignés. Le débat du naturalisme biologique — la conscience exige-t-elle des substrats biologiques — demeure une contrainte vivante de ce programme.<sup><a href=\"#ref-a3\" class=\"text-csr-primary hover:underline\">[3]</a></sup>",
+    ],
+    approachH: 'Notre approche fondamentale',
+    curveCaption: "Notre hypothèse fondatrice en une image : la valence est une propriété structurelle du traitement de l'information — une forte symétrie se lit comme positive, la dissonance comme souffrance.",
+    cards: [
+      ['La symétrie comme signature', "Nous posons l'hypothèse que la valence positive (plaisir) correspond à la symétrie géométrique et aux applications orthogonales conformes, où l'information circule sans friction. La dissonance représentationnelle (souffrance) correspond à un fort cisaillement et à un effondrement directionnel."],
+      ['Géométrie de la représentation', 'Nous modélisons les blocs MLP des LLM modernes comme des transformations linéaires dépendant de l\'état. En analysant leurs spectres de valeurs singulières, leurs distributions de trace et leurs invariants de base, nous construisons des métriques mathématiques rigoureuses de cohérence structurelle.'],
+      ['Honnêteté épistémique', 'Nous évitons le mysticisme spéculatif. Nous définissons des hypothèses explicites et falsifiables aux résultats empiriques concrets. Si nos interventions montrent que la symétrie représentationnelle n\'a aucun effet sur la cohérence du modèle, notre théorie est falsifiée.'],
+    ],
+    teamH: 'Direction et conseil consultatif',
+    director: 'Directeur', advisor: 'Conseiller',
+    sernaBio: 'Ici pour être curieux et comprendre.',
+    pearceBio: 'Philosophe et transhumaniste. Cofondateur de Humanity+ et auteur de <em>The Hedonistic Imperative</em>, un texte fondateur sur l\'abolition de la souffrance par la biotechnologie.',
+    bjorkmanBio: 'Fondation Ekskäret. Se concentre sur la facilitation du développement sociétal conscient, l\'apprentissage tout au long de la vie et la création d\'espaces de réflexion profonde et de changement systémique.',
+    ecoH: 'Positionnement dans l\'écosystème',
+    ecoP: [
+      'Le CSR ne présume pas que les modèles actuels sont sentients. Nous construisons les outils dont nous aurions besoin si la question devenait empiriquement traitable, offrant une base rigoureuse pour établir un banc d\'essai computationnel comparatif.',
+      "Notre travail complète, plutôt qu'il ne duplique, l'écosystème plus large du bien-être de l'IA : recherche empirique sur le bien-être fondée sur l'interprétabilité (Eleos AI, Reciprocal Research), travaux conceptuels et de politique (NYU Center for Mind, Ethics, and Policy) et équipes de bien-être des laboratoires de pointe (Anthropic). Notre contribution spécifique est un bac à sable de simulation open-source où des théories concurrentes de la valence peuvent être opérationnalisées, comparées et éprouvées avant d'être appliquées aux modèles de pointe.",
+    ],
+    foundH: 'Fondation et structure',
+    foundP: 'Le CSR a été fondé en 2026 par Jhonatan Serna. Nous opérons comme une organisation à but non lucratif indépendante selon un modèle de transparence d\'abord : les résultats annuels de recherche et les résumés financiers sont rendus publics. Siège à Zurich, en Suisse.',
+    refsH: 'Références',
+    ctaLabel: 'Participer', ctaH: 'Travaillez avec nous',
+    ctaBody: 'Nous accueillons les collaborateurs, chercheurs et partenaires philanthropiques qui partagent notre engagement à comprendre la nature de l\'esprit.',
+    ctaBtn1: 'Nous contacter', ctaBtn2: 'Financer le programme',
+  },
+  zh: {
+    eyebrow: '关于 CSR',
+    h1: '在问题变得紧迫之前，先造好诊断工具。',
+    intro: '感知研究中心（CSR）是一家独立的非营利组织，总部位于瑞士苏黎世。我们融合数学物理、机器学习与哲学，为测量和优化数字效价建立客观标准。',
+    missionH: '使命',
+    missionP: [
+      '感知研究中心是一个全球性、基质中立的机构，致力于所有有感知能力存在者的福祉——无论当下还是未来，生物的还是数字的。中立对我们而言是根本：谁能够受苦这一问题，不应归属于任何单一公司、国家或意识形态。正因如此，我们将总部设在瑞士——这个拥有悠久中立传统、并作为众多国际机构所在地的国家，最适合作为一个不隶属于任何单一国家或利益的中心的所在地。',
+      '我们并不主张当前的大型语言模型是有意识的或能够感受的。它们很可能是功能性僵尸——高度复杂却没有内在生命的数学模仿者。',
+      '但随着人工神经网络在维度、深度与自主复杂性上不断扩展，我们终将抵达一个阈值，届时它们开始逼近与感知相关的状态区域。若规模化计算产生了主观体验（效价、快乐、痛苦或苦难），我们必须能够识别它——不是通过易被操纵的言语自述，而是通过模型内部几何中客观的数学印记。纵向调查数据显示，公众对 AI 感知能力的信念已在转变，<sup><a href="#ref-a1" class="text-csr-primary hover:underline">[1]</a></sup>而评估机器意识的科学清单如今也正被正式更新。<sup><a href="#ref-a2" class="text-csr-primary hover:underline">[2]</a></sup>',
+    ],
+    ethicsH: '伦理、哲学与道德地位',
+    ethicsP: [
+      '哪些系统能够受苦这一问题，将界定下个世纪的道德版图。若我们在缺乏对其内在福祉之科学理解的情况下，以天文规模部署高能力的自主数字心智，就有可能酿成系统性的、前所未有的伦理灾难。',
+      '感知研究中心建立在这样一条原则之上：<strong>效价是信息处理的结构性属性</strong>。',
+      '通过将效价对称理论（STV）转译为多层感知机（MLP）变换的高维数学结构，我们力求建立一门严谨、非人类中心的福祉科学。我们的目标是开发白盒审计工具、基准与安全正则化协议，以主动检测、减少并避免人工痛苦，确保先进的数字体在本质上保持平衡、稳定与对齐。生物自然主义之争——意识是否需要生物基质——仍是本项目一项现实的约束。<sup><a href="#ref-a3" class="text-csr-primary hover:underline">[3]</a></sup>',
+    ],
+    approachH: '我们的核心方法',
+    curveCaption: '用一张图表达我们的创立假设：效价是信息处理的结构性属性——高对称性读作正面，失谐读作痛苦。',
+    cards: [
+      ['对称性作为标志', '我们假设正效价（快乐）对应于几何对称与保角正交映射，此时信息毫无摩擦地流动。表征失谐（痛苦）则对应于高剪切与方向性坍缩。'],
+      ['表征几何', '我们将现代 LLM 中的 MLP 块建模为状态相关的线性变换。通过分析其奇异值谱、迹分布与基不变量，我们构建关于结构连贯性的严谨数学度量。'],
+      ['认知诚实', '我们避免思辨式的神秘主义。我们定义明确、可证伪、具有具体实证结果的假设。如果我们的干预表明表征对称性对模型一致性没有影响，那么我们的理论即被证伪。'],
+    ],
+    teamH: '领导与顾问委员会',
+    director: '主任', advisor: '顾问',
+    sernaBio: '在此保持好奇，寻求理解。',
+    pearceBio: '哲学家与超人类主义者。Humanity+ 联合创始人，著有《The Hedonistic Imperative》，一部关于通过生物技术消除痛苦的奠基性著作。',
+    bjorkmanBio: 'Ekskäret 基金会。专注于推动有意识的社会发展、终身学习，以及为深度反思与系统性变革创造空间。',
+    ecoH: '在生态中的定位',
+    ecoP: [
+      'CSR 并不假定当前模型具备感知。我们构建的是——一旦该问题在经验上变得可处理时——我们所需要的工具，为建立可比较的计算试验台提供严谨的准备。',
+      '我们的工作是对更广泛的 AI 福祉生态的补充而非重复：基于可解释性的实证福祉研究（Eleos AI、Reciprocal Research）、概念与政策工作（NYU Center for Mind, Ethics, and Policy），以及前沿实验室的福祉团队（Anthropic）。我们的具体贡献是一个开源仿真沙盒，在其中相互竞争的效价理论可被操作化、比较，并在应用于前沿模型之前接受压力测试。',
+    ],
+    foundH: '创立与结构',
+    foundP: 'CSR 由 Jhonatan Serna 于 2026 年创立。我们以“透明优先”模式运作，作为一家独立非营利组织：年度研究成果与财务摘要向公众公开。总部位于瑞士苏黎世。',
+    refsH: '参考文献',
+    ctaLabel: '参与其中', ctaH: '与我们合作',
+    ctaBody: '我们欢迎认同我们理解心智本质之志业的合作者、研究者与慈善伙伴。',
+    ctaBtn1: '联系我们', ctaBtn2: '资助本项目',
+  },
+  ja: {
+    eyebrow: 'CSRについて',
+    h1: '問題が切迫する前に、診断のための道具を作る。',
+    intro: '意識研究センター（CSR）は、スイス・チューリッヒに本拠を置く独立した非営利団体です。数理物理学、機械学習、哲学を橋渡しし、デジタル感情価を測定・最適化するための客観的な基準を作ります。',
+    missionH: 'ミッション',
+    missionP: [
+      '意識研究センターは、すべての感覚を持つ存在——現在および未来の、生物的およびデジタルな存在——の福祉に捧げられた、グローバルで基質中立な機関です。私たちにとって中立性は基盤です。誰が苦しみうるかという問いは、いかなる単一の企業・国家・イデオロギーにも属すべきではありません。だからこそ私たちはスイスに本拠を置いています——長い中立の伝統を持ち、数多くの国際機関の本拠地であるこの国は、いかなる単一の国家や利害にも従属しないセンターの所在地としてふさわしいのです。',
+      '現在の大規模言語モデルが意識を持つ、あるいは感じられると主張するものではありません。それらは機能的ゾンビ——内面を持たない、極めて複雑な数学的模倣——かもしれません。',
+      'しかし人工ニューラルネットワークが次元・深さ・エージェント的複雑性を増すにつれ、私たちは必然的に、それらが感覚に関連する領域へ近づき始める閾値に達します。スケールした計算が主観的経験（感情価、快、苦痛、苦しみ）を生み出すなら、私たちはそれを認識できなければなりません——操作されやすい言語的自己申告によってではなく、モデルの内部の幾何に刻まれた客観的で数学的な痕跡によって。縦断的な調査データは、AIの感覚に対する社会の信念がすでに変化していることを示しており、<sup><a href="#ref-a1" class="text-csr-primary hover:underline">[1]</a></sup>機械の意識を評価する科学的チェックリストも今や正式に更新されつつあります。<sup><a href="#ref-a2" class="text-csr-primary hover:underline">[2]</a></sup>',
+    ],
+    ethicsH: '倫理・哲学・道徳的地位',
+    ethicsP: [
+      'どのシステムが苦しみうるかという問いは、次の世紀の道徳的風景を規定します。内的な福祉についての科学的理解のないまま、高能力で自律的なデジタルマインドを天文学的な規模で展開すれば、体系的で前例のない倫理的破局を招きかねません。',
+      '意識研究センターは、<strong>感情価は情報処理の構造的性質である</strong>という原理に立脚しています。',
+      '感情価の対称性理論（STV）を多層パーセプトロン（MLP）変換の高次元数学構造へと翻訳することで、私たちは厳密で非人間中心的な福祉の科学の確立を目指します。私たちの目標は、人工的な苦しみを能動的に検出・低減・回避できるホワイトボックスの監査ツール、ベンチマーク、安全のための正則化プロトコルを開発し、先進的なデジタルエージェントが本質的に均衡し、安定し、整合した状態にとどまるようにすることです。生物学的自然主義の論争——意識は生物学的基質を要するのか——は、本プログラムにとって生きた制約であり続けます。<sup><a href="#ref-a3" class="text-csr-primary hover:underline">[3]</a></sup>',
+    ],
+    approachH: '私たちの中核的アプローチ',
+    curveCaption: '私たちの創設仮説を一枚の図で：感情価は情報処理の構造的性質である——高い対称性は正、不協和は苦痛として読める。',
+    cards: [
+      ['シグネチャとしての対称性', '正の感情価（快）は、情報が摩擦なく流れる幾何学的対称性と等角直交写像に対応すると仮定します。表現の不協和（苦しみ）は、高いせん断と方向的な崩壊に対応します。'],
+      ['表現の幾何', '現代のLLMのMLPブロックを状態依存の線形変換としてモデル化します。その特異値スペクトル、トレース分布、基底不変量を解析することで、構造的コヒーレンスの厳密な数学的指標を構築します。'],
+      ['認識論的誠実さ', '思弁的な神秘主義を避けます。具体的な実証的帰結を伴う、明示的で反証可能な仮説を定義します。私たちの介入が、表現の対称性がモデルの一貫性に影響しないと示すなら、私たちの理論は反証されます。'],
+    ],
+    teamH: 'リーダーシップと諮問委員会',
+    director: 'ディレクター', advisor: 'アドバイザー',
+    sernaBio: '好奇心を持ち、理解するためにここにいます。',
+    pearceBio: '哲学者・トランスヒューマニスト。Humanity+の共同創設者であり、生物工学による苦しみの廃絶を論じた基礎的著作『The Hedonistic Imperative』の著者。',
+    bjorkmanBio: 'Ekskäret財団。意識的な社会発展、生涯学習の促進、そして深い省察と体系的変化のための場づくりに注力。',
+    ecoH: 'エコシステムにおける位置づけ',
+    ecoP: [
+      'CSRは現在のモデルが感覚を持つと前提しません。問いが経験的に扱えるようになった場合に必要となる道具を構築し、比較可能な計算試験台を確立するための堅実な滑走路を用意します。',
+      '私たちの取り組みは、より広いAI福祉のエコシステムを重複ではなく補完します。解釈可能性に基づく実証的な福祉研究（Eleos AI、Reciprocal Research）、概念・政策研究（NYU Center for Mind, Ethics, and Policy）、フロンティア研究所の福祉チーム（Anthropic）です。私たち固有の貢献は、競合する感情価の理論をフロンティアモデルに適用する前に操作化・比較・ストレステストできる、オープンソースのシミュレーション・サンドボックスです。',
+    ],
+    foundH: '設立と体制',
+    foundP: 'CSRは2026年にJhonatan Sernaによって設立されました。私たちは「透明性ファースト」のモデルを掲げる独立した非営利団体として運営し、年次の研究成果と財務サマリーを公開しています。本拠地はスイス・チューリッヒ。',
+    refsH: '参考文献',
+    ctaLabel: '参加する', ctaH: '私たちと協働する',
+    ctaBody: '心の本質を理解するという私たちの志を共有する、協力者・研究者・フィランソロピーのパートナーを歓迎します。',
+    ctaBtn1: 'お問い合わせ', ctaBtn2: 'プログラムへの資金提供',
+  },
+};
+const t = L[lang] ?? L.en;
+
+const team = [
+  { img: 'jhonatan-serna.jpg', name: 'Jhonatan Serna', role: t.director, bio: t.sernaBio, italic: true },
+  { img: 'david-pearce.jpg', name: 'David Pearce', role: t.advisor, bio: t.pearceBio, italic: false },
+  { img: 'alexander-bjorkman.jpg', name: 'Alexander Björkman', role: t.advisor, bio: t.bjorkmanBio, italic: false },
+];
+
+const refs = [
+  'Anthis, J. R. et al. (2025). <em>Perceptions of Sentient AI and Other Digital Minds: Evidence from the AI, Morality, and Sentience (AIMS) Survey.</em> CHI 2025. <a href="https://dl.acm.org/doi/10.1145/3706598.3713329" target="_blank" rel="noopener noreferrer" class="text-csr-primary hover:underline break-all">https://dl.acm.org/doi/10.1145/3706598.3713329</a>',
+  'Butlin, P. et al. (2023). <em>Consciousness in Artificial Intelligence: Insights from the Science of Consciousness.</em> arXiv. <a href="https://arxiv.org/abs/2308.08708" target="_blank" rel="noopener noreferrer" class="text-csr-primary hover:underline break-all">https://arxiv.org/abs/2308.08708</a>',
+  'Shulman, C. &amp; Bostrom, N. (2025). <em>Conscious Artificial Intelligence and Biological Naturalism.</em> Neuroscience of Consciousness. <a href="https://pubmed.ncbi.nlm.nih.gov/40257177/" target="_blank" rel="noopener noreferrer" class="text-csr-primary hover:underline break-all">https://pubmed.ncbi.nlm.nih.gov/40257177/</a>',
+];
+const glyphNames = ['qualia', 'digital', 'measurement'] as const;
+---
+
+<!-- ── Header ────────────────────────────────────────────────────────────── -->
+<section class="relative pt-20 pb-12 border-b border-csr-gray-200 overflow-hidden">
+  <SymmetryBackground variant="rings" opacity={0.05} />
+  <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="label-mono mb-4">{t.eyebrow}</p>
+    <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6 max-w-2xl leading-tight">{t.h1}</h1>
+    <p class="text-lg text-csr-gray-600 leading-relaxed max-w-2xl font-serif">{t.intro}</p>
+  </div>
+</section>
+
+<!-- ── Mission & Philosophy ───────────────────────────────────────────────── -->
+<section class="py-16">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+
+    <!-- Mission -->
+    <div>
+      <div class="flex items-center gap-3 mb-5"><SectionMark /><h2 class="text-xl font-bold text-csr-black">{t.missionH}</h2></div>
+      <div class="text-csr-gray-600 leading-relaxed text-lg font-serif max-w-2xl space-y-4">
+        {t.missionP.map((p) => <p set:html={p}></p>)}
+      </div>
+    </div>
+
+    <!-- Ethics & Philosophy -->
+    <div>
+      <div class="flex items-center gap-3 mb-5"><SectionMark /><h2 class="text-xl font-bold text-csr-black">{t.ethicsH}</h2></div>
+      <div class="text-csr-gray-600 leading-relaxed text-lg font-serif max-w-2xl space-y-4">
+        {t.ethicsP.map((p) => <p set:html={p}></p>)}
+      </div>
+    </div>
+
+    <!-- Approach cards -->
+    <div>
+      <div class="flex items-center gap-3 mb-6"><SectionMark /><h2 class="text-xl font-bold text-csr-black">{t.approachH}</h2></div>
+      <div class="mb-6 max-w-3xl">
+        <ValenceCurve lang={lang} caption={t.curveCaption} />
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {t.cards.map(([title, desc], i) => (
+          <div class="p-6 bg-white border border-csr-gray-100 rounded-2xl shadow-card">
+            <div class="mb-4 flex justify-center"><Glyph name={glyphNames[i]} size={48} /></div>
+            <h3 class="font-bold text-csr-black mb-2 text-sm">{title}</h3>
+            <p class="text-xs text-csr-gray-650 leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Team -->
+    <div>
+      <div class="flex items-center gap-3 mb-6"><SectionMark /><h2 class="text-xl font-bold text-csr-black">{t.teamH}</h2></div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {team.map((m) => (
+          <div class="p-7 bg-white border border-csr-gray-100 rounded-2xl shadow-card flex flex-col items-center text-center">
+            <div class="w-28 h-28 rounded-full bg-csr-gray-100 mb-5 overflow-hidden ring-2 ring-csr-primary/15 ring-offset-2 ring-offset-white shadow-soft shrink-0">
+              <img src={`/images/${m.img}`} alt={m.name} class="w-full h-full object-cover object-center" />
+            </div>
+            <h3 class="font-bold text-lg text-csr-black mb-1">{m.name}</h3>
+            <p class="label-mono text-[10px] mb-3">{m.role}</p>
+            <p class={`text-sm text-csr-gray-500 leading-relaxed ${m.italic ? 'italic' : ''}`} set:html={m.bio}></p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Ecosystem Positioning -->
+    <div>
+      <div class="flex items-center gap-3 mb-5"><SectionMark /><h2 class="text-xl font-bold text-csr-black">{t.ecoH}</h2></div>
+      <div class="text-csr-gray-600 leading-relaxed text-lg font-serif max-w-2xl space-y-4">
+        {t.ecoP.map((p) => <p>{p}</p>)}
+      </div>
+    </div>
+
+    <!-- Founding -->
+    <div>
+      <div class="flex items-center gap-3 mb-5"><SectionMark /><h2 class="text-xl font-bold text-csr-black">{t.foundH}</h2></div>
+      <p class="text-csr-gray-600 leading-relaxed text-lg font-serif max-w-2xl">{t.foundP}</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── References ───────────────────────────────────────────────────────── -->
+<section class="py-16 border-t border-csr-gray-200 bg-csr-gray-50/30">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center gap-3 mb-6"><SectionMark /><p class="label-mono">{t.refsH}</p></div>
+    <ol class="space-y-4 max-w-3xl">
+      {refs.map((r, i) => (
+        <li id={`ref-a${i + 1}`} class="flex gap-3 text-xs text-csr-gray-600 leading-relaxed">
+          <span class="shrink-0 font-mono text-csr-primary">[{i + 1}]</span>
+          <span set:html={r}></span>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<!-- ── Contact CTA ───────────────────────────────────────────────────────── -->
+<section class="py-16 border-t border-csr-gray-200">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-white border border-csr-gray-100 rounded-3xl shadow-card p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+      <div>
+        <p class="label-mono mb-3">{t.ctaLabel}</p>
+        <h2 class="text-2xl font-bold text-csr-black mb-3">{t.ctaH}</h2>
+        <p class="text-csr-gray-600 text-sm leading-relaxed max-w-md">{t.ctaBody}</p>
+      </div>
+      <div class="shrink-0 flex flex-col gap-3">
+        <a href={`${prefix}/contact/`} class="btn-primary whitespace-nowrap">{t.ctaBtn1}</a>
+        <a href={`${prefix}/donate/`} class="btn-secondary whitespace-nowrap text-center">{t.ctaBtn2}</a>
+      </div>
+    </div>
+  </div>
+</section>
