@@ -11,15 +11,15 @@ interface Props {
 const { lang = 'en' } = Astro.props;
 
 const L: Record<string, { roadmap: string; target: string; rows: [string, string][] }> = {
-  en: { roadmap: 'Program roadmap', target: 'Target: end of 2026', rows: [['Literature synthesis', 'Ongoing'], ['Formal workspace definition', 'In progress'], ['Empirical validation', 'Pending']] },
-  de: { roadmap: 'Programm-Fahrplan', target: 'Ziel: Ende 2026', rows: [['Literatursynthese', 'Laufend'], ['Formale Workspace-Definition', 'In Arbeit'], ['Empirische Validierung', 'Ausstehend']] },
-  es: { roadmap: 'Hoja de ruta del programa', target: 'Objetivo: fines de 2026', rows: [['Síntesis de literatura', 'En curso'], ['Definición formal del espacio', 'En progreso'], ['Validación empírica', 'Pendiente']] },
-  fr: { roadmap: 'Feuille de route du programme', target: 'Objectif : fin 2026', rows: [['Synthèse de la littérature', 'En cours'], ['Définition formelle de l\'espace', 'En progression'], ['Validation empirique', 'En attente']] },
-  zh: { roadmap: '项目路线图', target: '目标：2026 年底', rows: [['文献综述', '进行中'], ['形式化工作空间定义', '进行中'], ['实证验证', '待启动']] },
-  ja: { roadmap: 'プログラム・ロードマップ', target: '目標：2026年末', rows: [['文献の統合', '進行中'], ['形式的ワークスペース定義', '作業中'], ['実証的検証', '保留中']] },
+  en: { roadmap: 'Program roadmap', target: 'Target: end of 2026', rows: [['Literature synthesis', 'In progress'], ['Formal workspace definition', 'Pending'], ['Empirical validation', 'Pending']] },
+  de: { roadmap: 'Programm-Fahrplan', target: 'Ziel: Ende 2026', rows: [['Literatursynthese', 'In Arbeit'], ['Formale Workspace-Definition', 'Ausstehend'], ['Empirische Validierung', 'Ausstehend']] },
+  es: { roadmap: 'Hoja de ruta del programa', target: 'Objetivo: fines de 2026', rows: [['Síntesis de literatura', 'En curso'], ['Definición formal del espacio', 'Pendiente'], ['Validación empírica', 'Pendiente']] },
+  fr: { roadmap: 'Feuille de route du programme', target: 'Objectif : fin 2026', rows: [['Synthèse de la littérature', 'En cours'], ['Définition formelle de l\'espace', 'En attente'], ['Validation empirique', 'En attente']] },
+  zh: { roadmap: '项目路线图', target: '目标：2026 年底', rows: [['文献综述', '进行中'], ['形式化工作空间定义', '待启动'], ['实证验证', '待启动']] },
+  ja: { roadmap: 'プログラム・ロードマップ', target: '目標：2026年末', rows: [['文献の統合', '進行中'], ['形式的ワークスペース定義', '保留中'], ['実証的検証', '保留中']] },
 };
 const t = L[lang] ?? L.en;
-const states = ['done', 'active', 'pending'];
+const states = ['active', 'pending', 'pending'];
 const phases = t.rows.map(([title, status], i) => ({ n: `0${i + 1}`, title, status, state: states[i] }));
 ---
 
@@ -32,8 +32,8 @@ const phases = t.rows.map(([title, status], i) => ({ n: `0${i + 1}`, title, stat
   <div class="relative">
     <!-- base track -->
     <div class="absolute left-0 right-0 top-2 h-0.5 bg-csr-gray-200"></div>
-    <!-- progress fill: through phase 1, halfway into phase 2 -->
-    <div class="absolute left-0 top-2 h-0.5 bg-csr-primary" style="width:50%"></div>
+    <!-- progress fill: partway through phase 1 (the current phase) -->
+    <div class="absolute left-0 top-2 h-0.5 bg-csr-primary" style="width:16%"></div>
 
     <ol class="relative grid grid-cols-3 gap-4">
       {phases.map((p) => (

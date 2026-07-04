@@ -268,7 +268,7 @@ const slugs = ['first-principles', 'bio-electric-fields', 'assembly-theory', 'sy
       {t.pillars.map((p, i) => (
         <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all group">
           <div class="mb-5 flex justify-center">
-            <Glyph name={(['biological', 'digital', 'qualia'] as const)[i]} size={80} class="opacity-80 group-hover:opacity-100 transition-opacity" />
+            <Glyph name={(['biological', 'digital', 'qualia'] as const)[i]} size={96} class="group-hover:scale-105 transition-transform duration-300" />
           </div>
           <h3 class="font-bold text-csr-black mb-2 text-base">{p.title}</h3>
           <p class="text-sm text-csr-gray-600 leading-relaxed mb-4">{p.desc}</p>
@@ -288,7 +288,7 @@ const slugs = ['first-principles', 'bio-electric-fields', 'assembly-theory', 'sy
       {t.approach.map(([title, desc], i) => (
         <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
           <div class="mb-4 flex justify-center">
-            <Glyph name={(['symmetry-axis', 'invariant', 'measurement'] as const)[i]} size={40} class="opacity-70" />
+            <Glyph name={(['symmetry-axis', 'invariant', 'measurement'] as const)[i]} size={56} />
           </div>
           <h3 class="font-bold text-csr-black mb-2 text-base">{title}</h3>
           <p class="text-sm text-csr-gray-600 leading-relaxed">{desc}</p>

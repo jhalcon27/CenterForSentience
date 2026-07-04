@@ -24,9 +24,10 @@ interface Props {
     | 'field';
   size?: number;
   class?: string;
+  disc?: boolean;
 }
 
-const { name, size = 64, class: cls = '' } = Astro.props;
+const { name, size = 64, class: cls = '', disc = true } = Astro.props;
 ---
 
 <svg
@@ -38,6 +39,13 @@ const { name, size = 64, class: cls = '' } = Astro.props;
   aria-hidden="true"
   class={cls}
 >
+  {disc && (
+    <>
+      {/* Emblem backdrop: a soft tinted disc so the mark reads as a badge */}
+      <circle cx="32" cy="32" r="31" fill="#9966CC" opacity="0.08"/>
+      <circle cx="32" cy="32" r="31" stroke="#9966CC" stroke-width="1" opacity="0.18"/>
+    </>
+  )}
   {name === 'biological' && (
     <>
       {/* Nested isopotential contours — bioelectric field map */}
