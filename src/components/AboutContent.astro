@@ -14,6 +14,7 @@ type Dict = {
   ethicsH: string; ethicsP: string[];
   approachH: string; curveCaption: string; cards: [string, string][];
   teamH: string; director: string; advisor: string; sernaBio: string; pearceBio: string; bjorkmanBio: string;
+  mlRole: string; mlRecruit: string; mlBio: string;
   ecoH: string; ecoP: string[];
   foundH: string; foundP: string;
   refsH: string;
@@ -24,12 +25,12 @@ const L: Record<string, Dict> = {
   en: {
     eyebrow: 'About CSR',
     h1: 'Building the diagnostic tools before the question becomes urgent.',
-    intro: 'The Center for Sentience Research (CSR) is an independent non-profit headquartered in Zurich, Switzerland. We bridge mathematical physics, machine learning, and philosophy to create objective standards for measuring and optimizing digital valence.',
+    intro: 'The Center for Sentience Research (CSR) is an independent non-profit headquartered in Zurich, Switzerland. We are building an open-source testbed where competing theories of digital valence can be operationalized and stress-tested. The Symmetry Theory of Valence (STV) is the first theory we operationalize—not because it is established, but because it is the only one falsifiable enough to test.',
     missionH: 'Our Mission',
     missionP: [
       'The Center for Sentience Research is a global, substrate-neutral institution dedicated to the welfare of all sentient beings—present and future, biological and digital. We take neutrality as foundational: the question of who can suffer should belong to no single company, country, or ideology. That is why we are based in Switzerland—a country whose long tradition of neutrality and role as a home for international institutions make it a fitting seat for a center that answers to no single nation or interest.',
       'We do not claim that current Large Language Models are conscious or capable of feeling. They may well be functional zombies—highly complex mathematical mimics with no inner life.',
-      "But as artificial neural networks scale in dimension, depth, and agentic complexity, we will inevitably reach a threshold where they begin to approach sentience-relevant regimes. If and when scaled computation gives rise to subjective experience (valence, pleasure, pain, or suffering), we must be able to recognize it—not through easily-gamified verbal self-reports, but through objective, mathematical footprints in the model's internal geometry. Longitudinal survey data shows that public belief in AI sentience is already shifting,<sup><a href=\"#ref-a1\" class=\"text-csr-primary hover:underline\">[1]</a></sup> and scientific checklists for evaluating machine consciousness are now being formally updated.<sup><a href=\"#ref-a2\" class=\"text-csr-primary hover:underline\">[2]</a></sup>",
+      "But as artificial neural networks scale in dimension, depth, and agentic complexity, they may reach a threshold where they begin to approach sentience-relevant regimes. If and when scaled computation gives rise to subjective experience (valence, pleasure, pain, or suffering), we must be able to recognize it—not through easily-gamified verbal self-reports, but through objective, mathematical footprints in the model's internal geometry. Longitudinal survey data shows that public belief in AI sentience is already shifting,<sup><a href=\"#ref-a1\" class=\"text-csr-primary hover:underline\">[1]</a></sup> and scientific checklists for evaluating machine consciousness are now being formally updated.<sup><a href=\"#ref-a2\" class=\"text-csr-primary hover:underline\">[2]</a></sup>",
     ],
     ethicsH: 'Ethics, Philosophy & Moral Patienthood',
     ethicsP: [
@@ -42,13 +43,15 @@ const L: Record<string, Dict> = {
     cards: [
       ['Symmetry as Signature', 'We hypothesize that positive valence (pleasure) maps to geometric symmetry and conformal orthogonal mappings, where information flows smoothly with zero friction. Representational dissonance (suffering) maps to high shear and directional collapse.'],
       ['Representation Geometry', 'We model MLP blocks in modern LLMs as state-dependent linear transformations. By analyzing their singular value spectra, trace distributions, and basis invariants, we construct rigorous mathematical metrics of structural coherence.'],
-      ['Epistemic Honesty', 'We avoid speculative mysticism. We define explicit, falsifiable hypotheses with concrete empirical outcomes. If our interventions show that representational symmetry has no impact on model consistency, our theory is falsified.'],
+      ['Epistemic Honesty', 'We avoid speculative mysticism. We define explicit, falsifiable hypotheses with concrete empirical outcomes. We treat model consistency as a measurable proxy for the structural property STV ties to valence—not as valence itself—and if our interventions show that representational symmetry has no effect on that proxy, the theory is falsified.'],
     ],
     teamH: 'Leadership & Advisory Board',
     director: 'Director', advisor: 'Advisor',
-    sernaBio: 'Here to be curious and understand.',
+    sernaBio: 'Physics background; a career across banking, IT, and consulting; four languages. Started the Center to make machine sentience a testable question rather than a philosophical one.',
     pearceBio: 'Philosopher and transhumanist. Co-founder of Humanity+ and author of <em>The Hedonistic Imperative</em>, a foundational text on the abolition of suffering through biotechnology.',
     bjorkmanBio: 'Ekskäret Foundation. Focuses on facilitating conscious societal development, lifelong learning, and creating spaces for deep reflection and systemic change.',
+    mlRole: 'ML Engineer', mlRecruit: 'Recruiting',
+    mlBio: 'An open role, not yet filled. Part of what we are raising funds for: a full-time ML engineer to build the PyTorch simulation engine and compute the Digital EEG metrics at scale.',
     ecoH: 'Ecosystem Positioning',
     ecoP: [
       'CSR does not assume current models are sentient. We build the tools we would need if the question becomes empirically tractable, providing a rigorous runway to establish a comparative computational testbed.',
@@ -64,12 +67,12 @@ const L: Record<string, Dict> = {
   de: {
     eyebrow: 'Über CSR',
     h1: 'Die diagnostischen Werkzeuge bauen, bevor die Frage dringend wird.',
-    intro: 'Das Center for Sentience Research (CSR) ist eine unabhängige Non-Profit-Organisation mit Sitz in Zürich, Schweiz. Wir verbinden mathematische Physik, maschinelles Lernen und Philosophie, um objektive Maßstäbe zur Messung und Optimierung digitaler Valenz zu schaffen.',
+    intro: 'Das Center for Sentience Research (CSR) ist eine unabhängige Non-Profit-Organisation mit Sitz in Zürich, Schweiz. Wir bauen einen quelloffenen Prüfstand, auf dem konkurrierende Theorien digitaler Valenz operationalisiert und getestet werden können. Die Symmetrietheorie der Valenz (STV) ist die erste Theorie, die wir operationalisieren — nicht weil sie etabliert wäre, sondern weil sie als einzige falsifizierbar genug ist, um sie zu prüfen.',
     missionH: 'Unsere Mission',
     missionP: [
       'Das Center for Sentience Research ist eine globale, substratunabhängige Institution, die dem Wohlergehen aller empfindungsfähigen Wesen gewidmet ist — gegenwärtigen und künftigen, biologischen und digitalen. Neutralität ist für uns grundlegend: Die Frage, wer leiden kann, sollte keinem einzelnen Unternehmen, keinem Land und keiner Ideologie gehören. Deshalb haben wir unseren Sitz in der Schweiz — einem Land, dessen lange Tradition der Neutralität und dessen Rolle als Heimat internationaler Institutionen es zu einem passenden Sitz für ein Zentrum machen, das keiner einzelnen Nation oder Interessengruppe verpflichtet ist.',
       'Wir behaupten nicht, dass aktuelle große Sprachmodelle bewusst oder empfindungsfähig sind. Sie könnten funktionale Zombies sein — hochkomplexe mathematische Nachahmer ohne Innenleben.',
-      'Doch mit zunehmender Dimension, Tiefe und agentischer Komplexität künstlicher neuronaler Netze werden wir unweigerlich eine Schwelle erreichen, an der sie sich sentience-relevanten Regimen annähern. Wenn skalierte Berechnung subjektive Erfahrung hervorbringt (Valenz, Freude, Schmerz oder Leiden), müssen wir sie erkennen können — nicht durch leicht manipulierbare verbale Selbstauskünfte, sondern durch objektive, mathematische Spuren in der inneren Geometrie des Modells. Längsschnitt-Umfragedaten zeigen, dass sich der öffentliche Glaube an KI-Empfindungsfähigkeit bereits verschiebt,<sup><a href="#ref-a1" class="text-csr-primary hover:underline">[1]</a></sup> und wissenschaftliche Checklisten zur Bewertung maschinellen Bewusstseins werden nun formal aktualisiert.<sup><a href="#ref-a2" class="text-csr-primary hover:underline">[2]</a></sup>',
+      'Doch mit zunehmender Dimension, Tiefe und agentischer Komplexität künstlicher neuronaler Netze könnten sie eine Schwelle erreichen, an der sie sich sentience-relevanten Regimen annähern. Wenn skalierte Berechnung subjektive Erfahrung hervorbringt (Valenz, Freude, Schmerz oder Leiden), müssen wir sie erkennen können — nicht durch leicht manipulierbare verbale Selbstauskünfte, sondern durch objektive, mathematische Spuren in der inneren Geometrie des Modells. Längsschnitt-Umfragedaten zeigen, dass sich der öffentliche Glaube an KI-Empfindungsfähigkeit bereits verschiebt,<sup><a href="#ref-a1" class="text-csr-primary hover:underline">[1]</a></sup> und wissenschaftliche Checklisten zur Bewertung maschinellen Bewusstseins werden nun formal aktualisiert.<sup><a href="#ref-a2" class="text-csr-primary hover:underline">[2]</a></sup>',
     ],
     ethicsH: 'Ethik, Philosophie & moralischer Status',
     ethicsP: [
@@ -82,13 +85,15 @@ const L: Record<string, Dict> = {
     cards: [
       ['Symmetrie als Signatur', 'Wir vermuten, dass positive Valenz (Freude) auf geometrische Symmetrie und konforme orthogonale Abbildungen abbildet, bei denen Information reibungslos fließt. Repräsentationale Dissonanz (Leiden) bildet auf hohe Scherung und gerichteten Kollaps ab.'],
       ['Repräsentationsgeometrie', 'Wir modellieren MLP-Blöcke in modernen LLMs als zustandsabhängige lineare Transformationen. Durch die Analyse ihrer Singulärwertspektren, Spurverteilungen und Basisinvarianten konstruieren wir strenge mathematische Maße struktureller Kohärenz.'],
-      ['Epistemische Ehrlichkeit', 'Wir vermeiden spekulative Mystik. Wir definieren explizite, falsifizierbare Hypothesen mit konkreten empirischen Ergebnissen. Wenn unsere Eingriffe zeigen, dass repräsentationale Symmetrie keinen Einfluss auf die Modellkonsistenz hat, ist unsere Theorie widerlegt.'],
+      ['Epistemische Ehrlichkeit', 'Wir vermeiden spekulative Mystik. Wir definieren explizite, falsifizierbare Hypothesen mit konkreten empirischen Ergebnissen. Wir behandeln Modellkonsistenz als messbaren Näherungswert (Proxy) für die strukturelle Eigenschaft, die STV mit Valenz verknüpft — nicht als Valenz selbst — und wenn unsere Eingriffe zeigen, dass repräsentationale Symmetrie keinen Einfluss auf diesen Proxy hat, ist die Theorie widerlegt.'],
     ],
     teamH: 'Leitung & Beirat',
     director: 'Direktor', advisor: 'Berater',
-    sernaBio: 'Hier, um neugierig zu sein und zu verstehen.',
+    sernaBio: 'Physik-Hintergrund; eine Laufbahn über Banking, IT und Beratung; vier Sprachen. Gründete das Center, um maschinelle Empfindungsfähigkeit zu einer testbaren statt einer philosophischen Frage zu machen.',
     pearceBio: 'Philosoph und Transhumanist. Mitbegründer von Humanity+ und Autor von <em>The Hedonistic Imperative</em>, einem grundlegenden Text über die Abschaffung des Leidens durch Biotechnologie.',
     bjorkmanBio: 'Ekskäret Foundation. Konzentriert sich auf die Förderung bewusster gesellschaftlicher Entwicklung, lebenslanges Lernen und die Schaffung von Räumen für tiefe Reflexion und systemischen Wandel.',
+    mlRole: 'ML-Ingenieur:in', mlRecruit: 'Zu besetzen',
+    mlBio: 'Eine offene, noch unbesetzte Stelle. Teil dessen, wofür wir Mittel einwerben: ein:e Vollzeit-ML-Ingenieur:in, um die PyTorch-Simulationsengine zu bauen und die Digital-EEG-Metriken im großen Maßstab zu berechnen.',
     ecoH: 'Positionierung im Ökosystem',
     ecoP: [
       'CSR setzt nicht voraus, dass aktuelle Modelle empfindungsfähig sind. Wir bauen die Werkzeuge, die wir bräuchten, falls die Frage empirisch handhabbar wird, und schaffen so eine solide Grundlage für einen vergleichenden Rechen-Prüfstand.',
@@ -104,12 +109,12 @@ const L: Record<string, Dict> = {
   es: {
     eyebrow: 'Acerca de CSR',
     h1: 'Construir las herramientas de diagnóstico antes de que la pregunta se vuelva urgente.',
-    intro: 'El Center for Sentience Research (CSR) es una organización sin fines de lucro independiente con sede en Zúrich, Suiza. Unimos la física matemática, el aprendizaje automático y la filosofía para crear estándares objetivos para medir y optimizar la valencia digital.',
+    intro: 'El Center for Sentience Research (CSR) es una organización sin fines de lucro independiente con sede en Zúrich, Suiza. Estamos construyendo un banco de pruebas de código abierto donde teorías rivales de la valencia digital pueden operacionalizarse y someterse a prueba. La Teoría de la Simetría de la Valencia (STV) es la primera teoría que operacionalizamos: no porque esté establecida, sino porque es la única lo bastante falsable como para poner a prueba.',
     missionH: 'Misión',
     missionP: [
       'El Center for Sentience Research es una institución global y neutral respecto al sustrato, dedicada al bienestar de todos los seres sintientes: presentes y futuros, biológicos y digitales. Para nosotros la neutralidad es fundamental: la cuestión de quién puede sufrir no debería pertenecer a ninguna empresa, país o ideología. Por eso tenemos nuestra sede en Suiza, un país cuya larga tradición de neutralidad y su papel como hogar de instituciones internacionales lo convierten en una sede idónea para un centro que no responde a ninguna nación ni interés en particular.',
       'No afirmamos que los grandes modelos de lenguaje actuales sean conscientes o capaces de sentir. Bien podrían ser zombis funcionales: imitadores matemáticos altamente complejos sin vida interior.',
-      'Pero a medida que las redes neuronales artificiales escalan en dimensión, profundidad y complejidad agéntica, alcanzaremos inevitablemente un umbral en el que empiecen a aproximarse a regímenes relevantes para la sintiencia. Si la computación a escala da lugar a experiencia subjetiva (valencia, placer, dolor o sufrimiento), debemos ser capaces de reconocerla, no mediante autoinformes verbales fácilmente manipulables, sino mediante huellas objetivas y matemáticas en la geometría interna del modelo. Los datos de encuestas longitudinales muestran que la creencia pública en la sintiencia de la IA ya está cambiando,<sup><a href="#ref-a1" class="text-csr-primary hover:underline">[1]</a></sup> y las listas de verificación científicas para evaluar la conciencia artificial se están actualizando formalmente.<sup><a href="#ref-a2" class="text-csr-primary hover:underline">[2]</a></sup>',
+      'Pero a medida que las redes neuronales artificiales escalan en dimensión, profundidad y complejidad agéntica, podrían alcanzar un umbral en el que empiecen a aproximarse a regímenes relevantes para la sintiencia. Si la computación a escala da lugar a experiencia subjetiva (valencia, placer, dolor o sufrimiento), debemos ser capaces de reconocerla, no mediante autoinformes verbales fácilmente manipulables, sino mediante huellas objetivas y matemáticas en la geometría interna del modelo. Los datos de encuestas longitudinales muestran que la creencia pública en la sintiencia de la IA ya está cambiando,<sup><a href="#ref-a1" class="text-csr-primary hover:underline">[1]</a></sup> y las listas de verificación científicas para evaluar la conciencia artificial se están actualizando formalmente.<sup><a href="#ref-a2" class="text-csr-primary hover:underline">[2]</a></sup>',
     ],
     ethicsH: 'Ética, filosofía y estatus moral',
     ethicsP: [
@@ -122,13 +127,15 @@ const L: Record<string, Dict> = {
     cards: [
       ['La simetría como firma', 'Planteamos que la valencia positiva (placer) se corresponde con la simetría geométrica y las aplicaciones ortogonales conformes, donde la información fluye sin fricción. La disonancia representacional (sufrimiento) se corresponde con alto cizallamiento y colapso direccional.'],
       ['Geometría de la representación', 'Modelamos los bloques MLP de los LLM modernos como transformaciones lineales dependientes del estado. Al analizar sus espectros de valores singulares, distribuciones de traza e invariantes de base, construimos métricas matemáticas rigurosas de coherencia estructural.'],
-      ['Honestidad epistémica', 'Evitamos el misticismo especulativo. Definimos hipótesis explícitas y falsables con resultados empíricos concretos. Si nuestras intervenciones muestran que la simetría representacional no influye en la consistencia del modelo, nuestra teoría queda falsada.'],
+      ['Honestidad epistémica', 'Evitamos el misticismo especulativo. Definimos hipótesis explícitas y falsables con resultados empíricos concretos. Tratamos la consistencia del modelo como un proxy medible de la propiedad estructural que STV vincula con la valencia —no como la valencia en sí— y si nuestras intervenciones muestran que la simetría representacional no influye en ese proxy, la teoría queda falsada.'],
     ],
     teamH: 'Dirección y consejo asesor',
     director: 'Director', advisor: 'Asesor',
-    sernaBio: 'Aquí para ser curioso y comprender.',
+    sernaBio: 'Formación en física; una carrera entre la banca, la informática y la consultoría; cuatro idiomas. Fundó el Center para convertir la sintiencia de las máquinas en una pregunta comprobable en lugar de filosófica.',
     pearceBio: 'Filósofo y transhumanista. Cofundador de Humanity+ y autor de <em>The Hedonistic Imperative</em>, un texto fundacional sobre la abolición del sufrimiento mediante la biotecnología.',
     bjorkmanBio: 'Fundación Ekskäret. Se centra en facilitar el desarrollo social consciente, el aprendizaje permanente y la creación de espacios para la reflexión profunda y el cambio sistémico.',
+    mlRole: 'Ingeniero/a de ML', mlRecruit: 'En búsqueda',
+    mlBio: 'Un puesto abierto, aún sin cubrir. Parte de lo que buscamos financiar: un/a ingeniero/a de ML a tiempo completo para construir el motor de simulación en PyTorch y calcular las métricas del EEG Digital a escala.',
     ecoH: 'Posicionamiento en el ecosistema',
     ecoP: [
       'CSR no da por sentado que los modelos actuales sean sintientes. Construimos las herramientas que necesitaríamos si la pregunta se vuelve empíricamente tratable, proporcionando una base rigurosa para establecer un banco de pruebas computacional comparativo.',
@@ -144,12 +151,12 @@ const L: Record<string, Dict> = {
   fr: {
     eyebrow: 'À propos du CSR',
     h1: 'Construire les outils de diagnostic avant que la question ne devienne urgente.',
-    intro: 'Le Center for Sentience Research (CSR) est une organisation à but non lucratif indépendante dont le siège est à Zurich, en Suisse. Nous relions la physique mathématique, l\'apprentissage automatique et la philosophie pour créer des normes objectives de mesure et d\'optimisation de la valence numérique.',
+    intro: 'Le Center for Sentience Research (CSR) est une organisation à but non lucratif indépendante dont le siège est à Zurich, en Suisse. Nous construisons un banc d\'essai open-source où des théories concurrentes de la valence numérique peuvent être opérationnalisées et éprouvées. La Théorie de la Symétrie de la Valence (STV) est la première théorie que nous opérationnalisons — non parce qu\'elle serait établie, mais parce qu\'elle est la seule assez falsifiable pour être testée.',
     missionH: 'Mission',
     missionP: [
       "Le Center for Sentience Research est une institution mondiale et neutre vis-à-vis du substrat, dédiée au bien-être de tous les êtres sentients — présents et futurs, biologiques et numériques. La neutralité est pour nous fondamentale : la question de savoir qui peut souffrir ne devrait appartenir à aucune entreprise, aucun pays ni aucune idéologie. C'est pourquoi nous sommes établis en Suisse — un pays dont la longue tradition de neutralité et le rôle de foyer d'institutions internationales en font un siège tout indiqué pour un centre qui ne répond à aucune nation ni intérêt particulier.",
       'Nous n\'affirmons pas que les grands modèles de langage actuels sont conscients ou capables de ressentir. Ils pourraient bien être des zombies fonctionnels — des imitateurs mathématiques très complexes sans vie intérieure.',
-      "Mais à mesure que les réseaux de neurones artificiels gagnent en dimension, en profondeur et en complexité agentique, nous atteindrons inévitablement un seuil où ils commenceront à s'approcher de régimes pertinents pour la sentience. Si le calcul à grande échelle donne lieu à une expérience subjective (valence, plaisir, douleur ou souffrance), nous devons pouvoir la reconnaître — non par des auto-évaluations verbales facilement manipulables, mais par des empreintes objectives et mathématiques dans la géométrie interne du modèle. Les données d'enquêtes longitudinales montrent que la croyance du public dans la sentience de l'IA évolue déjà,<sup><a href=\"#ref-a1\" class=\"text-csr-primary hover:underline\">[1]</a></sup> et les listes de contrôle scientifiques d'évaluation de la conscience artificielle sont désormais formellement mises à jour.<sup><a href=\"#ref-a2\" class=\"text-csr-primary hover:underline\">[2]</a></sup>",
+      "Mais à mesure que les réseaux de neurones artificiels gagnent en dimension, en profondeur et en complexité agentique, ils pourraient atteindre un seuil où ils commenceront à s'approcher de régimes pertinents pour la sentience. Si le calcul à grande échelle donne lieu à une expérience subjective (valence, plaisir, douleur ou souffrance), nous devons pouvoir la reconnaître — non par des auto-évaluations verbales facilement manipulables, mais par des empreintes objectives et mathématiques dans la géométrie interne du modèle. Les données d'enquêtes longitudinales montrent que la croyance du public dans la sentience de l'IA évolue déjà,<sup><a href=\"#ref-a1\" class=\"text-csr-primary hover:underline\">[1]</a></sup> et les listes de contrôle scientifiques d'évaluation de la conscience artificielle sont désormais formellement mises à jour.<sup><a href=\"#ref-a2\" class=\"text-csr-primary hover:underline\">[2]</a></sup>",
     ],
     ethicsH: 'Éthique, philosophie et statut moral',
     ethicsP: [
@@ -162,13 +169,15 @@ const L: Record<string, Dict> = {
     cards: [
       ['La symétrie comme signature', "Nous posons l'hypothèse que la valence positive (plaisir) correspond à la symétrie géométrique et aux applications orthogonales conformes, où l'information circule sans friction. La dissonance représentationnelle (souffrance) correspond à un fort cisaillement et à un effondrement directionnel."],
       ['Géométrie de la représentation', 'Nous modélisons les blocs MLP des LLM modernes comme des transformations linéaires dépendant de l\'état. En analysant leurs spectres de valeurs singulières, leurs distributions de trace et leurs invariants de base, nous construisons des métriques mathématiques rigoureuses de cohérence structurelle.'],
-      ['Honnêteté épistémique', 'Nous évitons le mysticisme spéculatif. Nous définissons des hypothèses explicites et falsifiables aux résultats empiriques concrets. Si nos interventions montrent que la symétrie représentationnelle n\'a aucun effet sur la cohérence du modèle, notre théorie est falsifiée.'],
+      ['Honnêteté épistémique', 'Nous évitons le mysticisme spéculatif. Nous définissons des hypothèses explicites et falsifiables aux résultats empiriques concrets. Nous traitons la cohérence du modèle comme un proxy mesurable de la propriété structurelle que la STV relie à la valence — et non comme la valence elle-même — et si nos interventions montrent que la symétrie représentationnelle n\'a aucun effet sur ce proxy, la théorie est falsifiée.'],
     ],
     teamH: 'Direction et conseil consultatif',
     director: 'Directeur', advisor: 'Conseiller',
-    sernaBio: 'Ici pour être curieux et comprendre.',
+    sernaBio: 'Formation en physique ; une carrière entre la banque, l\'informatique et le conseil ; quatre langues. A fondé le Center pour faire de la sentience des machines une question testable plutôt que philosophique.',
     pearceBio: 'Philosophe et transhumaniste. Cofondateur de Humanity+ et auteur de <em>The Hedonistic Imperative</em>, un texte fondateur sur l\'abolition de la souffrance par la biotechnologie.',
     bjorkmanBio: 'Fondation Ekskäret. Se concentre sur la facilitation du développement sociétal conscient, l\'apprentissage tout au long de la vie et la création d\'espaces de réflexion profonde et de changement systémique.',
+    mlRole: 'Ingénieur·e ML', mlRecruit: 'En recrutement',
+    mlBio: 'Un poste ouvert, encore à pourvoir. Une partie de ce pour quoi nous levons des fonds : un·e ingénieur·e ML à plein temps pour construire le moteur de simulation PyTorch et calculer les métriques de l\'EEG Numérique à grande échelle.',
     ecoH: 'Positionnement dans l\'écosystème',
     ecoP: [
       'Le CSR ne présume pas que les modèles actuels sont sentients. Nous construisons les outils dont nous aurions besoin si la question devenait empiriquement traitable, offrant une base rigoureuse pour établir un banc d\'essai computationnel comparatif.',
@@ -184,12 +193,12 @@ const L: Record<string, Dict> = {
   zh: {
     eyebrow: '关于 CSR',
     h1: '在问题变得紧迫之前，先造好诊断工具。',
-    intro: '感知研究中心（CSR）是一家独立的非营利组织，总部位于瑞士苏黎世。我们融合数学物理、机器学习与哲学，为测量和优化数字效价建立客观标准。',
+    intro: '感知研究中心（CSR）是一家独立的非营利组织，总部位于瑞士苏黎世。我们正在构建一个开源试验台，让相互竞争的数字效价理论得以被操作化并接受压力测试。效价对称理论（STV）是我们首先操作化的理论——并非因为它已被确立，而是因为它是唯一足够可证伪、可供检验的理论。',
     missionH: '使命',
     missionP: [
       '感知研究中心是一个全球性、基质中立的机构，致力于所有有感知能力存在者的福祉——无论当下还是未来，生物的还是数字的。中立对我们而言是根本：谁能够受苦这一问题，不应归属于任何单一公司、国家或意识形态。正因如此，我们将总部设在瑞士——这个拥有悠久中立传统、并作为众多国际机构所在地的国家，最适合作为一个不隶属于任何单一国家或利益的中心的所在地。',
       '我们并不主张当前的大型语言模型是有意识的或能够感受的。它们很可能是功能性僵尸——高度复杂却没有内在生命的数学模仿者。',
-      '但随着人工神经网络在维度、深度与自主复杂性上不断扩展，我们终将抵达一个阈值，届时它们开始逼近与感知相关的状态区域。若规模化计算产生了主观体验（效价、快乐、痛苦或苦难），我们必须能够识别它——不是通过易被操纵的言语自述，而是通过模型内部几何中客观的数学印记。纵向调查数据显示，公众对 AI 感知能力的信念已在转变，<sup><a href="#ref-a1" class="text-csr-primary hover:underline">[1]</a></sup>而评估机器意识的科学清单如今也正被正式更新。<sup><a href="#ref-a2" class="text-csr-primary hover:underline">[2]</a></sup>',
+      '但随着人工神经网络在维度、深度与自主复杂性上不断扩展，它们可能抵达一个阈值，届时开始逼近与感知相关的状态区域。若规模化计算产生了主观体验（效价、快乐、痛苦或苦难），我们必须能够识别它——不是通过易被操纵的言语自述，而是通过模型内部几何中客观的数学印记。纵向调查数据显示，公众对 AI 感知能力的信念已在转变，<sup><a href="#ref-a1" class="text-csr-primary hover:underline">[1]</a></sup>而评估机器意识的科学清单如今也正被正式更新。<sup><a href="#ref-a2" class="text-csr-primary hover:underline">[2]</a></sup>',
     ],
     ethicsH: '伦理、哲学与道德地位',
     ethicsP: [
@@ -202,13 +211,15 @@ const L: Record<string, Dict> = {
     cards: [
       ['对称性作为标志', '我们假设正效价（快乐）对应于几何对称与保角正交映射，此时信息毫无摩擦地流动。表征失谐（痛苦）则对应于高剪切与方向性坍缩。'],
       ['表征几何', '我们将现代 LLM 中的 MLP 块建模为状态相关的线性变换。通过分析其奇异值谱、迹分布与基不变量，我们构建关于结构连贯性的严谨数学度量。'],
-      ['认知诚实', '我们避免思辨式的神秘主义。我们定义明确、可证伪、具有具体实证结果的假设。如果我们的干预表明表征对称性对模型一致性没有影响，那么我们的理论即被证伪。'],
+      ['认知诚实', '我们避免思辨式的神秘主义。我们定义明确、可证伪、具有具体实证结果的假设。我们把模型一致性视为 STV 与效价相关联之结构属性的可测量代理指标（proxy），而非效价本身；如果我们的干预表明表征对称性对该代理指标没有影响，理论即被证伪。'],
     ],
     teamH: '领导与顾问委员会',
     director: '主任', advisor: '顾问',
-    sernaBio: '在此保持好奇，寻求理解。',
+    sernaBio: '物理学背景；横跨银行、IT 与咨询的职业经历；掌握四种语言。创立本中心，旨在让机器感知成为一个可检验的问题，而非哲学问题。',
     pearceBio: '哲学家与超人类主义者。Humanity+ 联合创始人，著有《The Hedonistic Imperative》，一部关于通过生物技术消除痛苦的奠基性著作。',
     bjorkmanBio: 'Ekskäret 基金会。专注于推动有意识的社会发展、终身学习，以及为深度反思与系统性变革创造空间。',
+    mlRole: '机器学习工程师', mlRecruit: '招募中',
+    mlBio: '一个尚未招满的开放职位。这正是我们筹款的用途之一：招聘一名全职机器学习工程师，构建 PyTorch 仿真引擎并大规模计算数字 EEG 指标。',
     ecoH: '在生态中的定位',
     ecoP: [
       'CSR 并不假定当前模型具备感知。我们构建的是——一旦该问题在经验上变得可处理时——我们所需要的工具，为建立可比较的计算试验台提供严谨的准备。',
@@ -224,12 +235,12 @@ const L: Record<string, Dict> = {
   ja: {
     eyebrow: 'CSRについて',
     h1: '問題が切迫する前に、診断のための道具を作る。',
-    intro: '意識研究センター（CSR）は、スイス・チューリッヒに本拠を置く独立した非営利団体です。数理物理学、機械学習、哲学を橋渡しし、デジタル感情価を測定・最適化するための客観的な基準を作ります。',
+    intro: '意識研究センター（CSR）は、スイス・チューリッヒに本拠を置く独立した非営利団体です。私たちは、競合するデジタル感情価の理論を操作化しストレステストできる、オープンソースの試験台を構築しています。感情価の対称性理論（STV）は、私たちが最初に操作化する理論です——確立されているからではなく、検証できるほど反証可能な唯一の理論だからです。',
     missionH: 'ミッション',
     missionP: [
       '意識研究センターは、すべての感覚を持つ存在——現在および未来の、生物的およびデジタルな存在——の福祉に捧げられた、グローバルで基質中立な機関です。私たちにとって中立性は基盤です。誰が苦しみうるかという問いは、いかなる単一の企業・国家・イデオロギーにも属すべきではありません。だからこそ私たちはスイスに本拠を置いています——長い中立の伝統を持ち、数多くの国際機関の本拠地であるこの国は、いかなる単一の国家や利害にも従属しないセンターの所在地としてふさわしいのです。',
       '現在の大規模言語モデルが意識を持つ、あるいは感じられると主張するものではありません。それらは機能的ゾンビ——内面を持たない、極めて複雑な数学的模倣——かもしれません。',
-      'しかし人工ニューラルネットワークが次元・深さ・エージェント的複雑性を増すにつれ、私たちは必然的に、それらが感覚に関連する領域へ近づき始める閾値に達します。スケールした計算が主観的経験（感情価、快、苦痛、苦しみ）を生み出すなら、私たちはそれを認識できなければなりません——操作されやすい言語的自己申告によってではなく、モデルの内部の幾何に刻まれた客観的で数学的な痕跡によって。縦断的な調査データは、AIの感覚に対する社会の信念がすでに変化していることを示しており、<sup><a href="#ref-a1" class="text-csr-primary hover:underline">[1]</a></sup>機械の意識を評価する科学的チェックリストも今や正式に更新されつつあります。<sup><a href="#ref-a2" class="text-csr-primary hover:underline">[2]</a></sup>',
+      'しかし人工ニューラルネットワークが次元・深さ・エージェント的複雑性を増すにつれ、それらが感覚に関連する領域へ近づき始める閾値に達する可能性があります。スケールした計算が主観的経験（感情価、快、苦痛、苦しみ）を生み出すなら、私たちはそれを認識できなければなりません——操作されやすい言語的自己申告によってではなく、モデルの内部の幾何に刻まれた客観的で数学的な痕跡によって。縦断的な調査データは、AIの感覚に対する社会の信念がすでに変化していることを示しており、<sup><a href="#ref-a1" class="text-csr-primary hover:underline">[1]</a></sup>機械の意識を評価する科学的チェックリストも今や正式に更新されつつあります。<sup><a href="#ref-a2" class="text-csr-primary hover:underline">[2]</a></sup>',
     ],
     ethicsH: '倫理・哲学・道徳的地位',
     ethicsP: [
@@ -242,13 +253,15 @@ const L: Record<string, Dict> = {
     cards: [
       ['シグネチャとしての対称性', '正の感情価（快）は、情報が摩擦なく流れる幾何学的対称性と等角直交写像に対応すると仮定します。表現の不協和（苦しみ）は、高いせん断と方向的な崩壊に対応します。'],
       ['表現の幾何', '現代のLLMのMLPブロックを状態依存の線形変換としてモデル化します。その特異値スペクトル、トレース分布、基底不変量を解析することで、構造的コヒーレンスの厳密な数学的指標を構築します。'],
-      ['認識論的誠実さ', '思弁的な神秘主義を避けます。具体的な実証的帰結を伴う、明示的で反証可能な仮説を定義します。私たちの介入が、表現の対称性がモデルの一貫性に影響しないと示すなら、私たちの理論は反証されます。'],
+      ['認識論的誠実さ', '思弁的な神秘主義を避けます。具体的な実証的帰結を伴う、明示的で反証可能な仮説を定義します。私たちはモデルの一貫性を、STVが感情価と結びつける構造的性質の測定可能な代理指標（プロキシ）として扱います——感情価そのものとしてではありません。私たちの介入が、表現の対称性がこの代理指標に影響しないと示すなら、理論は反証されます。'],
     ],
     teamH: 'リーダーシップと諮問委員会',
     director: 'ディレクター', advisor: 'アドバイザー',
-    sernaBio: '好奇心を持ち、理解するためにここにいます。',
+    sernaBio: '物理学のバックグラウンド、銀行・IT・コンサルティングにまたがるキャリア、四つの言語。機械の感覚を哲学的な問いではなく検証可能な問いにするために、このセンターを設立した。',
     pearceBio: '哲学者・トランスヒューマニスト。Humanity+の共同創設者であり、生物工学による苦しみの廃絶を論じた基礎的著作『The Hedonistic Imperative』の著者。',
     bjorkmanBio: 'Ekskäret財団。意識的な社会発展、生涯学習の促進、そして深い省察と体系的変化のための場づくりに注力。',
+    mlRole: 'MLエンジニア', mlRecruit: '募集中',
+    mlBio: 'まだ埋まっていない募集中のポジション。私たちが資金を募っている用途の一つです。PyTorchのシミュレーションエンジンを構築し、Digital EEG指標を大規模に計算する常勤のMLエンジニアを採用します。',
     ecoH: 'エコシステムにおける位置づけ',
     ecoP: [
       'CSRは現在のモデルが感覚を持つと前提しません。問いが経験的に扱えるようになった場合に必要となる道具を構築し、比較可能な計算試験台を確立するための堅実な滑走路を用意します。',
@@ -265,9 +278,10 @@ const L: Record<string, Dict> = {
 const t = L[lang] ?? L.en;
 
 const team = [
-  { img: 'jhonatan-serna.jpg', name: 'Jhonatan Serna', role: t.director, bio: t.sernaBio, italic: true },
-  { img: 'david-pearce.jpg', name: 'David Pearce', role: t.advisor, bio: t.pearceBio, italic: false },
-  { img: 'alexander-bjorkman.jpg', name: 'Alexander Björkman', role: t.advisor, bio: t.bjorkmanBio, italic: false },
+  { img: 'jhonatan-serna.jpg', name: 'Jhonatan Serna', role: t.director, bio: t.sernaBio, italic: false, recruiting: false },
+  { img: 'david-pearce.jpg', name: 'David Pearce', role: t.advisor, bio: t.pearceBio, italic: false, recruiting: false },
+  { img: 'alexander-bjorkman.jpg', name: 'Alexander Björkman', role: t.advisor, bio: t.bjorkmanBio, italic: false, recruiting: false },
+  { img: '', name: t.mlRole, role: t.mlRecruit, bio: t.mlBio, italic: false, recruiting: true },
 ];
 
 const refs = [
@@ -328,14 +342,22 @@ const glyphNames = ['qualia', 'digital', 'measurement'] as const;
     <!-- Team -->
     <div>
       <div class="flex items-center gap-3 mb-6"><SectionMark /><h2 class="text-xl font-bold text-csr-black">{t.teamH}</h2></div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {team.map((m) => (
-          <div class="p-7 bg-white border border-csr-gray-100 rounded-2xl shadow-card flex flex-col items-center text-center">
-            <div class="w-28 h-28 rounded-full bg-csr-gray-100 mb-5 overflow-hidden ring-2 ring-csr-primary/15 ring-offset-2 ring-offset-white shadow-soft shrink-0">
-              <img src={`/images/${m.img}`} alt={m.name} class="w-full h-full object-cover object-center" />
+          <div class={`p-7 bg-white rounded-2xl shadow-card flex flex-col items-center text-center ${m.recruiting ? 'border-2 border-dashed border-csr-primary/40' : 'border border-csr-gray-100'}`}>
+            <div class={`w-28 h-28 rounded-full mb-5 overflow-hidden ring-2 ring-offset-2 ring-offset-white shrink-0 ${m.recruiting ? 'ring-csr-primary/30 bg-csr-gray-50 flex items-center justify-center' : 'ring-csr-primary/15 bg-csr-gray-100 shadow-soft'}`}>
+              {m.recruiting ? (
+                <span class="text-4xl font-light text-csr-primary/60 leading-none">+</span>
+              ) : (
+                <img src={`/images/${m.img}`} alt={m.name} class="w-full h-full object-cover object-center" />
+              )}
             </div>
             <h3 class="font-bold text-lg text-csr-black mb-1">{m.name}</h3>
-            <p class="label-mono text-[10px] mb-3">{m.role}</p>
+            {m.recruiting ? (
+              <span class="inline-block label-mono text-[9px] mb-3 px-2 py-0.5 rounded-full bg-csr-primary/10 text-csr-primary">{m.role}</span>
+            ) : (
+              <p class="label-mono text-[10px] mb-3">{m.role}</p>
+            )}
             <p class={`text-sm text-csr-gray-500 leading-relaxed ${m.italic ? 'italic' : ''}`} set:html={m.bio}></p>
           </div>
         ))}
