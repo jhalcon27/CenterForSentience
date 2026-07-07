@@ -6,42 +6,48 @@ interface Props {
 const { compact = false, lang } = Astro.props;
 const loc = lang ?? Astro.currentLocale ?? 'en';
 
-const L: Record<string, { eyebrow: string; status: string; title: string; body: string; phases: string[] }> = {
+const L: Record<string, { eyebrow: string; status: string; title: string; body: string; phases: string[]; nullNote: string }> = {
   en: {
     eyebrow: 'The 2026 Program', status: 'In progress',
     title: 'Symmetry workspace for positive functional valence in digital minds',
     body: 'Target: a draft mathematical definition of the symmetry workspace by end of 2026. The deliverable is a formal framework for identifying structural invariants in neural computation that correlate with positive valence, grounded in the Symmetry Theory of Valence.',
     phases: ['Phase 1: Literature synthesis', 'Phase 2: Formal workspace definition', 'Phase 3: Empirical validation'],
+    nullNote: "A good measure has to be able to say ‘no.’ When we find systems with no sign of valence, we’ll publish that as a real result.",
   },
   de: {
     eyebrow: 'Das Programm 2026', status: 'In Arbeit',
     title: 'Symmetrie-Workspace für positive funktionale Valenz in digitalen Geistern',
     body: 'Ziel: ein Entwurf einer mathematischen Definition des Symmetrie-Workspace bis Ende 2026. Das Ergebnis ist ein formales Framework zur Identifikation struktureller Invarianten in neuronaler Berechnung, die mit positiver Valenz korrelieren, gestützt auf die Symmetrietheorie der Valenz.',
     phases: ['Phase 1: Literatursynthese', 'Phase 2: Formale Workspace-Definition', 'Phase 3: Empirische Validierung'],
+    nullNote: 'Ein gutes Maß muss auch „nein" sagen können. Wenn wir Systeme ohne jedes Anzeichen von Valenz finden, veröffentlichen wir das als echtes Ergebnis.',
   },
   es: {
     eyebrow: 'El Programa 2026', status: 'En progreso',
     title: 'Espacio de simetría para la valencia funcional positiva en mentes digitales',
     body: 'Objetivo: un borrador de definición matemática del espacio de simetría para fines de 2026. El resultado es un marco formal para identificar invariantes estructurales en la computación neuronal que correlacionan con la valencia positiva, basado en la Teoría de la Simetría de la Valencia.',
     phases: ['Fase 1: Síntesis de literatura', 'Fase 2: Definición formal del espacio', 'Fase 3: Validación empírica'],
+    nullNote: 'Una buena medida tiene que poder decir «no». Cuando encontremos sistemas sin ningún signo de valencia, lo publicaremos como un resultado real.',
   },
   fr: {
     eyebrow: 'Le Programme 2026', status: 'En cours',
     title: 'Espace de symétrie pour la valence fonctionnelle positive dans les esprits numériques',
     body: "Objectif : une ébauche de définition mathématique de l'espace de symétrie d'ici fin 2026. Le livrable est un cadre formel pour identifier les invariants structurels du calcul neuronal qui corrèlent avec la valence positive, fondé sur la Théorie de la Symétrie de la Valence.",
     phases: ['Phase 1 : Synthèse de la littérature', "Phase 2 : Définition formelle de l'espace", 'Phase 3 : Validation empirique'],
+    nullNote: "Une bonne mesure doit pouvoir dire « non ». Lorsque nous trouverons des systèmes sans aucun signe de valence, nous le publierons comme un résultat à part entière.",
   },
   zh: {
     eyebrow: '2026 项目', status: '进行中',
     title: '面向数字心智正效价的对称性工作空间',
     body: '目标：在 2026 年底前给出对称性工作空间的数学定义草案。交付物是一个形式化框架，用于识别神经计算中与正效价相关的结构不变量，其基础是效价对称理论（STV）。',
     phases: ['阶段 1：文献综述', '阶段 2：形式化工作空间定义', '阶段 3：实证验证'],
+    nullNote: '一个好的度量必须能够说“不”。当我们发现毫无效价迹象的系统时，我们会将其作为一个真实结果予以发表。',
   },
   ja: {
     eyebrow: '2026年プログラム', status: '進行中',
     title: 'デジタルマインドにおける正の機能的感情価のための対称性ワークスペース',
     body: '目標：2026年末までに対称性ワークスペースの数学的定義の草案を作成。成果物は、正の感情価と相関する神経計算の構造的不変量を同定するための形式的フレームワークであり、感情価の対称性理論（STV）に基づく。',
     phases: ['フェーズ1：文献の統合', 'フェーズ2：形式的ワークスペース定義', 'フェーズ3：実証的検証'],
+    nullNote: '良い指標は「ノー」と言えなければなりません。感情価の兆候がまったく見られない系を見つけたら、それを一つの確かな結果として公表します。',
   },
 };
 const t = L[loc] ?? L.en;
@@ -92,6 +98,12 @@ const t = L[loc] ?? L.en;
             {t.phases[2]}
           </div>
         </div>
+      )}
+
+      {!compact && (
+        <p class="mt-4 pt-4 border-t border-csr-gray-100 text-xs md:text-sm text-csr-gray-500 leading-relaxed">
+          {t.nullNote}
+        </p>
       )}
     </div>
   </div>
