@@ -86,7 +86,7 @@ import PhaseTimeline from '../components/PhaseTimeline.astro';
             A working paper: <em>A Digital EEG for AI Sentience: Multi-Scale Structural Biomarkers</em> (Working Paper 05, in progress).
           </p>
           <p>
-            The paper will define a mathematical workspace for positive functional valence in digital systems. It will specify the symmetry conditions, model spatially-structured connectivity constraints (such as sparse MLPs, locally-connected networks, and neural cellular automata), trace global dynamical trajectories of local Jacobians to map stable attractor states, and propose a substrate-neutral biological calibration framework.
+            The paper will define a mathematical workspace for positive functional valence in digital systems. It will specify the symmetry conditions, model spatially-structured connectivity constraints (such as sparse MLPs, locally-connected networks, and neural cellular automata), and trace global dynamical trajectories of local Jacobians to map stable attractor states. Jacobian analysis is not our invention: the J-lens averages Jacobians for readout, whereas we use local Jacobians dynamically, to characterize trajectory and attractor stability. The paper also proposes a substrate-neutral biological calibration framework.
           </p>
           <p>
             It will not claim that any current system satisfies these conditions. It will provide the formal, non-verbal tools to check.
@@ -137,28 +137,28 @@ import PhaseTimeline from '../components/PhaseTimeline.astro';
 
       <div class="grid md:grid-cols-3 gap-5 mb-10">
         <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
-          <p class="label-mono text-[10px] text-csr-gray-400 mb-2">Lean Tier</p>
+          <p class="label-mono text-[10px] text-csr-gray-400 mb-2">Lean Tier — Floor</p>
           <p class="text-2xl font-bold text-csr-primary mb-2">$110k</p>
           <h3 class="font-bold text-csr-black mb-2 text-sm">Core Research</h3>
           <p class="text-xs text-csr-gray-600 leading-relaxed">
-            Lead researcher (50% FTE) and one junior ML engineer (50% FTE). Establishes the formal mathematical definitions of MLP microcircuit geometries, builds the core PyTorch state-space simulation engine, and publishes the theoretical whitepaper.
+            Lead researcher (50% FTE) and one junior ML engineer (50% FTE). Formal mathematical definitions, the core PyTorch simulation engine, and the theoretical whitepaper.
           </p>
         </div>
         <div class="bg-white border-2 border-csr-primary/50 rounded-2xl p-6 shadow-purple relative overflow-hidden">
           <div class="absolute top-0 left-0 right-0 h-1 bg-csr-primary rounded-t-2xl"></div>
-          <p class="label-mono text-[10px] text-csr-primary mb-1 mt-1">Preferred Tier — Mainline Request</p>
-          <p class="text-2xl font-bold text-csr-primary mb-2">$180k</p>
+          <p class="label-mono text-[10px] text-csr-primary mb-1 mt-1">Recommended — Mainline Request</p>
+          <p class="text-2xl font-bold text-csr-primary mb-2">$135k</p>
           <h3 class="font-bold text-csr-black mb-2 text-sm">Full Program</h3>
           <p class="text-xs text-csr-gray-600 leading-relaxed">
-            Lead researcher (50% FTE), a GWT/cognitive postdoc, and a junior ML engineer. Enables the complete PyTorch engine build, a planned ~10,000 GPU-hour run computing Jacobian and spectral metrics across the MLP layers of Pythia-6.9B (6.9B parameters, an open-weights interpretability model), biological validation studies calibrating our metrics against invertebrate electrophysiology and connectome datasets we will identify and license (candidates include the crustacean stomatogastric ganglion recordings and the OpenWorm C. elegans connectome), and a virtual international technical workshop.
+            Lead researcher (50% FTE) and one junior ML engineer — no postdoc at this tier. Funds the headline cross-linguistic perturbation-recovery experiment: matched aversive-vs-neutral contexts in four languages (ES, DE, SV, EN), measuring internal recovery dynamics and testing cross-language invariance as a state-vs-mimicry discriminator. It runs on modest hardware by design — free infrastructure such as NNsight/NDIF where available, otherwise modest paid cloud GPU — with a reduced paid-compute line covering only custom simulation and fine-tuning that free infrastructure does not. Includes a method plausibility check against invertebrate electrophysiology and connectome data (stomatogastric ganglion, OpenWorm C. elegans) — a sanity check on the method, not a valence anchor — plus field-building and dissemination.
           </p>
         </div>
         <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
-          <p class="label-mono text-[10px] text-csr-gray-400 mb-2">Stretch Tier</p>
+          <p class="label-mono text-[10px] text-csr-gray-400 mb-2">Stretch Tier — Ambition</p>
           <p class="text-2xl font-bold text-csr-primary mb-2">$260k</p>
           <h3 class="font-bold text-csr-black mb-2 text-sm">Frontier Deployment</h3>
           <p class="text-xs text-csr-gray-600 leading-relaxed">
-            Expands the research team to full-time engineering. Allows us to pilot our "Digital EEG" vital signs monitor directly on open-weights frontier LLMs, seeking collaboration with external mechanistic interpretability labs to compute Jacobian and spectral metrics on active, large-scale systems.
+            A full-time team. Pilots the measurement toolkit on larger open-weights frontier models and seeks collaboration with external interpretability labs, using local Jacobian and spectral trajectory metrics on active, large-scale systems. This tier could also support a future postdoc hire (e.g. global-workspace or cognitive science).
           </p>
         </div>
       </div>

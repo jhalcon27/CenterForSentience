@@ -19,7 +19,7 @@ const L: Record<string, { title: string; unit: string; preferred: string; tiers:
   ja: { title: '資金ティア', unit: 'USD・年間', preferred: '推奨', tiers: [['基本ティア', 'コア研究'], ['フルプログラム', '本命申請'], ['フロンティア展開', 'ストレッチ']] },
 };
 const t = L[lang] ?? L.en;
-const values = [110, 180, 260];
+const values = [110, 135, 260];
 const tiers = t.tiers.map(([name, sub], i) => ({ name, sub, value: values[i], preferred: i === 1 }));
 const max = 260;
 ---

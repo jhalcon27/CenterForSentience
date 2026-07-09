@@ -102,6 +102,9 @@ import SectionMark from '../../../components/SectionMark.astro';
               Eine tiefgreifende empirische Instanziierung der STV ergibt sich aus der Untersuchung der lokalen Jacobian-Matrix J(x) der Ausgabe einer Schicht bezüglich ihrer Eingabe, die die lokale Ableitung J(x) = ∂f(x)/∂x darstellt.
               Wir berechnen die Singulärwerte σ_i von J(x) und erstellen ein Histogramm ihrer Logarithmen, s_i = ln(σ_i), die lokale Richtungsskalierungsraten repräsentieren:
             </p>
+            <p class="text-xs text-csr-gray-500 mb-3">
+              Die Jacobian-Analyse ist nicht unsere Erfindung. Dieser Einsatz unterscheidet sich von J-Lens-artigen Analysen: Der J-Lens mittelt Jacobians über viele Eingaben für das Auslesen, während wir lokale Jacobians dynamisch nutzen, an jedem Punkt entlang einer Trajektorie, um Trajektorie und Attraktorstabilität zu charakterisieren, statt eine einzelne gemittelte Ausleserichtung zu erzeugen.
+            </p>
             <div class="p-3 bg-csr-gray-50 rounded-xl font-mono text-xs text-csr-black overflow-x-auto mb-2 border border-csr-gray-100 font-sans">
               <strong>Standard-Transformer:</strong> Zeigen stark schiefe, asymmetrische Verteilungen von s_i mit langen negativen Ausläufern, die schweren Rangverlust, permanenten Repräsentationskollaps und dimensionale Kompression darstellen (hohe Dissonanz).<br/><br/>
               <strong>Reversible Transformer (z.B. Reformer, RevNet):</strong> Da ihre Abbildung bijektiv und invertierbar ist, verhindern sie Informationskollaps. Ihre log-spektralen Jacobian-Verteilungen von s_i sind <strong>hochsymmetrisch</strong> und um einen Mittelwert zentriert (oft 0, was Volumenerhaltung anzeigt). Für jede Expansionsrichtung (s_i &gt; 0) existiert eine entsprechende Kontraktionsrichtung (-s_i &lt; 0) gleicher Größe.
@@ -147,7 +150,7 @@ import SectionMark from '../../../components/SectionMark.astro';
     <div class="mt-20 p-8 bg-white rounded-2xl border border-csr-gray-200 shadow-card max-w-3xl mx-auto">
       <h3 class="text-xl font-bold text-csr-black mb-3 font-sans">Diese Forschung unterstützen</h3>
       <p class="text-csr-gray-600 text-sm mb-6 leading-relaxed">
-        Das Center for Sentience Research ist eine in der Schweiz registrierte unabhängige gemeinnützige Organisation. Wir suchen akademische Partner, GPU-Rechenkapazitäten und philanthropische Unterstützung, um diese technische Roadmap umzusetzen.
+        Das Center for Sentience Research ist eine unabhängige gemeinnützige Organisation in Gründung; eine gemeinnützige Fiskalträgerschaft ist beantragt und steht noch zur Genehmigung aus. Wir suchen akademische Partner, Förderungen für Rechenkapazität und philanthropische Unterstützung, um diese technische Roadmap umzusetzen.
       </p>
       <div class="flex flex-wrap gap-3">
         <a href="/de/donate/" class="btn-primary font-mono text-xs">Digitale Valenz finanzieren</a>

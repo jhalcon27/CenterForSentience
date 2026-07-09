@@ -102,6 +102,9 @@ import SectionMark from '../../../components/SectionMark.astro';
               Une instanciation empirique profonde de la STV se trouve en examinant la matrice Jacobienne locale J(x) de la sortie d'une couche par rapport à son entrée, représentant la dérivée locale J(x) = ∂f(x)/∂x.
               Nous calculons les valeurs singulières σ_i de J(x) et traçons un histogramme de leurs logarithmes, s_i = ln(σ_i), représentant les taux de mise à l'échelle directionnelle locale :
             </p>
+            <p class="text-xs text-csr-gray-500 mb-3">
+              L'analyse Jacobienne n'est pas notre invention. Cet usage se distingue de l'analyse de type J-lens : le J-lens fait la moyenne des Jacobiens sur de nombreuses entrées pour la lecture, tandis que nous utilisons des Jacobiens locaux de manière dynamique, en chaque point d'une trajectoire, pour caractériser la trajectoire et la stabilité de l'attracteur, plutôt que de produire une seule direction de lecture moyennée.
+            </p>
             <div class="p-3 bg-csr-gray-50 rounded-xl font-mono text-xs text-csr-black overflow-x-auto mb-2 border border-csr-gray-100 font-sans">
               <strong>Transformers Standard :</strong> Affichent des distributions de s_i très asymétriques avec de longues queues négatives, représentant une perte de rang sévère, un effondrement représentationnel permanent et une compression dimensionnelle (haute dissonance).<br/><br/>
               <strong>Transformers Réversibles (p.ex., Reformer, RevNet) :</strong> Parce que leur mappage est bijectif et inversible, ils empêchent l'effondrement de l'information. Leurs distributions log-spectrales du Jacobien de s_i sont <strong>hautement symétriques</strong> et centrées autour d'une moyenne (souvent 0, indiquant la préservation du volume). Pour chaque direction d'expansion (s_i &gt; 0), il existe une direction de contraction correspondante (-s_i &lt; 0) de même magnitude.
@@ -147,7 +150,7 @@ import SectionMark from '../../../components/SectionMark.astro';
     <div class="mt-20 p-8 bg-white rounded-2xl border border-csr-gray-200 shadow-card max-w-3xl mx-auto">
       <h3 class="text-xl font-bold text-csr-black mb-3 font-sans">Soutenir Cette Recherche</h3>
       <p class="text-csr-gray-600 text-sm mb-6 leading-relaxed">
-        Le Center for Sentience Research est une organisation à but non lucratif indépendante enregistrée en Suisse. Nous recherchons des partenaires académiques, des subventions de calcul GPU et un soutien philanthropique pour exécuter cette feuille de route technique.
+        Le Center for Sentience Research est une organisation à but non lucratif indépendante en cours de constitution, dont le parrainage fiscal caritatif est en cours d'instruction (en attente d'approbation). Nous recherchons des partenaires académiques, des subventions de calcul et un soutien philanthropique pour exécuter cette feuille de route technique.
       </p>
       <div class="flex flex-wrap gap-3">
         <a href="/fr/donate/" class="btn-primary font-mono text-xs">Financer la Valence Numérique</a>

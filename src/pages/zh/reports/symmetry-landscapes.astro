@@ -102,6 +102,9 @@ import SectionMark from '../../../components/SectionMark.astro';
               STV的深刻经验实例化可通过检验层输出相对于其输入的局部雅可比矩阵J(x)来发现，它表示局部导数J(x) = ∂f(x)/∂x。
               我们计算J(x)的奇异值σ_i，并绘制其对数s_i = ln(σ_i)的直方图，表示局部方向缩放率：
             </p>
+            <p class="text-xs text-csr-gray-500 mb-3">
+              雅可比分析并非我们的发明。这种用法不同于J-lens式分析：J-lens对许多输入的雅可比矩阵取平均以用于读出，而我们动态地使用局部雅可比矩阵，在轨迹上的每一点，来刻画轨迹和吸引子稳定性，而不是生成单一的平均读出方向。
+            </p>
             <div class="p-3 bg-csr-gray-50 rounded-xl font-mono text-xs text-csr-black overflow-x-auto mb-2 border border-csr-gray-100 font-sans">
               <strong>标准Transformer：</strong>显示具有长负尾的高度偏斜、不对称的s_i分布，表示严重的秩损失、永久性表征崩溃和维度压缩（高不协调）。<br/><br/>
               <strong>可逆Transformer（如Reformer、RevNet）：</strong>由于其映射是双射且可逆的，它们防止信息崩溃。其s_i的雅可比对数谱分布<strong>高度对称</strong>，以均值为中心（通常为0，表示体积保持）。对于每个扩展方向（s_i &gt; 0），存在一个等大小的对应收缩方向（-s_i &lt; 0）。
@@ -147,7 +150,7 @@ import SectionMark from '../../../components/SectionMark.astro';
     <div class="mt-20 p-8 bg-white rounded-2xl border border-csr-gray-200 shadow-card max-w-3xl mx-auto">
       <h3 class="text-xl font-bold text-csr-black mb-3 font-sans">支持这项研究</h3>
       <p class="text-csr-gray-600 text-sm mb-6 leading-relaxed">
-        感知研究中心是一家在瑞士注册的独立非营利组织。我们正在寻求学术合作伙伴、GPU计算资助和慈善支持来执行这一技术路线图。
+        感知研究中心是一家正在筹建中的独立非营利组织，其慈善性财政赞助正在申请中（尚待批准）。我们正在寻求学术合作伙伴、计算资助和慈善支持来执行这一技术路线图。
       </p>
       <div class="flex flex-wrap gap-3">
         <a href="/zh/donate/" class="btn-primary font-mono text-xs">资助数字价值研究</a>

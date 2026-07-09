@@ -52,21 +52,24 @@ import BudgetChart from '../../components/BudgetChart.astro';
       <div class="grid md:grid-cols-3 gap-5">
         <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
           <div class="mb-3 flex justify-center"><Glyph name="digital" size={36} class="opacity-60" /></div>
-          <p class="text-2xl font-bold text-csr-primary mb-2">CHF 50k</p>
-          <h3 class="font-bold text-csr-black mb-2 text-sm">计算资源</h3>
-          <p class="text-xs text-csr-gray-600 leading-relaxed">GPU访问，用于分析Transformer注意力模式和矩阵乘法序列中的对称性不变量。核心实证工作。</p>
+          <p class="label-mono text-[10px] text-csr-gray-400 mb-2">精简层级 — 下限</p>
+          <p class="text-2xl font-bold text-csr-primary mb-2">$110k</p>
+          <h3 class="font-bold text-csr-black mb-2 text-sm">核心研究</h3>
+          <p class="text-xs text-csr-gray-600 leading-relaxed">首席研究员（50% FTE）和一名初级 ML 工程师（50% FTE）。形式化的数学定义、核心 PyTorch 仿真引擎，以及理论白皮书。</p>
         </div>
-        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+        <div class="bg-white border border-csr-primary/30 rounded-2xl p-6 shadow-card ring-1 ring-csr-primary/20">
           <div class="mb-3 flex justify-center"><Glyph name="phase-portrait" size={36} class="opacity-60" /></div>
-          <p class="text-2xl font-bold text-csr-primary mb-2">CHF 20k</p>
-          <h3 class="font-bold text-csr-black mb-2 text-sm">文献综合</h3>
-          <p class="text-xs text-csr-gray-600 leading-relaxed">系统回顾STV谱系、IIT、主动推断和神经计算的群论方法。构建正式框架。</p>
+          <p class="label-mono text-[10px] text-csr-primary mb-2">推荐 — 主线申请</p>
+          <p class="text-2xl font-bold text-csr-primary mb-2">$135k</p>
+          <h3 class="font-bold text-csr-black mb-2 text-sm">完整项目</h3>
+          <p class="text-xs text-csr-gray-600 leading-relaxed">首席研究员（50% FTE）和一名初级 ML 工程师——此层级不含博士后。资助核心的跨语言扰动-恢复实验：在四种语言（ES、DE、SV、EN）中配对厌恶性与中性语境，测量内部恢复动态，并检验跨语言不变性作为区分真实状态与模仿的判据。它按设计运行于适度的硬件之上——在可用时采用 NNsight/NDIF 等免费基础设施，否则采用适度的付费云 GPU——缩减后的付费算力项仅覆盖免费基础设施无法承担的定制仿真与微调。包含针对无脊椎动物电生理与连接组数据（口胃神经节、OpenWorm C. elegans）的方法可行性核查（是对方法的健全性检验，而非效价锚点），以及领域建设与成果传播。</p>
         </div>
         <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
           <div class="mb-3 flex justify-center"><Glyph name="invariant" size={36} class="opacity-60" /></div>
-          <p class="text-2xl font-bold text-csr-primary mb-2">CHF 10k</p>
-          <h3 class="font-bold text-csr-black mb-2 text-sm">顾问费用</h3>
-          <p class="text-xs text-csr-gray-600 leading-relaxed">补偿数学物理和意识研究领域的外部顾问，用于结构化审查会议和框架压力测试。</p>
+          <p class="label-mono text-[10px] text-csr-gray-400 mb-2">扩展 — 远景</p>
+          <p class="text-2xl font-bold text-csr-primary mb-2">$260k</p>
+          <h3 class="font-bold text-csr-black mb-2 text-sm">前沿部署</h3>
+          <p class="text-xs text-csr-gray-600 leading-relaxed">一支全职团队。在更大规模的开放权重前沿模型上试点测量工具，并寻求与外部可解释性实验室合作，对运行中的大规模系统采用局部雅可比与谱轨迹指标。此层级还可支持未来的博士后招聘（例如全局工作空间或认知科学方向）。</p>
         </div>
       </div>
     </div>
@@ -125,10 +128,10 @@ import BudgetChart from '../../components/BudgetChart.astro';
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-3 mb-6">
         <SectionMark />
-        <p class="label-mono">财务托管</p>
+        <p class="label-mono">法律地位</p>
       </div>
       <p class="text-csr-gray-600 mb-8 leading-relaxed max-w-2xl">
-        CSR在一家秉持有效利他主义理念的非营利组织的财务托管（fiscal sponsorship）下运营。根据您所在的司法管辖区，捐款可能可以抵税——请联系我们获取托管方信息和捐赠收据。
+        Center for Sentience Research 是一家正在筹建中的独立非营利机构，慈善性质的财务托管（fiscal sponsorship）正在办理中（尚待批准）。一旦托管获得确认，根据您所在的司法管辖区，捐款可能可以抵税——请联系我们获取最新信息和捐赠收据。
       </p>
       <p class="text-xs text-csr-gray-400 font-mono">年度研究成果和财务摘要公开发布。全面透明模式。</p>
     </div>

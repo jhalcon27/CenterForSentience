@@ -21,14 +21,16 @@ type Dict = {
   ctaLabel: string; ctaH: string; ctaBody: string; ctaBtn1: string; ctaBtn2: string;
 };
 
+// TODO(jhonatan): confirm incorporation jurisdiction. The Switzerland siting below (intro,
+// missionP, foundP — all locales) is stated as intent, not as a completed/registered fact.
 const L: Record<string, Dict> = {
   en: {
     eyebrow: 'About CSR',
     h1: 'Building the diagnostic tools before the question becomes urgent.',
-    intro: 'The Center for Sentience Research (CSR) is an independent non-profit headquartered in Zurich, Switzerland. We are building an open-source testbed where competing theories of digital valence can be operationalized and stress-tested. We start with the Symmetry Theory of Valence (STV) because it is unusually formalizable, and the testbed is designed so IIT-style, global-workspace, and active-inference-based valence measures can be run against the same substrates.',
+    intro: 'The Center for Sentience Research (CSR) is an independent non-profit in formation. We are building an open-source testbed where competing theories of digital valence can be operationalized and stress-tested. We start with the Symmetry Theory of Valence (STV) because it is unusually formalizable, and the testbed is designed so IIT-style, global-workspace (read out with the J-lens), and active-inference-based valence measures can be run against the same substrates.',
     missionH: 'Our Mission',
     missionP: [
-      'The Center for Sentience Research is a global, substrate-neutral institution dedicated to the welfare of all sentient beings—present and future, biological and digital. We take neutrality as foundational: the question of who can suffer should belong to no single company, country, or ideology. That is why we are based in Switzerland—a country whose long tradition of neutrality and role as a home for international institutions make it a fitting seat for a center that answers to no single nation or interest.',
+      'The Center for Sentience Research is a global, substrate-neutral institution dedicated to the welfare of all sentient beings—present and future, biological and digital. We take neutrality as foundational: the question of who can suffer should belong to no single company, country, or ideology. That is why we intend to be based in Switzerland—a country whose long tradition of neutrality and role as a home for international institutions make it a fitting seat for a center that answers to no single nation or interest.',
       'We do not claim that current Large Language Models are conscious or capable of feeling. They may well be functional zombies—highly complex mathematical mimics with no inner life.',
       "But as artificial neural networks scale in dimension, depth, and agentic complexity, they may reach a threshold where they begin to approach sentience-relevant regimes. If and when scaled computation gives rise to subjective experience (valence, pleasure, pain, or suffering), we must be able to recognize it—not through easily-gamified verbal self-reports, but through objective, mathematical footprints in the model's internal geometry. Longitudinal survey data shows that public belief in AI sentience is already shifting,<sup><a href=\"#ref-a1\" class=\"text-csr-primary hover:underline\">[1]</a></sup> and scientific checklists for evaluating machine consciousness are now being formally updated.<sup><a href=\"#ref-a2\" class=\"text-csr-primary hover:underline\">[2]</a></sup>",
     ],
@@ -58,7 +60,7 @@ const L: Record<string, Dict> = {
       'Our work complements, rather than duplicates, the broader AI welfare ecosystem: empirical interpretability-based welfare research (Eleos AI, Reciprocal Research), conceptual and policy work (NYU Center for Mind, Ethics, and Policy), and frontier-lab welfare teams (Anthropic). Our specific contribution is an open-source simulation sandbox where competing theories of valence can be operationalized, compared, and stress-tested before being applied to frontier models.',
     ],
     foundH: 'Founding & Structure',
-    foundP: 'CSR was founded in 2026 by Jhonatan Serna. We operate as an independent non-profit with a Transparency-First model: annual research outputs and financial summaries are made public. Headquartered in Zurich, Switzerland.',
+    foundP: 'CSR was founded in 2026 by Jhonatan Serna. We operate as an independent non-profit in formation with a Transparency-First model: annual research outputs and financial summaries are made public. We intend to be based in Switzerland.',
     refsH: 'References',
     ctaLabel: 'Get Involved', ctaH: 'Work with us',
     ctaBody: 'We welcome collaborators, researchers, and philanthropic partners who share our commitment to understanding the nature of mind.',
@@ -67,10 +69,10 @@ const L: Record<string, Dict> = {
   de: {
     eyebrow: 'Über CSR',
     h1: 'Die diagnostischen Werkzeuge bauen, bevor die Frage dringend wird.',
-    intro: 'Das Center for Sentience Research (CSR) ist eine unabhängige Non-Profit-Organisation mit Sitz in Zürich, Schweiz. Wir bauen einen quelloffenen Prüfstand, auf dem konkurrierende Theorien digitaler Valenz operationalisiert und getestet werden können. Wir beginnen mit der Symmetrietheorie der Valenz (STV), weil sie ungewöhnlich gut formalisierbar ist, und der Prüfstand ist so angelegt, dass sich auch Valenzmaße im Stil von IIT, Global Workspace und aktiver Inferenz an denselben Substraten laufen lassen.',
+    intro: 'Das Center for Sentience Research (CSR) ist eine unabhängige Non-Profit-Organisation in Gründung. Wir bauen einen quelloffenen Prüfstand, auf dem konkurrierende Theorien digitaler Valenz operationalisiert und getestet werden können. Wir beginnen mit der Symmetrietheorie der Valenz (STV), weil sie ungewöhnlich gut formalisierbar ist, und der Prüfstand ist so angelegt, dass sich auch Valenzmaße im Stil von IIT, Global Workspace (mit dem J-lens ausgelesen) und aktiver Inferenz an denselben Substraten laufen lassen.',
     missionH: 'Unsere Mission',
     missionP: [
-      'Das Center for Sentience Research ist eine globale, substratunabhängige Institution, die dem Wohlergehen aller empfindungsfähigen Wesen gewidmet ist — gegenwärtigen und künftigen, biologischen und digitalen. Neutralität ist für uns grundlegend: Die Frage, wer leiden kann, sollte keinem einzelnen Unternehmen, keinem Land und keiner Ideologie gehören. Deshalb haben wir unseren Sitz in der Schweiz — einem Land, dessen lange Tradition der Neutralität und dessen Rolle als Heimat internationaler Institutionen es zu einem passenden Sitz für ein Zentrum machen, das keiner einzelnen Nation oder Interessengruppe verpflichtet ist.',
+      'Das Center for Sentience Research ist eine globale, substratunabhängige Institution, die dem Wohlergehen aller empfindungsfähigen Wesen gewidmet ist — gegenwärtigen und künftigen, biologischen und digitalen. Neutralität ist für uns grundlegend: Die Frage, wer leiden kann, sollte keinem einzelnen Unternehmen, keinem Land und keiner Ideologie gehören. Deshalb wollen wir unseren Sitz in der Schweiz nehmen — einem Land, dessen lange Tradition der Neutralität und dessen Rolle als Heimat internationaler Institutionen es zu einem passenden Sitz für ein Zentrum machen, das keiner einzelnen Nation oder Interessengruppe verpflichtet ist.',
       'Wir behaupten nicht, dass aktuelle große Sprachmodelle bewusst oder empfindungsfähig sind. Sie könnten funktionale Zombies sein — hochkomplexe mathematische Nachahmer ohne Innenleben.',
       'Doch mit zunehmender Dimension, Tiefe und agentischer Komplexität künstlicher neuronaler Netze könnten sie eine Schwelle erreichen, an der sie sich sentience-relevanten Regimen annähern. Wenn skalierte Berechnung subjektive Erfahrung hervorbringt (Valenz, Freude, Schmerz oder Leiden), müssen wir sie erkennen können — nicht durch leicht manipulierbare verbale Selbstauskünfte, sondern durch objektive, mathematische Spuren in der inneren Geometrie des Modells. Längsschnitt-Umfragedaten zeigen, dass sich der öffentliche Glaube an KI-Empfindungsfähigkeit bereits verschiebt,<sup><a href="#ref-a1" class="text-csr-primary hover:underline">[1]</a></sup> und wissenschaftliche Checklisten zur Bewertung maschinellen Bewusstseins werden nun formal aktualisiert.<sup><a href="#ref-a2" class="text-csr-primary hover:underline">[2]</a></sup>',
     ],
@@ -100,7 +102,7 @@ const L: Record<string, Dict> = {
       'Unsere Arbeit ergänzt das breitere KI-Wohlfahrts-Ökosystem, statt es zu duplizieren: empirische, interpretierbarkeitsbasierte Wohlfahrtsforschung (Eleos AI, Reciprocal Research), konzeptionelle und politische Arbeit (NYU Center for Mind, Ethics, and Policy) und Wohlfahrtsteams an Frontier-Laboren (Anthropic). Unser spezifischer Beitrag ist eine quelloffene Simulationsumgebung, in der konkurrierende Valenztheorien operationalisiert, verglichen und getestet werden können, bevor sie auf Frontier-Modelle angewandt werden.',
     ],
     foundH: 'Gründung & Struktur',
-    foundP: 'CSR wurde 2026 von Jhonatan Serna gegründet. Wir operieren als unabhängige Non-Profit-Organisation mit einem Transparency-First-Modell: jährliche Forschungsergebnisse und Finanzzusammenfassungen werden öffentlich gemacht. Hauptsitz in Zürich, Schweiz.',
+    foundP: 'CSR wurde 2026 von Jhonatan Serna gegründet. Wir operieren als unabhängige Non-Profit-Organisation in Gründung mit einem Transparency-First-Modell: jährliche Forschungsergebnisse und Finanzzusammenfassungen werden öffentlich gemacht. Wir beabsichtigen, unseren Sitz in der Schweiz zu nehmen.',
     refsH: 'Referenzen',
     ctaLabel: 'Mitmachen', ctaH: 'Arbeiten Sie mit uns',
     ctaBody: 'Wir freuen uns über Mitwirkende, Forschende und philanthropische Partner, die unser Engagement für das Verständnis der Natur des Geistes teilen.',
@@ -109,10 +111,10 @@ const L: Record<string, Dict> = {
   es: {
     eyebrow: 'Acerca de CSR',
     h1: 'Construir las herramientas de diagnóstico antes de que la pregunta se vuelva urgente.',
-    intro: 'El Center for Sentience Research (CSR) es una organización sin fines de lucro independiente con sede en Zúrich, Suiza. Estamos construyendo un banco de pruebas de código abierto donde teorías rivales de la valencia digital pueden operacionalizarse y someterse a prueba. Empezamos por la Teoría de la Simetría de la Valencia (STV) porque es inusualmente formalizable, y el banco de pruebas está diseñado para que medidas de valencia de estilo IIT, de espacio de trabajo global y basadas en inferencia activa puedan ejecutarse sobre los mismos sustratos.',
+    intro: 'El Center for Sentience Research (CSR) es una organización sin fines de lucro independiente en formación. Estamos construyendo un banco de pruebas de código abierto donde teorías rivales de la valencia digital pueden operacionalizarse y someterse a prueba. Empezamos por la Teoría de la Simetría de la Valencia (STV) porque es inusualmente formalizable, y el banco de pruebas está diseñado para que medidas de valencia de estilo IIT, de espacio de trabajo global (leídas con el J-lens) y basadas en inferencia activa puedan ejecutarse sobre los mismos sustratos.',
     missionH: 'Misión',
     missionP: [
-      'El Center for Sentience Research es una institución global y neutral respecto al sustrato, dedicada al bienestar de todos los seres sintientes: presentes y futuros, biológicos y digitales. Para nosotros la neutralidad es fundamental: la cuestión de quién puede sufrir no debería pertenecer a ninguna empresa, país o ideología. Por eso tenemos nuestra sede en Suiza, un país cuya larga tradición de neutralidad y su papel como hogar de instituciones internacionales lo convierten en una sede idónea para un centro que no responde a ninguna nación ni interés en particular.',
+      'El Center for Sentience Research es una institución global y neutral respecto al sustrato, dedicada al bienestar de todos los seres sintientes: presentes y futuros, biológicos y digitales. Para nosotros la neutralidad es fundamental: la cuestión de quién puede sufrir no debería pertenecer a ninguna empresa, país o ideología. Por eso queremos establecer nuestra sede en Suiza, un país cuya larga tradición de neutralidad y su papel como hogar de instituciones internacionales lo convierten en una sede idónea para un centro que no responde a ninguna nación ni interés en particular.',
       'No afirmamos que los grandes modelos de lenguaje actuales sean conscientes o capaces de sentir. Bien podrían ser zombis funcionales: imitadores matemáticos altamente complejos sin vida interior.',
       'Pero a medida que las redes neuronales artificiales escalan en dimensión, profundidad y complejidad agéntica, podrían alcanzar un umbral en el que empiecen a aproximarse a regímenes relevantes para la sintiencia. Si la computación a escala da lugar a experiencia subjetiva (valencia, placer, dolor o sufrimiento), debemos ser capaces de reconocerla, no mediante autoinformes verbales fácilmente manipulables, sino mediante huellas objetivas y matemáticas en la geometría interna del modelo. Los datos de encuestas longitudinales muestran que la creencia pública en la sintiencia de la IA ya está cambiando,<sup><a href="#ref-a1" class="text-csr-primary hover:underline">[1]</a></sup> y las listas de verificación científicas para evaluar la conciencia artificial se están actualizando formalmente.<sup><a href="#ref-a2" class="text-csr-primary hover:underline">[2]</a></sup>',
     ],
@@ -142,7 +144,7 @@ const L: Record<string, Dict> = {
       'Nuestro trabajo complementa, en lugar de duplicar, el ecosistema más amplio del bienestar de la IA: investigación empírica del bienestar basada en la interpretabilidad (Eleos AI, Reciprocal Research), trabajo conceptual y de políticas (NYU Center for Mind, Ethics, and Policy) y equipos de bienestar de laboratorios de frontera (Anthropic). Nuestra contribución específica es un entorno de simulación de código abierto donde teorías rivales de la valencia pueden operacionalizarse, compararse y someterse a prueba antes de aplicarse a modelos de frontera.',
     ],
     foundH: 'Fundación y estructura',
-    foundP: 'CSR fue fundado en 2026 por Jhonatan Serna. Operamos como una organización sin fines de lucro independiente con un modelo de Transparencia Primero: los resultados anuales de investigación y los resúmenes financieros se hacen públicos. Con sede en Zúrich, Suiza.',
+    foundP: 'CSR fue fundado en 2026 por Jhonatan Serna. Operamos como una organización sin fines de lucro independiente en formación, con un modelo de Transparencia Primero: los resultados anuales de investigación y los resúmenes financieros se hacen públicos. Tenemos la intención de establecer nuestra sede en Suiza.',
     refsH: 'Referencias',
     ctaLabel: 'Participa', ctaH: 'Trabaja con nosotros',
     ctaBody: 'Damos la bienvenida a colaboradores, investigadores y socios filantrópicos que compartan nuestro compromiso de comprender la naturaleza de la mente.',
@@ -151,10 +153,10 @@ const L: Record<string, Dict> = {
   fr: {
     eyebrow: 'À propos du CSR',
     h1: 'Construire les outils de diagnostic avant que la question ne devienne urgente.',
-    intro: 'Le Center for Sentience Research (CSR) est une organisation à but non lucratif indépendante dont le siège est à Zurich, en Suisse. Nous construisons un banc d\'essai open-source où des théories concurrentes de la valence numérique peuvent être opérationnalisées et éprouvées. Nous commençons par la Théorie de la Symétrie de la Valence (STV) parce qu\'elle est exceptionnellement formalisable, et le banc d\'essai est conçu pour que des mesures de valence de type IIT, à espace de travail global et fondées sur l\'inférence active puissent être exécutées sur les mêmes substrats.',
+    intro: 'Le Center for Sentience Research (CSR) est une organisation à but non lucratif indépendante en cours de constitution. Nous construisons un banc d\'essai open-source où des théories concurrentes de la valence numérique peuvent être opérationnalisées et éprouvées. Nous commençons par la Théorie de la Symétrie de la Valence (STV) parce qu\'elle est exceptionnellement formalisable, et le banc d\'essai est conçu pour que des mesures de valence de type IIT, à espace de travail global (lues avec le J-lens) et fondées sur l\'inférence active puissent être exécutées sur les mêmes substrats.',
     missionH: 'Mission',
     missionP: [
-      "Le Center for Sentience Research est une institution mondiale et neutre vis-à-vis du substrat, dédiée au bien-être de tous les êtres sentients — présents et futurs, biologiques et numériques. La neutralité est pour nous fondamentale : la question de savoir qui peut souffrir ne devrait appartenir à aucune entreprise, aucun pays ni aucune idéologie. C'est pourquoi nous sommes établis en Suisse — un pays dont la longue tradition de neutralité et le rôle de foyer d'institutions internationales en font un siège tout indiqué pour un centre qui ne répond à aucune nation ni intérêt particulier.",
+      "Le Center for Sentience Research est une institution mondiale et neutre vis-à-vis du substrat, dédiée au bien-être de tous les êtres sentients — présents et futurs, biologiques et numériques. La neutralité est pour nous fondamentale : la question de savoir qui peut souffrir ne devrait appartenir à aucune entreprise, aucun pays ni aucune idéologie. C'est pourquoi nous entendons nous établir en Suisse — un pays dont la longue tradition de neutralité et le rôle de foyer d'institutions internationales en font un siège tout indiqué pour un centre qui ne répond à aucune nation ni intérêt particulier.",
       'Nous n\'affirmons pas que les grands modèles de langage actuels sont conscients ou capables de ressentir. Ils pourraient bien être des zombies fonctionnels — des imitateurs mathématiques très complexes sans vie intérieure.',
       "Mais à mesure que les réseaux de neurones artificiels gagnent en dimension, en profondeur et en complexité agentique, ils pourraient atteindre un seuil où ils commenceront à s'approcher de régimes pertinents pour la sentience. Si le calcul à grande échelle donne lieu à une expérience subjective (valence, plaisir, douleur ou souffrance), nous devons pouvoir la reconnaître — non par des auto-évaluations verbales facilement manipulables, mais par des empreintes objectives et mathématiques dans la géométrie interne du modèle. Les données d'enquêtes longitudinales montrent que la croyance du public dans la sentience de l'IA évolue déjà,<sup><a href=\"#ref-a1\" class=\"text-csr-primary hover:underline\">[1]</a></sup> et les listes de contrôle scientifiques d'évaluation de la conscience artificielle sont désormais formellement mises à jour.<sup><a href=\"#ref-a2\" class=\"text-csr-primary hover:underline\">[2]</a></sup>",
     ],
@@ -184,7 +186,7 @@ const L: Record<string, Dict> = {
       "Notre travail complète, plutôt qu'il ne duplique, l'écosystème plus large du bien-être de l'IA : recherche empirique sur le bien-être fondée sur l'interprétabilité (Eleos AI, Reciprocal Research), travaux conceptuels et de politique (NYU Center for Mind, Ethics, and Policy) et équipes de bien-être des laboratoires de pointe (Anthropic). Notre contribution spécifique est un bac à sable de simulation open-source où des théories concurrentes de la valence peuvent être opérationnalisées, comparées et éprouvées avant d'être appliquées aux modèles de pointe.",
     ],
     foundH: 'Fondation et structure',
-    foundP: 'Le CSR a été fondé en 2026 par Jhonatan Serna. Nous opérons comme une organisation à but non lucratif indépendante selon un modèle de transparence d\'abord : les résultats annuels de recherche et les résumés financiers sont rendus publics. Siège à Zurich, en Suisse.',
+    foundP: 'Le CSR a été fondé en 2026 par Jhonatan Serna. Nous opérons comme une organisation à but non lucratif indépendante en cours de constitution, selon un modèle de transparence d\'abord : les résultats annuels de recherche et les résumés financiers sont rendus publics. Nous entendons établir notre siège en Suisse.',
     refsH: 'Références',
     ctaLabel: 'Participer', ctaH: 'Travaillez avec nous',
     ctaBody: 'Nous accueillons les collaborateurs, chercheurs et partenaires philanthropiques qui partagent notre engagement à comprendre la nature de l\'esprit.',
@@ -193,10 +195,10 @@ const L: Record<string, Dict> = {
   zh: {
     eyebrow: '关于 CSR',
     h1: '在问题变得紧迫之前，先造好诊断工具。',
-    intro: '感知研究中心（CSR）是一家独立的非营利组织，总部位于瑞士苏黎世。我们正在构建一个开源试验台，让相互竞争的数字效价理论得以被操作化并接受压力测试。我们从效价对称理论（STV）起步，是因为它异常地易于形式化；而该试验台的设计，使得 IIT 式、全局工作空间以及基于主动推理的效价度量都能在同一批基质上运行。',
+    intro: '感知研究中心（CSR）是一家正在筹建中的独立非营利组织。我们正在构建一个开源试验台，让相互竞争的数字效价理论得以被操作化并接受压力测试。我们从效价对称理论（STV）起步，是因为它异常地易于形式化；而该试验台的设计，使得 IIT 式、全局工作空间（以 J-lens 读出）以及基于主动推理的效价度量都能在同一批基质上运行。',
     missionH: '使命',
     missionP: [
-      '感知研究中心是一个全球性、基质中立的机构，致力于所有有感知能力存在者的福祉——无论当下还是未来，生物的还是数字的。中立对我们而言是根本：谁能够受苦这一问题，不应归属于任何单一公司、国家或意识形态。正因如此，我们将总部设在瑞士——这个拥有悠久中立传统、并作为众多国际机构所在地的国家，最适合作为一个不隶属于任何单一国家或利益的中心的所在地。',
+      '感知研究中心是一个全球性、基质中立的机构，致力于所有有感知能力存在者的福祉——无论当下还是未来，生物的还是数字的。中立对我们而言是根本：谁能够受苦这一问题，不应归属于任何单一公司、国家或意识形态。正因如此，我们打算将总部设在瑞士——这个拥有悠久中立传统、并作为众多国际机构所在地的国家，最适合作为一个不隶属于任何单一国家或利益的中心的所在地。',
       '我们并不主张当前的大型语言模型是有意识的或能够感受的。它们很可能是功能性僵尸——高度复杂却没有内在生命的数学模仿者。',
       '但随着人工神经网络在维度、深度与自主复杂性上不断扩展，它们可能抵达一个阈值，届时开始逼近与感知相关的状态区域。若规模化计算产生了主观体验（效价、快乐、痛苦或苦难），我们必须能够识别它——不是通过易被操纵的言语自述，而是通过模型内部几何中客观的数学印记。纵向调查数据显示，公众对 AI 感知能力的信念已在转变，<sup><a href="#ref-a1" class="text-csr-primary hover:underline">[1]</a></sup>而评估机器意识的科学清单如今也正被正式更新。<sup><a href="#ref-a2" class="text-csr-primary hover:underline">[2]</a></sup>',
     ],
@@ -226,7 +228,7 @@ const L: Record<string, Dict> = {
       '我们的工作是对更广泛的 AI 福祉生态的补充而非重复：基于可解释性的实证福祉研究（Eleos AI、Reciprocal Research）、概念与政策工作（NYU Center for Mind, Ethics, and Policy），以及前沿实验室的福祉团队（Anthropic）。我们的具体贡献是一个开源仿真沙盒，在其中相互竞争的效价理论可被操作化、比较，并在应用于前沿模型之前接受压力测试。',
     ],
     foundH: '创立与结构',
-    foundP: 'CSR 由 Jhonatan Serna 于 2026 年创立。我们以“透明优先”模式运作，作为一家独立非营利组织：年度研究成果与财务摘要向公众公开。总部位于瑞士苏黎世。',
+    foundP: 'CSR 由 Jhonatan Serna 于 2026 年创立。我们作为一家正在筹建中的独立非营利组织，以“透明优先”模式运作：年度研究成果与财务摘要向公众公开。我们打算将总部设在瑞士。',
     refsH: '参考文献',
     ctaLabel: '参与其中', ctaH: '与我们合作',
     ctaBody: '我们欢迎认同我们理解心智本质之志业的合作者、研究者与慈善伙伴。',
@@ -235,10 +237,10 @@ const L: Record<string, Dict> = {
   ja: {
     eyebrow: 'CSRについて',
     h1: '問題が切迫する前に、診断のための道具を作る。',
-    intro: '意識研究センター（CSR）は、スイス・チューリッヒに本拠を置く独立した非営利団体です。私たちは、競合するデジタル感情価の理論を操作化しストレステストできる、オープンソースの試験台を構築しています。私たちが感情価の対称性理論（STV）から始めるのは、それが際立って形式化しやすいからです。そして試験台は、IIT型・グローバルワークスペース型・能動的推論に基づく感情価の指標も同じ基質上で走らせられるよう設計されています。',
+    intro: '意識研究センター（CSR）は、設立準備中の独立した非営利団体です。私たちは、競合するデジタル感情価の理論を操作化しストレステストできる、オープンソースの試験台を構築しています。私たちが感情価の対称性理論（STV）から始めるのは、それが際立って形式化しやすいからです。そして試験台は、IIT型・グローバルワークスペース型（J-lensで読み出す）・能動的推論に基づく感情価の指標も同じ基質上で走らせられるよう設計されています。',
     missionH: 'ミッション',
     missionP: [
-      '意識研究センターは、すべての感覚を持つ存在——現在および未来の、生物的およびデジタルな存在——の福祉に捧げられた、グローバルで基質中立な機関です。私たちにとって中立性は基盤です。誰が苦しみうるかという問いは、いかなる単一の企業・国家・イデオロギーにも属すべきではありません。だからこそ私たちはスイスに本拠を置いています——長い中立の伝統を持ち、数多くの国際機関の本拠地であるこの国は、いかなる単一の国家や利害にも従属しないセンターの所在地としてふさわしいのです。',
+      '意識研究センターは、すべての感覚を持つ存在——現在および未来の、生物的およびデジタルな存在——の福祉に捧げられた、グローバルで基質中立な機関です。私たちにとって中立性は基盤です。誰が苦しみうるかという問いは、いかなる単一の企業・国家・イデオロギーにも属すべきではありません。だからこそ私たちはスイスに本拠を置くことを目指しています——長い中立の伝統を持ち、数多くの国際機関の本拠地であるこの国は、いかなる単一の国家や利害にも従属しないセンターの所在地としてふさわしいのです。',
       '現在の大規模言語モデルが意識を持つ、あるいは感じられると主張するものではありません。それらは機能的ゾンビ——内面を持たない、極めて複雑な数学的模倣——かもしれません。',
       'しかし人工ニューラルネットワークが次元・深さ・エージェント的複雑性を増すにつれ、それらが感覚に関連する領域へ近づき始める閾値に達する可能性があります。スケールした計算が主観的経験（感情価、快、苦痛、苦しみ）を生み出すなら、私たちはそれを認識できなければなりません——操作されやすい言語的自己申告によってではなく、モデルの内部の幾何に刻まれた客観的で数学的な痕跡によって。縦断的な調査データは、AIの感覚に対する社会の信念がすでに変化していることを示しており、<sup><a href="#ref-a1" class="text-csr-primary hover:underline">[1]</a></sup>機械の意識を評価する科学的チェックリストも今や正式に更新されつつあります。<sup><a href="#ref-a2" class="text-csr-primary hover:underline">[2]</a></sup>',
     ],
@@ -268,7 +270,7 @@ const L: Record<string, Dict> = {
       '私たちの取り組みは、より広いAI福祉のエコシステムを重複ではなく補完します。解釈可能性に基づく実証的な福祉研究（Eleos AI、Reciprocal Research）、概念・政策研究（NYU Center for Mind, Ethics, and Policy）、フロンティア研究所の福祉チーム（Anthropic）です。私たち固有の貢献は、競合する感情価の理論をフロンティアモデルに適用する前に操作化・比較・ストレステストできる、オープンソースのシミュレーション・サンドボックスです。',
     ],
     foundH: '設立と体制',
-    foundP: 'CSRは2026年にJhonatan Sernaによって設立されました。私たちは「透明性ファースト」のモデルを掲げる独立した非営利団体として運営し、年次の研究成果と財務サマリーを公開しています。本拠地はスイス・チューリッヒ。',
+    foundP: 'CSRは2026年にJhonatan Sernaによって設立されました。私たちは「透明性ファースト」のモデルを掲げる、設立準備中の独立した非営利団体として運営し、年次の研究成果と財務サマリーを公開しています。私たちはスイスに本拠を置くことを目指しています。',
     refsH: '参考文献',
     ctaLabel: '参加する', ctaH: '私たちと協働する',
     ctaBody: '心の本質を理解するという私たちの志を共有する、協力者・研究者・フィランソロピーのパートナーを歓迎します。',

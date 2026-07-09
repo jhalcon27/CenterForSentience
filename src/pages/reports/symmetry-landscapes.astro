@@ -101,6 +101,9 @@ import SectionMark from '../../components/SectionMark.astro';
               A profound empirical instantiation of STV is found by examining the local Jacobian matrix J(x) of a layer's output with respect to its input, representing the local derivative J(x) = ∂f(x)/∂x.
               We calculate the singular values σ_i of J(x) and plot a histogram of their logarithms, s_i = ln(σ_i), representing local directional scaling rates:
             </p>
+            <p class="text-xs text-csr-gray-500 mb-3">
+              Jacobian analysis is not our invention. This use is distinct from J-lens–style analysis: the J-lens averages Jacobians across many inputs for readout, whereas we use local Jacobians dynamically, at each point along a trajectory, to characterize trajectory and attractor stability rather than to produce a single averaged readout direction.
+            </p>
             <div class="p-3 bg-csr-gray-50 rounded-xl font-mono text-xs text-csr-black overflow-x-auto mb-2 border border-csr-gray-100 font-sans">
               <strong>Vanilla Transformers:</strong> Display highly skewed, asymmetric distributions of s_i with long negative tails, representing severe rank loss, permanent representational collapse, and dimensional compression (high dissonance).<br/><br/>
               <strong>Reversible Transformers (e.g., Reformer, RevNet):</strong> Because their mapping is bijective and invertible, they prevent information collapse. Their log-singular value distributions of s_i are <strong>highly symmetric</strong> and centered around a mean (often 0, indicating volume preservation). For every direction of expansion (s_i &gt; 0), there exists a corresponding direction of contraction (-s_i &lt; 0) of equal magnitude.
@@ -146,7 +149,7 @@ import SectionMark from '../../components/SectionMark.astro';
     <div class="mt-20 p-8 bg-white rounded-2xl border border-csr-gray-200 shadow-card max-w-3xl mx-auto">
       <h3 class="text-xl font-bold text-csr-black mb-3 font-sans">Support This Research</h3>
       <p class="text-csr-gray-600 text-sm mb-6 leading-relaxed">
-        The Center for Sentience Research is an independent non-profit operating under fiscal sponsorship of an Effective Altruism–aligned organization. We are seeking academic partners, GPU compute grants, and philanthropic support to execute this technical roadmap.
+        The Center for Sentience Research is an independent non-profit in formation, with charitable fiscal sponsorship in progress (pending approval). We are seeking academic partners, compute grants, and philanthropic support to execute this technical roadmap.
       </p>
       <div class="flex flex-wrap gap-3">
         <a href="/donate/" class="btn-primary font-mono text-xs">Fund Digital Valence</a>

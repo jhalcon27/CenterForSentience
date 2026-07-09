@@ -55,21 +55,24 @@ import BudgetChart from '../../components/BudgetChart.astro';
       <div class="grid md:grid-cols-3 gap-5">
         <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
           <div class="mb-3 flex justify-center"><Glyph name="digital" size={36} class="opacity-60" /></div>
-          <p class="text-2xl font-bold text-csr-primary mb-2">CHF 50k</p>
-          <h3 class="font-bold text-csr-black mb-2 text-sm">Rechenkapazität</h3>
-          <p class="text-xs text-csr-gray-600 leading-relaxed">GPU-Zugang für die Analyse von Symmetrieinvarianten in Transformer-Aufmerksamkeitsmustern und Matrizenmultiplikationssequenzen. Die zentrale empirische Arbeit.</p>
+          <p class="label-mono text-[10px] text-csr-gray-400 mb-2">Basis-Stufe — Untergrenze</p>
+          <p class="text-2xl font-bold text-csr-primary mb-2">$110k</p>
+          <h3 class="font-bold text-csr-black mb-2 text-sm">Kernforschung</h3>
+          <p class="text-xs text-csr-gray-600 leading-relaxed">Leitende:r Forscher:in (50 % FTE) und ein:e Junior-ML-Ingenieur:in (50 % FTE). Formale mathematische Definitionen, die zentrale PyTorch-Simulations-Engine und das theoretische Whitepaper.</p>
         </div>
-        <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
+        <div class="bg-white border border-csr-primary/30 rounded-2xl p-6 shadow-card ring-1 ring-csr-primary/20">
           <div class="mb-3 flex justify-center"><Glyph name="phase-portrait" size={36} class="opacity-60" /></div>
-          <p class="text-2xl font-bold text-csr-primary mb-2">CHF 20k</p>
-          <h3 class="font-bold text-csr-black mb-2 text-sm">Literatursynthese</h3>
-          <p class="text-xs text-csr-gray-600 leading-relaxed">Systematische Überprüfung der STV-Linie, IIT, aktiver Inferenz und gruppentheoretischer Ansätze zur neuronalen Berechnung. Bildet das formale Gerüst.</p>
+          <p class="label-mono text-[10px] text-csr-primary mb-2">Empfohlen — Hauptantrag</p>
+          <p class="text-2xl font-bold text-csr-primary mb-2">$135k</p>
+          <h3 class="font-bold text-csr-black mb-2 text-sm">Vollprogramm</h3>
+          <p class="text-xs text-csr-gray-600 leading-relaxed">Leitende:r Forscher:in (50 % FTE) und ein:e Junior-ML-Ingenieur:in — kein Postdoc auf dieser Stufe. Finanziert das zentrale sprachübergreifende Störungs-Erholungs-Experiment: parallele aversive und neutrale Kontexte in vier Sprachen (ES, DE, SV, EN), Messung der internen Erholungsdynamik und Prüfung der sprachübergreifenden Invarianz als Unterscheidungsmerkmal zwischen Zustand und Nachahmung. Es läuft konstruktionsbedingt auf bescheidener Hardware — freie Infrastruktur wie NNsight/NDIF, sofern verfügbar, andernfalls bescheidene bezahlte Cloud-GPU — wobei die reduzierte Rechenkostenposition nur maßgeschneiderte Simulation und Feinabstimmung abdeckt, die freie Infrastruktur nicht leistet. Enthält eine Methoden-Plausibilitätsprüfung anhand von Elektrophysiologie- und Konnektomdaten wirbelloser Tiere (stomatogastrisches Ganglion, OpenWorm C. elegans) — eine Prüfung der Methode, kein Valenz-Anker — sowie Feldaufbau und Verbreitung.</p>
         </div>
         <div class="bg-white border border-csr-gray-100 rounded-2xl p-6 shadow-card">
           <div class="mb-3 flex justify-center"><Glyph name="invariant" size={36} class="opacity-60" /></div>
-          <p class="text-2xl font-bold text-csr-primary mb-2">CHF 10k</p>
-          <h3 class="font-bold text-csr-black mb-2 text-sm">Berater-Honorare</h3>
-          <p class="text-xs text-csr-gray-600 leading-relaxed">Vergütung externer Berater aus mathematischer Physik und Bewusstseinsforschung für strukturierte Überprüfungssitzungen und Stresstests des Frameworks.</p>
+          <p class="label-mono text-[10px] text-csr-gray-400 mb-2">Erweiterung — Ambition</p>
+          <p class="text-2xl font-bold text-csr-primary mb-2">$260k</p>
+          <h3 class="font-bold text-csr-black mb-2 text-sm">Frontier-Einsatz</h3>
+          <p class="text-xs text-csr-gray-600 leading-relaxed">Ein Vollzeitteam. Erprobt das Messwerkzeug an größeren, offenen Frontier-Modellen und sucht die Zusammenarbeit mit externen Interpretierbarkeitslaboren, unter Verwendung lokaler Jacobi- und spektraler Trajektorienmetriken an aktiven, großskaligen Systemen. Diese Stufe könnte auch eine künftige Postdoc-Stelle unterstützen (z. B. Global Workspace oder Kognitionswissenschaft).</p>
         </div>
       </div>
     </div>
@@ -133,10 +136,10 @@ import BudgetChart from '../../components/BudgetChart.astro';
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-3 mb-6">
         <SectionMark />
-        <p class="label-mono">Fiscal Sponsorship</p>
+        <p class="label-mono">Rechtsstatus</p>
       </div>
       <p class="text-csr-gray-600 mb-8 leading-relaxed max-w-2xl">
-        CSR arbeitet unter dem Fiscal Sponsorship einer dem Effektiven Altruismus nahestehenden Non-Profit-Organisation. Je nach Rechtsordnung können Beiträge steuerlich absetzbar sein — kontaktieren Sie uns für Angaben zum Sponsor und Spendenquittungen.
+        Das Center for Sentience Research ist eine unabhängige, sich in Gründung befindende Non-Profit-Organisation; eine gemeinnützige Fiscal Sponsorship befindet sich in Bearbeitung (Genehmigung ausstehend). Sobald die Sponsorship bestätigt ist, können Beiträge je nach Rechtsordnung steuerlich absetzbar sein — kontaktieren Sie uns für aktuelle Angaben und Spendenquittungen.
       </p>
       <p class="text-xs text-csr-gray-400 font-mono">Jährliche Forschungsergebnisse und Finanzzusammenfassungen werden öffentlich gemacht. Transparency-First-Modell.</p>
     </div>

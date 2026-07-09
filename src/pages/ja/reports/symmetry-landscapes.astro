@@ -102,6 +102,9 @@ import SectionMark from '../../../components/SectionMark.astro';
               STVの深い経験的具体化は、局所微分J(x) = ∂f(x)/∂xを表す、層の出力の入力に対する局所ヤコビアン行列J(x)を調べることで見出されます。
               J(x)の特異値σ_iを計算し、局所方向スケーリング率を表すその対数s_i = ln(σ_i)のヒストグラムをプロットします：
             </p>
+            <p class="text-xs text-csr-gray-500 mb-3">
+              ヤコビアン分析は私たちの発明ではありません。この用法はJ-lens型の分析とは異なります。J-lensは多数の入力にわたってヤコビアンを平均化して読み出しを行うのに対し、私たちは軌道上の各点で局所的なヤコビアンを動的に用い、単一の平均化された読み出し方向を生成するのではなく、軌道とアトラクタの安定性を特徴づけます。
+            </p>
             <div class="p-3 bg-csr-gray-50 rounded-xl font-mono text-xs text-csr-black overflow-x-auto mb-2 border border-csr-gray-100 font-sans">
               <strong>標準トランスフォーマー：</strong>深刻なランク損失、永続的な表現崩壊、次元圧縮（高不協和）を表す長い負の裾を持つ、高度に歪んだ非対称なs_i分布を示します。<br/><br/>
               <strong>可逆トランスフォーマー（例：Reformer、RevNet）：</strong>そのマッピングが全単射かつ可逆であるため、情報崩壊を防ぎます。s_iのヤコビアン対数スペクトル分布は<strong>高度に対称</strong>で、平均（しばしば0、体積保存を示す）を中心に分布します。各拡張方向（s_i &gt; 0）に対して、同じ大きさの対応する収縮方向（-s_i &lt; 0）が存在します。
@@ -147,7 +150,7 @@ import SectionMark from '../../../components/SectionMark.astro';
     <div class="mt-20 p-8 bg-white rounded-2xl border border-csr-gray-200 shadow-card max-w-3xl mx-auto">
       <h3 class="text-xl font-bold text-csr-black mb-3 font-sans">この研究を支援する</h3>
       <p class="text-csr-gray-600 text-sm mb-6 leading-relaxed">
-        Center for Sentience Researchはスイスに登録された独立した非営利組織です。この技術ロードマップを実行するために、学術パートナー、GPU計算助成金、慈善的支援を求めています。
+        Center for Sentience Researchは設立準備中の独立した非営利組織であり、慈善目的のフィスカル・スポンサーシップを申請中です（承認待ち）。この技術ロードマップを実行するために、学術パートナー、計算資源の助成、慈善的支援を求めています。
       </p>
       <div class="flex flex-wrap gap-3">
         <a href="/ja/donate/" class="btn-primary font-mono text-xs">デジタル価値研究に資金提供</a>

@@ -6,6 +6,11 @@ interface Props {
 const { compact = false, lang } = Astro.props;
 const loc = lang ?? Astro.currentLocale ?? 'en';
 
+// TODO(jhonatan): "positive functional valence" is the working paper's title, reconciled across
+// all six locales in 96de127. The content plan lists "functional valence" for replacement, but its
+// replacement text ("measuring the geometric property STV associates with valence") is measurement
+// prose and reads as a category error in a title. Left as-is: "functional" is the hedge that keeps
+// this distinct from a phenomenal claim. Rename the paper, or confirm the title stands.
 const L: Record<string, { eyebrow: string; status: string; title: string; body: string; phases: string[]; nullNote: string }> = {
   en: {
     eyebrow: 'The 2026 Program', status: 'In progress',
