@@ -12,11 +12,6 @@ const { lang = 'en' } = Astro.props;
 
 const L: Record<string, { title: string; unit: string; preferred: string; tiers: [string, string][] }> = {
   en: { title: 'Funding tiers', unit: 'USD, annual', preferred: 'Preferred', tiers: [['Lean Tier', 'Core Research'], ['Full Program', 'Mainline request'], ['Frontier Deployment', 'Stretch']] },
-  de: { title: 'Förderstufen', unit: 'USD, jährlich', preferred: 'Bevorzugt', tiers: [['Basis-Stufe', 'Kernforschung'], ['Vollprogramm', 'Hauptantrag'], ['Frontier-Einsatz', 'Erweiterung']] },
-  es: { title: 'Niveles de financiación', unit: 'USD, anual', preferred: 'Preferido', tiers: [['Nivel básico', 'Investigación central'], ['Programa completo', 'Solicitud principal'], ['Despliegue de frontera', 'Ampliación']] },
-  fr: { title: 'Niveaux de financement', unit: 'USD, annuel', preferred: 'Privilégié', tiers: [['Niveau essentiel', 'Recherche de base'], ['Programme complet', 'Demande principale'], ['Déploiement de pointe', 'Extension']] },
-  zh: { title: '资助层级', unit: '美元 / 年', preferred: '首选', tiers: [['精简层级', '核心研究'], ['完整项目', '主线申请'], ['前沿部署', '扩展']] },
-  ja: { title: '資金ティア', unit: 'USD・年間', preferred: '推奨', tiers: [['基本ティア', 'コア研究'], ['フルプログラム', '本命申請'], ['フロンティア展開', 'ストレッチ']] },
 };
 const t = L[lang] ?? L.en;
 const values = [110, 135, 260];

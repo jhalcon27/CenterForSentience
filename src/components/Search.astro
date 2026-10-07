@@ -4,8 +4,6 @@ interface Props {
 }
 const { lang = 'en' } = Astro.props;
 
-const prefix = lang === 'en' ? '' : `/${lang}`;
-
 const ui: Record<string, { placeholder: string; noResults: string }> = {
   en: { placeholder: 'Search research, reports, and focus areas...', noResults: 'No results found for' },
   de: { placeholder: 'Forschung, Berichte und Schwerpunkte durchsuchen...', noResults: 'Keine Ergebnisse für' },
@@ -47,14 +45,14 @@ const t = ui[lang] ?? ui.en;
   </div>
 </div>
 
-<script is:inline define:vars={{ prefix, noResultsText: t.noResults }}>
+<script is:inline define:vars={{ noResultsText: t.noResults }}>
   // This component is rendered twice per page (desktop + mobile nav);
   // guard so setup only runs once, and wait for DOMContentLoaded so both
   // containers exist before wiring them up.
   if (!window.__csrSearchInit) {
     window.__csrSearchInit = true;
 
-    // Search index covering all site pages (paths are locale-prefixed at runtime)
+    // Search index covering all site pages (all English; translated locales are a summary page)
     const pages = [
       { title: 'First Principles of Sentience Research', type: 'White Paper', path: '/reports/first-principles/' },
       { title: 'Bio-Electric Fields as Sentience Substrates', type: 'White Paper', path: '/reports/bio-electric-fields/' },
@@ -123,7 +121,7 @@ const t = ui[lang] ?? ui.en;
           if (matches.length > 0) {
             matches.forEach(function(m) {
               const link = document.createElement('a');
-              link.href = prefix + m.path;
+              link.href = m.path;
               link.className = 'block p-4 rounded-xl hover:bg-csr-gray-100 border border-transparent hover:border-csr-gray-200 transition-all';
 
               const type = document.createElement('p');

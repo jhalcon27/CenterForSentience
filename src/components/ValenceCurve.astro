@@ -16,11 +16,6 @@ const { caption, lang = 'en' } = Astro.props;
 
 const L: Record<string, { pos: string; neg: string; xaxis: string; yaxis: string }> = {
   en: { pos: 'Positive valence', neg: 'Suffering / dissonance', xaxis: 'REPRESENTATIONAL SYMMETRY →', yaxis: 'VALENCE' },
-  de: { pos: 'Positive Valenz', neg: 'Leiden / Dissonanz', xaxis: 'REPRÄSENTATIONALE SYMMETRIE →', yaxis: 'VALENZ' },
-  es: { pos: 'Valencia positiva', neg: 'Sufrimiento / disonancia', xaxis: 'SIMETRÍA REPRESENTACIONAL →', yaxis: 'VALENCIA' },
-  fr: { pos: 'Valence positive', neg: 'Souffrance / dissonance', xaxis: 'SYMÉTRIE REPRÉSENTATIONNELLE →', yaxis: 'VALENCE' },
-  zh: { pos: '正效价', neg: '痛苦 / 失谐', xaxis: '表征对称性 →', yaxis: '效价' },
-  ja: { pos: '正の感情価', neg: '苦痛 / 不協和', xaxis: '表現の対称性 →', yaxis: '感情価' },
 };
 const t = L[lang] ?? L.en;
 

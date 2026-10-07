@@ -9,13 +9,16 @@
   (function() {
     if (window.location.pathname !== '/') return; // Only redirect from home
 
-    // Don't redirect if the user has explicitly chosen a language via the switcher
-    try { if (localStorage.getItem('csr-lang-explicit')) return; } catch(e) {}
+    // Don't redirect if the user has explicitly chosen a language via the switcher,
+    // or was already redirected once (translated locales are a one-page summary, so
+    // a visitor who comes back to the English homepage should be able to stay).
+    try { if (localStorage.getItem('csr-lang-explicit') || localStorage.getItem('csr-lang-auto')) return; } catch(e) {}
 
     const userLang = navigator.language.split('-')[0]; // e.g., 'es' from 'es-CO'
     const supportedLangs = ['de', 'es', 'fr', 'zh', 'ja'];
 
     if (supportedLangs.includes(userLang)) {
+      try { localStorage.setItem('csr-lang-auto', '1'); } catch(e) {}
       window.location.replace(`/${userLang}/`);
     }
   })();

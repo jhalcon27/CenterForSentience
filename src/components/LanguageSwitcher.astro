@@ -6,8 +6,9 @@ interface Props {
 }
 const { lang = 'en' } = Astro.props;
 
-// Routes that exist in every locale
-const localizedRoutes = ['', 'research', 'program', 'reports', 'ecosystem', 'about', 'donate', 'contact', 'reports/first-principles', 'reports/bio-electric-fields', 'reports/assembly-theory', 'reports/symmetry-landscapes'];
+// Only the homepage exists in every locale; other pages are English only, so
+// switching language from them lands on that locale's summary page.
+const localizedRoutes = [''];
 
 // Compute path suffix by stripping the current locale prefix and trailing slash
 let rawPath = Astro.url.pathname;
@@ -25,7 +26,8 @@ const pathArg = localizedRoutes.includes(cleanPath) ? (cleanPath || '/') : '/';
 
 const labels: Record<string, string> = { en: 'EN', de: 'DE', es: 'ES', fr: 'FR', zh: '中文', ja: '日本語' };
 const hrefs: Record<string, string> = {
-  en: getRelativeLocaleUrl('en', pathArg),
+  // English has every page, so EN keeps the current path
+  en: getRelativeLocaleUrl('en', cleanPath || '/'),
   de: getRelativeLocaleUrl('de', pathArg),
   es: getRelativeLocaleUrl('es', pathArg),
   fr: getRelativeLocaleUrl('fr', pathArg),

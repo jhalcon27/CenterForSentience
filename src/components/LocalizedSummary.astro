@@ -1,0 +1,111 @@
+---
+import SymmetryBackground from './SymmetryBackground.astro';
+import SectionMark from './SectionMark.astro';
+import ProgramStatus from './ProgramStatus.astro';
+import { summaries } from '../i18n/summary';
+import { useTranslations } from '../i18n/index';
+
+// The whole translated site for one language: a single page linking into the English site.
+interface Props { lang: keyof typeof summaries; }
+const { lang } = Astro.props;
+const t = summaries[lang];
+const nav = useTranslations(lang);
+
+const team = [
+  { img: 'jhonatan-serna.jpg', name: 'Jhonatan Serna', role: t.director },
+  { img: 'david-pearce.jpg', name: 'David Pearce', role: t.advisor },
+  { img: 'alexander-bjorkman.jpg', name: 'Alexander Björkman', role: t.advisor },
+  { img: '', name: t.mlRole, role: t.mlRecruit },
+];
+const more = [
+  { label: nav('nav.research'), href: '/research/' },
+  { label: nav('nav.program'), href: '/program/' },
+  { label: nav('nav.reports'), href: '/reports/' },
+  { label: nav('nav.about'), href: '/about/' },
+];
+---
+
+<!-- ── Hero ──────────────────────────────────────────────────────────────── -->
+<section class="relative pt-20 pb-16 md:pt-28 md:pb-20 overflow-hidden">
+  <SymmetryBackground variant="lissajous" opacity={0.10} />
+  <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="label-mono mb-5">{t.eyebrow}</p>
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-csr-black mb-5 leading-[1.08] max-w-3xl">{t.h1}</h1>
+    <div class="max-w-2xl">
+      <p class="text-xl font-medium text-csr-gray-700 mb-5 leading-snug">{t.sub}</p>
+      {t.intro.map((p) => <p class="text-lg md:text-xl text-csr-gray-600 leading-relaxed font-serif mb-6">{p}</p>)}
+      <p class="text-xs text-csr-gray-400 font-mono">{t.englishNote}</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── The 2026 Goal ─────────────────────────────────────────────────────── -->
+<section class="py-16 border-t border-csr-gray-200">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <ProgramStatus lang={lang} />
+  </div>
+</section>
+
+<!-- ── Mission ───────────────────────────────────────────────────────────── -->
+<section class="py-16 border-t border-csr-gray-200">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center gap-3 mb-5"><SectionMark /><h2 class="text-xl font-bold text-csr-black">{t.missionH}</h2></div>
+    <div class="text-csr-gray-600 leading-relaxed text-lg font-serif max-w-2xl space-y-4">
+      {t.mission.map((p) => <p>{p}</p>)}
+    </div>
+  </div>
+</section>
+
+<!-- ── Team ──────────────────────────────────────────────────────────────── -->
+<section class="py-16 border-t border-csr-gray-200">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center gap-3 mb-6"><SectionMark /><h2 class="text-xl font-bold text-csr-black">{t.teamH}</h2></div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+      {team.map((m) => (
+        <div class="flex flex-col items-center text-center">
+          <div class={`w-20 h-20 rounded-full mb-3 overflow-hidden ring-2 ring-offset-2 ring-offset-csr-cream shrink-0 ${m.img ? 'ring-csr-primary/15 bg-csr-gray-100' : 'ring-csr-primary/30 bg-csr-gray-50 flex items-center justify-center'}`}>
+            {m.img ? (
+              <img src={`/images/${m.img}`} alt={m.name} class="w-full h-full object-cover object-center" />
+            ) : (
+              <span class="text-3xl font-light text-csr-primary/60 leading-none">+</span>
+            )}
+          </div>
+          <h3 class="font-bold text-sm text-csr-black mb-1">{m.name}</h3>
+          <p class="label-mono text-[10px]">{m.role}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ── Continue in English ───────────────────────────────────────────────── -->
+<section class="py-16 border-t border-csr-gray-200">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center gap-3 mb-6"><SectionMark /><p class="label-mono">{t.moreLabel}</p></div>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      {more.map((m) => (
+        <a href={m.href} hreflang="en" class="group flex items-center justify-between p-4 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
+          <span class="font-semibold text-sm text-csr-black group-hover:text-csr-primary transition-colors">{m.label}</span>
+          <span class="text-xs font-mono text-csr-gray-400">EN →</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ── Support ───────────────────────────────────────────────────────────── -->
+<section class="py-16 border-t border-csr-gray-200">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-white border border-csr-gray-100 rounded-3xl shadow-card p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+      <div class="max-w-xl">
+        <p class="label-mono mb-3">{t.supportLabel}</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-csr-black mb-3 leading-tight">{t.supportH}</h2>
+        <p class="text-csr-gray-600 text-sm leading-relaxed">{t.supportBody}</p>
+      </div>
+      <div class="shrink-0 flex flex-col gap-3">
+        <a href="/donate/" hreflang="en" class="btn-primary whitespace-nowrap">{t.supportBtn}</a>
+        <a href="/contact/" hreflang="en" class="btn-secondary whitespace-nowrap text-center">{t.contactBtn}</a>
+      </div>
+    </div>
+  </div>
+</section>
