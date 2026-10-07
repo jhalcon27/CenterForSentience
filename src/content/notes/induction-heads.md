@@ -10,7 +10,7 @@ originalPaper:
 codeUrl: "https://github.com/jhalcon27/induction-heads-reproduction"
 tag: "Reproduction"
 status: "in-progress"
-draft: true
+draft: false
 ---
 
 ## Claim tested
