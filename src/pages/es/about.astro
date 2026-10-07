@@ -1,11 +1,10 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import AboutContent from '../../components/AboutContent.astro';
+import LocalePlaceholder from '../../components/LocalePlaceholder.astro';
 ---
 
-<Layout
-  title="Acerca de y filosofía"
-  description="El Center for Sentience Research es una organización sin fines de lucro global y neutral respecto al sustrato, con sede en Zúrich, Suiza, dedicada al bienestar de todos los seres sintientes."
->
-  <AboutContent lang="es" />
-</Layout>
+<LocalePlaceholder
+  locale="es"
+  englishPath="/about/"
+  title="Acerca de"
+  description="El Center for Sentience Research es un proyecto de investigación independiente dirigido por Jhonatan Serna en Zúrich."
+/>

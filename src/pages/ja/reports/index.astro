@@ -1,11 +1,10 @@
 ---
-import Layout from '../../../layouts/Layout.astro';
-import ReportsIndex from '../../../components/ReportsIndex.astro';
+import LocalePlaceholder from '../../../components/LocalePlaceholder.astro';
 ---
 
-<Layout
-  title="研究レポート"
-  description="意識研究センターのワーキングペーパー。Digital Valence Program の理論的基盤を提供します。"
->
-  <ReportsIndex lang="ja" />
-</Layout>
+<LocalePlaceholder
+  locale="ja"
+  englishPath="/reports/"
+  title="ワーキングペーパー"
+  description="意識研究センターによる意識の物理的・数学的基盤に関するワーキングペーパー。"
+/>

@@ -1,11 +1,10 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import AboutContent from '../../components/AboutContent.astro';
+import LocalePlaceholder from '../../components/LocalePlaceholder.astro';
 ---
 
-<Layout
-  title="概要と理念"
-  description="意識研究センターは、スイス・チューリッヒに本拠を置く、グローバルで基質中立な非営利団体であり、すべての感覚を持つ存在の福祉に取り組んでいます。"
->
-  <AboutContent lang="ja" />
-</Layout>
+<LocalePlaceholder
+  locale="ja"
+  englishPath="/about/"
+  title="概要"
+  description="意識研究センターは、スイス・チューリッヒでJhonatan Sernaが運営する独立した自己資金による研究プロジェクトです。"
+/>

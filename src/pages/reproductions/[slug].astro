@@ -1,0 +1,118 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SymmetryBackground from '../../components/SymmetryBackground.astro';
+import SectionMark from '../../components/SectionMark.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('reproductions', ({ data }: CollectionEntry<'reproductions'>) => !data.draft);
+  return entries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<'reproductions'>;
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const statusLabels: Record<string, { label: string; class: string }> = {
+  'in-progress': { label: 'In progress', class: 'bg-amber-100 text-amber-800 border-amber-200' },
+  'done': { label: 'Done', class: 'bg-emerald-100 text-emerald-800 border-emerald-200' },
+  'abandoned': { label: 'Abandoned', class: 'bg-csr-gray-100 text-csr-gray-600 border-csr-gray-200' },
+};
+
+const st = statusLabels[entry.data.status] ?? statusLabels['in-progress'];
+---
+
+<Layout
+  title={`${entry.data.title} · Reproduction`}
+  description={`Reproduction write-up for "${entry.data.paper.title}" (${entry.data.paper.year}): ${entry.data.claim}`}
+>
+  <article class="py-16 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-8">
+      <a href="/reproductions/" class="text-xs font-mono text-csr-gray-500 hover:text-csr-primary transition-colors inline-flex items-center gap-1 mb-6">
+        ← Back to all reproductions
+      </a>
+      <div class="flex flex-wrap items-center gap-3 mb-4">
+        <span class={`px-2.5 py-0.5 rounded-full text-xs font-mono font-medium border ${st.class}`}>
+          {st.label}
+        </span>
+        <span class="text-xs font-mono text-csr-gray-400">
+          Started: {entry.data.started.toISOString().slice(0, 10)}
+        </span>
+        <span class="text-csr-gray-300">·</span>
+        <span class="text-xs font-mono text-csr-gray-400">
+          Updated: {entry.data.updated.toISOString().slice(0, 10)}
+        </span>
+      </div>
+
+      <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-csr-black mb-4">
+        {entry.data.title}
+      </h1>
+
+      <div class="glass-card rounded-xl p-5 border border-csr-gray-200 mb-8 space-y-3">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-wider text-csr-gray-500 block mb-1">Original Paper</span>
+          <a
+            href={entry.data.paper.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-base font-semibold text-csr-primary hover:underline block"
+          >
+            {entry.data.paper.title} ({entry.data.paper.year}) ↗
+          </a>
+          <p class="text-xs text-csr-gray-600 mt-1">
+            Authors: {entry.data.paper.authors}
+          </p>
+        </div>
+
+        <div class="pt-3 border-t border-csr-gray-100">
+          <span class="text-xs font-mono uppercase tracking-wider text-csr-gray-500 block mb-1">Target Claim</span>
+          <p class="text-sm text-csr-gray-800 font-serif leading-relaxed">
+            {entry.data.claim}
+          </p>
+        </div>
+
+        <div class="pt-3 border-t border-csr-gray-100 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
+          <div>
+            <span class="text-csr-gray-400 block">Model:</span>
+            <span class="text-csr-gray-800">{entry.data.setup.model}</span>
+          </div>
+          <div>
+            <span class="text-csr-gray-400 block">Compute:</span>
+            <span class="text-csr-gray-800">{entry.data.setup.compute}</span>
+          </div>
+          <div class="sm:col-span-2">
+            <span class="text-csr-gray-400 block">Libraries:</span>
+            <span class="text-csr-gray-800">{entry.data.setup.libraries.join(', ')}</span>
+          </div>
+          {entry.data.code && (
+            <div class="sm:col-span-2 pt-1">
+              <span class="text-csr-gray-400 block">Code:</span>
+              <a href={entry.data.code} target="_blank" rel="noopener noreferrer" class="text-csr-primary hover:underline break-all">
+                {entry.data.code} ↗
+              </a>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+
+    <div class="prose prose-slate max-w-none font-serif leading-relaxed text-csr-gray-800">
+      <Content />
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-csr-gray-200 flex items-center justify-between text-xs font-mono">
+      <a href="/reproductions/" class="text-csr-primary hover:underline">
+        ← All reproductions
+      </a>
+      <a href="/contact/" class="text-csr-gray-500 hover:text-csr-black">
+        Provide feedback on this reproduction →
+      </a>
+    </div>
+  </article>
+</Layout>

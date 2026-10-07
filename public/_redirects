@@ -1,0 +1,42 @@
+# 301 Redirects for removed pages
+/program/  /research/  301
+/donate/  /about/  301
+/ecosystem/  /about/#related-work  301
+/program  /research/  301
+/donate  /about/  301
+/ecosystem  /about/#related-work  301
+
+/de/program/  /de/research/  301
+/de/donate/  /de/about/  301
+/de/ecosystem/  /de/about/#related-work  301
+/de/program  /de/research/  301
+/de/donate  /de/about/  301
+/de/ecosystem  /de/about/#related-work  301
+
+/es/program/  /es/research/  301
+/es/donate/  /es/about/  301
+/es/ecosystem/  /es/about/#related-work  301
+/es/program  /es/research/  301
+/es/donate  /es/about/  301
+/es/ecosystem  /es/about/#related-work  301
+
+/fr/program/  /fr/research/  301
+/fr/donate/  /fr/about/  301
+/fr/ecosystem/  /fr/about/#related-work  301
+/fr/program  /fr/research/  301
+/fr/donate  /fr/about/  301
+/fr/ecosystem  /fr/about/#related-work  301
+
+/zh/program/  /zh/research/  301
+/zh/donate/  /zh/about/  301
+/zh/ecosystem/  /zh/about/#related-work  301
+/zh/program  /zh/research/  301
+/zh/donate  /zh/about/  301
+/zh/ecosystem  /zh/about/#related-work  301
+
+/ja/program/  /ja/research/  301
+/ja/donate/  /ja/about/  301
+/ja/ecosystem/  /ja/about/#related-work  301
+/ja/program  /ja/research/  301
+/ja/donate  /ja/about/  301
+/ja/ecosystem  /ja/about/#related-work  301

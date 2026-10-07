@@ -1,11 +1,10 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import AboutContent from '../../components/AboutContent.astro';
+import LocalePlaceholder from '../../components/LocalePlaceholder.astro';
 ---
 
-<Layout
-  title="关于与理念"
-  description="感知研究中心是一家总部位于瑞士苏黎世的全球性、基质中立的非营利组织，致力于所有有感知能力存在者的福祉。"
->
-  <AboutContent lang="zh" />
-</Layout>
+<LocalePlaceholder
+  locale="zh"
+  englishPath="/about/"
+  title="关于"
+  description="感知研究中心是由 Jhonatan Serna 在瑞士苏黎世运营的独立无资助研究项目。"
+/>

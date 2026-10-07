@@ -16,5 +16,25 @@ export default defineConfig({
       prefixDefaultLocale: false
     }
   },
+  redirects: {
+    '/program/': '/research/',
+    '/donate/': '/about/',
+    '/ecosystem/': '/about/#related-work',
+    '/de/program/': '/de/research/',
+    '/de/donate/': '/de/about/',
+    '/de/ecosystem/': '/de/about/#related-work',
+    '/es/program/': '/es/research/',
+    '/es/donate/': '/es/about/',
+    '/es/ecosystem/': '/es/about/#related-work',
+    '/fr/program/': '/fr/research/',
+    '/fr/donate/': '/fr/about/',
+    '/fr/ecosystem/': '/fr/about/#related-work',
+    '/zh/program/': '/zh/research/',
+    '/zh/donate/': '/zh/about/',
+    '/zh/ecosystem/': '/zh/about/#related-work',
+    '/ja/program/': '/ja/research/',
+    '/ja/donate/': '/ja/about/',
+    '/ja/ecosystem/': '/ja/about/#related-work',
+  },
   integrations: [tailwind(), sitemap()]
 });

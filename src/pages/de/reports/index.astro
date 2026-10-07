@@ -1,11 +1,10 @@
 ---
-import Layout from '../../../layouts/Layout.astro';
-import ReportsIndex from '../../../components/ReportsIndex.astro';
+import LocalePlaceholder from '../../../components/LocalePlaceholder.astro';
 ---
 
-<Layout
-  title="Forschungsberichte"
-  description="Arbeitspapiere des Center for Sentience Research, die die theoretischen Grundlagen für das Digital Valence Program bilden."
->
-  <ReportsIndex lang="de" />
-</Layout>
+<LocalePlaceholder
+  locale="de"
+  englishPath="/reports/"
+  title="Arbeitspapiere"
+  description="Arbeitspapiere des Center for Sentience Research zu den physikalischen und mathematischen Grundlagen von Bewusstsein."
+/>

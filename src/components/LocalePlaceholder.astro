@@ -1,0 +1,81 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SymmetryBackground from './SymmetryBackground.astro';
+import SectionMark from './SectionMark.astro';
+
+interface Props {
+  locale: 'de' | 'es' | 'fr' | 'zh' | 'ja';
+  englishPath: string;
+  title: string;
+  description: string;
+}
+
+const { locale, englishPath, title, description } = Astro.props;
+
+const copy: Record<string, { badge: string; text: string; button: string }> = {
+  de: {
+    badge: 'Hinweis zur Sprache',
+    text: 'Das Center for Sentience Research (CSR) ist ein unabhängiges Forschungsprojekt in Zürich, das sich der Reproduktion von Ergebnissen der mechanistischen Interpretierbarkeit und der Untersuchung interner Modellzustände widmet. Alle Forschungsberichte, Arbeitspapiere und Reproduktionen werden auf Englisch veröffentlicht.',
+    button: 'Diese Seite auf Englisch lesen →',
+  },
+  es: {
+    badge: 'Aviso de idioma',
+    text: 'El Center for Sentience Research (CSR) es un proyecto de investigación independiente con sede en Zúrich, dedicado a reproducir resultados de interpretabilidad mecanicista y a estudiar los estados internos de los modelos. Todas las investigaciones, documentos de trabajo y reproducciones se publican en inglés.',
+    button: 'Leer esta página en inglés →',
+  },
+  fr: {
+    badge: 'Note linguistique',
+    text: 'Le Center for Sentience Research (CSR) est un projet de recherche indépendant basé à Zurich, dédié à la reproduction de résultats en interprétabilité mécaniste et à l\'analyse des états internes des modèles. Tous les travaux, documents de recherche et reproductions sont publiés en anglais.',
+    button: 'Lire cette page en anglais →',
+  },
+  zh: {
+    badge: '语言说明',
+    text: '感知研究中心（CSR）是一个位于瑞士苏黎世的独立研究项目，致力于机械可解释性结果的复现与模型内部状态的测量研究。所有研究、工作论文与复现报告均以英文发布。',
+    button: '阅读本页英文版本 →',
+  },
+  ja: {
+    badge: '言語について',
+    text: '意識研究センター（CSR）は、スイス・チューリッヒを拠点とする独立した研究プロジェクトであり、機械論的解釈可能性の結果の再現およびモデル内部状態の測定に取り組んでいます。すべての研究、ワーキングペーパー、再現論文は英語で公開されています。',
+    button: 'このページを英語で読む →',
+  },
+};
+
+const c = copy[locale] ?? copy.de;
+---
+
+<Layout title={title} description={description} lang={locale}>
+  <section class="relative pt-20 pb-16 border-b border-csr-gray-200 overflow-hidden">
+    <SymmetryBackground variant="rings" opacity={0.08} />
+    <div class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-4">
+        <SectionMark />
+        <span class="px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-csr-primary/10 text-csr-primary border border-csr-primary/20">
+          {c.badge}
+        </span>
+      </div>
+      <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-csr-black mb-6">
+        {title}
+      </h1>
+      <p class="text-lg text-csr-gray-700 font-serif leading-relaxed mb-8">
+        {c.text}
+      </p>
+      <div>
+        <a
+          href={englishPath}
+          class="btn-primary inline-flex items-center gap-2 text-base px-6 py-3"
+        >
+          {c.button}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-white/50">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-xs font-mono text-csr-gray-500 flex flex-wrap items-center justify-between gap-4">
+      <span>Center for Sentience Research · Zurich</span>
+      <a href="/about/" class="text-csr-primary hover:underline">
+        About the project →
+      </a>
+    </div>
+  </section>
+</Layout>

@@ -2,7 +2,6 @@
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import Search from '../components/Search.astro';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
-import LanguageRedirect from '../components/LanguageRedirect.astro';
 import '../styles/global.css';
 import { useTranslations } from '../i18n/index';
 
@@ -15,7 +14,7 @@ interface Props {
 
 const {
   title,
-  description = "The Center for Sentience Research (CSR) is an independent non-profit in formation, dedicated to modeling the physical foundations of awareness across all substrates.",
+  description = "The Center for Sentience Research (CSR) is an independent research project reproducing mechanistic interpretability results and studying internal model states.",
   image = "/images/og-main.jpg",
   lang = "en",
 } = Astro.props;
@@ -34,19 +33,40 @@ const isActive = (route: string) => {
 const canonicalURL = new URL(pathname, Astro.site);
 const socialImage = new URL(image, Astro.site);
 
-// hreflang alternates: strip the locale prefix, then only emit alternates for
-// routes that exist in every locale (mirrors LanguageSwitcher logic)
+// hreflang alternates: strip the locale prefix, then emit alternates
 const allLocales = ['en', 'de', 'es', 'fr', 'zh', 'ja'];
-const localizedRoutes = ['', 'research', 'program', 'reports', 'ecosystem', 'about', 'donate', 'contact', 'reports/first-principles', 'reports/bio-electric-fields', 'reports/assembly-theory', 'reports/symmetry-landscapes'];
+const localizedRoutes = [
+  '',
+  'research',
+  'reports',
+  'about',
+  'contact',
+  'reports/first-principles',
+  'reports/bio-electric-fields',
+  'reports/assembly-theory',
+  'reports/symmetry-landscapes',
+];
+
 let rawPath = pathname;
 for (const loc of allLocales.slice(1)) {
   if (rawPath.startsWith(`/${loc}/`)) { rawPath = rawPath.slice(loc.length + 1); break; }
   if (rawPath === `/${loc}` || rawPath === `/${loc}/`) { rawPath = '/'; break; }
 }
+
 const cleanPath = rawPath.replace(/^\/+/, '').replace(/\/+$/, '');
-const alternates = localizedRoutes.includes(cleanPath)
-  ? allLocales.map((loc) => ({ hreflang: loc, href: new URL(getRelativeLocaleUrl(loc, cleanPath || '/'), Astro.site) }))
-  : [];
+const isEnglishOnly = cleanPath === 'reproductions' || cleanPath.startsWith('reproductions/');
+
+const alternates = isEnglishOnly
+  ? [
+      { hreflang: 'en', href: new URL(pathname, Astro.site) },
+      { hreflang: 'x-default', href: new URL(pathname, Astro.site) },
+    ]
+  : localizedRoutes.includes(cleanPath)
+    ? [
+        ...allLocales.map((loc) => ({ hreflang: loc, href: new URL(getRelativeLocaleUrl(loc, cleanPath || '/'), Astro.site) })),
+        { hreflang: 'x-default', href: new URL(getRelativeLocaleUrl('en', cleanPath || '/'), Astro.site) },
+      ]
+    : [];
 
 const ogLocales: Record<string, string> = { en: 'en_US', de: 'de_DE', es: 'es_ES', fr: 'fr_FR', zh: 'zh_CN', ja: 'ja_JP' };
 ---
@@ -66,7 +86,6 @@ const ogLocales: Record<string, string> = { en: 'en_US', de: 'de_DE', es: 'es_ES
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
     {alternates.map(({ hreflang, href }) => <link rel="alternate" hreflang={hreflang} href={href} />)}
-    {alternates.length > 0 && <link rel="alternate" hreflang="x-default" href={alternates[0].href} />}
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Center for Sentience Research" />
     <meta property="og:url" content={canonicalURL} />
@@ -78,7 +97,6 @@ const ogLocales: Record<string, string> = { en: 'en_US', de: 'de_DE', es: 'es_ES
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImage} />
-    <LanguageRedirect />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet" />
@@ -93,7 +111,6 @@ const ogLocales: Record<string, string> = { en: 'en_US', de: 'de_DE', es: 'es_ES
         <!-- Logo -->
         <a href={getRelativeLocaleUrl(currentLang, '/')} class="flex items-center gap-3 group">
           <div class="w-9 h-9 rounded-lg bg-csr-primary flex items-center justify-center shrink-0 shadow-purple/40 shadow-md group-hover:bg-csr-primary-dark transition-colors">
-            <!-- Abstract glyph: two concentric arcs suggesting a waveform / consciousness topology -->
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <circle cx="10" cy="10" r="3" fill="white" opacity="0.9"/>
               <path d="M10 3 C6.13 3 3 6.13 3 10 C3 13.87 6.13 17 10 17" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
@@ -113,15 +130,14 @@ const ogLocales: Record<string, string> = { en: 'en_US', de: 'de_DE', es: 'es_ES
           </svg>
         </button>
 
-        <!-- Desktop nav -->
+        <!-- Desktop nav: Reproductions · Research · Working papers · About · Contact -->
         <div class="hidden md:flex items-center gap-1">
+          <a href="/reproductions/" class={`px-3 py-2 text-sm font-medium rounded-lg transition-all ${isActive('reproductions') ? 'text-csr-primary bg-csr-primary/8 font-semibold' : 'text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100'}`}>{t('nav.reproductions')}</a>
           <a href={getRelativeLocaleUrl(currentLang, 'research')} class={`px-3 py-2 text-sm font-medium rounded-lg transition-all ${isActive('research') ? 'text-csr-primary bg-csr-primary/8 font-semibold' : 'text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100'}`}>{t('nav.research')}</a>
-          <a href={getRelativeLocaleUrl(currentLang, 'program')} class={`px-3 py-2 text-sm font-medium rounded-lg transition-all ${isActive('program') ? 'text-csr-primary bg-csr-primary/8 font-semibold' : 'text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100'}`}>{t('nav.program')}</a>
           <a href={getRelativeLocaleUrl(currentLang, 'reports')} class={`px-3 py-2 text-sm font-medium rounded-lg transition-all ${isActive('reports') ? 'text-csr-primary bg-csr-primary/8 font-semibold' : 'text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100'}`}>{t('nav.reports')}</a>
-          <a href={getRelativeLocaleUrl(currentLang, 'ecosystem')} class={`px-3 py-2 text-sm font-medium rounded-lg transition-all ${isActive('ecosystem') ? 'text-csr-primary bg-csr-primary/8 font-semibold' : 'text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100'}`}>{t('nav.ecosystem')}</a>
           <a href={getRelativeLocaleUrl(currentLang, 'about')} class={`px-3 py-2 text-sm font-medium rounded-lg transition-all ${isActive('about') ? 'text-csr-primary bg-csr-primary/8 font-semibold' : 'text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100'}`}>{t('nav.about')}</a>
+          <a href={getRelativeLocaleUrl(currentLang, 'contact')} class={`px-3 py-2 text-sm font-medium rounded-lg transition-all ${isActive('contact') ? 'text-csr-primary bg-csr-primary/8 font-semibold' : 'text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100'}`}>{t('nav.contact')}</a>
           <div class="w-px h-5 bg-csr-gray-200 mx-2"></div>
-          <a href={getRelativeLocaleUrl(currentLang, 'donate')} class="px-4 py-2 bg-csr-primary text-white text-sm font-semibold rounded-full hover:bg-csr-primary-dark transition-all shadow-sm">{t('nav.donate')}</a>
           <Search lang={currentLang} />
           <LanguageSwitcher lang={currentLang} />
         </div>
@@ -130,15 +146,12 @@ const ogLocales: Record<string, string> = { en: 'en_US', de: 'de_DE', es: 'es_ES
       <!-- Mobile menu -->
       <div id="mobile-menu" class="hidden md:hidden border-t border-csr-gray-200 bg-csr-cream">
         <div class="px-4 py-4 flex flex-col gap-1">
+          <a href="/reproductions/" class={`px-3 py-2.5 text-sm font-medium rounded-lg transition-all ${isActive('reproductions') ? 'text-csr-primary bg-csr-primary/8 font-semibold' : 'text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100'}`}>{t('nav.reproductions')}</a>
           <a href={getRelativeLocaleUrl(currentLang, 'research')} class={`px-3 py-2.5 text-sm font-medium rounded-lg transition-all ${isActive('research') ? 'text-csr-primary bg-csr-primary/8 font-semibold' : 'text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100'}`}>{t('nav.research')}</a>
-          <a href={getRelativeLocaleUrl(currentLang, 'program')} class={`px-3 py-2.5 text-sm font-medium rounded-lg transition-all ${isActive('program') ? 'text-csr-primary bg-csr-primary/8 font-semibold' : 'text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100'}`}>{t('nav.program')}</a>
           <a href={getRelativeLocaleUrl(currentLang, 'reports')} class={`px-3 py-2.5 text-sm font-medium rounded-lg transition-all ${isActive('reports') ? 'text-csr-primary bg-csr-primary/8 font-semibold' : 'text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100'}`}>{t('nav.reports')}</a>
-          <a href={getRelativeLocaleUrl(currentLang, 'ecosystem')} class={`px-3 py-2.5 text-sm font-medium rounded-lg transition-all ${isActive('ecosystem') ? 'text-csr-primary bg-csr-primary/8 font-semibold' : 'text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100'}`}>{t('nav.ecosystem')}</a>
           <a href={getRelativeLocaleUrl(currentLang, 'about')} class={`px-3 py-2.5 text-sm font-medium rounded-lg transition-all ${isActive('about') ? 'text-csr-primary bg-csr-primary/8 font-semibold' : 'text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100'}`}>{t('nav.about')}</a>
-          <div class="pt-2 mt-1 border-t border-csr-gray-200">
-            <a href={getRelativeLocaleUrl(currentLang, 'donate')} class="block w-full text-center px-4 py-2.5 bg-csr-primary text-white text-sm font-semibold rounded-full hover:bg-csr-primary-dark transition-all">{t('nav.donate')}</a>
-          </div>
-          <div class="flex items-center justify-between pt-3 border-t border-csr-gray-200 mt-1">
+          <a href={getRelativeLocaleUrl(currentLang, 'contact')} class={`px-3 py-2.5 text-sm font-medium rounded-lg transition-all ${isActive('contact') ? 'text-csr-primary bg-csr-primary/8 font-semibold' : 'text-csr-gray-600 hover:text-csr-black hover:bg-csr-gray-100'}`}>{t('nav.contact')}</a>
+          <div class="flex items-center justify-between pt-3 border-t border-csr-gray-200 mt-2">
             <Search lang={currentLang} />
             <LanguageSwitcher lang={currentLang} />
           </div>
@@ -165,9 +178,10 @@ const ogLocales: Record<string, string> = { en: 'en_US', de: 'de_DE', es: 'es_ES
           <span class="text-csr-gray-300 hidden sm:inline">·</span>
           <span class="text-sm text-csr-gray-500 hidden sm:inline">{t('footer.hq')}</span>
         </div>
-        <div class="flex items-center gap-4">
-          <a href={getRelativeLocaleUrl(currentLang, 'contact')} class="text-xs text-csr-gray-500 hover:text-csr-primary transition-colors font-mono">{t('nav.contact')}</a>
-          <p class="text-xs text-csr-gray-400 font-mono">{t('footer.copyright')}</p>
+        <div class="flex flex-wrap items-center gap-4 text-xs font-mono text-csr-gray-500">
+          <a href={getRelativeLocaleUrl(currentLang, 'contact')} class="hover:text-csr-primary transition-colors">{t('nav.contact')}</a>
+          <span class="text-csr-gray-300">·</span>
+          <p class="text-csr-gray-400">{t('footer.copyright')}</p>
         </div>
       </div>
     </footer>

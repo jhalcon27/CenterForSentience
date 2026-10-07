@@ -1,11 +1,10 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import HomeContent from '../../components/HomeContent.astro';
+import LocalePlaceholder from '../../components/LocalePlaceholder.astro';
 ---
 
-<Layout
+<LocalePlaceholder
+  locale="fr"
+  englishPath="/"
   title="Accueil"
-  description="Le Center for Sentience Research développe un cadre mathématique pour mesurer la propriété géométrique que la STV associe à la valence dans les esprits numériques."
->
-  <HomeContent lang="fr" />
-</Layout>
+  description="Le Center for Sentience Research est un projet de recherche indépendant dédié à la reproduction de résultats en interprétabilité mécaniste."
+/>

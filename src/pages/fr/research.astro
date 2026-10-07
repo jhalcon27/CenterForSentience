@@ -1,11 +1,10 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import ResearchAgenda from '../../components/ResearchAgenda.astro';
+import LocalePlaceholder from '../../components/LocalePlaceholder.astro';
 ---
 
-<Layout
+<LocalePlaceholder
+  locale="fr"
+  englishPath="/research/"
   title="Programme de recherche"
-  description="Le Digital Valence Program : cinq questions ouvertes vers une science du bien-être neutre vis-à-vis du substrat, de la mesure à l'intervention."
->
-  <ResearchAgenda lang="fr" />
-</Layout>
+  description="L'agenda de recherche du Center for Sentience Research sur la mesure des états internes des modèles."
+/>

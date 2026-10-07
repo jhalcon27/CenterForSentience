@@ -8,8 +8,8 @@ export interface ContactStrings {
   email: string;
   inquiryType: string;
   optResearch: string;
-  optPartnership: string;
-  optOther: string;
+  optFeedback: string;
+  optGeneral: string;
   message: string;
   send: string;
   sending: string;
@@ -34,7 +34,7 @@ const { t } = Astro.props;
     <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6">
       {t.headingStart} <span class="text-gradient">{t.headingAccent}</span>
     </h1>
-    <p class="text-lg text-csr-gray-500 leading-relaxed max-w-2xl">
+    <p class="text-lg text-csr-gray-500 leading-relaxed max-w-2xl font-serif">
       {t.intro}
     </p>
   </div>
@@ -62,8 +62,8 @@ const { t } = Astro.props;
           <label for="contact-subject" class="block label-mono text-[11px] mb-2">{t.inquiryType}</label>
           <select id="contact-subject" name="subject" class="w-full px-4 py-3 rounded-xl border border-csr-gray-200 bg-csr-cream focus:border-csr-primary focus:ring-2 focus:ring-csr-primary/10 outline-none transition-all text-csr-black text-sm">
             <option value="research">{t.optResearch}</option>
-            <option value="partnership">{t.optPartnership}</option>
-            <option value="other">{t.optOther}</option>
+            <option value="reproduction-feedback">{t.optFeedback}</option>
+            <option value="general">{t.optGeneral}</option>
           </select>
         </div>
         <div>
@@ -100,7 +100,6 @@ const { t } = Astro.props;
         button.disabled = true;
         button.textContent = sendingText;
       }
-      if (status) status.classList.add('hidden');
 
       try {
         const response = await fetch(form.action, {
@@ -108,9 +107,10 @@ const { t } = Astro.props;
           body: new FormData(form),
           headers: { 'Accept': 'application/json' }
         });
+
         if (response.ok) {
-          showStatus(successText, true);
           form.reset();
+          showStatus(successText, true);
         } else {
           showStatus(errorText, false);
         }
