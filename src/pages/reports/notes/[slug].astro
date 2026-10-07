@@ -1,0 +1,89 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+import { ui, useTranslations } from '../../../i18n/index';
+
+// Research notes are English-only. Drafts get a page only under `astro dev`.
+export async function getStaticPaths() {
+  const notes = await getCollection('notes', ({ data }) => import.meta.env.DEV || !data.draft);
+  return notes.map((note) => ({ params: { slug: note.slug }, props: { note } }));
+}
+
+interface Props { note: CollectionEntry<'notes'>; }
+const { note } = Astro.props;
+const { title, date, summary, originalPaper, codeUrl, tag, status } = note.data;
+const { Content } = await note.render();
+
+const t = useTranslations('en');
+const tagKey = tag ? `notes.tag.${tag.toLowerCase()}` : '';
+const tagLabel = tag && (tagKey in ui.en ? t(tagKey as keyof typeof ui.en) : tag);
+---
+
+<Layout title={title} description={summary}>
+  <article class="py-16 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- ── Note header ───────────────────────────────────────────────────────── -->
+    <div class="mb-14 pb-12 border-b border-csr-gray-200">
+      <p class="label-mono mb-4">Research Note</p>
+      <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-csr-black mb-6">{title}</h1>
+      <p class="text-xl text-csr-gray-500 leading-relaxed italic mb-8">{summary}</p>
+      <div class="flex flex-wrap items-center gap-6 text-sm text-csr-gray-400 font-mono">
+        <span>Published: {date.toISOString().slice(0, 10)}</span>
+        <span>Author: Jhonatan Serna</span>
+        {tagLabel && (
+          <span class="px-2 py-0.5 rounded-full border border-csr-gray-200 text-csr-gray-500 text-[10px] font-mono uppercase tracking-wider">{tagLabel}</span>
+        )}
+        {status === 'in-progress' && (
+          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-csr-primary/10 text-csr-primary text-[10px] font-mono uppercase tracking-wider shrink-0">
+            <span class="w-1.5 h-1.5 rounded-full bg-csr-primary animate-pulse inline-block"></span>
+            {t('notes.inProgress')}
+          </span>
+        )}
+      </div>
+      {(originalPaper || codeUrl) && (
+        <dl class="mt-8 space-y-4 text-sm">
+          {originalPaper && (
+            <div>
+              <dt class="label-mono text-[10px] mb-1">Original paper</dt>
+              <dd>
+                <a href={originalPaper.url} target="_blank" rel="noopener noreferrer" class="font-semibold text-csr-black hover:text-csr-primary transition-colors">{originalPaper.title} ({originalPaper.year}) ↗</a>
+                <p class="mt-1 text-xs text-csr-gray-500 leading-relaxed">{originalPaper.authors}</p>
+              </dd>
+            </div>
+          )}
+          {codeUrl && (
+            <div>
+              <dt class="label-mono text-[10px] mb-1">Code</dt>
+              <dd><a href={codeUrl} target="_blank" rel="noopener noreferrer" class="font-mono text-xs text-csr-primary hover:text-csr-primary-dark break-all transition-colors">{codeUrl} ↗</a></dd>
+            </div>
+          )}
+        </dl>
+      )}
+    </div>
+
+    <!-- ── Note body ─────────────────────────────────────────────────────────── -->
+    <div class="prose note-body">
+      <Content />
+    </div>
+
+    <!-- ── Footer ────────────────────────────────────────────────────────────── -->
+    <div class="mt-16 pt-8 border-t border-csr-gray-200 flex flex-wrap items-center justify-between gap-4 text-xs font-mono">
+      <a href="/reports/" class="text-csr-primary hover:text-csr-primary-dark transition-colors">← Reports</a>
+      <span class="text-csr-gray-400">{t('notes.license')}</span>
+    </div>
+
+  </article>
+</Layout>
+
+<style>
+  /* Markdown elements the shared .prose rules do not cover */
+  .note-body :global(ol) { list-style: decimal; margin-bottom: 1.25rem; padding-left: 1.5rem; }
+  .note-body :global(a) { color: #9966CC; text-decoration: underline; text-underline-offset: 2px; }
+  .note-body :global(hr) { border-color: #e2e8f0; margin: 2.5rem 0; }
+  .note-body :global(:not(pre) > code) { font-family: 'JetBrains Mono', monospace; font-size: 0.875em; background: #f1f5f9; padding: 0.1em 0.35em; border-radius: 0.25rem; color: #0f172a; }
+  .note-body :global(pre) { font-size: 0.8125rem; padding: 1rem 1.25rem; border-radius: 0.75rem; overflow-x: auto; margin: 1.5rem 0; }
+  .note-body :global(img) { max-width: 100%; height: auto; border-radius: 0.75rem; margin: 1.5rem 0; }
+  .note-body :global(table) { display: block; overflow-x: auto; width: 100%; border-collapse: collapse; margin: 1.5rem 0 2rem; font-size: 0.875rem; }
+  .note-body :global(th), .note-body :global(td) { border-bottom: 1px solid #e2e8f0; padding: 0.5rem 0.75rem; text-align: left; vertical-align: top; }
+  .note-body :global(th) { color: #0f172a; font-weight: 600; border-bottom-color: #cbd5e1; }
+</style>

@@ -2,6 +2,8 @@
 import SectionMark from './SectionMark.astro';
 import Glyph from './Glyph.astro';
 import SymmetryBackground from './SymmetryBackground.astro';
+import { getCollection } from 'astro:content';
+import { ui, useTranslations } from '../i18n/index';
 
 interface Props { lang?: string; }
 const { lang = 'en' } = Astro.props;
@@ -113,6 +115,16 @@ const L: Record<string, Dict> = {
 };
 const t = L[lang] ?? L.en;
 const slugs = ['first-principles', 'bio-electric-fields', 'assembly-theory', 'symmetry-landscapes'];
+
+// Research notes are English-only; localized pages link to the English note pages.
+// Drafts are listed only under `astro dev`.
+const tn = useTranslations((lang in ui ? lang : 'en') as keyof typeof ui);
+const notes = (await getCollection('notes', ({ data }) => import.meta.env.DEV || !data.draft))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const tagLabel = (tag: string) => {
+  const key = `notes.tag.${tag.toLowerCase()}`;
+  return key in ui.en ? tn(key as keyof typeof ui.en) : tag;
+};
 ---
 
 <!-- ── Header ────────────────────────────────────────────────────────────── -->
@@ -121,7 +133,7 @@ const slugs = ['first-principles', 'bio-electric-fields', 'assembly-theory', 'sy
   <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <p class="label-mono mb-4">{t.eyebrow}</p>
     <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-csr-black mb-6 max-w-2xl leading-tight">{t.h1}</h1>
-    <p class="text-lg text-csr-gray-600 leading-relaxed max-w-2xl font-serif">{t.intro}</p>
+    <p class="text-lg text-csr-gray-600 leading-relaxed max-w-2xl font-serif">{t.intro}{notes.length > 0 && `${lang === 'zh' || lang === 'ja' ? '' : ' '}${tn('notes.intro')}`}</p>
   </div>
 </section>
 
@@ -173,3 +185,37 @@ const slugs = ['first-principles', 'bio-electric-fields', 'assembly-theory', 'sy
     </div>
   </div>
 </section>
+
+{notes.length > 0 && (
+  <section class="py-14 border-t border-csr-gray-200">
+    <!-- ── Research Notes (only rendered when at least one note is published) ── -->
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-6">
+        <div class="flex items-center gap-3"><SectionMark /><p class="label-mono">{tn('notes.heading')}</p></div>
+        {lang !== 'en' && <p class="mt-2 text-xs text-csr-gray-400 font-mono">{tn('notes.englishOnly')}</p>}
+      </div>
+      <ul class="divide-y divide-csr-gray-200 border-y border-csr-gray-200">
+        {notes.map((note) => (
+          <li>
+            <a href={`/reports/notes/${note.slug}/`} hreflang="en" class="group block py-5">
+              <div class="flex items-center gap-3 mb-1.5 flex-wrap">
+                <span class="text-xs font-mono text-csr-gray-400">{note.data.date.toISOString().slice(0, 10)}</span>
+                {note.data.tag && (
+                  <span class="px-2 py-0.5 rounded-full border border-csr-gray-200 text-csr-gray-500 text-[10px] font-mono uppercase tracking-wider">{tagLabel(note.data.tag)}</span>
+                )}
+                {note.data.status === 'in-progress' && (
+                  <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-csr-primary/10 text-csr-primary text-[10px] font-mono uppercase tracking-wider shrink-0">
+                    <span class="w-1.5 h-1.5 rounded-full bg-csr-primary animate-pulse inline-block"></span>
+                    {tn('notes.inProgress')}
+                  </span>
+                )}
+              </div>
+              <h3 lang="en" class="font-bold text-csr-black text-base group-hover:text-csr-primary transition-colors mb-1 leading-snug">{note.data.title}</h3>
+              <p lang="en" class="text-sm text-csr-gray-600 leading-relaxed">{note.data.summary}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+)}
