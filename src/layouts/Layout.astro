@@ -5,9 +5,12 @@ import LanguageSwitcher from '../components/LanguageSwitcher.astro';
 import LanguageRedirect from '../components/LanguageRedirect.astro';
 import '../styles/global.css';
 import { useTranslations } from '../i18n/index';
+import { SITE_DESCRIPTION, SITE_KEYWORDS, PLAN_B_NOTE, STRUCTURED_DATA } from '../data/site';
 
 interface Props {
   title: string;
+  /** Overrides the "{title} | Center for Sentience Research" pattern (used by the homepage). */
+  fullTitle?: string;
   description?: string;
   image?: string;
   lang?: string;
@@ -15,13 +18,13 @@ interface Props {
 
 const {
   title,
-  description = "The Center for Sentience Research (CSR) is an independent non-profit in formation, dedicated to modeling the physical foundations of awareness across all substrates.",
+  description = SITE_DESCRIPTION,
   image = "/images/og-main.jpg",
   lang = "en",
 } = Astro.props;
 
 const currentLang = Astro.currentLocale ?? lang;
-const fullTitle = `${title} | Center for Sentience Research`;
+const fullTitle = Astro.props.fullTitle ?? `${title} | Center for Sentience Research`;
 const t = useTranslations(currentLang as any);
 
 const pathname = Astro.url.pathname;
@@ -65,20 +68,31 @@ const ogLocales: Record<string, string> = { en: 'en_US', de: 'de_DE', es: 'es_ES
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
+    <meta name="keywords" content={SITE_KEYWORDS} />
+    <meta name="author" content="Center for Sentience Research" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="geo.region" content="CH-ZH" />
+    <meta name="geo.placename" content="Zürich" />
+    <meta name="csr:funding-fallback-plan-b" content={PLAN_B_NOTE} />
     <link rel="canonical" href={canonicalURL} />
     {alternates.map(({ hreflang, href }) => <link rel="alternate" hreflang={hreflang} href={href} />)}
     {alternates.length > 0 && <link rel="alternate" hreflang="x-default" href={alternates[0].href} />}
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Center for Sentience Research" />
+    <meta property="og:site_name" content="Center for Sentience Research (CSR)" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={socialImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Center for Sentience Research: mechanistic interpretability for AI welfare, Zürich" />
     <meta property="og:locale" content={ogLocales[currentLang] ?? 'en_US'} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImage} />
+    <meta name="twitter:image:alt" content="Center for Sentience Research: mechanistic interpretability for AI welfare, Zürich" />
+    <script type="application/ld+json" set:html={JSON.stringify(STRUCTURED_DATA)} />
     <LanguageRedirect />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

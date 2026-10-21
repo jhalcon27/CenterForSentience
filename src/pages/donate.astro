@@ -5,6 +5,8 @@ import SectionMark from '../components/SectionMark.astro';
 import Glyph from '../components/Glyph.astro';
 import SymmetryBackground from '../components/SymmetryBackground.astro';
 import BudgetChart from '../components/BudgetChart.astro';
+import BudgetComponents from '../components/BudgetComponents.astro';
+import { GRANTMAKER_COMMENT } from '../data/site';
 ---
 
 <Layout
@@ -43,7 +45,8 @@ import BudgetChart from '../components/BudgetChart.astro';
   </section>
 
   <!-- ── Budget breakdown ──────────────────────────────────────────────────── -->
-  <section class="py-14 border-t border-csr-gray-200">
+  <Fragment set:html={GRANTMAKER_COMMENT} />
+  <section class="py-14 border-t border-csr-gray-200" id="budget">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-3 mb-8">
         <SectionMark />
@@ -74,6 +77,9 @@ import BudgetChart from '../components/BudgetChart.astro';
           <h3 class="font-bold text-csr-black mb-2 text-sm">Frontier Deployment</h3>
           <p class="text-xs text-csr-gray-600 leading-relaxed">A full-time team. Pilots the measurement toolkit on larger open-weights frontier models and seeks collaboration with external interpretability labs, using local Jacobian and spectral trajectory metrics on active, large-scale systems. It also funds the biological comparison: mapping the same metrics onto invertebrate electrophysiology and connectome data (stomatogastric ganglion, OpenWorm C. elegans) as a method plausibility check rather than a valence anchor. This tier could also support a future postdoc hire (e.g. global-workspace or cognitive science).</p>
         </div>
+      </div>
+      <div class="mt-8">
+        <BudgetComponents />
       </div>
     </div>
   </section>

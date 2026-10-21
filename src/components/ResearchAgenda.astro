@@ -14,7 +14,37 @@ type Dict = Record<string, any>;
 const L: Record<string, Dict> = {
   en: {
     eyebrow: 'Research Agenda',
-    intro: 'This agenda is a pipeline: a mission, and then four questions that turn it into research: what we can reliably measure, what those measurements mean, whether we can act on them cheaply, and how far the findings generalize. Each question is framed to be answerable, and each is framed so that a clear negative result would still move the field.',
+    intro: 'The program leads with one empirical experiment in mechanistic interpretability, described first below. The five questions that follow give its theory of change: what we can reliably measure, what those measurements mean, whether we can act on them cheaply, and how far the findings generalize. Each question is framed to be answerable, and each is framed so that a clear negative result would still move the field.',
+    flagship: {
+      label: 'Flagship · Empirical Program',
+      wp: 'Working Paper 05 · In progress',
+      title: 'A Digital EEG for AI Sentience: Multi-Scale Structural Biomarkers',
+      body: 'WP 05 is the core deliverable of the 2026 program. It turns the theory below into one experiment that can fail: a cross-linguistic perturbation-recovery test run on open-weights language models. Every metric is read from inside the model. None depends on what the model says about itself.',
+      expLabel: 'The experiment',
+      expTitle: 'Cross-linguistic perturbation-recovery',
+      expBody: 'We present matched aversive and neutral contexts in four languages (Spanish, German, Swedish, English) and record how the model\'s internal state is displaced and then recovers. The test is invariance. If the recovery signature is the same across languages whose surface tokens share almost nothing, that points to a language-independent internal state. If the signature follows the tokens and changes with each language, it is mimicry of training statistics.',
+      stackLabel: 'Testbed',
+      stack: [
+        ['NNsight / NDIF', 'Activation access and intervention on open-weights models through the National Deep Inference Fabric.'],
+        ['PyTorch', 'Custom simulation, activation steering, and fine-tuning where free infrastructure does not reach.'],
+        ['MLP microcircuits', 'The state-dependent operator A(x) = W₂ · D(x) · W₁, computed per layer and per token.'],
+        ['Local Jacobians', 'Trajectory and attractor stability during displacement and recovery.'],
+        ['Spectral Entropy', 'How evenly a layer spreads its singular-value spectrum.'],
+        ['Orthogonal Dissonance', 'How far a layer\'s transformation departs from angle-preserving.'],
+      ],
+      langs: ['ES', 'DE', 'SV', 'EN'],
+      fundedBy: 'Funded by the $135k Mainline request.',
+      fundingLink: 'See the funding tiers →',
+      programLink: 'Full program and WP 05 status →',
+    },
+    epistemic: {
+      label: 'Falsifiability & null-result commitment',
+      points: [
+        ['Current LLMs may be functional zombies.', 'We do not claim any present system is conscious or capable of feeling. The program builds tools to check, without assuming an answer.'],
+        ['STV is tested, not assumed.', 'The Symmetry Theory of Valence enters only as a falsifiable geometric hypothesis: it predicts which structural property should track valence. If the data do not show that property, the hypothesis fails.'],
+        ['Null results get published.', 'If perturbations show only surface token statistics, with no recovery signature that holds across languages, we publish that result in WP 05 at the same prominence as a positive one.'],
+      ],
+    },
     nav: ['Mission', 'Measurement', 'Mechanisms', 'Intervention', 'Substrate'],
     q1: {
       eyebrow: 'Q1 · Mission & Theory of Change',
@@ -92,10 +122,16 @@ const L: Record<string, Dict> = {
       label: 'How we build on current work',
       body: 'Recent interpretability work shows that a model\'s internal states are structured and readable. Gurnee, Sofroniew, Lindsey et al., <a href="https://transformer-circuits.pub/2026/workspace/index.html" target="_blank" rel="noopener noreferrer" class="text-csr-primary hover:underline">“Verbalizable Representations Form a Global Workspace in Language Models”</a> (transformer-circuits.pub, July 2026), with its accompanying <a href="https://neuronpedia.org/jlens" target="_blank" rel="noopener noreferrer" class="text-csr-primary hover:underline">Neuronpedia J-lens tool</a>, studies functional access, meaning how information is broadcast and read out inside a network, and explicitly brackets phenomenal experience. We build on that machinery and extend it to valence, the axis that work sets aside. Two distinctions matter. Method: the J-lens averages Jacobians for readout; we use local Jacobians dynamically, to characterize trajectory and attractor stability. Independence: the workspace paper is Anthropic auditing Anthropic\'s own models, and that self-assessment gap is exactly what an independent, open, welfare-focused auditor is needed to fill.',
     },
-    foundational: 'Foundational Reading',
-    foundationalIntro: 'Working papers that provide the theoretical scaffolding for the Digital Valence Program.',
+    foundational: 'Theoretical Foundations & Prior Scaffolding',
+    foundationalIntro: 'Four earlier working papers that motivated the program. They supply the hypotheses and vocabulary; the falsifiable tests of those hypotheses happen in WP 05.',
     allReports: 'All reports →',
     wp: ['First Principles of Sentience Research', 'Bio-Electric Fields as Sentience Substrates', 'Assembly Theory as a Metric for Sentience', 'Symmetry Landscapes of Valenced Experience'],
+    wpDesc: [
+      'Conceptual vocabulary for substrate-neutral modeling of welfare-relevant structure.',
+      'Bioelectric signaling as a candidate physical basis for awareness.',
+      'Assembly index as a candidate substrate-neutral complexity threshold.',
+      'Geometric invariants as candidate signatures of valence. The direct precursor to WP 05.',
+    ],
   },
 };
 
@@ -112,6 +148,70 @@ const wpSlugs = ['first-principles', 'bio-electric-fields', 'assembly-theory', '
       The Digital Valence Program
     </h1>
     <p class="text-lg text-csr-gray-600 leading-relaxed max-w-2xl font-serif" set:html={t.intro}></p>
+  </div>
+</section>
+
+<!-- ══ FLAGSHIP · WP 05 EMPIRICAL PROGRAM ═══════════════════════════════════ -->
+<section class="py-16 border-b border-csr-gray-200" id="flagship">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center gap-3 mb-6"><SectionMark /><p class="label-mono">{t.flagship.label}</p></div>
+
+    <div class="bg-white border-2 border-csr-primary/40 rounded-2xl shadow-purple relative overflow-hidden">
+      <div class="absolute top-0 left-0 right-0 h-1 bg-csr-primary"></div>
+      <div class="p-6 md:p-8">
+        <div class="flex items-center gap-2 mb-3 flex-wrap">
+          <span class="label-mono text-[10px]">{t.flagship.wp}</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-csr-primary animate-pulse inline-block"></span>
+        </div>
+        <h2 class="text-2xl md:text-3xl font-bold text-csr-black mb-4 leading-tight max-w-3xl">{t.flagship.title}</h2>
+        <p class="text-base text-csr-gray-600 leading-relaxed font-serif max-w-2xl mb-8">{t.flagship.body}</p>
+
+        <div class="grid md:grid-cols-5 gap-6 mb-8">
+          <div class="md:col-span-3">
+            <p class="label-mono text-[10px] text-csr-primary mb-2">{t.flagship.expLabel}</p>
+            <h3 class="font-bold text-csr-black mb-3 text-base">{t.flagship.expTitle}</h3>
+            <p class="text-sm text-csr-gray-600 leading-relaxed mb-4">{t.flagship.expBody}</p>
+            <div class="flex gap-2">
+              {t.flagship.langs.map((code: string) => (
+                <span class="px-2.5 py-1 rounded-md border border-csr-primary/25 bg-csr-primary/5 text-csr-primary text-xs font-mono">{code}</span>
+              ))}
+            </div>
+          </div>
+          <div class="md:col-span-2 flex justify-center items-center">
+            <Glyph name="phase-portrait" size={120} class="opacity-70" />
+          </div>
+        </div>
+
+        <p class="label-mono text-[10px] text-csr-primary mb-3">{t.flagship.stackLabel}</p>
+        <dl class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-8">
+          {t.flagship.stack.map(([term, desc]: [string, string]) => (
+            <div class="bg-csr-gray-50 border border-csr-gray-200 rounded-xl p-4">
+              <dt class="text-xs font-mono font-bold text-csr-black mb-1">{term}</dt>
+              <dd class="text-xs text-csr-gray-600 leading-relaxed">{desc}</dd>
+            </div>
+          ))}
+        </dl>
+
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
+          <span class="text-csr-gray-500">{t.flagship.fundedBy}</span>
+          <a href="/donate/" class="font-medium text-csr-primary hover:text-csr-primary-dark transition-colors">{t.flagship.fundingLink}</a>
+          <a href={`${prefix}/program/`} class="font-medium text-csr-primary hover:text-csr-primary-dark transition-colors">{t.flagship.programLink}</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Falsifiability & null-result commitment -->
+    <div class="mt-8 bg-csr-gray-50/60 border-l-4 border-csr-primary/60 rounded-r-2xl p-6 md:p-7" id="falsifiability">
+      <p class="label-mono text-[10px] mb-4">{t.epistemic.label}</p>
+      <ul class="space-y-4">
+        {t.epistemic.points.map(([head, body]: [string, string]) => (
+          <li class="flex gap-3 items-start">
+            <span class="shrink-0 w-1.5 h-1.5 rounded-full bg-csr-primary mt-2"></span>
+            <p class="text-sm text-csr-gray-600 leading-relaxed font-serif"><strong class="font-semibold text-csr-black font-sans">{head}</strong> {body}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -329,6 +429,7 @@ const wpSlugs = ['first-principles', 'bio-electric-fields', 'assembly-theory', '
           <span class="label-mono text-[10px] shrink-0 mt-0.5">Working Paper 0{i + 1}</span>
           <div>
             <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">{t.wp[i]}</h4>
+            <p class="text-xs text-csr-gray-500 mt-1">{t.wpDesc[i]}</p>
           </div>
         </a>
       ))}

@@ -1,11 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import HomeContent from '../components/HomeContent.astro';
+import { HOME_TITLE, SITE_DESCRIPTION } from '../data/site';
 ---
 
 <Layout
   title="Home"
-  description="The Center for Sentience Research is building a mathematical framework for measuring the geometric property STV associates with valence in digital minds."
+  fullTitle={HOME_TITLE}
+  description={SITE_DESCRIPTION}
 >
   <HomeContent lang="en" />
 </Layout>

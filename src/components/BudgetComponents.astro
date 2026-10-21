@@ -1,0 +1,65 @@
+---
+/**
+ * BudgetComponents.astro
+ * Modular view of the Lean and Mainline tiers: the three budget components and
+ * what each tier funds within them, so grantmakers can see where money goes.
+ */
+const tiers = [
+  { name: 'Lean', amount: '$110k' },
+  { name: 'Mainline', amount: '$135k', preferred: true },
+];
+
+const components: { title: string; fte: string; desc: string; cells: [string, string] }[] = [
+  {
+    title: 'Research Leadership',
+    fte: 'Lead Researcher (Founder) · 50% FTE',
+    desc: 'Buys out the founder\'s time for dedicated research velocity: experimental design, the formal metric definitions, and authorship of Working Paper 05.',
+    cells: ['Funded', 'Funded'],
+  },
+  {
+    title: 'ML Engineering & Research Assistance',
+    fte: 'Junior ML Engineer or Master\'s-level RA · 50% FTE',
+    desc: 'Builds the NNsight/PyTorch pipeline and runs the perturbation sweeps. Can be filled by a junior ML engineer or by a Master\'s-level research assistant (for example an ETH Zürich thesis student).',
+    cells: ['Funded', 'Funded'],
+  },
+  {
+    title: 'Compute & Dissemination',
+    fte: 'Cloud GPU · NNsight/NDIF · publication',
+    desc: 'Free NNsight/NDIF access first; paid cloud GPU only for custom simulation and fine-tuning that free infrastructure does not cover. Open-source toolkit release, field-building, and dissemination.',
+    cells: ['Free NDIF access only', 'Paid compute line + dissemination'],
+  },
+];
+---
+
+<div class="rounded-2xl border border-csr-gray-200 bg-white shadow-card overflow-hidden">
+  <div class="flex items-baseline justify-between px-6 md:px-7 pt-6 pb-4">
+    <p class="text-xs font-mono uppercase tracking-[0.2em] text-csr-gray-500">Budget components</p>
+    <p class="text-[11px] font-mono text-csr-gray-400">What each tier funds</p>
+  </div>
+
+  <!-- Header row (desktop) -->
+  <div class="hidden md:grid grid-cols-[1fr_9rem_9rem] gap-4 px-7 py-2 border-y border-csr-gray-100 bg-csr-gray-50/60">
+    <span class="text-[10px] font-mono uppercase tracking-wider text-csr-gray-400">Component</span>
+    {tiers.map((tier) => (
+      <span class={`text-[10px] font-mono uppercase tracking-wider ${tier.preferred ? 'text-csr-primary font-bold' : 'text-csr-gray-400'}`}>{tier.name} · {tier.amount}</span>
+    ))}
+  </div>
+
+  <div class="divide-y divide-csr-gray-100">
+    {components.map((c) => (
+      <div class="grid md:grid-cols-[1fr_9rem_9rem] gap-4 px-6 md:px-7 py-5">
+        <div>
+          <h3 class="font-bold text-csr-black text-sm mb-0.5">{c.title}</h3>
+          <p class="text-[11px] font-mono text-csr-primary mb-2">{c.fte}</p>
+          <p class="text-xs text-csr-gray-600 leading-relaxed">{c.desc}</p>
+        </div>
+        {c.cells.map((cell, i) => (
+          <div class="flex md:block items-baseline gap-2">
+            <span class="md:hidden text-[10px] font-mono uppercase tracking-wider text-csr-gray-400 shrink-0">{tiers[i].name}:</span>
+            <span class={`text-xs leading-snug ${tiers[i].preferred ? 'font-semibold text-csr-black' : 'text-csr-gray-600'}`}>{cell}</span>
+          </div>
+        ))}
+      </div>
+    ))}
+  </div>
+</div>

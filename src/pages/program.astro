@@ -6,6 +6,8 @@ import SectionMark from '../components/SectionMark.astro';
 import Glyph from '../components/Glyph.astro';
 import BudgetChart from '../components/BudgetChart.astro';
 import PhaseTimeline from '../components/PhaseTimeline.astro';
+import BudgetComponents from '../components/BudgetComponents.astro';
+import { GRANTMAKER_COMMENT } from '../data/site';
 ---
 
 <Layout
@@ -77,7 +79,7 @@ import PhaseTimeline from '../components/PhaseTimeline.astro';
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-3 mb-8">
         <SectionMark />
-        <p class="label-mono">The Deliverable</p>
+        <p class="label-mono" id="working-paper-05">The Deliverable</p>
       </div>
 
       <div class="grid md:grid-cols-2 gap-8 items-start">
@@ -123,7 +125,8 @@ import PhaseTimeline from '../components/PhaseTimeline.astro';
   </section>
 
   <!-- ── What Funding Unlocks ───────────────────────────────────────────────── -->
-  <section class="relative py-16 border-t border-csr-gray-200 overflow-hidden">
+  <Fragment set:html={GRANTMAKER_COMMENT} />
+  <section class="relative py-16 border-t border-csr-gray-200 overflow-hidden" id="funding">
     <SymmetryBackground variant="lattice" opacity={0.08} />
     <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-3 mb-8">
@@ -161,6 +164,10 @@ import PhaseTimeline from '../components/PhaseTimeline.astro';
             A full-time team. Pilots the measurement toolkit on larger open-weights frontier models and seeks collaboration with external interpretability labs, using local Jacobian and spectral trajectory metrics on active, large-scale systems. It also funds the biological comparison: mapping the same metrics onto invertebrate electrophysiology and connectome data (stomatogastric ganglion, OpenWorm C. elegans) as a method plausibility check rather than a valence anchor. This tier could also support a future postdoc hire (e.g. global-workspace or cognitive science).
           </p>
         </div>
+      </div>
+
+      <div class="mb-10">
+        <BudgetComponents />
       </div>
 
       <div class="flex flex-wrap gap-4">
