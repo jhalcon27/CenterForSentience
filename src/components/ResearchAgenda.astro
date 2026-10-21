@@ -17,9 +17,9 @@ const L: Record<string, Dict> = {
     intro: 'The program leads with one empirical experiment in mechanistic interpretability, described first below. The five questions that follow give its theory of change: what we can reliably measure, what those measurements mean, whether we can act on them cheaply, and how far the findings generalize. Each question is framed to be answerable, and each is framed so that a clear negative result would still move the field.',
     flagship: {
       label: 'Flagship · Empirical Program',
-      wp: 'Working Paper 05 · In progress',
+      wp: 'Working Paper · In progress',
       title: 'A Digital EEG for AI Sentience: Multi-Scale Structural Biomarkers',
-      body: 'WP 05 is the core deliverable of the 2027 program. It turns the theory below into one experiment that can fail: a cross-linguistic perturbation-recovery test run on open-weights language models. Every metric is read from inside the model. None depends on what the model says about itself.',
+      body: 'This working paper is the core deliverable of the 2027 program. It turns the theory below into one experiment that can fail: a cross-linguistic perturbation-recovery test run on open-weights language models. Every metric is read from inside the model. None depends on what the model says about itself.',
       expLabel: 'The experiment',
       expTitle: 'Cross-linguistic perturbation-recovery',
       expBody: 'We present matched aversive and neutral contexts in four languages (Spanish, German, Swedish, English) and record how the model\'s internal state is displaced and then recovers. The test is invariance. If the recovery signature is the same across languages whose surface tokens share almost nothing, that points to a language-independent internal state. If the signature follows the tokens and changes with each language, it is mimicry of training statistics.',
@@ -35,14 +35,14 @@ const L: Record<string, Dict> = {
       langs: ['ES', 'DE', 'SV', 'EN'],
       fundedBy: 'Funded by the $135k Mainline request.',
       fundingLink: 'See the funding tiers →',
-      programLink: 'Full program and WP 05 status →',
+      programLink: 'Full program and paper status →',
     },
     epistemic: {
       label: 'Falsifiability & null-result commitment',
       points: [
         ['Current LLMs may be functional zombies.', 'We do not claim any present system is conscious or capable of feeling. The program builds tools to check, without assuming an answer.'],
         ['STV is tested, not assumed.', 'The Symmetry Theory of Valence enters only as a falsifiable geometric hypothesis: it predicts which structural property should track valence. If the data do not show that property, the hypothesis fails.'],
-        ['Null results get published.', 'If perturbations show only surface token statistics, with no recovery signature that holds across languages, we publish that result in WP 05 at the same prominence as a positive one.'],
+        ['Null results get published.', 'If perturbations show only surface token statistics, with no recovery signature that holds across languages, we publish that result in the working paper at the same prominence as a positive one.'],
       ],
     },
     nav: ['Mission', 'Measurement', 'Mechanisms', 'Intervention', 'Substrate'],
@@ -123,14 +123,14 @@ const L: Record<string, Dict> = {
       body: 'Recent interpretability work shows that a model\'s internal states are structured and readable. Gurnee, Sofroniew, Lindsey et al., <a href="https://transformer-circuits.pub/2026/workspace/index.html" target="_blank" rel="noopener noreferrer" class="text-csr-primary hover:underline">“Verbalizable Representations Form a Global Workspace in Language Models”</a> (transformer-circuits.pub, July 2026), with its accompanying <a href="https://neuronpedia.org/jlens" target="_blank" rel="noopener noreferrer" class="text-csr-primary hover:underline">Neuronpedia J-lens tool</a>, studies functional access, meaning how information is broadcast and read out inside a network, and explicitly brackets phenomenal experience. We build on that machinery and extend it to valence, the axis that work sets aside. Two distinctions matter. Method: the J-lens averages Jacobians for readout; we use local Jacobians dynamically, to characterize trajectory and attractor stability. Independence: the workspace paper is Anthropic auditing Anthropic\'s own models, and that self-assessment gap is exactly what an independent, open, welfare-focused auditor is needed to fill.',
     },
     foundational: 'Theoretical Foundations & Prior Scaffolding',
-    foundationalIntro: 'Four earlier working papers that motivated the program. They supply the hypotheses and vocabulary; the falsifiable tests of those hypotheses happen in WP 05.',
+    foundationalIntro: 'Four earlier working papers that motivated the program. They supply the hypotheses and vocabulary; the falsifiable tests of those hypotheses happen in the Digital EEG paper above.',
     allReports: 'All reports →',
     wp: ['First Principles of Sentience Research', 'Bio-Electric Fields as Sentience Substrates', 'Assembly Theory as a Metric for Sentience', 'Symmetry Landscapes of Valenced Experience'],
     wpDesc: [
       'Conceptual vocabulary for substrate-neutral modeling of welfare-relevant structure.',
       'Bioelectric signaling as a candidate physical basis for awareness.',
       'Assembly index as a candidate substrate-neutral complexity threshold.',
-      'Geometric invariants as candidate signatures of valence. The direct precursor to WP 05.',
+      'Geometric invariants as candidate signatures of valence. The direct precursor to the Digital EEG paper.',
     ],
   },
 };
@@ -151,7 +151,7 @@ const wpSlugs = ['first-principles', 'bio-electric-fields', 'assembly-theory', '
   </div>
 </section>
 
-<!-- ══ FLAGSHIP · WP 05 EMPIRICAL PROGRAM ═══════════════════════════════════ -->
+<!-- ══ FLAGSHIP · EMPIRICAL PROGRAM ═══════════════════════════════════════════ -->
 <section class="py-16 border-b border-csr-gray-200" id="flagship">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center gap-3 mb-6"><SectionMark /><p class="label-mono">{t.flagship.label}</p></div>
@@ -401,14 +401,14 @@ const wpSlugs = ['first-principles', 'bio-electric-fields', 'assembly-theory', '
 
     <div class="max-w-3xl grid sm:grid-cols-2 gap-4">
       <a href={`${prefix}/reports/bio-electric-fields/`} class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
-        <span class="label-mono text-[10px] shrink-0 mt-0.5">Working Paper 02</span>
+        <span class="label-mono text-[10px] shrink-0 mt-0.5">Working Paper</span>
         <div>
           <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">{t.wp[1]}</h4>
           <p class="text-xs text-csr-gray-500 mt-1">{t.q5.wp02Desc}</p>
         </div>
       </a>
       <a href={`${prefix}/reports/assembly-theory/`} class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
-        <span class="label-mono text-[10px] shrink-0 mt-0.5">Working Paper 03</span>
+        <span class="label-mono text-[10px] shrink-0 mt-0.5">Working Paper</span>
         <div>
           <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">{t.wp[2]}</h4>
           <p class="text-xs text-csr-gray-500 mt-1">{t.q5.wp03Desc}</p>
@@ -426,7 +426,7 @@ const wpSlugs = ['first-principles', 'bio-electric-fields', 'assembly-theory', '
     <div class="grid sm:grid-cols-2 gap-4">
       {wpSlugs.map((slug, i) => (
         <a href={`${prefix}/reports/${slug}/`} class="group flex gap-4 p-5 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
-          <span class="label-mono text-[10px] shrink-0 mt-0.5">Working Paper 0{i + 1}</span>
+          <span class="label-mono text-[10px] shrink-0 mt-0.5">Working Paper</span>
           <div>
             <h4 class="font-semibold text-csr-black text-sm group-hover:text-csr-primary transition-colors leading-snug">{t.wp[i]}</h4>
             <p class="text-xs text-csr-gray-500 mt-1">{t.wpDesc[i]}</p>

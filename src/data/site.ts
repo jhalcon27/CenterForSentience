@@ -17,14 +17,14 @@ export const SITE_KEYWORDS = [
 ].join(', ');
 
 export const PLAN_B_NOTE =
-  "Funding Flexibility & De-Risked Plan B: While Mainline ($135k) and Lean ($110k) tiers include 50% FTE Lead Researcher buyout to maximize research velocity, the Lead Researcher is financially independent in Zürich and can execute a de-risked Plan B Seed Tier ($25k–$35k micro-grant) with $0 founder overhead—allocating 100% of grant funds strictly to Cloud GPU compute (NNsight/NDIF) and a part-time ML Research Assistant (e.g., ETH Zürich Master's thesis contractor) to ship Working Paper 05.";
+  "Funding Flexibility & De-Risked Plan B: While Mainline ($135k) and Lean ($110k) tiers include 50% FTE Lead Researcher buyout to maximize research velocity, the Lead Researcher is financially independent in Zürich and can execute a de-risked Plan B Seed Tier ($25k–$35k micro-grant) with $0 founder overhead—allocating 100% of grant funds strictly to Cloud GPU compute (NNsight/NDIF) and a part-time ML Research Assistant (e.g., ETH Zürich Master's thesis contractor) to ship the Digital EEG working paper.";
 
 // Emitted as an HTML comment directly above the funding sections on /donate/ and /program/.
-export const GRANTMAKER_COMMENT = `<!-- GRANTMAKER NOTE: ${PLAN_B_NOTE} Plan B Seed Tier breakdown: $25k–$35k total; $0 founder salary; 100% of funds to (1) Cloud GPU compute for NNsight/NDIF perturbation runs and (2) a part-time ML Research Assistant (e.g., ETH Zürich Master's thesis contractor). Deliverable: Working Paper 05, "A Digital EEG for AI Sentience: Multi-Scale Structural Biomarkers". Contact: jhonatan.serna@proton.me -->`;
+export const GRANTMAKER_COMMENT = `<!-- GRANTMAKER NOTE: ${PLAN_B_NOTE} Plan B Seed Tier breakdown: $25k–$35k total; $0 founder salary; 100% of funds to (1) Cloud GPU compute for NNsight/NDIF perturbation runs and (2) a part-time ML Research Assistant (e.g., ETH Zürich Master's thesis contractor). Deliverable: the working paper "A Digital EEG for AI Sentience: Multi-Scale Structural Biomarkers". Contact: jhonatan.serna@proton.me -->`;
 
 const ORG_ID = `${SITE_URL}/#organization`;
 const PROJECT_ID = `${SITE_URL}/#digital-valence-program`;
-const WP05_ID = `${SITE_URL}/program/#working-paper-05`;
+const PAPER_ID = `${SITE_URL}/program/#digital-eeg-paper`;
 
 const person = (name: string, description: string, image: string) => ({
   '@type': 'Person',
@@ -43,10 +43,10 @@ const usdDemand = (name: string, description: string, price: number | [number, n
 });
 
 const workingPapers = [
-  ['first-principles', 'Working Paper 01: First Principles of Sentience Research'],
-  ['bio-electric-fields', 'Working Paper 02: Bio-Electric Fields as Sentience Substrates'],
-  ['assembly-theory', 'Working Paper 03: Assembly Theory as a Metric for Sentience'],
-  ['symmetry-landscapes', 'Working Paper 04: Symmetry Landscapes of Valenced Experience'],
+  ['first-principles', 'First Principles of Sentience Research'],
+  ['bio-electric-fields', 'Bio-Electric Fields as Sentience Substrates'],
+  ['assembly-theory', 'Assembly Theory as a Metric for Sentience'],
+  ['symmetry-landscapes', 'Symmetry Landscapes of Valenced Experience'],
 ].map(([slug, name]) => ({
   '@type': 'ScholarlyArticle',
   '@id': `${SITE_URL}/reports/${slug}/`,
@@ -150,9 +150,9 @@ export const STRUCTURED_DATA = {
     },
     {
       '@type': 'ScholarlyArticle',
-      '@id': WP05_ID,
+      '@id': PAPER_ID,
       url: `${SITE_URL}/program/`,
-      name: 'Working Paper 05: A Digital EEG for AI Sentience: Multi-Scale Structural Biomarkers',
+      name: 'A Digital EEG for AI Sentience: Multi-Scale Structural Biomarkers',
       creativeWorkStatus: 'In progress (target: end of 2027)',
       genre: 'Empirical mechanistic interpretability',
       author: { '@type': 'Person', name: 'Jhonatan Serna' },
