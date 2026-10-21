@@ -1,7 +1,7 @@
 ---
 /**
  * PhaseTimeline.astro
- * Horizontal three-phase progress track for the 2026 program. Status is shown
+ * Horizontal three-phase progress track for the 2027 program. Status is shown
  * by node fill + a text label (not color alone), with a progress line up to the
  * current phase. Matches the phase scheme used in ProgramStatus.
  */
@@ -11,7 +11,7 @@ interface Props {
 const { lang = 'en' } = Astro.props;
 
 const L: Record<string, { roadmap: string; target: string; rows: [string, string][] }> = {
-  en: { roadmap: 'Program roadmap', target: 'Target: end of 2026', rows: [['Literature synthesis', 'In progress'], ['Formal workspace definition', 'Pending'], ['Empirical validation', 'Pending']] },
+  en: { roadmap: 'Program roadmap', target: 'Target: end of 2027', rows: [['Literature synthesis', 'In progress'], ['Formal workspace definition', 'Pending'], ['Empirical validation', 'Pending']] },
 };
 const t = L[lang] ?? L.en;
 const states = ['active', 'pending', 'pending'];

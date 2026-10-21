@@ -1,7 +1,7 @@
 // One-page summaries shown at /de/, /es/, /fr/, /zh/ and /ja/. The rest of the site is
 // English only; every other translated URL redirects to its English page (public/_redirects).
 // Copied from the full translations that existed before the site went English-only, so
-// these only need updating when the mission, the 2026 target, the team or the
+// these only need updating when the mission, the 2027 target, the team or the
 // fiscal-sponsorship status changes. moreLabel and englishNote were written for this page.
 
 export type Summary = {
@@ -14,7 +14,7 @@ export type Summary = {
 
 export const summaries: Record<'de' | 'es' | 'fr' | 'zh' | 'ja', Summary> = {
   de: {
-    eyebrow: "Das Programm 2026",
+    eyebrow: "Das Programm 2027",
     h1: "Ein Digital-EEG für KI-Empfindungsfähigkeit.",
     sub: "Ein struktureller Vitalzeichen-Monitor für fortgeschrittene KI. Er liest die innere Geometrie eines Modells direkt aus, ohne sich auf Selbstauskünfte zu stützen.",
     intro: [
@@ -32,7 +32,7 @@ export const summaries: Record<'de' | 'es' | 'fr' | 'zh' | 'ja', Summary> = {
     mlRole: "ML-Ingenieur:in",
     mlRecruit: "Zu besetzen",
     supportLabel: "Das Programm finanzieren",
-    supportH: "Helfen Sie uns, das Ziel 2026 zu erreichen.",
+    supportH: "Helfen Sie uns, das Ziel 2027 zu erreichen.",
     supportBody: "Das Center for Sentience Research ist eine unabhängige Non-Profit-Organisation in Gründung; eine gemeinnützige Fiscal Sponsorship befindet sich in Bearbeitung (Genehmigung ausstehend). Beiträge finanzieren das Forschungsteam, die formale Workspace-Definition und das Arbeitspapier. Je nach Rechtsordnung können sie steuerlich absetzbar sein.",
     supportBtn: "Forschung unterstützen",
     contactBtn: "Kontakt",
@@ -40,7 +40,7 @@ export const summaries: Record<'de' | 'es' | 'fr' | 'zh' | 'ja', Summary> = {
     englishNote: "Die vollständige Website, einschließlich Forschungsagenda, Arbeitspapieren und Forschungsnotizen, ist auf Englisch.",
   },
   es: {
-    eyebrow: "El Programa 2026",
+    eyebrow: "El Programa 2027",
     h1: "Un EEG Digital para la sintiencia de la IA.",
     sub: "Un monitor estructural de signos vitales para IA avanzada. Lee directamente la geometría interna del modelo, sin depender de los autoinformes.",
     intro: [
@@ -58,7 +58,7 @@ export const summaries: Record<'de' | 'es' | 'fr' | 'zh' | 'ja', Summary> = {
     mlRole: "Ingeniero/a de ML",
     mlRecruit: "En búsqueda",
     supportLabel: "Financiar el programa",
-    supportH: "Ayúdanos a alcanzar el entregable de 2026.",
+    supportH: "Ayúdanos a alcanzar el entregable de 2027.",
     supportBody: "El Center for Sentience Research es una organización sin fines de lucro independiente en formación; su patrocinio fiscal benéfico está en trámite (pendiente de aprobación). Las contribuciones financian el equipo de investigación, la definición formal del espacio de trabajo y el documento de trabajo. Según tu jurisdicción, pueden ser deducibles de impuestos.",
     supportBtn: "Apoyar la investigación",
     contactBtn: "Contáctanos",
@@ -66,7 +66,7 @@ export const summaries: Record<'de' | 'es' | 'fr' | 'zh' | 'ja', Summary> = {
     englishNote: "El sitio completo, incluida la agenda de investigación, los documentos de trabajo y las notas de investigación, está en inglés.",
   },
   fr: {
-    eyebrow: "Le Programme 2026",
+    eyebrow: "Le Programme 2027",
     h1: "Un EEG Numérique pour la sentience de l'IA.",
     sub: "Un moniteur structurel de signes vitaux pour l'IA avancée. Il lit directement la géométrie interne du modèle, sans dépendre des auto-évaluations.",
     intro: [
@@ -84,7 +84,7 @@ export const summaries: Record<'de' | 'es' | 'fr' | 'zh' | 'ja', Summary> = {
     mlRole: "Ingénieur·e ML",
     mlRecruit: "En recrutement",
     supportLabel: "Financer le programme",
-    supportH: "Aidez-nous à atteindre le livrable 2026.",
+    supportH: "Aidez-nous à atteindre le livrable 2027.",
     supportBody: "Le Center for Sentience Research est une organisation à but non lucratif indépendante en cours de constitution ; un parrainage fiscal caritatif est en cours (en attente d'approbation). Les contributions financent l'équipe de recherche, la définition formelle de l'espace de travail et le document de travail. Selon votre juridiction, elles peuvent être déductibles des impôts.",
     supportBtn: "Soutenir la recherche",
     contactBtn: "Nous contacter",
@@ -92,7 +92,7 @@ export const summaries: Record<'de' | 'es' | 'fr' | 'zh' | 'ja', Summary> = {
     englishNote: "Le site complet, y compris le programme de recherche, les documents de travail et les notes de recherche, est en anglais.",
   },
   zh: {
-    eyebrow: "2026 项目",
+    eyebrow: "2027 项目",
     h1: "面向 AI 感知的数字 EEG。",
     sub: "面向先进 AI 的结构性生命体征监测器。它直接读取模型的内部几何，无需依赖自述。",
     intro: [
@@ -110,7 +110,7 @@ export const summaries: Record<'de' | 'es' | 'fr' | 'zh' | 'ja', Summary> = {
     mlRole: "机器学习工程师",
     mlRecruit: "招募中",
     supportLabel: "资助本项目",
-    supportH: "助我们达成 2026 交付目标。",
+    supportH: "助我们达成 2027 交付目标。",
     supportBody: "感知研究中心是一家正在筹建中的独立非营利组织；其慈善性财务托管（fiscal sponsorship）正在办理中（尚待批准）。捐款用于资助研究团队、形式化工作空间定义与工作论文。根据您所在的司法管辖区，捐款可能可以抵税。",
     supportBtn: "支持研究",
     contactBtn: "联系我们",
@@ -118,7 +118,7 @@ export const summaries: Record<'de' | 'es' | 'fr' | 'zh' | 'ja', Summary> = {
     englishNote: "完整网站（包括研究议程、工作论文和研究笔记）均为英文。",
   },
   ja: {
-    eyebrow: "2026年プログラム",
+    eyebrow: "2027年プログラム",
     h1: "AIの感覚のためのDigital EEG。",
     sub: "先進的なAIのための構造的バイタルサイン・モニター。モデルの内部の幾何を直接読み取り、自己申告に依存しません。",
     intro: [
@@ -136,7 +136,7 @@ export const summaries: Record<'de' | 'es' | 'fr' | 'zh' | 'ja', Summary> = {
     mlRole: "MLエンジニア",
     mlRecruit: "募集中",
     supportLabel: "プログラムへの資金提供",
-    supportH: "2026年の成果物達成にご協力ください。",
+    supportH: "2027年の成果物達成にご協力ください。",
     supportBody: "意識研究センターは設立準備中の独立した非営利団体であり、慈善的なフィスカル・スポンサーシップは申請手続き中です（承認待ち）。ご寄付は研究チーム、形式的ワークスペース定義、ワーキングペーパーの費用に充てられます。お住まいの地域によっては税控除の対象となる場合があります。",
     supportBtn: "研究を支援する",
     contactBtn: "お問い合わせ",

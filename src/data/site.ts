@@ -153,7 +153,7 @@ export const STRUCTURED_DATA = {
       '@id': WP05_ID,
       url: `${SITE_URL}/program/`,
       name: 'Working Paper 05: A Digital EEG for AI Sentience: Multi-Scale Structural Biomarkers',
-      creativeWorkStatus: 'In progress (target: end of 2026)',
+      creativeWorkStatus: 'In progress (target: end of 2027)',
       genre: 'Empirical mechanistic interpretability',
       author: { '@type': 'Person', name: 'Jhonatan Serna' },
       publisher: { '@id': ORG_ID },

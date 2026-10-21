@@ -18,18 +18,18 @@ type Dict = {
 const L: Record<string, Dict> = {
   en: {
     eyebrow: 'Working Papers', h1: 'Working papers',
-    intro: "The program's empirical flagship, Working Paper 05, comes first. Below it are four earlier papers that supply the theoretical foundations it tests.",
-    flagshipLabel: 'Flagship · Empirical Program',
+    intro: "The program's in-progress empirical paper comes first. Below it are four earlier papers that supply the theoretical foundations it tests.",
+    flagshipLabel: 'Empirical Program',
     wp05Title: 'A Digital EEG for AI Sentience: Multi-Scale Structural Biomarkers',
     inProgress: 'In progress',
-    wp05Body: 'The flagship deliverable of the 2026 program: a cross-linguistic perturbation-recovery experiment (ES, DE, SV, EN) on open-weights models via NNsight/NDIF, reading MLP microcircuit geometry, local Jacobians, Spectral Entropy, and Orthogonal Dissonance from inside the model rather than from self-report. Null results will be published. Target: end of 2026.',
+    wp05Body: 'The core deliverable of the 2027 program: a cross-linguistic perturbation-recovery experiment (ES, DE, SV, EN) on open-weights models via NNsight/NDIF, reading MLP microcircuit geometry, local Jacobians, Spectral Entropy, and Orthogonal Dissonance from inside the model rather than from self-report. Null results will be published. Target: end of 2027.',
     seeProgram: 'See the full program →',
     foundationsLabel: 'Theoretical Foundations & Prior Scaffolding',
     papers: [
       ['First Principles of Sentience Research', 'A substrate-neutral framework for modeling the physical foundations of awareness. Establishes the conceptual vocabulary for the Digital Valence Program.'],
       ['Bio-Electric Fields as Sentience Substrates', 'Bioelectric signaling as a candidate physical basis for awareness. Provides biological calibration data for the digital valence framework.'],
       ['Assembly Theory as a Metric for Sentience', 'Applying assembly index to complexity thresholds in sentient systems. Explores whether assembly theory can serve as a substrate-neutral complexity metric.'],
-      ['Symmetry Landscapes of Valenced Experience', 'Geometric invariants as structural signatures of positive valence. The most direct theoretical precursor to the 2026 program.'],
+      ['Symmetry Landscapes of Valenced Experience', 'Geometric invariants as structural signatures of positive valence. The most direct theoretical precursor to the 2027 program.'],
     ],
   },
 };
@@ -56,14 +56,14 @@ const tagLabel = (tag: string) => {
   </div>
 </section>
 
-<!-- ── In-Progress Flagship ──────────────────────────────────────────────── -->
+<!-- ── In-Progress Empirical Paper────────────────────────────────────────────── -->
 <section class="pt-8 pb-14">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center gap-3 mb-6"><SectionMark /><p class="label-mono">{t.flagshipLabel}</p></div>
     <div class="bg-white border border-csr-primary/25 rounded-2xl p-6 md:p-8 shadow-card">
       <div class="flex flex-col sm:flex-row sm:items-start gap-4">
         <div class="shrink-0 flex flex-col items-start gap-2">
-          <span class="label-mono text-[10px]">Working Paper 05</span>
+          <span class="label-mono text-[10px]">Working Paper</span>
           <Glyph name="qualia" size={64} />
         </div>
         <div class="flex-1">
@@ -89,7 +89,7 @@ const tagLabel = (tag: string) => {
     <div class="space-y-4">
       {t.papers.map(([title, desc], i) => (
         <a href={`${prefix}/reports/${slugs[i]}/`} class="group flex flex-col sm:flex-row gap-4 p-6 bg-white border border-csr-gray-100 rounded-2xl shadow-card hover:border-csr-primary/30 hover:shadow-soft transition-all">
-          <div class="shrink-0"><span class="label-mono text-[10px]">Working Paper 0{i + 1}</span></div>
+          <div class="shrink-0"><span class="label-mono text-[10px]">Working Paper</span></div>
           <div class="flex-1">
             <h3 class="font-bold text-csr-black text-base group-hover:text-csr-primary transition-colors mb-2 leading-snug">{title}</h3>
             <p class="text-sm text-csr-gray-600 leading-relaxed">{desc}</p>
